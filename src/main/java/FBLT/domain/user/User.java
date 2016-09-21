@@ -1,9 +1,13 @@
 package FBLT.domain.user;
 
+import FBLT.domain.rank.Rank;
+import FBLT.factories.rank.RankFactory;
 import FBLT.utils.genericvalueobjects.Location;
 
 /**
+ *
  * This class deals with the user who refers to both the buyer and seller
+ *
  */
 
 public class User {
@@ -12,10 +16,11 @@ public class User {
     private ContactDetails contactDetails;
     private String name;
     private Location location;
+    private int rating;
 
-    /* The ranking is an average of all the users rating, if they get an average of 7/10 for example they are a very reliable
-    *  This is going to be composition */
-    private int ranking;
+   /* *//* composition *//*
+    private Rank rank;*/
+
 
     private User(){}
 
@@ -24,7 +29,12 @@ public class User {
         this.contactDetails = builder.contactDetails;
         this.name = builder.name;
         this.location = builder.location;
-        this.ranking = builder.ranking;
+        this.rating = builder.ranking;
+    }
+
+    /* returns ranking based on user average rating */
+    public String rank(){
+        return RankFactory.getRanking(rating);
     }
 
     public Long getUserId() {
@@ -44,7 +54,7 @@ public class User {
     }
 
     public int getRanking() {
-        return ranking;
+        return rating;
     }
 
     public static class Builder{
@@ -84,7 +94,7 @@ public class User {
             this.contactDetails = user.contactDetails;
             this.name = user.name;
             this.location = user.location;
-            this.ranking = user.ranking;
+            this.ranking = user.rating;
 
             return  this;
         }

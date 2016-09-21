@@ -1,0 +1,6 @@
+This document is meant for side notes, if ANYTHING even remotely related to this project pops up mid coding jot in down in here so that we can refer back to it in future:
+•Please categorize your thoughts 
+•Questions and suggestions are welcomed
+
+Frontend
+•We need to make it clear to the user that having a rating can be beneficial because we show adverts based on the newest and highest ranking.

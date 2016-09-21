@@ -1,7 +1,9 @@
 package FBLT.domain.user;
 
 /**
+ *
  * Value object in User class
+ *
  */
 public class ContactDetails {
 
