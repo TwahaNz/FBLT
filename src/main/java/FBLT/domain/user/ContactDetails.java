@@ -15,6 +15,14 @@ public class ContactDetails {
         this.emailAddress = builder.emailAddress;
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getCellPhoneNumber() {
+        return cellPhoneNumber;
+    }
+
     public static class Builder{
 
         private String emailAddress;
