@@ -1,7 +1,7 @@
 package FBLT.factories.product.category;
 
 import FBLT.domain.product.category.ICategory;
-import FBLT.factories.product.category.CategoryFactoryImpl;
+import FBLT.factories.category.CategoryFactoryImpl;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,7 +1,6 @@
 package FBLT.domain.product;
 
 
-import FBLT.domain.product.category.Category;
 
 /**
  * Created by lukekramer on 20/09/2016.
@@ -9,13 +8,13 @@ import FBLT.domain.product.category.Category;
 public class Product implements IProduct {
 
     private Long productId;
-    private Category category;
+    private Long catagoryId;
     private String description;
 
     private Product(Builder b){
 
         this.productId = b.productId;
-        this.category = b.category;
+        this.catagoryId = b.catagoryId;
         this.description = b.description;
     }
 
@@ -24,10 +23,9 @@ public class Product implements IProduct {
         return productId;
     }
 
-    public Category getCategory() {
-        return category;
+    public Long getCatagoryId() {
+        return catagoryId;
     }
-
 
     public String getProductDescription() {
         return description;
@@ -36,7 +34,7 @@ public class Product implements IProduct {
     public static class Builder {
 
         private Long productId;
-        private Category category;
+        private Long catagoryId;
         private String description;
 
         public Builder() {
@@ -48,8 +46,8 @@ public class Product implements IProduct {
             return this;
         }
 
-        public Product.Builder category(Category value) {
-            this.category= value;
+        public Product.Builder categoryID(Long value) {
+            this.catagoryId = value;
             return this;
         }
 
@@ -60,7 +58,7 @@ public class Product implements IProduct {
 
         public Product.Builder copy(Product value) {
             this.productId = value.productId;
-            this.category = value.category;
+            this.catagoryId = value.catagoryId;
             this.description = value.description;
             return this;
         }
