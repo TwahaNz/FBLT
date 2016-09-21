@@ -1,8 +1,9 @@
 package FBLT.factories.product;
 
-import FBLT.domain.category.ICategory;
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.IProduct;
-import FBLT.factories.category.CategoryFactoryImpl;
+import FBLT.factories.product.category.CategoryFactoryImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,13 +15,22 @@ public class ProductFactoryTest {
     @Test
     public void testCategoryCreation(){
 
-        ProductFactoryImpl factory =  ProductFactoryImpl.getInstance();
+        CategoryFactoryImpl factory =  CategoryFactoryImpl.getInstance();
 
-        IProduct productTest = factory.getProduct((long)3, "Cattle");
+        ICategory category = factory.getCategory("Kids Toys", "Short Description");
 
-        Assert.assertNotNull(productTest);
-        Assert.assertEquals("Cattle",productTest.getProductDescription());
-        Assert.assertSame((long) 3,productTest.getCatagoryId());
+        ProductFactoryImpl productFactory = ProductFactoryImpl.getInstance();
+
+        IProduct product = productFactory.getProduct((Category) category,"Cattle");
+
+        Assert.assertNotNull(product);
+        Assert.assertNotNull(product.getCategory());
+        Assert.assertEquals("Short Description",product.getCategory().getCategoryDescription());
+        Assert.assertEquals("Kids Toys",product.getCategory().getCategoryName());
+        Assert.assertEquals("Cattle",product.getProductDescription());
+
+
+
 
     }
 }

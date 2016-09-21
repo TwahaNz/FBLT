@@ -1,27 +1,24 @@
-package FBLT.domain;
+package FBLT.factories.product.category;
 
-import FBLT.domain.category.Category;
-import FBLT.domain.category.ICategory;
+import FBLT.domain.product.category.ICategory;
+import FBLT.factories.product.category.CategoryFactoryImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * Created by Brandonhome on 2016/09/20.
  */
-
-public class CategoryTest {
-
+public class CategoryFactoryTest {
     @Test
     public void testCategoryCreation(){
-        ICategory myTestCategory = new Category.Builder()
-                .categoryName("Kids Toys")
-                .categoryDescription("Short Description")
-                .build();
+
+        CategoryFactoryImpl factory =  CategoryFactoryImpl.getInstance();
+
+        ICategory myTestCategory = factory.getCategory("Kids Toys", "Short Description");
 
         Assert.assertNotNull(myTestCategory);
         Assert.assertEquals("Short Description",myTestCategory.getCategoryDescription());
         Assert.assertEquals("Kids Toys",myTestCategory.getCategoryName());
 
     }
-
 }

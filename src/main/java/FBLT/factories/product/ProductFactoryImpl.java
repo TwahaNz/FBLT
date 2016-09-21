@@ -1,5 +1,6 @@
 package FBLT.factories.product;
 
+import FBLT.domain.product.category.Category;
 import FBLT.domain.product.Product;
 
 
@@ -23,11 +24,11 @@ public class ProductFactoryImpl implements IProductFactory {
         return factory;
     }
 
-    public Product getProduct(Long catagoryId, String description) {
+    public Product getProduct(Category category, String description) {
 
         return new Product.Builder()
                 .productDescription(description)
-                .categoryID(catagoryId)
+                .category(category)
                 .build();
     }
 }
