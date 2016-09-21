@@ -104,7 +104,7 @@ Most sites that have a similar concept to ours force you to choose a category wh
 
 an advert, this further complicates the process of posting an advert, as often there are too
 
-many categories to scroll through and your advert may fall under multiple or no categories.
+many categories to scroll through and your advert may fall under multiple or no categories at all.
 
 With our app you will not be required to choose a category as we will create an algorithm
 
