@@ -1,6 +1,6 @@
 package FBLT.domain.user;
 
-import FBLT.domain.rank.Rank;
+
 import FBLT.factories.rank.RankFactory;
 import FBLT.utils.genericvalueobjects.Location;
 
@@ -19,9 +19,7 @@ public class User {
     private Location location;
     private int rating;
 
-   /* *//* composition *//*
-    private Rank rank;*/
-
+    private String ranking;
 
     private User(){}
 
@@ -30,7 +28,8 @@ public class User {
         this.contactDetails = builder.contactDetails;
         this.name = builder.name;
         this.location = builder.location;
-        this.rating = builder.ranking;
+        this.rating = builder.rating;
+        this.ranking = builder.ranking;
     }
 
     /* returns ranking based on user average rating */
@@ -54,8 +53,9 @@ public class User {
         return location;
     }
 
-    public int getRanking() {
+    public int getRating() {
         return rating;
+
     }
 
     public static class Builder{
@@ -63,7 +63,8 @@ public class User {
         private ContactDetails contactDetails;
         private String name;
         private Location location;
-        private int ranking;
+        private String ranking;
+        private int rating;
 
         public Builder userId(Long userId){
             this.userId = userId;
@@ -85,8 +86,13 @@ public class User {
             return  this;
         }
 
-        public Builder ranking(int ranking){
+        public Builder ranking(String ranking){
             this.ranking = ranking;
+            return this;
+        }
+
+        public Builder rating(int rating){
+            this.rating = rating;
             return this;
         }
 
@@ -95,7 +101,8 @@ public class User {
             this.contactDetails = user.contactDetails;
             this.name = user.name;
             this.location = user.location;
-            this.ranking = user.rating;
+            this.rating = user.rating;
+            this.ranking = user.ranking;
 
             return  this;
         }

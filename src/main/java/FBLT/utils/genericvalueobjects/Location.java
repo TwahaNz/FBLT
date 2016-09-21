@@ -2,8 +2,12 @@ package FBLT.utils.genericvalueobjects;
 
 /**
  * Created by tayfer01 on 9/21/2016.
+
  */
+
 public class Location {
+
+
     private double latitude;
     private double longitude;
     private String suburb;
@@ -75,4 +79,5 @@ public class Location {
             return new Location(this);
         }
     }
+
 }
