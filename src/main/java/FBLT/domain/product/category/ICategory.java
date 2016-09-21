@@ -1,4 +1,4 @@
-package FBLT.domain.category;
+package FBLT.domain.product.category;
 
 /**
  * Created by Brandonhome on 2016/09/20.

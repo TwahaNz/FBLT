@@ -1,6 +1,6 @@
 package FBLT.domain.product;
 
-import FBLT.domain.category.Category;
+import FBLT.domain.product.category.Category;
 
 /**
  * Created by lukekramer on 20/09/2016.
@@ -16,10 +16,10 @@ public interface IProduct {
 
     /**
      *
-     * @return returns a catagories id
+     * @return returns an object of the Category class
      */
 
-    Long getCatagoryId();
+     Category getCategory();
 
 
     /**
