@@ -2,10 +2,8 @@ package FBLT.utils.genericvalueobjects;
 
 /**
  * Created by tayfer01 on 9/21/2016.
- * https://mobiforge.com/design-development/html5-mobile-web-a-guide-geolocation-api
  */
 public class Location {
-
     private double latitude;
     private double longitude;
     private String suburb;
@@ -77,6 +75,4 @@ public class Location {
             return new Location(this);
         }
     }
-
-
 }

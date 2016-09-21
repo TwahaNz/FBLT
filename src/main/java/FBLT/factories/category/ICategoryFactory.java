@@ -1,4 +1,4 @@
-package FBLT.factories.product.category;
+package FBLT.factories.category;
 
 import FBLT.domain.product.category.Category;
 

@@ -4,6 +4,7 @@ import FBLT.domain.rank.Rank;
 import FBLT.factories.rank.RankFactory;
 import FBLT.utils.genericvalueobjects.Location;
 
+
 /**
  *
  * This class deals with the user who refers to both the buyer and seller
