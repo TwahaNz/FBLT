@@ -1,6 +1,8 @@
 package FBLT.domain.product;
 
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.category.ICategory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,16 +13,23 @@ public class ProductTest {
 
     @Test
     public void testCategoryCreation(){
+
+        ICategory category = new Category.Builder()
+                .categoryName("Kids Toys")
+                .categoryDescription("Short Description")
+                .build();
+
         IProduct productTest = new Product.Builder()
                 .productID((long) 1)
                 .productDescription("Cattle")
-                .categoryID((long) 3)
+                .category((Category) category)
                 .build();
 
         Assert.assertNotNull(productTest);
         Assert.assertEquals("Cattle",productTest.getProductDescription());
         Assert.assertSame((long)1,productTest.getProductId());
-        Assert.assertSame((long)3,productTest.getCatagoryId());
+        Assert.assertNotNull(productTest.getCategory().getCategoryName());
+
 
 
     }
