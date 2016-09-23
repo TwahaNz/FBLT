@@ -8,6 +8,7 @@ import FBLT.domain.product.electronics.cellphone.CellPhoneTest;
 import FBLT.domain.product.clothing.ClothingTest;
 import FBLT.domain.product.livestock.LivestockTest;
 import FBLT.domain.product.vehicle.VehicleTest;
+import FBLT.domain.rank.RankTest;
 import FBLT.domain.register.RegisteredUserVerificationTest;
 import FBLT.domain.user.UserTest;
 import FBLT.factories.product.ProductFactoryTest;
@@ -34,7 +35,8 @@ import org.junit.runners.Suite;
         CategoryFactoryTest.class,
         ProductFactoryTest.class,
         RegisteredUserVerificationFactoryTest.class,
-        UserTest.class
+        UserTest.class,
+        RankTest.class
 })
 
 public class FBLTTestSuite {
