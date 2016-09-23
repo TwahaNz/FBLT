@@ -1,4 +1,4 @@
-package FBLT.domain.product.cellphone;
+package FBLT.domain.product.electronics.cellphone;
 
 import FBLT.domain.product.category.Category;
 
@@ -12,6 +12,7 @@ public class CellPhone implements ICellPhone {
     private String description;
     private String make;
     private String model;
+    private String type;
 
     private CellPhone()
     {
@@ -25,6 +26,7 @@ public class CellPhone implements ICellPhone {
         this.description = value.description;
         this.make = value.make;
         this.model = value.model;
+        this.type = value.type;
 
     }
 
@@ -48,6 +50,11 @@ public class CellPhone implements ICellPhone {
         return description;
     }
 
+    @Override
+    public String getType() {
+        return type;
+    }
+
     public static class Builder {
 
         private Long productId;
@@ -55,6 +62,7 @@ public class CellPhone implements ICellPhone {
         private String description;
         private String make;
         private String model;
+        private String type;
 
 
         public Builder() {
@@ -85,6 +93,10 @@ public class CellPhone implements ICellPhone {
             this.model = value;
             return this;
         }
+        public CellPhone.Builder productType(String value) {
+            this.type = value;
+            return this;
+        }
 
         public CellPhone.Builder copy(CellPhone value) {
             this.productId = value.productId;
@@ -92,6 +104,7 @@ public class CellPhone implements ICellPhone {
             this.description = value.description;
             this.make = value.make;
             this.model = value.model;
+            this.type = value.type;
             return this;
         }
 

@@ -1,5 +1,7 @@
 package FBLT.domain.advert;
 
+import FBLT.utils.genericvalueobjects.Location;
+
 /**
  * Created by Brandonhome on 2016/09/20.
  */
@@ -10,6 +12,7 @@ public class Advert implements IAdvert {
     private Long productID;
     private boolean buyOrSell;
     private double price;
+    private Location location;
 
     private Advert() {
     }
@@ -20,7 +23,9 @@ public class Advert implements IAdvert {
         this.productID = builder.productID;
         this.buyOrSell = builder.buyOrSell;
         this.price = builder.price;
+        this.location = builder.location;
     }
+
 
 
     public Long getAdvertID() {
@@ -43,6 +48,9 @@ public class Advert implements IAdvert {
         return price;
     }
 
+    public Location getLocation() {
+        return location;
+    }
 
     public static class Builder {
 
@@ -51,19 +59,26 @@ public class Advert implements IAdvert {
         private Long productID;
         private boolean buyOrSell;
         private double price;
+        private Location location;
 
         public Builder() {
 
         }
 
-        public Builder copy(Advert advert){
+        public Builder copy(Advert advert) {
             this.advertID = advert.advertID;
             this.userID = advert.userID;
             this.productID = advert.productID;
             this.buyOrSell = advert.buyOrSell;
             this.price = advert.price;
+            this.location = advert.location;
             return this;
 
+        }
+
+        public Builder location(Location location) {
+            this.location = location;
+            return this;
         }
 
         public Builder advertID(Long advertID) {

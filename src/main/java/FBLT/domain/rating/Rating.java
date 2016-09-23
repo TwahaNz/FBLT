@@ -10,6 +10,7 @@ public class Rating implements IRating {
     private Long userID;
     private Long advertID;
     private int rating;
+    private Comment comment;
 
     private Rating() {
     }
@@ -19,7 +20,12 @@ public class Rating implements IRating {
         this.userID = builder.userID;
         this.advertID = builder.advertID;
         this.rating = builder.rating;
+        this.comment = builder.comment;
 
+    }
+
+    public Comment getComment() {
+        return comment;
     }
 
     public int getRating() {
@@ -31,6 +37,7 @@ public class Rating implements IRating {
         private Long userID;
         private Long advertID;
         private int rating;
+        private Comment comment;
 
         public Builder() {
 
@@ -41,11 +48,17 @@ public class Rating implements IRating {
             this.userID = rating.userID;
             this.advertID = rating.advertID;
             this.rating = rating.rating;
+            this.comment = rating.comment;
             return this;
         }
 
         public Builder ratingID(Long ratingID) {
             this.ratingID = ratingID;
+            return this;
+        }
+
+        public Builder comment(Comment comment) {
+            this.comment = comment;
             return this;
         }
 
