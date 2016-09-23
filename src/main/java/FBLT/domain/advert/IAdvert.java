@@ -1,5 +1,7 @@
 package FBLT.domain.advert;
 
+import FBLT.utils.genericvalueobjects.Location;
+
 /**
  * Created by maybra01 on 9/21/2016.
  */
@@ -14,4 +16,6 @@ public interface IAdvert {
     boolean isBuyOrSell();
 
     double getPrice();
+
+    Location getLocation();
 }

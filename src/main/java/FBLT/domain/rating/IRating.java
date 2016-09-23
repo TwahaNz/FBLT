@@ -10,4 +10,5 @@ public interface IRating {
      * @return returns a value of a particular rating assigned by another member/user to a member seller
      */
     int getRating();
+    Comment getComment();
 }

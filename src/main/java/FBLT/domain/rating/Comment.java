@@ -8,6 +8,7 @@ import FBLT.domain.advert.Advert;
 public class Comment {
 
     private Long commentID;
+    private Long ratingID;
     private String comment;
 
     private Comment(){
@@ -15,17 +16,36 @@ public class Comment {
     }
 
     private Comment(Builder builder) {
-        this.commentID=builder.commentID;
-        this.comment=builder.comment;
+        this.commentID = builder.commentID;
+        this.comment = builder.comment;
+        this.ratingID=builder.ratingID;
+    }
+
+    public Long getCommentID() {
+        return commentID;
+    }
+
+    public Long getRatingID() {
+        return ratingID;
+    }
+
+    public String getComment() {
+        return comment;
     }
 
 
     public static class Builder {
         private Long commentID;
         private String comment;
+        private Long ratingID;
 
         public Builder() {
 
+        }
+
+        public Builder ratingID(Long ratingID) {
+            this.ratingID = ratingID;
+            return this;
         }
 
         public Builder commentID(Long commentID) {
@@ -39,18 +59,19 @@ public class Comment {
         }
 
         public Builder copy(Comment comment) {
-
             this.commentID = comment.commentID;
+            this.ratingID = comment.ratingID;
             this.comment = comment.comment;
             return this;
 
         }
 
-        public Comment build(){
+        public Comment build() {
             return new Comment(this);
         }
 
     }
+
 
 
 }
