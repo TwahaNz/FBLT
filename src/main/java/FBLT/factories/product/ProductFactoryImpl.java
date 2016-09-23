@@ -27,7 +27,7 @@ public class ProductFactoryImpl implements IProductFactory {
 
         return new Product.Builder()
                 .productDescription(description)
-                .categoryID(catagoryId)
+               // .categoryID(catagoryId)
                 .build();
     }
 }

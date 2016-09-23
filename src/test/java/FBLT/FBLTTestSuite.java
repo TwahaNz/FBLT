@@ -5,6 +5,7 @@ import FBLT.domain.product.category.CategoryTest;
 import FBLT.domain.product.category.FindProductCatagory;
 import FBLT.domain.product.category.FindProductCatagoryTest;
 import FBLT.domain.register.RegisteredUserVerificationTest;
+import FBLT.domain.user.UserTest;
 import FBLT.factories.product.ProductFactoryTest;
 import FBLT.factories.product.category.CategoryFactoryTest;
 import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
@@ -23,7 +24,8 @@ import org.junit.runners.Suite;
         RegisteredUserVerificationTest.class,
         CategoryFactoryTest.class,
         ProductFactoryTest.class,
-        RegisteredUserVerificationFactoryTest.class
+        RegisteredUserVerificationFactoryTest.class,
+        UserTest.class
 })
 
 public class FBLTTestSuite {

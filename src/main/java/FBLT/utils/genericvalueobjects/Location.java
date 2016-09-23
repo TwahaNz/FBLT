@@ -20,7 +20,7 @@ public class Location {
         this.latitude = builder.latitude;
         this.longitude = builder.longitude;
         this.suburb = builder.suburb;
-        this.city = builder.suburb;
+        this.city = builder.city;
     }
 
     public double getLatitude() {
@@ -70,7 +70,7 @@ public class Location {
             this.latitude = location.latitude;
             this.longitude = location.longitude;
             this.suburb = location.suburb;
-            this.city = location.suburb;
+            this.city = location.city;
 
             return this;
         }
