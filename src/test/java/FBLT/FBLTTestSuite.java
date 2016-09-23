@@ -2,8 +2,9 @@ package FBLT;
 
 import FBLT.domain.product.ProductTest;
 import FBLT.domain.product.category.CategoryTest;
-import FBLT.domain.product.category.FindProductCatagory;
 import FBLT.domain.product.category.FindProductCatagoryTest;
+import FBLT.domain.product.cellphone.CellPhoneTest;
+import FBLT.domain.product.livestock.LivestockTest;
 import FBLT.domain.register.RegisteredUserVerificationTest;
 import FBLT.factories.product.ProductFactoryTest;
 import FBLT.factories.product.category.CategoryFactoryTest;
@@ -19,6 +20,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         CategoryTest.class,
         FindProductCatagoryTest.class,
+        CellPhoneTest.class,
+        LivestockTest.class,
         ProductTest.class,
         RegisteredUserVerificationTest.class,
         CategoryFactoryTest.class,
