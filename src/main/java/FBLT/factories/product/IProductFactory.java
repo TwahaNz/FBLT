@@ -1,5 +1,6 @@
 package FBLT.factories.product;
 
+import FBLT.domain.product.category.Category;
 import FBLT.domain.product.Product;
 
 
@@ -9,5 +10,5 @@ import FBLT.domain.product.Product;
 public interface IProductFactory {
 
 
-    Product getProduct(Long catagoryId, String description);
+    Product getProduct(Category catagory, String description);
 }
