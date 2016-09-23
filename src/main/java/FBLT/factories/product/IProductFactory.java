@@ -1,7 +1,7 @@
 package FBLT.factories.product;
 
-import FBLT.domain.product.category.Category;
 import FBLT.domain.product.Product;
+import FBLT.domain.product.category.Category;
 
 
 /**
