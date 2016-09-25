@@ -1,6 +1,7 @@
 package FBLT.domain.user;
 
 
+import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Before;

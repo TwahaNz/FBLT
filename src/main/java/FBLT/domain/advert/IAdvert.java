@@ -1,5 +1,7 @@
 package FBLT.domain.advert;
 
+import FBLT.domain.product.Product;
+import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
 
 /**
@@ -9,9 +11,9 @@ public interface IAdvert {
 
     Long getAdvertID();
 
-    Long getUserID();
+    User getUser();
 
-    Long getProductID();
+    Product getProduct();
 
     boolean isBuyOrSell();
 

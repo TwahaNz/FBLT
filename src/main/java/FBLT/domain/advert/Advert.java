@@ -1,5 +1,7 @@
 package FBLT.domain.advert;
 
+import FBLT.domain.product.Product;
+import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
 
 /**
@@ -8,8 +10,8 @@ import FBLT.utils.genericvalueobjects.Location;
 public class Advert implements IAdvert {
 
     private Long advertID;
-    private Long userID;
-    private Long productID;
+    private User user;
+    private Product product;
     private boolean buyOrSell;
     private double price;
     private Location location;
@@ -19,8 +21,8 @@ public class Advert implements IAdvert {
 
     private Advert(Builder builder) {
         this.advertID = builder.advertID;
-        this.userID = builder.userID;
-        this.productID = builder.productID;
+        this.user = builder.user;
+        this.product = builder.product;
         this.buyOrSell = builder.buyOrSell;
         this.price = builder.price;
         this.location = builder.location;
@@ -32,12 +34,12 @@ public class Advert implements IAdvert {
         return advertID;
     }
 
-    public Long getUserID() {
-        return userID;
+    public User getUser() {
+        return user;
     }
 
-    public Long getProductID() {
-        return productID;
+    public Product getProduct() {
+        return product;
     }
 
     public boolean isBuyOrSell() {
@@ -55,8 +57,8 @@ public class Advert implements IAdvert {
     public static class Builder {
 
         private Long advertID;
-        private Long userID;
-        private Long productID;
+        private User user;
+        private Product product;
         private boolean buyOrSell;
         private double price;
         private Location location;
@@ -67,8 +69,8 @@ public class Advert implements IAdvert {
 
         public Builder copy(Advert advert) {
             this.advertID = advert.advertID;
-            this.userID = advert.userID;
-            this.productID = advert.productID;
+            this.user = advert.user;
+            this.product = advert.product;
             this.buyOrSell = advert.buyOrSell;
             this.price = advert.price;
             this.location = advert.location;
@@ -86,13 +88,13 @@ public class Advert implements IAdvert {
             return this;
         }
 
-        public Builder userID(Long userID) {
-            this.userID = userID;
+        public Builder user(User user) {
+            this.user = user;
             return this;
         }
 
-        public Builder productID(Long productID) {
-            this.productID = productID;
+        public Builder product(Product product) {
+            this.product = product;
             return this;
 
         }

@@ -2,6 +2,7 @@ package FBLT.domain.user;
 
 
 import FBLT.factories.rank.RankFactory;
+import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 
 

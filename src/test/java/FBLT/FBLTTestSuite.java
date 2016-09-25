@@ -1,5 +1,7 @@
 package FBLT;
 
+import FBLT.domain.email.impl.InterestedEmail;
+import FBLT.domain.email.impl.SendVerificationEmail;
 import FBLT.domain.product.ProductTest;
 import FBLT.domain.product.book.BookTest;
 import FBLT.domain.product.category.CategoryTest;

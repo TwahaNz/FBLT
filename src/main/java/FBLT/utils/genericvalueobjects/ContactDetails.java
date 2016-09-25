@@ -1,4 +1,4 @@
-package FBLT.domain.user;
+package FBLT.utils.genericvalueobjects;
 
 /**
  *
