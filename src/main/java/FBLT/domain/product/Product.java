@@ -8,20 +8,20 @@ import FBLT.domain.product.category.Category;
  */
 public class Product implements IProduct {
 
-    private Long productId;
+    private Long id;
     private Category category;
     private String description;
 
     private Product(Builder b){
 
-        this.productId = b.productId;
+        this.id = b.id;
         this.category = b.category;
         this.description = b.description;
     }
 
 
-    public Long getProductId() {
-        return productId;
+    public Long getId() {
+        return id;
     }
 
     public Category getCategory() {
@@ -35,7 +35,7 @@ public class Product implements IProduct {
 
     public static class Builder {
 
-        private Long productId;
+        private Long id;
         private Category category;
         private String description;
 
@@ -43,8 +43,8 @@ public class Product implements IProduct {
 
         }
 
-        public Product.Builder productID(Long value) {
-            this.productId = value;
+        public Product.Builder id(Long value) {
+            this.id = value;
             return this;
         }
 
@@ -59,7 +59,7 @@ public class Product implements IProduct {
         }
 
         public Product.Builder copy(Product value) {
-            this.productId = value.productId;
+            this.id = value.id;
             this.category = value.category;
             this.description = value.description;
             return this;

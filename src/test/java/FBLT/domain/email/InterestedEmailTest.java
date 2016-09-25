@@ -40,7 +40,7 @@ public class InterestedEmailTest {
         IProduct product = new Product.Builder()
                 .category((Category) category)
                 .productDescription("A nice book")
-                .productID(new Long(1))
+                .id(new Long(1))
                 .build();
 
         Advert advert = new Advert.Builder()

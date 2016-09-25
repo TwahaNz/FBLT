@@ -72,8 +72,7 @@ public class Clothing implements IClothing {
         return material;
     }
 
-    @Override
-    public Long getProductId() {
+    public Long getId() {
         return productId;
     }
 

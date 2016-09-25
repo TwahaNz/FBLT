@@ -29,8 +29,7 @@ public class Book implements IBook {
         this.genre = value.genre;
     }
 
-    @Override
-    public Long getProductId() {
+    public Long getId() {
         return productId;
     }
 

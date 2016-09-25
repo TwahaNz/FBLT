@@ -31,7 +31,7 @@ public class CellPhoneTest {
         Assert.assertEquals("Iphone",productTest.getMake());
         Assert.assertEquals("S6",productTest.getModel());
         Assert.assertEquals("SmartPhone",productTest.getType());
-        Assert.assertSame((long)1,productTest.getProductId());
+        Assert.assertSame((long)1,productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("CellPhone",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

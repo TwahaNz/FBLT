@@ -27,7 +27,7 @@ public class Livestock implements ILivestock {
 
     }
 
-    public Long getProductId() {
+    public Long getId() {
         return productId;
     }
 

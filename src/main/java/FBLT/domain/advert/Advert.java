@@ -4,11 +4,18 @@ import FBLT.domain.product.Product;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by Brandonhome on 2016/09/20.
  */
+
 public class Advert implements IAdvert {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long advertID;
     private User user;
     private Product product;

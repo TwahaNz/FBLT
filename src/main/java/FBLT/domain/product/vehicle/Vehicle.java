@@ -64,8 +64,7 @@ public class Vehicle implements IVehicle {
         return transmission;
     }
 
-    @Override
-    public Long getProductId() {
+    public Long getId() {
         return productId;
     }
 

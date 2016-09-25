@@ -12,7 +12,7 @@ public interface IProduct {
      * @return returns a products id
      */
 
-    Long getProductId();
+    Long getId();
 
     /**
      *

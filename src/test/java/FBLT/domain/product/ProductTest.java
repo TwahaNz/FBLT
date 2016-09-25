@@ -20,14 +20,14 @@ public class ProductTest {
                 .build();
 
         IProduct productTest = new Product.Builder()
-                .productID((long) 1)
+                .id((long) 1)
                 .productDescription("Cattle")
                 .category((Category) category)
                 .build();
 
         Assert.assertNotNull(productTest);
         Assert.assertEquals("Cattle",productTest.getProductDescription());
-        Assert.assertSame((long)1,productTest.getProductId());
+        Assert.assertSame((long)1,productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
 
 

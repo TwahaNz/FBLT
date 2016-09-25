@@ -40,7 +40,7 @@ public class ClothingTest {
         Assert.assertEquals("medium",productTest.getSize());
         Assert.assertEquals("blue",productTest.getColor());
         Assert.assertEquals("nylon",productTest.getMaterial());
-        Assert.assertSame((long)1,productTest.getProductId());
+        Assert.assertSame((long)1,productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Clothing",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

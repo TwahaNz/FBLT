@@ -38,7 +38,7 @@ public class CellPhone implements ICellPhone {
         return model;
     }
 
-    public Long getProductId() {
+    public Long getId() {
         return productId;
     }
 
