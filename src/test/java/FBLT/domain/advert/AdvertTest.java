@@ -1,5 +1,7 @@
 package FBLT.domain.advert;
 
+import FBLT.domain.product.Product;
+import FBLT.domain.product.category.Category;
 import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,11 +23,20 @@ public class AdvertTest {
                 .longitude(34.53)
                 .build();
 
+        Product mynewProduct = new Product.Builder()
+                .category(
+                        new Category.Builder()
+                                .categoryName("Kids Toys")
+                        .categoryDescription("things for kids")
+                        .build())
+                .productDescription("Barbie Doll")
+                .build();
+
         Advert myTestAdvert = new Advert.Builder()
                 .advertID(new Long(1))
                 .buyOrSell(false)
                 .price(789.44)
-                .userID(new Long(5))
+                .product(mynewProduct)
                 .location(newLocation)
                 .build();
 
@@ -33,6 +44,7 @@ public class AdvertTest {
         Assert.assertNotNull(myTestAdvert);
         Assert.assertEquals("Cape Town", myTestAdvert.getLocation().getCity());
         Assert.assertEquals("Rondebosch", myTestAdvert.getLocation().getSuburb());
+        Assert.assertEquals("Barbie Doll",myTestAdvert.getProduct().getProductDescription());
         Assert.assertEquals(false,myTestAdvert.isBuyOrSell());
 
 
