@@ -1,4 +1,4 @@
-package FBLT.domain.repositories;
+package FBLT.repositories;
 
 import FBLT.domain.PersistenceTestClass;
 import com.google.gson.Gson;

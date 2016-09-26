@@ -1,4 +1,4 @@
-package FBLT.domain.repositories.register;
+package FBLT.repositories.register;
 
 import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.register.RegisteredUserVerification;

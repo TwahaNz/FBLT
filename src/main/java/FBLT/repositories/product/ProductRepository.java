@@ -1,4 +1,4 @@
-package FBLT.domain.repositories.product;
+package FBLT.repositories.product;
 
 import FBLT.domain.product.Product;
 import FBLT.domain.product.clothing.Clothing;

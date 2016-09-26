@@ -1,4 +1,4 @@
-package FBLT.domain.repositories.product.books;
+package FBLT.repositories.product.books;
 
 import FBLT.domain.product.book.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
