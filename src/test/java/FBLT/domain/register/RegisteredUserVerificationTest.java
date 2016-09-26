@@ -20,7 +20,7 @@ public class RegisteredUserVerificationTest {
     public void setup() throws Exception {
 
         registeredUserVerification = new RegisteredUserVerification.Builder()
-                .setId(12)
+                .setId("12")
                 .setUsername("Peter")
                 .setEmail("12345")
                 .setVerificationCode("456789")
@@ -30,7 +30,7 @@ public class RegisteredUserVerificationTest {
 
     @Test
     public void whenTheUserRegisters_checkAllTheirDetails() {
-        Assert.assertEquals(TAG, 12, registeredUserVerification.getId());
+        Assert.assertEquals(TAG, "12", registeredUserVerification.getId());
         Assert.assertEquals(TAG, "Peter", registeredUserVerification.getUsername());
         Assert.assertEquals(TAG, "12345", registeredUserVerification.getEmail());
         Assert.assertEquals(TAG, "456789", registeredUserVerification.getVerificationCode());

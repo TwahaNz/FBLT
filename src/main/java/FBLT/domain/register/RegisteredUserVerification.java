@@ -11,7 +11,7 @@ package FBLT.domain.register;
  */
 public class RegisteredUserVerification {
 
-    private long id;
+    private String id;
     private String username;
     private String email;
     private String verificationCode;
@@ -23,7 +23,7 @@ public class RegisteredUserVerification {
         this.verificationCode = builder.verificationCode;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -41,12 +41,12 @@ public class RegisteredUserVerification {
 
     public static class Builder {
     
-        private long id;
+        private String id;
         private String username;
         private String email;
         private String verificationCode;
 
-        public Builder setId(long id) {
+        public Builder setId(String id) {
             this.id = id;
             return this;
         }
