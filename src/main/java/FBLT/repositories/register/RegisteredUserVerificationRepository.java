@@ -1,6 +1,5 @@
 package FBLT.repositories.register;
 
-import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.register.RegisteredUserVerification;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

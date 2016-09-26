@@ -1,6 +1,5 @@
 package FBLT.repositories.rating;
 
-import FBLT.domain.product.book.Book;
 import FBLT.domain.rating.Comment;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
