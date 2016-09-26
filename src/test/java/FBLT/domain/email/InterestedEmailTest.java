@@ -24,7 +24,7 @@ public class InterestedEmailTest {
                 .build();
 
         User user = new User.Builder()
-                .userId(new Long(1))
+                .id("1")
                 .contactDetails(contactDetails)
                 .location(null)
                 .name("Ferin")
@@ -40,11 +40,11 @@ public class InterestedEmailTest {
         IProduct product = new Product.Builder()
                 .category((Category) category)
                 .productDescription("A nice book")
-                .id(new Long(1))
+                .id("1")
                 .build();
 
         Advert advert = new Advert.Builder()
-                .advertID(new Long(1))
+                .id(new String("1"))
                 .buyOrSell(false)
                 .product((Product) product)
                 .user(user)

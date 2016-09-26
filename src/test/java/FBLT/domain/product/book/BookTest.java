@@ -20,7 +20,7 @@ public class BookTest {
                 .build();
 
         IBook productTest = new Book.Builder()
-                .productID((long) 1)
+                .id("1")
                 .productDescription("Fairy Tale")
                 .productTitle("Snow White")
                 .productISBN("945-2497659111")

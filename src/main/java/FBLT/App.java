@@ -38,7 +38,7 @@ public class App
                 .build();
 
         IClothing productTest = new Clothing.Builder()
-                .productID((long) 1)
+                .id((long) 1)
                 .productDescription("Coach Jacket")
                 .productType("Jacket")
                 .productBrand("Sol Sol")

@@ -6,8 +6,6 @@ import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Locale;
-
 /**
  * Created by Brandonhome on 2016/09/23.
  */
@@ -33,7 +31,7 @@ public class AdvertTest {
                 .build();
 
         Advert myTestAdvert = new Advert.Builder()
-                .advertID(new Long(1))
+                .id(new String("1"))
                 .buyOrSell(false)
                 .price(789.44)
                 .product(mynewProduct)

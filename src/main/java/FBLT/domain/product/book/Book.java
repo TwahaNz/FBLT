@@ -1,14 +1,13 @@
 package FBLT.domain.product.book;
 
 import FBLT.domain.product.category.Category;
-import org.springframework.data.annotation.Id;
 
 /**
  * Created by kraluk01 on 9/23/2016.
  */
 public class Book implements IBook {
 
-    private Long productId;
+    private String id;
     private Category category;
     private String description;
     private String title;
@@ -22,7 +21,7 @@ public class Book implements IBook {
 
     private Book(Builder value){
 
-        this.productId = value.productId;
+        this.id = value.id;
         this.category = value.category;
         this.description = value.description;
         this.title = value.title;
@@ -30,8 +29,8 @@ public class Book implements IBook {
         this.genre = value.genre;
     }
 
-    public Long getId() {
-        return productId;
+    public String getId() {
+        return id;
     }
 
     @Override
@@ -61,7 +60,7 @@ public class Book implements IBook {
 
     public static class Builder {
 
-        private Long productId;
+        private String id;
         private Category category;
         private String description;
         private String title;
@@ -72,8 +71,8 @@ public class Book implements IBook {
 
         }
 
-        public Book.Builder productID(Long value) {
-            this.productId = value;
+        public Book.Builder id(String value) {
+            this.id = value;
             return this;
         }
 
@@ -103,7 +102,7 @@ public class Book implements IBook {
         }
 
         public Book.Builder copy(Book value) {
-            this.productId = value.productId;
+            this.id = value.id;
             this.category = value.category;
             this.description = value.description;
             this.title = value.title;

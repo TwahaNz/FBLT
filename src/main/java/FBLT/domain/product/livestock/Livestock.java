@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Livestock implements ILivestock {
 
-    private Long productId;
+    private String id;
     private Category category;
     private String description;
     private String age;
@@ -19,7 +19,7 @@ public class Livestock implements ILivestock {
 
     private Livestock(Builder value){
 
-        this.productId = value.productId;
+        this.id = value.id;
         this.category = value.category;
         this.description = value.description;
         this.age = value.age;
@@ -27,8 +27,8 @@ public class Livestock implements ILivestock {
 
     }
 
-    public Long getId() {
-        return productId;
+    public String getId() {
+        return id;
     }
 
     public Category getCategory() {
@@ -49,7 +49,7 @@ public class Livestock implements ILivestock {
 
     public static class Builder {
 
-        private Long productId;
+        private String id;
         private Category category;
         private String description;
         private String age;
@@ -59,8 +59,8 @@ public class Livestock implements ILivestock {
 
         }
 
-        public Livestock.Builder productID(Long value) {
-            this.productId = value;
+        public Livestock.Builder id(String value) {
+            this.id = value;
             return this;
         }
 
@@ -85,7 +85,7 @@ public class Livestock implements ILivestock {
         }
 
         public Livestock.Builder copy(Livestock value) {
-            this.productId = value.productId;
+            this.id = value.id;
             this.category = value.category;
             this.description = value.description;
             this.age = value.age;

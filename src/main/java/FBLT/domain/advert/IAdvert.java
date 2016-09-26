@@ -9,7 +9,7 @@ import FBLT.utils.genericvalueobjects.Location;
  */
 public interface IAdvert {
 
-    Long getAdvertID();
+    String getId();
 
     User getUser();
 

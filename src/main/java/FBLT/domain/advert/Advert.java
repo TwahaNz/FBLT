@@ -4,8 +4,6 @@ import FBLT.domain.product.Product;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -15,8 +13,7 @@ import javax.persistence.Id;
 public class Advert implements IAdvert {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long advertID;
+    private String id;
     private User user;
     private Product product;
     private boolean buyOrSell;
@@ -27,7 +24,7 @@ public class Advert implements IAdvert {
     }
 
     private Advert(Builder builder) {
-        this.advertID = builder.advertID;
+        this.id = builder.id;
         this.user = builder.user;
         this.product = builder.product;
         this.buyOrSell = builder.buyOrSell;
@@ -37,8 +34,8 @@ public class Advert implements IAdvert {
 
 
 
-    public Long getAdvertID() {
-        return advertID;
+    public String getId() {
+        return id;
     }
 
     public User getUser() {
@@ -63,7 +60,7 @@ public class Advert implements IAdvert {
 
     public static class Builder {
 
-        private Long advertID;
+        private String id;
         private User user;
         private Product product;
         private boolean buyOrSell;
@@ -75,7 +72,7 @@ public class Advert implements IAdvert {
         }
 
         public Builder copy(Advert advert) {
-            this.advertID = advert.advertID;
+            this.id = advert.id;
             this.user = advert.user;
             this.product = advert.product;
             this.buyOrSell = advert.buyOrSell;
@@ -90,8 +87,8 @@ public class Advert implements IAdvert {
             return this;
         }
 
-        public Builder advertID(Long advertID) {
-            this.advertID = advertID;
+        public Builder id(String id) {
+            this.id = id;
             return this;
         }
 

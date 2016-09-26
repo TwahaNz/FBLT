@@ -19,7 +19,7 @@ public class VehicleTest {
                 .build();
 
         IVehicle productTest = new Vehicle.Builder()
-                .productID((long) 1)
+                .id("1")
                 .productDescription("Sports Car")
                 .productType("Car")
                 .productMake("BMW")

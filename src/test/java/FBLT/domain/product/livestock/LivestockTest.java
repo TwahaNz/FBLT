@@ -19,7 +19,7 @@ public class LivestockTest {
                 .build();
 
         ILivestock productTest = new Livestock.Builder()
-                .productID((long) 1)
+                .id("1")
                 .productDescription("Cow")
                 .productAge("4")
                 .productGrade("A")

@@ -18,7 +18,7 @@ public class CellPhoneTest {
                 .build();
 
         ICellPhone productTest = new CellPhone.Builder()
-                .productID((long) 1)
+                .id("1")
                 .productDescription("2015 model")
                 .productMake("Iphone")
                 .productModel("S6")

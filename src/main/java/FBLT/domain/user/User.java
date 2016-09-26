@@ -14,7 +14,7 @@ import FBLT.utils.genericvalueobjects.Location;
 
 public class User {
 
-    private Long userId;
+    private String id;
     private ContactDetails contactDetails;
     private String name;
     private Location location;
@@ -25,7 +25,7 @@ public class User {
     private User(){}
 
     private User(Builder builder) {
-        this.userId = builder.userId;
+        this.id = builder.id;
         this.contactDetails = builder.contactDetails;
         this.name = builder.name;
         this.location = builder.location;
@@ -38,8 +38,8 @@ public class User {
         return RankFactory.getRanking(rating);
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
     public ContactDetails getContactDetails() {
@@ -60,15 +60,15 @@ public class User {
     }
 
     public static class Builder{
-        private Long userId;
+        private String id;
         private ContactDetails contactDetails;
         private String name;
         private Location location;
         private String ranking;
         private int rating;
 
-        public Builder userId(Long userId){
-            this.userId = userId;
+        public Builder id(String userId){
+            this.id = userId;
             return this;
         }
 
@@ -98,7 +98,7 @@ public class User {
         }
 
         public Builder copy(User user){
-            this.userId = user.userId;
+            this.id = user.id;
             this.contactDetails = user.contactDetails;
             this.name = user.name;
             this.location = user.location;

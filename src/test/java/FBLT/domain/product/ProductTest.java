@@ -20,7 +20,7 @@ public class ProductTest {
                 .build();
 
         IProduct productTest = new Product.Builder()
-                .id((long) 1)
+                .id("1")
                 .productDescription("Cattle")
                 .category((Category) category)
                 .build();

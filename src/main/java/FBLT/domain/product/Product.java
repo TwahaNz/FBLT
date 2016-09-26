@@ -8,7 +8,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Product implements IProduct {
 
-    private Long id;
+    private String id;
     private Category category;
     private String description;
 
@@ -20,7 +20,7 @@ public class Product implements IProduct {
     }
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -35,7 +35,7 @@ public class Product implements IProduct {
 
     public static class Builder {
 
-        private Long id;
+        private String id;
         private Category category;
         private String description;
 
@@ -43,7 +43,7 @@ public class Product implements IProduct {
 
         }
 
-        public Product.Builder id(Long value) {
+        public Product.Builder id(String value) {
             this.id = value;
             return this;
         }

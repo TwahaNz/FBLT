@@ -14,7 +14,7 @@ public class UserTest {
     @Before
     public void setUp() throws Exception {
         user = new User.Builder()
-                .userId(new Long(1))
+                .id("1")
                 .contactDetails(null)
                 .location(null)
                 .name("Ferin")

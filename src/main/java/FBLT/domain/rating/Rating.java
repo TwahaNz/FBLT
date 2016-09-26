@@ -6,9 +6,9 @@ package FBLT.domain.rating;
  */
 public class Rating implements IRating {
 
-    private Long ratingID;
-    private Long userID;
-    private Long advertID;
+    private String id;
+    private String userID;
+    private String advertID;
     private int rating;
     private Comment comment;
 
@@ -16,7 +16,7 @@ public class Rating implements IRating {
     }
 
     private Rating(Builder builder) {
-        this.ratingID = builder.ratingID;
+        this.id = builder.id;
         this.userID = builder.userID;
         this.advertID = builder.advertID;
         this.rating = builder.rating;
@@ -33,9 +33,9 @@ public class Rating implements IRating {
     }
 
     public static class Builder {
-        private Long ratingID;
-        private Long userID;
-        private Long advertID;
+        private String id;
+        private String userID;
+        private String advertID;
         private int rating;
         private Comment comment;
 
@@ -44,7 +44,7 @@ public class Rating implements IRating {
         }
 
         public Builder copy(Rating rating) {
-            this.ratingID = rating.ratingID;
+            this.id = rating.id;
             this.userID = rating.userID;
             this.advertID = rating.advertID;
             this.rating = rating.rating;
@@ -52,8 +52,8 @@ public class Rating implements IRating {
             return this;
         }
 
-        public Builder ratingID(Long ratingID) {
-            this.ratingID = ratingID;
+        public Builder id(String ratingID) {
+            this.id = ratingID;
             return this;
         }
 
@@ -62,12 +62,12 @@ public class Rating implements IRating {
             return this;
         }
 
-        public Builder userID(Long userID) {
+        public Builder userID(String userID) {
             this.userID = userID;
             return this;
         }
 
-        public Builder advertID(Long advertID) {
+        public Builder advertID(String advertID) {
             this.advertID = advertID;
             return this;
         }

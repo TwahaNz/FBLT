@@ -1,14 +1,12 @@
 package FBLT.domain.rating;
 
-import FBLT.domain.advert.Advert;
-
 /**
  * Created by maybra01 on 9/21/2016.
  */
 public class Comment {
 
-    private Long commentID;
-    private Long ratingID;
+    private String id;
+    private String ratingID;
     private String comment;
 
     private Comment(){
@@ -16,16 +14,16 @@ public class Comment {
     }
 
     private Comment(Builder builder) {
-        this.commentID = builder.commentID;
+        this.id = builder.id;
         this.comment = builder.comment;
         this.ratingID=builder.ratingID;
     }
 
-    public Long getCommentID() {
-        return commentID;
+    public String getId() {
+        return id;
     }
 
-    public Long getRatingID() {
+    public String getRatingID() {
         return ratingID;
     }
 
@@ -35,21 +33,21 @@ public class Comment {
 
 
     public static class Builder {
-        private Long commentID;
+        private String id;
         private String comment;
-        private Long ratingID;
+        private String ratingID;
 
         public Builder() {
 
         }
 
-        public Builder ratingID(Long ratingID) {
+        public Builder ratingID(String ratingID) {
             this.ratingID = ratingID;
             return this;
         }
 
-        public Builder commentID(Long commentID) {
-            this.commentID = commentID;
+        public Builder id(String commentID) {
+            this.id = commentID;
             return this;
         }
 
@@ -59,7 +57,7 @@ public class Comment {
         }
 
         public Builder copy(Comment comment) {
-            this.commentID = comment.commentID;
+            this.id = comment.id;
             this.ratingID = comment.ratingID;
             this.comment = comment.comment;
             return this;
