@@ -1,4 +1,4 @@
-package FBLT.domain.repositories;
+package FBLT.domain.repositories.advert;
 
 import FBLT.domain.advert.Advert;
 import org.springframework.data.mongodb.repository.MongoRepository;

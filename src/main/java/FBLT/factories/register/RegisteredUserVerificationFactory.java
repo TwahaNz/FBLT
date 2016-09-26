@@ -13,7 +13,7 @@ import FBLT.domain.register.RegisteredUserVerification;
  */
 public class RegisteredUserVerificationFactory {
     
-    public static RegisteredUserVerification getRegisteredUser(long id,
+    public static RegisteredUserVerification getRegisteredUser(String id,
                                                                String username, String email, String verification) {
         
         return new RegisteredUserVerification.Builder()
@@ -25,7 +25,7 @@ public class RegisteredUserVerificationFactory {
     }
     
     public static RegisteredUserVerification getRegisteredUser(String username,
-            String email, String verification) {
+                                                               String email, String verification) {
         
         return new RegisteredUserVerification.Builder()
                 .setUsername(username)

@@ -26,13 +26,13 @@ public class RegisteredUserVerificationFactoryTest {
     public void setup() throws Exception {
 
         registeredUserVerification = RegisteredUserVerificationFactory.getRegisteredUser(
-                12, "Peter", "12345", "456789");
+                "12", "Peter", "12345", "456789");
 
     }
 
     @Test
     public void whenTheUserRegisters_checkAllTheirDetails() {
-        Assert.assertEquals(TAG, 12, registeredUserVerification.getId());
+        Assert.assertEquals(TAG, "12", registeredUserVerification.getId());
         Assert.assertEquals(TAG, "Peter", registeredUserVerification.getUsername());
         Assert.assertEquals(TAG, "12345", registeredUserVerification.getEmail());
         Assert.assertEquals(TAG, "456789", registeredUserVerification.getVerificationCode());
