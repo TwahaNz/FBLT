@@ -1,10 +1,13 @@
 package FBLT.domain;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * Created by Brandonhome on 2016/09/26.
  */
 public class PersistenceTestClass {
-    private String id;
+
+    @Id private String id;
     private String name;
     private int age;
 
