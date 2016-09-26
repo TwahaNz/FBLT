@@ -1,5 +1,6 @@
 package FBLT;
 
+import FBLT.domain.PersistenceTestClass;
 import FBLT.domain.email.impl.InterestedEmail;
 import FBLT.domain.email.impl.SendVerificationEmail;
 import FBLT.domain.product.ProductTest;
@@ -16,6 +17,7 @@ import FBLT.domain.user.UserTest;
 import FBLT.factories.product.ProductFactoryTest;
 import FBLT.factories.product.category.CategoryFactoryTest;
 import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
+import FBLT.persistence.MongoDBPersistenceTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -38,7 +40,9 @@ import org.junit.runners.Suite;
         ProductFactoryTest.class,
         RegisteredUserVerificationFactoryTest.class,
         UserTest.class,
-        RankTest.class
+        RankTest.class,
+        MongoDBPersistenceTest.class,
+        RegisteredUserVerificationFactoryTest.class
 })
 
 public class FBLTTestSuite {

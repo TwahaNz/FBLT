@@ -1,6 +1,5 @@
 package FBLT.repositories.register;
 
-import FBLT.domain.PersistenceTestClass;
 import FBLT.domain.register.RegisteredUserVerification;
 import FBLT.factories.register.RegisteredUserVerificationFactory;
 import com.mongodb.Mongo;
@@ -13,8 +12,11 @@ import org.springframework.data.mongodb.core.query.Update;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
- * Created by Brandonhome on 2016/09/25.
+ * @author Twaha Nzeyimana
+ * @date 26 Septemeber 2016
+ * @description These test will be for CRUD Repository with mongodb using the RegisteredUserVerficationRespository Class
  */
+
 public class RegisteredUserVerificationRepositoryTest {
 
     private static final String TAG = "RegisteredUserVerificationTest: ";
