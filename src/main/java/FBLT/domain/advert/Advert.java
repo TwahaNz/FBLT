@@ -20,7 +20,7 @@ public class Advert implements IAdvert {
     private double price;
     private Location location;
 
-    private Advert() {
+    protected Advert() {
     }
 
     private Advert(Builder builder) {

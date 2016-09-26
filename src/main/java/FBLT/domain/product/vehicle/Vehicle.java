@@ -18,7 +18,7 @@ public class Vehicle implements IVehicle {
     private String transmission;
 
 
-    private Vehicle(){}
+    protected Vehicle(){}
 
     private Vehicle(Builder value){
 
@@ -89,6 +89,7 @@ public class Vehicle implements IVehicle {
         private String year;
         private String fuel;
         private String transmission;
+
 
 
         public Builder() {

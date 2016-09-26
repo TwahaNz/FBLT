@@ -1,7 +1,12 @@
 package FBLT.persistence;
 
 import FBLT.domain.PersistenceTestClass;
+import FBLT.domain.advert.Advert;
+import FBLT.domain.product.Product;
+import FBLT.domain.product.category.Category;
 import FBLT.domain.product.electronics.cellphone.CellPhone;
+import FBLT.utils.genericvalueobjects.Location;
+import com.google.gson.Gson;
 import com.mongodb.Mongo;
 import org.junit.Test;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -43,6 +48,39 @@ public class MongoDBPersistenceTest {
         //DELETE
         mongoOps.remove(person);
 
+    }
+    @Test
+    public void testPost(){
+        PersistenceTestClass person = new PersistenceTestClass("Brandon",34);
+
+        Location newLocation = new Location.Builder()
+                .city("Cape Town")
+                .suburb("Rondebosch")
+                .latitude(22.33)
+                .longitude(34.53)
+                .build();
+
+        Product mynewProduct = new Product.Builder()
+                .category(
+                        new Category.Builder()
+                                .categoryName("Kids Toys")
+                                .categoryDescription("things for kids")
+                                .build())
+                .productDescription("Barbie Doll")
+                .build();
+
+        Advert myTestAdvert = new Advert.Builder()
+
+                .buyOrSell(false)
+                .price(789.44)
+                .product(mynewProduct)
+                .location(newLocation)
+                .build();
+
+
+
+        Gson myGson = new Gson();
+        System.out.println(myGson.toJson(myTestAdvert));
     }
 
 

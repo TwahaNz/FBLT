@@ -12,7 +12,7 @@ public class Rating implements IRating {
     private int rating;
     private Comment comment;
 
-    private Rating() {
+    protected Rating() {
     }
 
     private Rating(Builder builder) {

@@ -18,7 +18,9 @@ public class Clothing implements IClothing {
     private String color;
     private String material;
 
-    private Clothing(){}
+    protected Clothing(){
+
+    }
 
     private Clothing(Builder value){
 

@@ -12,8 +12,11 @@ public class Product implements IProduct {
     private Category category;
     private String description;
 
-    private Product(Builder b){
+    protected Product(){
 
+    }
+
+    private Product(Builder b){
         this.id = b.id;
         this.category = b.category;
         this.description = b.description;

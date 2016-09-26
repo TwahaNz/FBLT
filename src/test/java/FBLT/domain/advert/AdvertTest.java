@@ -31,7 +31,7 @@ public class AdvertTest {
                 .build();
 
         Advert myTestAdvert = new Advert.Builder()
-                .id(new String("1"))
+
                 .buyOrSell(false)
                 .price(789.44)
                 .product(mynewProduct)

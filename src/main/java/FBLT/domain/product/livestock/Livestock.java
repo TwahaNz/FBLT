@@ -13,7 +13,7 @@ public class Livestock implements ILivestock {
     private String age;
     private String grade;
 
-    private Livestock() {
+    protected Livestock() {
 
     }
 

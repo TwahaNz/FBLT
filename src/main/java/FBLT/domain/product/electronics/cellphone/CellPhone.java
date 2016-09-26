@@ -14,7 +14,7 @@ public class CellPhone implements ICellPhone {
     private String model;
     private String type;
 
-    private CellPhone()
+    protected CellPhone()
     {
 
     }

@@ -9,7 +9,7 @@ public class Comment {
     private String ratingID;
     private String comment;
 
-    private Comment(){
+    protected Comment(){
 
     }
 

@@ -14,7 +14,7 @@ public class Book implements IBook {
     private String isbn;
     private String genre;
 
-    private Book()
+    protected Book()
     {
 
     }

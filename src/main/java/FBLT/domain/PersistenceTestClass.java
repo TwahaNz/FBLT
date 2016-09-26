@@ -11,6 +11,9 @@ public class PersistenceTestClass {
     private String name;
     private int age;
 
+    protected PersistenceTestClass() {
+    }
+
     public PersistenceTestClass(String name, int age) {
         this.name = name;
         this.age = age;

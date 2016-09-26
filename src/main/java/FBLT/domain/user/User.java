@@ -22,7 +22,7 @@ public class User {
 
     private String ranking;
 
-    private User(){}
+    protected User(){}
 
     private User(Builder builder) {
         this.id = builder.id;

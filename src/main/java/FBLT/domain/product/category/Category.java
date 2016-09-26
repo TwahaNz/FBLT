@@ -8,6 +8,10 @@ public class Category implements ICategory{
     private String categoryName;
     private String categoryDescription;
 
+    protected Category(){
+
+    }
+
     private Category(Builder b){
 
         this.categoryName = b.categoryName;
