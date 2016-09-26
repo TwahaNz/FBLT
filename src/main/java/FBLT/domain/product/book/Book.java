@@ -1,6 +1,7 @@
 package FBLT.domain.product.book;
 
 import FBLT.domain.product.category.Category;
+import org.springframework.data.annotation.Id;
 
 /**
  * Created by kraluk01 on 9/23/2016.
@@ -112,7 +113,6 @@ public class Book implements IBook {
         }
 
         public Book build() {
-
             return new Book(this);
         }
     }

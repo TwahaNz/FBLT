@@ -1,5 +1,6 @@
 package FBLT.persistence;
 
+import FBLT.domain.PersistenceTestClass;
 import FBLT.domain.product.electronics.cellphone.CellPhone;
 import com.mongodb.Mongo;
 import org.junit.Test;
@@ -21,25 +22,26 @@ public class MongoDBPersistenceTest {
         MongoOperations mongoOps = new MongoTemplate(
                 new Mongo(), "test");
 
-        CellPhone newCelly =  new CellPhone.Builder()
-                .productDescription("latest cellphone")
-                .build();
+        PersistenceTestClass person = new PersistenceTestClass("Brandon",34);
 
         //INSERT
-        mongoOps.insert(newCelly);
+       mongoOps.insert(person);
 
 
-        System.out.println(newCelly.getId());
-/*
+        System.out.println(person.getId());
+
         //RETRIEVE
-        newCelly = mongoOps.findById(newCelly.getId(), CellPhone.class);
-        System.out.println(newCelly.getProductDescription());
+        person = mongoOps.findById(person.getId(), PersistenceTestClass.class);
+        System.out.println(person.getId() + " " +person.getName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(newCelly.getId())), Update.update("description","newDescription") ,CellPhone.class);
+        mongoOps.updateFirst(new Query(where("_id").is(person.getId())), Update.update("name","Twaha") ,PersistenceTestClass.class);
+        person = mongoOps.findById(person.getId(), PersistenceTestClass.class);
+        System.out.println(person.getId() + " " + person.getName());
+
 
         //DELETE
-       // mongoOps.remove(b);*/
+        mongoOps.remove(person);
 
     }
 
