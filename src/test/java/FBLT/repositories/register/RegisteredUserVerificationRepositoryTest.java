@@ -21,7 +21,7 @@ public class RegisteredUserVerificationRepositoryTest {
 
     @Test
     public void testCRUD() {
-        
+
         MongoOperations mongoOps = new MongoTemplate(
                 new Mongo(), "test");
 

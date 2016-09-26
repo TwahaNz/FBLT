@@ -4,7 +4,9 @@ import FBLT.domain.rating.Comment;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
- * Created by Brandonhome on 2016/09/26.
+ * @author Twaha Nzeyimana
+ * @date 26 Septemeber 2016
+ * @description Repository for Comment
  */
 
 @RepositoryRestResource(collectionResourceRel = "comment", path ="comment")

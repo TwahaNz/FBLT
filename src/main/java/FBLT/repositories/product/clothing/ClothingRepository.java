@@ -5,7 +5,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * Created by Brandonhome on 2016/09/26.
+ * @author Twaha Nzeyimana
+ * @date 26 Septemeber 2016
+ * @description Repository for Clothing
  */
 
 @RepositoryRestResource(collectionResourceRel = "clothing", path ="clothing")

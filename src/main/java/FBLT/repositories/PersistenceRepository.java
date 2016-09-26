@@ -9,7 +9,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 /**
- * Created by Brandonhome on 2016/09/26.
+ * @author Brandon May
+ * @date 26 Septemeber 2016
+ * @description Repository for PeristenceTest
  */
 
 @RepositoryRestResource(collectionResourceRel = "test-persistence", path ="test-persistence")
