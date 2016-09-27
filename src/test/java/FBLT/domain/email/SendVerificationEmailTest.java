@@ -17,7 +17,7 @@ public class SendVerificationEmailTest {
                 .setEmail("ferintaylor@gmail.com")
                 .setVerificationCode("1234")
                 .setUsername("Ferin")
-                .setId(new Long(1))
+                .setId("1")
                 .build();
 
         SendVerificationEmail sendVerificationEmail = new SendVerificationEmail.Builder()

@@ -27,7 +27,7 @@ public class ProductTest {
 
         Assert.assertNotNull(productTest);
         Assert.assertEquals("Cattle",productTest.getProductDescription());
-        Assert.assertSame((long)1,productTest.getId());
+        Assert.assertSame("1",productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
 
 

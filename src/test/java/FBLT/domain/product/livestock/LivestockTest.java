@@ -30,7 +30,7 @@ public class LivestockTest {
         Assert.assertEquals("Cow",productTest.getProductDescription());
         Assert.assertEquals("4",productTest.getAge());
         Assert.assertEquals("A",productTest.getGrade());
-        Assert.assertSame((long)1,productTest.getId());
+        Assert.assertSame("1",productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("LiveStock",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

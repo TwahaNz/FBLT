@@ -33,7 +33,7 @@ public class BookTest {
         Assert.assertEquals("Snow White",productTest.getTitle());
         Assert.assertEquals("945-2497659111",productTest.getISBN());
         Assert.assertEquals("Fantasy",productTest.getGenre());
-        Assert.assertSame((long)1,productTest.getId());
+        Assert.assertSame("1",productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Book",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
