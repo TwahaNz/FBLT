@@ -7,6 +7,7 @@ import FBLT.domain.product.ProductTest;
 import FBLT.domain.product.book.BookTest;
 import FBLT.domain.product.category.CategoryTest;
 import FBLT.domain.product.category.FindProductCatagoryTest;
+import FBLT.domain.product.electronics.audio.AudioTest;
 import FBLT.domain.product.electronics.cellphone.CellPhoneTest;
 import FBLT.domain.product.clothing.ClothingTest;
 import FBLT.domain.product.electronics.computer.ComputerTest;
@@ -35,6 +36,7 @@ import org.junit.runners.Suite;
         TelevisionTest.class,
         ComputerTest.class,
         LivestockTest.class,
+        AudioTest.class,
         ProductTest.class,
         BookTest.class,
         VehicleTest.class,
