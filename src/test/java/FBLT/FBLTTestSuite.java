@@ -13,6 +13,7 @@ import FBLT.domain.product.clothing.ClothingTest;
 import FBLT.domain.product.electronics.computer.ComputerTest;
 import FBLT.domain.product.electronics.television.TelevisionTest;
 import FBLT.domain.product.livestock.LivestockTest;
+import FBLT.domain.product.shoes.ShoesTest;
 import FBLT.domain.product.vehicle.VehicleTest;
 import FBLT.domain.rank.RankTest;
 import FBLT.domain.register.RegisteredUserVerificationTest;
@@ -37,6 +38,7 @@ import org.junit.runners.Suite;
         ComputerTest.class,
         LivestockTest.class,
         AudioTest.class,
+        ShoesTest.class,
         ProductTest.class,
         BookTest.class,
         VehicleTest.class,
