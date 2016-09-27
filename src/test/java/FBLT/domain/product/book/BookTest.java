@@ -22,6 +22,7 @@ public class BookTest {
         IBook productTest = new Book.Builder()
                 .id("1")
                 .productDescription("Fairy Tale")
+                .productAuthor("Ferin Taylor")
                 .productTitle("Snow White")
                 .productISBN("945-2497659111")
                 .productGenre("Fantasy")
@@ -31,6 +32,7 @@ public class BookTest {
         Assert.assertNotNull(productTest);
         Assert.assertEquals("Fairy Tale",productTest.getProductDescription());
         Assert.assertEquals("Snow White",productTest.getTitle());
+        Assert.assertEquals("Ferin Taylor",productTest.getAuthor());
         Assert.assertEquals("945-2497659111",productTest.getISBN());
         Assert.assertEquals("Fantasy",productTest.getGenre());
         Assert.assertSame("1",productTest.getId());

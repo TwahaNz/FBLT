@@ -16,6 +16,13 @@ public interface IBook extends IProduct {
 
     /**
      *
+     * @return returns a String with Author of the book
+     */
+
+    String getAuthor();
+
+    /**
+     *
      * @return returns a String with book ISBN
      */
 

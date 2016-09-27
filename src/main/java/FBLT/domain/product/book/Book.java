@@ -10,6 +10,7 @@ public class Book implements IBook {
     private String id;
     private Category category;
     private String description;
+    private String author;
     private String title;
     private String isbn;
     private String genre;
@@ -24,6 +25,7 @@ public class Book implements IBook {
         this.id = value.id;
         this.category = value.category;
         this.description = value.description;
+        this.author = value.author;
         this.title = value.title;
         this.isbn = value.isbn;
         this.genre = value.genre;
@@ -49,6 +51,11 @@ public class Book implements IBook {
     }
 
     @Override
+    public String getAuthor() {
+        return author;
+    }
+
+    @Override
     public String getISBN() {
         return isbn;
     }
@@ -63,6 +70,7 @@ public class Book implements IBook {
         private String id;
         private Category category;
         private String description;
+        private String author;
         private String title;
         private String isbn;
         private String genre;
@@ -86,6 +94,11 @@ public class Book implements IBook {
             return this;
         }
 
+        public Book.Builder productAuthor(String value) {
+            this.author = value;
+            return this;
+        }
+
         public Book.Builder productTitle(String value) {
             this.title = value;
             return this;
@@ -105,6 +118,7 @@ public class Book implements IBook {
             this.id = value.id;
             this.category = value.category;
             this.description = value.description;
+            this.author = value.author;
             this.title = value.title;
             this.isbn = value.isbn;
             this.genre = value.genre;
