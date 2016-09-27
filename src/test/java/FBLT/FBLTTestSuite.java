@@ -9,6 +9,8 @@ import FBLT.domain.product.category.CategoryTest;
 import FBLT.domain.product.category.FindProductCatagoryTest;
 import FBLT.domain.product.electronics.cellphone.CellPhoneTest;
 import FBLT.domain.product.clothing.ClothingTest;
+import FBLT.domain.product.electronics.computer.ComputerTest;
+import FBLT.domain.product.electronics.television.TelevisionTest;
 import FBLT.domain.product.livestock.LivestockTest;
 import FBLT.domain.product.vehicle.VehicleTest;
 import FBLT.domain.rank.RankTest;
@@ -30,6 +32,8 @@ import org.junit.runners.Suite;
         CategoryTest.class,
         FindProductCatagoryTest.class,
         CellPhoneTest.class,
+        TelevisionTest.class,
+        ComputerTest.class,
         LivestockTest.class,
         ProductTest.class,
         BookTest.class,
