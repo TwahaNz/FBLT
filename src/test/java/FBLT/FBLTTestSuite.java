@@ -24,6 +24,7 @@ import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
 import FBLT.persistence.MongoDBPersistenceTest;
 import FBLT.repositories.product.BookRepoTest;
 import FBLT.repositories.product.ClothingRepoTest;
+import FBLT.repositories.product.LivestockRepoTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -45,6 +46,7 @@ import org.junit.runners.Suite;
         BookTest.class,
         BookRepoTest.class,
         ClothingRepoTest.class,
+        LivestockRepoTest.class,
         VehicleTest.class,
         ClothingTest.class,
         RegisteredUserVerificationTest.class,

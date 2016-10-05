@@ -35,7 +35,6 @@ public class ClothingRepoTest {
                 .build();
 
         IClothing productTest = new Clothing.Builder()
-                .id("1")
                 .productDescription("Coach Jacket")
                 .productType("Jacket")
                 .productBrand("Sol Sol")
