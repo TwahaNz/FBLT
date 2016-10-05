@@ -16,6 +16,9 @@ public class RegisteredUserVerification {
     private String email;
     private String verificationCode;
 
+    protected RegisteredUserVerification() {
+    }
+
     public RegisteredUserVerification(Builder builder) {
         this.id = builder.id;
         this.username = builder.username;
