@@ -25,6 +25,7 @@ import FBLT.persistence.MongoDBPersistenceTest;
 import FBLT.repositories.product.BookRepoTest;
 import FBLT.repositories.product.ClothingRepoTest;
 import FBLT.repositories.product.LivestockRepoTest;
+import FBLT.utils.geolocation.GeolocationFinderTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -56,7 +57,8 @@ import org.junit.runners.Suite;
         UserTest.class,
         RankTest.class,
         MongoDBPersistenceTest.class,
-        RegisteredUserVerificationFactoryTest.class
+        RegisteredUserVerificationFactoryTest.class,
+        GeolocationFinderTest.class
 })
 
 public class FBLTTestSuite {
