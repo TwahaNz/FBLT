@@ -1,7 +1,9 @@
 package FBLT.domain.advert;
 
+import FBLT.domain.product.IProduct;
 import FBLT.domain.product.Product;
 import FBLT.domain.product.category.Category;
+import FBLT.domain.product.vehicle.Vehicle;
 import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +23,7 @@ public class AdvertTest {
                 .longitude(34.53)
                 .build();
 
-        Product mynewProduct = new Product.Builder()
+        IProduct mynewProduct = new Vehicle.Builder()
                 .category(
                         new Category.Builder()
                                 .categoryName("Kids Toys")

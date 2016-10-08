@@ -16,7 +16,7 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "test-persistence", path ="test-persistence")
 public interface PersistenceRepository extends MongoRepository<PersistenceTestClass, String>{
-    List<PersistenceTestClass> findByName(@Param("name") String name);
+    List<PersistenceTestClass> findBy(@Param("name") String name);
 }
 
 

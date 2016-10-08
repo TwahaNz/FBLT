@@ -1,5 +1,6 @@
 package FBLT.domain.advert;
 
+import FBLT.domain.product.IProduct;
 import FBLT.domain.product.Product;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
@@ -15,7 +16,7 @@ public class Advert implements IAdvert {
     @Id
     private String id;
     private User user;
-    private Product product;
+    private IProduct product;
     private boolean buyOrSell;
     private double price;
     private Location location;
@@ -42,7 +43,7 @@ public class Advert implements IAdvert {
         return user;
     }
 
-    public Product getProduct() {
+    public IProduct getProduct() {
         return product;
     }
 
@@ -62,7 +63,7 @@ public class Advert implements IAdvert {
 
         private String id;
         private User user;
-        private Product product;
+        private IProduct product;
         private boolean buyOrSell;
         private double price;
         private Location location;
@@ -97,7 +98,7 @@ public class Advert implements IAdvert {
             return this;
         }
 
-        public Builder product(Product product) {
+        public Builder product(IProduct product) {
             this.product = product;
             return this;
 

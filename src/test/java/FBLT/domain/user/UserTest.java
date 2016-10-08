@@ -50,6 +50,7 @@ public class UserTest {
         ContactDetails contactDetails = new ContactDetails.Builder()
                 .cellPhoneNumber("0810101966")
                 .emailAddress("example@gmail.com")
+                .telegramHandle("@maybmuzic")
                 .build();
 
         user = new User.Builder()
@@ -58,5 +59,6 @@ public class UserTest {
                 .build();
 
         Assert.assertTrue(user.getContactDetails().getCellPhoneNumber().equalsIgnoreCase("0810101966"));
+        Assert.assertTrue(user.getContactDetails().getTelegramHandle().equals("@maybmuzic"));
     }
 }
