@@ -1,7 +1,5 @@
 package FBLT.repositories.product;
 
-import FBLT.domain.product.book.Book;
-import FBLT.domain.product.book.IBook;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.clothing.Clothing;
@@ -54,7 +52,7 @@ public class ClothingRepoTest {
         //RETRIEVE
         Clothing clothing= mongoOps.findById(productTest.getId(), Clothing.class);
 
-        Assert.assertEquals(TAG, productTest.getProductDescription(),clothing.getProductDescription());
+        Assert.assertEquals(TAG, productTest.getDescription(),clothing.getDescription());
         Assert.assertEquals(TAG, productTest.getBrand(),clothing.getBrand());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),clothing.getCategory().getCategoryName());
 

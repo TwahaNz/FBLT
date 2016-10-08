@@ -84,7 +84,7 @@ public class Clothing implements IClothing {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

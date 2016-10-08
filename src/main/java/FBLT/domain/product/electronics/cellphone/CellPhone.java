@@ -46,7 +46,7 @@ public class CellPhone implements ICellPhone {
         return category;
     }
 
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

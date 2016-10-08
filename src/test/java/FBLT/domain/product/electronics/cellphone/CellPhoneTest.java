@@ -27,7 +27,7 @@ public class CellPhoneTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("2015 model",productTest.getProductDescription());
+        Assert.assertEquals("2015 model",productTest.getDescription());
         Assert.assertEquals("Iphone",productTest.getMake());
         Assert.assertEquals("S6",productTest.getModel());
         Assert.assertEquals("SmartPhone",productTest.getType());

@@ -74,7 +74,7 @@ public class Vehicle implements IVehicle {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

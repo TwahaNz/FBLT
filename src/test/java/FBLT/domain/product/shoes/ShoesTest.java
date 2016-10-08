@@ -2,8 +2,6 @@ package FBLT.domain.product.shoes;
 
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
-import FBLT.domain.product.clothing.Clothing;
-import FBLT.domain.product.clothing.IClothing;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -31,7 +29,7 @@ public class ShoesTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Crocodile",productTest.getProductDescription());
+        Assert.assertEquals("Crocodile",productTest.getDescription());
         Assert.assertEquals("Sandles",productTest.getShoeType());
         Assert.assertEquals("Crocs",productTest.getBrand());
         Assert.assertEquals("7",productTest.getSize());

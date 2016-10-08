@@ -2,8 +2,6 @@ package FBLT.domain.product.electronics.audio;
 
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
-import FBLT.domain.product.electronics.television.ITelevision;
-import FBLT.domain.product.electronics.television.Television;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +30,7 @@ public class AudioTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("2015 model",productTest.getProductDescription());
+        Assert.assertEquals("2015 model",productTest.getDescription());
         Assert.assertEquals("Apple",productTest.getMake());
         Assert.assertEquals("Beats",productTest.getModel());
         Assert.assertEquals("headphones",productTest.getType());

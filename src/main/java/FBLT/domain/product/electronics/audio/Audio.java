@@ -68,7 +68,7 @@ public class Audio implements IAudio {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

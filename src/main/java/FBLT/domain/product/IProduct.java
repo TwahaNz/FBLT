@@ -26,7 +26,7 @@ public interface IProduct {
      *
      * @return returns a String describing the product
      */
-    String getProductDescription();
+    String getDescription();
 
 
 }

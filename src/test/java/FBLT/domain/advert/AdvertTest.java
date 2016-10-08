@@ -42,7 +42,7 @@ public class AdvertTest {
         Assert.assertNotNull(myTestAdvert);
         Assert.assertEquals("Cape Town", myTestAdvert.getLocation().getCity());
         Assert.assertEquals("Rondebosch", myTestAdvert.getLocation().getSuburb());
-        Assert.assertEquals("Barbie Doll",myTestAdvert.getProduct().getProductDescription());
+        Assert.assertEquals("Barbie Doll",myTestAdvert.getProduct().getDescription());
         Assert.assertEquals(false,myTestAdvert.isBuyOrSell());
 
 

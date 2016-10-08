@@ -31,7 +31,7 @@ public class VehicleTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Sports Car",productTest.getProductDescription());
+        Assert.assertEquals("Sports Car",productTest.getDescription());
         Assert.assertEquals("Car",productTest.getVehicletype());
         Assert.assertEquals("BMW",productTest.getMake());
         Assert.assertEquals("M3",productTest.getModel());

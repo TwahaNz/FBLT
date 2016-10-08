@@ -30,7 +30,7 @@ public class BookTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Fairy Tale",productTest.getProductDescription());
+        Assert.assertEquals("Fairy Tale",productTest.getDescription());
         Assert.assertEquals("Snow White",productTest.getTitle());
         Assert.assertEquals("Ferin Taylor",productTest.getAuthor());
         Assert.assertEquals("945-2497659111",productTest.getISBN());

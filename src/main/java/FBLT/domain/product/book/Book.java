@@ -41,7 +41,7 @@ public class Book implements IBook {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

@@ -29,7 +29,7 @@ public class TelevisionTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("2015 model",productTest.getProductDescription());
+        Assert.assertEquals("2015 model",productTest.getDescription());
         Assert.assertEquals("Samsung",productTest.getMake());
         Assert.assertEquals("UA40J5200AKXXA",productTest.getModel());
         Assert.assertEquals("Smart Led Tv",productTest.getType());

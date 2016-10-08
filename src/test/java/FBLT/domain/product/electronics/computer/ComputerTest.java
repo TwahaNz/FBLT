@@ -29,7 +29,7 @@ public class ComputerTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("2015 model",productTest.getProductDescription());
+        Assert.assertEquals("2015 model",productTest.getDescription());
         Assert.assertEquals("Apple",productTest.getMake());
         Assert.assertEquals("Mac Book pro",productTest.getModel());
         Assert.assertEquals("Laptop",productTest.getType());

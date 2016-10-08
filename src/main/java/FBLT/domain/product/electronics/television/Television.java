@@ -61,7 +61,7 @@ public class Television implements ITelevision {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

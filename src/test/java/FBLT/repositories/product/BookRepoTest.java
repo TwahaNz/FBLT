@@ -50,7 +50,7 @@ public class BookRepoTest {
         //RETRIEVE
         Book book= mongoOps.findById(productTest.getId(), Book.class);
 
-        Assert.assertEquals(TAG, productTest.getProductDescription(),book.getProductDescription());
+        Assert.assertEquals(TAG, productTest.getDescription(),book.getDescription());
         Assert.assertEquals(TAG, productTest.getAuthor(),book.getAuthor());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),book.getCategory().getCategoryName());
 

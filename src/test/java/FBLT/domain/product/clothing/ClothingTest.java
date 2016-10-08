@@ -32,7 +32,7 @@ public class ClothingTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Coach Jacket",productTest.getProductDescription());
+        Assert.assertEquals("Coach Jacket",productTest.getDescription());
         Assert.assertEquals("Jacket",productTest.getClothingType());
         Assert.assertEquals("Sol Sol",productTest.getBrand());
         Assert.assertEquals("male",productTest.getGender());

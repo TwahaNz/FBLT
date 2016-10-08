@@ -35,7 +35,7 @@ public class Livestock implements ILivestock {
         return category;
     }
 
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

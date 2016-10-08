@@ -95,7 +95,7 @@ public class InterestedEmail implements Email {
             message.setText("Hello " + advert.getUser().getName() + ", Great news.. \n" +
                     name + " is interested in your advert:\n" +
                     "Category: "  + advert.getProduct().getCategory().getCategoryName() +
-                    "\nDescription: " + advert.getProduct().getProductDescription() +
+                    "\nDescription: " + advert.getProduct().getDescription() +
                     "\nPrice: R" + advert.getPrice() + "\n" +
                     "Please contact them on: \n" +
                     "Cellphone number: " + contactDetails.getCellPhoneNumber() +

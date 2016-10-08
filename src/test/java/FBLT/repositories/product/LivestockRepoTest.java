@@ -2,8 +2,6 @@ package FBLT.repositories.product;
 
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
-import FBLT.domain.product.clothing.Clothing;
-import FBLT.domain.product.clothing.IClothing;
 import FBLT.domain.product.livestock.ILivestock;
 import FBLT.domain.product.livestock.Livestock;
 import com.mongodb.Mongo;
@@ -49,7 +47,7 @@ public class LivestockRepoTest {
         //RETRIEVE
         Livestock livestock= mongoOps.findById(productTest.getId(), Livestock.class);
 
-        Assert.assertEquals(TAG, productTest.getProductDescription(),livestock.getProductDescription());
+        Assert.assertEquals(TAG, productTest.getDescription(),livestock.getDescription());
         Assert.assertEquals(TAG, productTest.getAge(),livestock.getAge());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),livestock.getCategory().getCategoryName());
 

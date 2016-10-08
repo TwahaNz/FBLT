@@ -60,7 +60,7 @@ public class Shoes implements IShoes {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

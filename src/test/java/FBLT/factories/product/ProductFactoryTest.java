@@ -27,7 +27,7 @@ public class ProductFactoryTest {
         Assert.assertNotNull(product.getCategory());
         Assert.assertEquals("Short Description",product.getCategory().getCategoryDescription());
         Assert.assertEquals("Kids Toys",product.getCategory().getCategoryName());
-        Assert.assertEquals("Cattle",product.getProductDescription());
+        Assert.assertEquals("Cattle",product.getDescription());
 
 
     }

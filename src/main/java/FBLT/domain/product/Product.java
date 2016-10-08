@@ -32,7 +32,7 @@ public class Product implements IProduct {
     }
 
 
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 

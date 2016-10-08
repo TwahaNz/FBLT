@@ -60,7 +60,7 @@ public class Computer implements IComputer {
     }
 
     @Override
-    public String getProductDescription() {
+    public String getDescription() {
         return description;
     }
 
