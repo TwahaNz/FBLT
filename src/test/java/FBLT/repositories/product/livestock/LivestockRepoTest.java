@@ -1,4 +1,4 @@
-package FBLT.repositories.product;
+package FBLT.repositories.product.livestock;
 
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
