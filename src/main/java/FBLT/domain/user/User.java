@@ -7,9 +7,7 @@ import FBLT.utils.genericvalueobjects.Location;
 
 
 /**
- *
  * This class deals with the user who refers to both the buyer and seller
- *
  */
 
 public class User {
@@ -19,10 +17,10 @@ public class User {
     private String name;
     private Location location;
     private int rating;
-
     private String ranking;
 
-    protected User(){}
+    protected User() {
+    }
 
     private User(Builder builder) {
         this.id = builder.id;
@@ -34,7 +32,7 @@ public class User {
     }
 
     /* returns ranking based on user average rating */
-    public String rank(){
+    public String rank() {
         return RankFactory.getRanking(rating);
     }
 
@@ -59,7 +57,7 @@ public class User {
 
     }
 
-    public static class Builder{
+    public static class Builder {
         private String id;
         private ContactDetails contactDetails;
         private String name;
@@ -67,37 +65,37 @@ public class User {
         private String ranking;
         private int rating;
 
-        public Builder id(String userId){
+        public Builder id(String userId) {
             this.id = userId;
             return this;
         }
 
-        public Builder contactDetails(ContactDetails contactDetails){
+        public Builder contactDetails(ContactDetails contactDetails) {
             this.contactDetails = contactDetails;
-            return  this;
+            return this;
         }
 
-        public Builder name(String name){
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder location(Location location){
+        public Builder location(Location location) {
             this.location = location;
-            return  this;
+            return this;
         }
 
-        public Builder ranking(String ranking){
+        public Builder ranking(String ranking) {
             this.ranking = ranking;
             return this;
         }
 
-        public Builder rating(int rating){
+        public Builder rating(int rating) {
             this.rating = rating;
             return this;
         }
 
-        public Builder copy(User user){
+        public Builder copy(User user) {
             this.id = user.id;
             this.contactDetails = user.contactDetails;
             this.name = user.name;
@@ -105,10 +103,10 @@ public class User {
             this.rating = user.rating;
             this.ranking = user.ranking;
 
-            return  this;
+            return this;
         }
 
-        public User build(){
+        public User build() {
             return new User(this);
         }
 

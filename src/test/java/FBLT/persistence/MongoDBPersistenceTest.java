@@ -1,10 +1,8 @@
 package FBLT.persistence;
 
-import FBLT.domain.PersistenceTestClass;
 import FBLT.domain.advert.Advert;
 import FBLT.domain.product.Product;
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.electronics.cellphone.CellPhone;
 import FBLT.utils.genericvalueobjects.Location;
 import com.google.gson.Gson;
 import com.mongodb.Mongo;
