@@ -18,8 +18,12 @@ import FBLT.domain.user.UserTest;
 import FBLT.factories.product.ProductFactoryTest;
 import FBLT.factories.product.category.CategoryFactoryTest;
 import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
+import FBLT.repositories.product.ProductRepoTest;
 import FBLT.repositories.product.book.BookRepoTest;
 import FBLT.repositories.product.clothing.ClothingRepoTest;
+import FBLT.repositories.product.electronics.cellphone.CellPhoneRepoTest;
+import FBLT.repositories.product.electronics.computer.ComputerRepoTest;
+import FBLT.repositories.product.electronics.television.TelevisionRepoTest;
 import FBLT.repositories.product.livestock.LivestockRepoTest;
 import FBLT.repositories.product.shoes.ShoesRepoTest;
 import FBLT.repositories.product.vehicle.VehicleRepoTest;
@@ -48,6 +52,10 @@ import org.junit.runners.Suite;
         LivestockRepoTest.class,
         VehicleRepoTest.class,
         ShoesRepoTest.class,
+        ProductRepoTest.class,
+        CellPhoneRepoTest.class,
+        ComputerRepoTest.class,
+        TelevisionRepoTest.class,
         VehicleTest.class,
         ClothingTest.class,
         RegisteredUserVerificationTest.class,

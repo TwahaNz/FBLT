@@ -1,4 +1,4 @@
-package FBLT.repositories.product.electronics;
+package FBLT.repositories.product.electronics.television;
 
 import FBLT.domain.product.electronics.television.Television;
 import org.springframework.data.mongodb.repository.MongoRepository;
