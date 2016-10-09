@@ -6,31 +6,24 @@ package FBLT.domain.rating;
 public class Comment {
 
     private String id;
-    private String ratingID;
     private String comment;
 
-    protected Comment(){
+    protected Comment() {
 
     }
 
     private Comment(Builder builder) {
         this.id = builder.id;
         this.comment = builder.comment;
-        this.ratingID=builder.ratingID;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getRatingID() {
-        return ratingID;
-    }
-
     public String getComment() {
         return comment;
     }
-
 
     public static class Builder {
         private String id;
@@ -58,7 +51,6 @@ public class Comment {
 
         public Builder copy(Comment comment) {
             this.id = comment.id;
-            this.ratingID = comment.ratingID;
             this.comment = comment.comment;
             return this;
 
@@ -69,7 +61,6 @@ public class Comment {
         }
 
     }
-
 
 
 }

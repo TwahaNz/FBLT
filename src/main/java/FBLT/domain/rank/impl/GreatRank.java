@@ -5,14 +5,13 @@ import FBLT.domain.rank.Rank;
 /**
  * Top ranking
  */
-public class GreatRank extends Rank{
+public class GreatRank extends Rank {
 
     public String handleRequest(int averageRating) {
-        if(averageRating == 5){
+        if (averageRating == 5) {
             return "Great";
-        }
-        else{
-            if(nextRank != null){
+        } else {
+            if (nextRank != null) {
                 return nextRank.handleRequest(averageRating);
             }
         }

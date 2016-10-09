@@ -8,11 +8,10 @@ import FBLT.domain.rank.Rank;
 public class PoorRank extends Rank {
 
     public String handleRequest(int averageRating) {
-        if(averageRating >=1 && averageRating <=2){
+        if (averageRating >= 1 && averageRating <= 2) {
             return "Not so good";
-        }
-        else{
-            if(nextRank != null){
+        } else {
+            if (nextRank != null) {
                 return nextRank.handleRequest(averageRating);
             }
         }
