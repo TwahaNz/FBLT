@@ -5,6 +5,7 @@ import FBLT.domain.product.book.IBook;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 
+import FBLT.repositories.product.books.BookRepository;
 import com.mongodb.Mongo;
 import org.junit.Assert;
 import org.junit.Test;
