@@ -24,7 +24,7 @@ public class TelevisionTest {
                 .productMake("Samsung")
                 .productModel("UA40J5200AKXXA")
                 .productType("Smart Led Tv")
-                .productSize("40")
+                .productSize("40-inch")
                 .category((Category) category)
                 .build();
 
@@ -33,7 +33,7 @@ public class TelevisionTest {
         Assert.assertEquals("Samsung",productTest.getMake());
         Assert.assertEquals("UA40J5200AKXXA",productTest.getModel());
         Assert.assertEquals("Smart Led Tv",productTest.getType());
-        Assert.assertEquals("40",productTest.getSize());
+        Assert.assertEquals("40-inch",productTest.getSize());
         Assert.assertSame("1",productTest.getId());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Television",productTest.getCategory().getCategoryName());

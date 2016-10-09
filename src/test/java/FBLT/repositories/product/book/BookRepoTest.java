@@ -1,4 +1,4 @@
-package FBLT.repositories.product;
+package FBLT.repositories.product.book;
 
 import FBLT.domain.product.book.Book;
 import FBLT.domain.product.book.IBook;

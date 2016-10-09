@@ -18,10 +18,15 @@ import FBLT.domain.user.UserTest;
 import FBLT.factories.product.ProductFactoryTest;
 import FBLT.factories.product.category.CategoryFactoryTest;
 import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
-import FBLT.persistence.MongoDBPersistenceTest;
-import FBLT.repositories.product.BookRepoTest;
-import FBLT.repositories.product.ClothingRepoTest;
-import FBLT.repositories.product.LivestockRepoTest;
+import FBLT.repositories.product.ProductRepoTest;
+import FBLT.repositories.product.book.BookRepoTest;
+import FBLT.repositories.product.clothing.ClothingRepoTest;
+import FBLT.repositories.product.electronics.cellphone.CellPhoneRepoTest;
+import FBLT.repositories.product.electronics.computer.ComputerRepoTest;
+import FBLT.repositories.product.electronics.television.TelevisionRepoTest;
+import FBLT.repositories.product.livestock.LivestockRepoTest;
+import FBLT.repositories.product.shoes.ShoesRepoTest;
+import FBLT.repositories.product.vehicle.VehicleRepoTest;
 import FBLT.utils.geolocation.GeolocationFinderTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -45,6 +50,12 @@ import org.junit.runners.Suite;
         BookRepoTest.class,
         ClothingRepoTest.class,
         LivestockRepoTest.class,
+        VehicleRepoTest.class,
+        ShoesRepoTest.class,
+        ProductRepoTest.class,
+        CellPhoneRepoTest.class,
+        ComputerRepoTest.class,
+        TelevisionRepoTest.class,
         VehicleTest.class,
         ClothingTest.class,
         RegisteredUserVerificationTest.class,
@@ -53,7 +64,6 @@ import org.junit.runners.Suite;
         RegisteredUserVerificationFactoryTest.class,
         UserTest.class,
         RankTest.class,
-        MongoDBPersistenceTest.class,
         RegisteredUserVerificationFactoryTest.class,
         GeolocationFinderTest.class
 })
