@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  * Created by kraluk01 on 9/27/2016.
  */
 public class Audio implements IAudio {
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String make;
@@ -21,7 +21,7 @@ public class Audio implements IAudio {
 
     protected Audio(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.make = value.make;
@@ -57,9 +57,8 @@ public class Audio implements IAudio {
         return model;
     }
 
-    @Override
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -74,7 +73,7 @@ public class Audio implements IAudio {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String make;
@@ -90,7 +89,7 @@ public class Audio implements IAudio {
         }
 
         public Audio.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -129,7 +128,7 @@ public class Audio implements IAudio {
         }
 
         public Audio.Builder copy(Audio value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.make = value.make;

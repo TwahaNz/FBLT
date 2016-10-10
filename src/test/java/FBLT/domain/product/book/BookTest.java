@@ -35,7 +35,7 @@ public class BookTest {
         Assert.assertEquals("Ferin Taylor",productTest.getAuthor());
         Assert.assertEquals("945-2497659111",productTest.getISBN());
         Assert.assertEquals("Fantasy",productTest.getGenre());
-        Assert.assertSame("1",productTest.getId());
+        Assert.assertSame("1",productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Book",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

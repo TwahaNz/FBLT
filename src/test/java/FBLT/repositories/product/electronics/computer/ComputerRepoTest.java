@@ -44,10 +44,10 @@ public class ComputerRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Computer computer= mongoOps.findById(productTest.getId(), Computer.class);
+        Computer computer= mongoOps.findById(productTest.get_id(), Computer.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),computer.getDescription());
         Assert.assertEquals(TAG, productTest.getMake(),computer.getMake());
@@ -55,9 +55,9 @@ public class ComputerRepoTest {
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),computer.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("type", "Desktop"), Computer.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("type", "Desktop"), Computer.class);
 
-        computer = mongoOps.findById(productTest.getId(), Computer.class);
+        computer = mongoOps.findById(productTest.get_id(), Computer.class);
 
         Assert.assertEquals(TAG, "Desktop", computer.getType());
 

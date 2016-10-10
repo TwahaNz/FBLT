@@ -34,7 +34,7 @@ public class TelevisionTest {
         Assert.assertEquals("UA40J5200AKXXA",productTest.getModel());
         Assert.assertEquals("Smart Led Tv",productTest.getType());
         Assert.assertEquals("40-inch",productTest.getSize());
-        Assert.assertSame("1",productTest.getId());
+        Assert.assertSame("1",productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Television",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

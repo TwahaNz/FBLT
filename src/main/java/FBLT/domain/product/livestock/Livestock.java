@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Livestock implements ILivestock {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String age;
@@ -19,7 +19,7 @@ public class Livestock implements ILivestock {
 
     private Livestock(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.age = value.age;
@@ -27,8 +27,8 @@ public class Livestock implements ILivestock {
 
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     public Category getCategory() {
@@ -49,7 +49,7 @@ public class Livestock implements ILivestock {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String age;
@@ -60,7 +60,7 @@ public class Livestock implements ILivestock {
         }
 
         public Livestock.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -85,7 +85,7 @@ public class Livestock implements ILivestock {
         }
 
         public Livestock.Builder copy(Livestock value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.age = value.age;

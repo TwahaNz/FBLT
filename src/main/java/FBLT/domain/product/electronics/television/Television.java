@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Television implements ITelevision {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String make;
@@ -20,7 +20,7 @@ public class Television implements ITelevision {
 
      protected Television(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.make = value.make;
@@ -50,9 +50,8 @@ public class Television implements ITelevision {
         return model;
     }
 
-    @Override
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -67,7 +66,7 @@ public class Television implements ITelevision {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String make;
@@ -81,7 +80,7 @@ public class Television implements ITelevision {
         }
 
         public Television.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -115,7 +114,7 @@ public class Television implements ITelevision {
         }
 
         public Television.Builder copy(Television value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.make = value.make;

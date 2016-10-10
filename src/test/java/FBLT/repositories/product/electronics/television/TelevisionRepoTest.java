@@ -4,8 +4,6 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.electronics.television.ITelevision;
 import FBLT.domain.product.electronics.television.Television;
-import FBLT.domain.product.vehicle.IVehicle;
-import FBLT.domain.product.vehicle.Vehicle;
 import com.mongodb.Mongo;
 import org.junit.Assert;
 import org.junit.Test;
@@ -46,10 +44,10 @@ public class TelevisionRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Television television= mongoOps.findById(productTest.getId(), Television.class);
+        Television television= mongoOps.findById(productTest.get_id(), Television.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),television.getDescription());
         Assert.assertEquals(TAG, productTest.getMake(),television.getMake());
@@ -57,9 +55,9 @@ public class TelevisionRepoTest {
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),television.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("size", "70-inch"), Television.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("size", "70-inch"), Television.class);
 
-        television = mongoOps.findById(productTest.getId(), Television.class);
+        television = mongoOps.findById(productTest.get_id(), Television.class);
 
         Assert.assertEquals(TAG, "70-inch", television.getSize());
 

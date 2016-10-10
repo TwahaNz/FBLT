@@ -46,19 +46,19 @@ public class BookRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Book book= mongoOps.findById(productTest.getId(), Book.class);
+        Book book= mongoOps.findById(productTest.get_id(), Book.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),book.getDescription());
         Assert.assertEquals(TAG, productTest.getAuthor(),book.getAuthor());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),book.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("title", "Harry Potter"), Book.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("title", "Harry Potter"), Book.class);
 
-        book = mongoOps.findById(productTest.getId(), Book.class);
+        book = mongoOps.findById(productTest.get_id(), Book.class);
 
         Assert.assertEquals(TAG, "Harry Potter", book.getTitle());
 

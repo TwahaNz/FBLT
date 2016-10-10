@@ -1,9 +1,20 @@
 package FBLT.domain.advert;
 
 import FBLT.domain.product.IProduct;
-import FBLT.domain.product.Product;
+import FBLT.domain.product.book.Book;
+import FBLT.domain.product.clothing.Clothing;
+import FBLT.domain.product.electronics.audio.Audio;
+import FBLT.domain.product.electronics.cellphone.CellPhone;
+import FBLT.domain.product.electronics.computer.Computer;
+import FBLT.domain.product.electronics.television.Television;
+import FBLT.domain.product.livestock.Livestock;
+import FBLT.domain.product.shoes.Shoes;
+import FBLT.domain.product.vehicle.Vehicle;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.Id;
 
@@ -13,9 +24,27 @@ import javax.persistence.Id;
 
 public class Advert implements IAdvert {
 
+
     @Id
     private String id;
     private User user;
+    @JsonTypeInfo(
+            use = JsonTypeInfo.Id.NAME,
+            include = JsonTypeInfo.As.PROPERTY,
+            property = "_class")
+    @JsonSubTypes({
+            @JsonSubTypes.Type(name = "FBLT.domain.product.clothing.Clothing", value = Clothing.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.book.Book", value = Book.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.electronics.audio.Audio", value = Audio.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.electronics.cellphone.CellPhone", value = CellPhone.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.electronics.computer.Computer", value = Computer.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.electronics.television.Television", value = Television.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.livestock.Livestock", value = Livestock.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.shoes.Shoes", value = Shoes.class),
+            @JsonSubTypes.Type(name = "FBLT.domain.product.vehicle.Vehicle", value = Vehicle.class)
+
+    })
+    @JsonTypeId
     private IProduct product;
     private boolean buyOrSell;
     private double price;
@@ -32,8 +61,6 @@ public class Advert implements IAdvert {
         this.price = builder.price;
         this.location = builder.location;
     }
-
-
 
     public String getId() {
         return id;

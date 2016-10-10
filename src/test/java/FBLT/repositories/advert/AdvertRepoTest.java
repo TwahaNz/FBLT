@@ -6,6 +6,8 @@ import FBLT.domain.product.book.Book;
 import FBLT.domain.product.book.IBook;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
+import FBLT.domain.product.clothing.Clothing;
+import FBLT.domain.product.clothing.IClothing;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
@@ -29,7 +31,7 @@ public class AdvertRepoTest {
     public void testCRUD() {
 
         MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
+                new Mongo(), "FBLT");
         Location newLocation = new Location.Builder()
                 .city("Cape Town")
                 .suburb("Rondebosch")
@@ -37,15 +39,22 @@ public class AdvertRepoTest {
                 .longitude(34.53)
                 .build();
 
-        Product mynewProduct = new Product.Builder()
-                .category(
-                        new Category.Builder()
-                                .categoryName("Kids Toys")
-                                .categoryDescription("things for kids")
-                                .build())
-                .productDescription("Barbie Doll")
-                .build();
 
+        IClothing productTest = new Clothing.Builder()
+                .id("1")
+                .productDescription("Coach Jacket")
+                .productType("Jacket")
+                .productBrand("Sol Sol")
+                .productGender("male")
+                .productAgeGroup("Adult")
+                .productSize("medium")
+                .productColor("blue")
+                .productMaterial("nylon")
+                .category(new Category.Builder()
+                        .categoryName("Clothing")
+                        .categoryDescription("Jacket")
+                        .build())
+                .build();
 
         User myUser = new User.Builder()
                 .contactDetails(new ContactDetails.Builder()
@@ -67,7 +76,7 @@ public class AdvertRepoTest {
                 .user(myUser)
                 .buyOrSell(false)
                 .price(789.44)
-                .product(mynewProduct)
+                .product(productTest)
                 .location(newLocation)
                 .build();
 
@@ -80,7 +89,7 @@ public class AdvertRepoTest {
         //RETRIEVE
         Advert advert = mongoOps.findById(myTestAdvert.getId(), Advert.class);
 
-        Assert.assertEquals(TAG, advert.getProduct().getCategory().getCategoryDescription(), mynewProduct.getCategory().getCategoryDescription());
+        Assert.assertEquals(TAG, advert.getProduct().getCategory().getCategoryDescription(), productTest.getCategory().getCategoryDescription());
         Assert.assertEquals(TAG, advert.getUser().getContactDetails().getTelegramHandle(), myUser.getContactDetails().getTelegramHandle());
 
         //UPDATE
@@ -89,7 +98,7 @@ public class AdvertRepoTest {
         Assert.assertEquals(789, advert.getPrice(), 1);
 
         //DELETE
-        mongoOps.remove(advert);
+        //mongoOps.remove(advert);
 
 
     }

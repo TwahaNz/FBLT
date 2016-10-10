@@ -34,7 +34,7 @@ public class ComputerTest {
         Assert.assertEquals("Mac Book pro",productTest.getModel());
         Assert.assertEquals("Laptop",productTest.getType());
         Assert.assertEquals("15",productTest.getSize());
-        Assert.assertSame("1",productTest.getId());
+        Assert.assertSame("1",productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Computer",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

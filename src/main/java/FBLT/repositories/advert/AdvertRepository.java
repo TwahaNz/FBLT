@@ -17,6 +17,7 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "advert", path ="advert")
 public interface AdvertRepository extends MongoRepository<Advert, String> {
 
+
     /**
      *
      * @param username The users first name

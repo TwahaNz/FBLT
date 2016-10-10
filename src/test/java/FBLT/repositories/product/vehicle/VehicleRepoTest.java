@@ -46,10 +46,10 @@ public class VehicleRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Vehicle vehicle= mongoOps.findById(productTest.getId(), Vehicle.class);
+        Vehicle vehicle= mongoOps.findById(productTest.get_id(), Vehicle.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),vehicle.getDescription());
         Assert.assertEquals(TAG, productTest.getMake(),vehicle.getMake());
@@ -57,9 +57,9 @@ public class VehicleRepoTest {
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),vehicle.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("model", "M5"), Vehicle.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("model", "M5"), Vehicle.class);
 
-        vehicle = mongoOps.findById(productTest.getId(), Vehicle.class);
+        vehicle = mongoOps.findById(productTest.get_id(), Vehicle.class);
 
         Assert.assertEquals(TAG, "M5", vehicle.getModel());
 

@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Book implements IBook {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String author;
@@ -22,7 +22,7 @@ public class Book implements IBook {
 
     private Book(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.author = value.author;
@@ -31,8 +31,8 @@ public class Book implements IBook {
         this.genre = value.genre;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Book implements IBook {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String author;
@@ -80,7 +80,7 @@ public class Book implements IBook {
         }
 
         public Book.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -115,7 +115,7 @@ public class Book implements IBook {
         }
 
         public Book.Builder copy(Book value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.author = value.author;

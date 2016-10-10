@@ -34,7 +34,7 @@ public class ShoesTest {
         Assert.assertEquals("Crocs",productTest.getBrand());
         Assert.assertEquals("7",productTest.getSize());
         Assert.assertEquals("blue",productTest.getColor());
-        Assert.assertSame("1",productTest.getId());
+        Assert.assertSame("1",productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Shoes",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

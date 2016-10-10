@@ -40,19 +40,19 @@ public class ProductRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Product product= mongoOps.findById(productTest.getId(), Product.class);
+        Product product= mongoOps.findById(productTest.get_id(), Product.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),product.getDescription());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryDescription(),product.getCategory().getCategoryDescription());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),product.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("description", "scooter"), Product.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("description", "scooter"), Product.class);
 
-        product = mongoOps.findById(productTest.getId(), Product.class);
+        product = mongoOps.findById(productTest.get_id(), Product.class);
 
         Assert.assertEquals(TAG, "scooter", product.getDescription());
 

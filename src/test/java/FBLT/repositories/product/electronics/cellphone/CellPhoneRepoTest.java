@@ -43,10 +43,10 @@ public class CellPhoneRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        CellPhone cellPhone= mongoOps.findById(productTest.getId(), CellPhone.class);
+        CellPhone cellPhone= mongoOps.findById(productTest.get_id(), CellPhone.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),cellPhone.getDescription());
         Assert.assertEquals(TAG, productTest.getMake(),cellPhone.getMake());
@@ -54,9 +54,9 @@ public class CellPhoneRepoTest {
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),cellPhone.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("model", "IPad6"), CellPhone.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("model", "IPad6"), CellPhone.class);
 
-        cellPhone = mongoOps.findById(productTest.getId(), CellPhone.class);
+        cellPhone = mongoOps.findById(productTest.get_id(), CellPhone.class);
 
         Assert.assertEquals(TAG, "IPad6", cellPhone.getModel());
 

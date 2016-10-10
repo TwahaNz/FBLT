@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Vehicle implements IVehicle {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String type;
@@ -22,7 +22,7 @@ public class Vehicle implements IVehicle {
 
     private Vehicle(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.type = value.type;
@@ -64,8 +64,8 @@ public class Vehicle implements IVehicle {
         return transmission;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Vehicle implements IVehicle {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String type;
@@ -97,7 +97,7 @@ public class Vehicle implements IVehicle {
         }
 
         public Vehicle.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -142,7 +142,7 @@ public class Vehicle implements IVehicle {
         }
 
         public Vehicle.Builder copy(Vehicle value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.type = value.type;

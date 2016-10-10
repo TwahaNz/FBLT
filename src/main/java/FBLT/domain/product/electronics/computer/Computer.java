@@ -6,7 +6,7 @@ import FBLT.domain.product.category.Category;
  * Created by kraluk01 on 9/27/2016.
  */
 public class Computer implements IComputer {
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String make;
@@ -19,7 +19,7 @@ public class Computer implements IComputer {
 
     protected Computer(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.make = value.make;
@@ -49,9 +49,8 @@ public class Computer implements IComputer {
         return model;
     }
 
-    @Override
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -66,7 +65,7 @@ public class Computer implements IComputer {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String make;
@@ -80,7 +79,7 @@ public class Computer implements IComputer {
         }
 
         public Computer.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -114,7 +113,7 @@ public class Computer implements IComputer {
         }
 
         public Computer.Builder copy(Computer value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.make = value.make;

@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class CellPhone implements ICellPhone {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String make;
@@ -21,7 +21,7 @@ public class CellPhone implements ICellPhone {
 
     private CellPhone(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.make = value.make;
@@ -38,8 +38,8 @@ public class CellPhone implements ICellPhone {
         return model;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     public Category getCategory() {
@@ -57,7 +57,7 @@ public class CellPhone implements ICellPhone {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String make;
@@ -70,7 +70,7 @@ public class CellPhone implements ICellPhone {
         }
 
         public CellPhone.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -99,7 +99,7 @@ public class CellPhone implements ICellPhone {
         }
 
         public CellPhone.Builder copy(CellPhone value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.make = value.make;

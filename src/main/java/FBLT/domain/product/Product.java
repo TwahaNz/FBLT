@@ -23,7 +23,7 @@ public class Product implements IProduct {
     }
 
 
-    public String getId() {
+    public String get_id() {
         return id;
     }
 

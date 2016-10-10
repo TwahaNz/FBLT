@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Shoes implements IShoes {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String type;
@@ -19,7 +19,7 @@ public class Shoes implements IShoes {
 
     private Shoes(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.type = value.type;
@@ -49,9 +49,8 @@ public class Shoes implements IShoes {
         return color;
     }
 
-    @Override
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -66,7 +65,7 @@ public class Shoes implements IShoes {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String type;
@@ -80,7 +79,7 @@ public class Shoes implements IShoes {
         }
 
         public Shoes.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -117,7 +116,7 @@ public class Shoes implements IShoes {
 
 
         public Shoes.Builder copy(Shoes value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.type = value.type;

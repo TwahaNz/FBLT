@@ -7,7 +7,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Clothing implements IClothing {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
     private String type;
@@ -24,7 +24,7 @@ public class Clothing implements IClothing {
 
     private Clothing(Builder value){
 
-        this.id = value.id;
+        this._id = value._id;
         this.category = value.category;
         this.description = value.description;
         this.type = value.type;
@@ -74,8 +74,8 @@ public class Clothing implements IClothing {
         return material;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class Clothing implements IClothing {
 
     public static class Builder {
 
-        private String id;
+        private String _id;
         private Category category;
         private String description;
         private String type;
@@ -106,7 +106,7 @@ public class Clothing implements IClothing {
         }
 
         public Clothing.Builder id(String value) {
-            this.id = value;
+            this._id = value;
             return this;
         }
 
@@ -156,7 +156,7 @@ public class Clothing implements IClothing {
         }
 
         public Clothing.Builder copy(Clothing value) {
-            this.id = value.id;
+            this._id = value._id;
             this.category = value.category;
             this.description = value.description;
             this.type = value.type;

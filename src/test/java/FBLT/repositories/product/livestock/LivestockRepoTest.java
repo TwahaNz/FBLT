@@ -42,19 +42,19 @@ public class LivestockRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Livestock livestock= mongoOps.findById(productTest.getId(), Livestock.class);
+        Livestock livestock= mongoOps.findById(productTest.get_id(), Livestock.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),livestock.getDescription());
         Assert.assertEquals(TAG, productTest.getAge(),livestock.getAge());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),livestock.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("grade", "B"), Livestock.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("grade", "B"), Livestock.class);
 
-        livestock = mongoOps.findById(productTest.getId(), Livestock.class);
+        livestock = mongoOps.findById(productTest.get_id(), Livestock.class);
 
         Assert.assertEquals(TAG, "B", livestock.getGrade());
 

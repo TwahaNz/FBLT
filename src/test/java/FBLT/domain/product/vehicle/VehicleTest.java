@@ -38,7 +38,7 @@ public class VehicleTest {
         Assert.assertEquals("2016",productTest.getYear());
         Assert.assertEquals("Petrol",productTest.getFuelType());
         Assert.assertEquals("Manual",productTest.getTransmissionType());
-        Assert.assertSame("1",productTest.getId());
+        Assert.assertSame("1",productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Vehicle",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

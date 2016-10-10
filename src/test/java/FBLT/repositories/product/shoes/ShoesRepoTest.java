@@ -4,8 +4,6 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.shoes.IShoes;
 import FBLT.domain.product.shoes.Shoes;
-import FBLT.domain.product.vehicle.IVehicle;
-import FBLT.domain.product.vehicle.Vehicle;
 import com.mongodb.Mongo;
 import org.junit.Assert;
 import org.junit.Test;
@@ -46,10 +44,10 @@ public class ShoesRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Shoes shoes= mongoOps.findById(productTest.getId(), Shoes.class);
+        Shoes shoes= mongoOps.findById(productTest.get_id(), Shoes.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),shoes.getDescription());
         Assert.assertEquals(TAG, productTest.getBrand(),shoes.getBrand());
@@ -57,9 +55,9 @@ public class ShoesRepoTest {
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),shoes.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("type", "boot"), Shoes.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("type", "boot"), Shoes.class);
 
-        shoes = mongoOps.findById(productTest.getId(), Shoes.class);
+        shoes = mongoOps.findById(productTest.get_id(), Shoes.class);
 
         Assert.assertEquals(TAG, "boot", shoes.getShoeType());
 

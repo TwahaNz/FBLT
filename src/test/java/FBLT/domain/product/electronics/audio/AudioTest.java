@@ -36,7 +36,7 @@ public class AudioTest {
         Assert.assertEquals("headphones",productTest.getType());
         Assert.assertEquals("",productTest.getWatts());
         Assert.assertEquals("",productTest.getAmps());
-        Assert.assertSame("1",productTest.getId());
+        Assert.assertSame("1",productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
         Assert.assertEquals("Audio",productTest.getCategory().getCategoryName());
         Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());

@@ -47,19 +47,19 @@ public class ClothingRepoTest {
         //INSERT
         mongoOps.insert(productTest);
 
-        Assert.assertFalse(TAG, productTest.getId().isEmpty());
+        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Clothing clothing= mongoOps.findById(productTest.getId(), Clothing.class);
+        Clothing clothing= mongoOps.findById(productTest.get_id(), Clothing.class);
 
         Assert.assertEquals(TAG, productTest.getDescription(),clothing.getDescription());
         Assert.assertEquals(TAG, productTest.getBrand(),clothing.getBrand());
         Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),clothing.getCategory().getCategoryName());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.getId())), Update.update("color", "red"), Clothing.class);
+        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("color", "red"), Clothing.class);
 
-        clothing = mongoOps.findById(productTest.getId(), Clothing.class);
+        clothing = mongoOps.findById(productTest.get_id(), Clothing.class);
 
         Assert.assertEquals(TAG, "red", clothing.getColor());
 
