@@ -8,7 +8,7 @@ import FBLT.domain.product.category.Category;
  */
 public class Product implements IProduct {
 
-    private String id;
+    private String _id;
     private Category category;
     private String description;
 
@@ -17,14 +17,14 @@ public class Product implements IProduct {
     }
 
     private Product(Builder b){
-        this.id = b.id;
+        this._id = b.id;
         this.category = b.category;
         this.description = b.description;
     }
 
 
     public String get_id() {
-        return id;
+        return _id;
     }
 
     public Category getCategory() {
@@ -62,7 +62,7 @@ public class Product implements IProduct {
         }
 
         public Product.Builder copy(Product value) {
-            this.id = value.id;
+            this.id = value._id;
             this.category = value.category;
             this.description = value.description;
             return this;
