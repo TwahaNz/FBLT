@@ -14,7 +14,6 @@ import java.util.List;
  * @description Repository for Adverts
  */
 
-@RepositoryRestResource(collectionResourceRel = "advert", path ="advert-repository")
 public interface AdvertRepository extends MongoRepository<Advert, String> {
 
 
@@ -27,7 +26,7 @@ public interface AdvertRepository extends MongoRepository<Advert, String> {
      * The query uses the dot notation to access the user value object of the advert object
      */
     @Query(value = "{ 'user.name' : ?0 }")
-    List<Advert> find(@Param("username") String username);
+    List<Advert> find(String username);
 
     /**
      *
@@ -37,6 +36,6 @@ public interface AdvertRepository extends MongoRepository<Advert, String> {
      * The query uses the dot notation to access the user value object of the advert object
      */
     @Query(value = "{ 'user._id' : ?0 }")
-    List<Advert> findByUserID(@Param("userid") String userId);
+    List<Advert> findByUserID(String userId);
 
 }

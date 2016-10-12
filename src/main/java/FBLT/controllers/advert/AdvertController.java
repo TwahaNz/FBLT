@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -37,6 +38,17 @@ public class AdvertController {
             return new ResponseEntity<Advert>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Advert>(request, HttpStatus.OK);
+    }
+    //-------------------Retrieve Adverts For UserID--------------------------------------------------------
+    @RequestMapping(value = "/advert-controller/findAdvertsByUserId/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Advert>> getAdvertsForUser(@PathVariable("userId") String userId) {
+        System.out.println("Fetching adverts with userId: " + userId);
+        List<Advert> request = advertService.findAdvertsByUserId(userId);
+        if (request == null) {
+            System.out.println("Request with id " + userId + "Not Found");
+            return new ResponseEntity<List<Advert>>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<List<Advert>>(request, HttpStatus.OK);
     }
 
     //-------------------Retrieve All Adverts--------------------------------------------------------

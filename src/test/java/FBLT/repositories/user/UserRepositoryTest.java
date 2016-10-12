@@ -1,6 +1,5 @@
 package FBLT.repositories.user;
 
-import FBLT.domain.advert.Advert;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
@@ -44,16 +43,16 @@ public class UserRepositoryTest {
         //INSERT
         mongoOps.insert(myUser);
 
-        Assert.assertFalse(TAG, myUser.getId().isEmpty());
+        Assert.assertFalse(TAG, myUser.get_id().isEmpty());
 
         //RETRIEVE
-        User retrievedUser = mongoOps.findById(myUser.getId(), User.class);
+        User retrievedUser = mongoOps.findById(myUser.get_id(), User.class);
 
         Assert.assertEquals(TAG, retrievedUser.getName(), myUser.getName());
         Assert.assertEquals(TAG, retrievedUser.getContactDetails().getTelegramHandle(), myUser.getContactDetails().getTelegramHandle());
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(retrievedUser.getId())), Update.update("contactDetails.emailAddress", "changedmailaddress@gmail.com"), User.class);
+        mongoOps.updateFirst(new Query(where("_id").is(retrievedUser.get_id())), Update.update("contactDetails.emailAddress", "changedmailaddress@gmail.com"), User.class);
 
         try {
             Thread.sleep(10000);

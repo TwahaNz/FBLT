@@ -1,12 +1,13 @@
 package FBLT.service.advert;
 
 import FBLT.domain.advert.Advert;
-import FBLT.repositories.advert.AdvertDAO;
+import FBLT.repositories.advert.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,8 +17,12 @@ import java.util.Set;
 public class ImplAdvertService implements IAdvertService {
 
     @Autowired
-    AdvertDAO repository;
+    AdvertRepository repository;
 
+    @Override
+    public List<Advert> findAdvertsByUserId(String userId) {
+        return repository.findByUserID(userId);
+    }
 
     @Override
     public Advert create(Advert entity) {

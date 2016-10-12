@@ -12,7 +12,7 @@ import FBLT.utils.genericvalueobjects.Location;
 
 public class User {
 
-    private String id;
+    private String _id;
     private ContactDetails contactDetails;
     private String name;
     private Location location;
@@ -23,7 +23,7 @@ public class User {
     }
 
     private User(Builder builder) {
-        this.id = builder.id;
+        this._id = builder._id;
         this.contactDetails = builder.contactDetails;
         this.name = builder.name;
         this.location = builder.location;
@@ -36,8 +36,8 @@ public class User {
         return RankFactory.getRanking(rating);
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     public ContactDetails getContactDetails() {
@@ -58,7 +58,7 @@ public class User {
     }
 
     public static class Builder {
-        private String id;
+        private String _id;
         private ContactDetails contactDetails;
         private String name;
         private Location location;
@@ -66,7 +66,7 @@ public class User {
         private int rating;
 
         public Builder id(String userId) {
-            this.id = userId;
+            this._id = userId;
             return this;
         }
 
@@ -96,7 +96,7 @@ public class User {
         }
 
         public Builder copy(User user) {
-            this.id = user.id;
+            this._id = user._id;
             this.contactDetails = user.contactDetails;
             this.name = user.name;
             this.location = user.location;
