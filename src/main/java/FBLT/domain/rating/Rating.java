@@ -21,7 +21,6 @@ public class Rating implements IRating {
         this.advertID = builder.advertID;
         this.rating = builder.rating;
         this.comment = builder.comment;
-
     }
 
     public Comment getComment() {
