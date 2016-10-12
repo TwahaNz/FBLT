@@ -26,7 +26,7 @@ public class ImplAdvertService implements IAdvertService {
 
     @Override
     public Advert readById(String stringId) {
-      return null;
+      return repository.findOne(stringId);
     }
 
     @Override
