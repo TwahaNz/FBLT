@@ -14,7 +14,7 @@ import java.util.List;
  * @description Repository for Adverts
  */
 
-@RepositoryRestResource(collectionResourceRel = "advert", path ="advert")
+@RepositoryRestResource(collectionResourceRel = "advert", path ="advert-repository")
 public interface AdvertRepository extends MongoRepository<Advert, String> {
 
 
