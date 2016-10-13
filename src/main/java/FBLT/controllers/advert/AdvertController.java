@@ -39,6 +39,7 @@ public class AdvertController {
         }
         return new ResponseEntity<Advert>(request, HttpStatus.OK);
     }
+
     //-------------------Retrieve Adverts For UserID--------------------------------------------------------
     @RequestMapping(value = "/advert-controller/findAdvertsByUserId/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Advert>> getAdvertsForUser(@PathVariable("userId") String userId) {
@@ -54,7 +55,7 @@ public class AdvertController {
     //-------------------Retrieve All Adverts--------------------------------------------------------
 
     @RequestMapping(value = "/advert-controller/", method = RequestMethod.GET)
-    public ResponseEntity<Set<Advert>> getRequests() {
+    public ResponseEntity<Set<Advert>> getAdverts() {
         Set<Advert> requests = advertService.readAll();
         if (requests.isEmpty()) {
             return new ResponseEntity<Set<Advert>>(HttpStatus.NO_CONTENT);// OR HttpStatus.NOT_FOUND http err 204 no content
@@ -88,15 +89,27 @@ public class AdvertController {
         return new ResponseEntity<Advert>(updatedAdvert, HttpStatus.OK);
     }
 
-
+    //-------------------Insert an Advert--------------------------------------------------------
     @RequestMapping(value = "/advert-controller/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createRequest(@RequestBody Advert newAdvert, UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<Void> createAdvert(@RequestBody Advert newAdvert, UriComponentsBuilder ucBuilder) {
 
         advertService.create(newAdvert);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/advert-controller/{id}").buildAndExpand(newAdvert.getId()).toUri());
 
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+
+    //-------------------Delete an Advert--------------------------------------------------------
+    @RequestMapping(value = "/advert-controller/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Advert> deleteAdvert(@PathVariable("id") String id) {
+        Advert advert =advertService.readById(id);
+
+        if (advert == null) {
+            return new ResponseEntity<Advert>(HttpStatus.NOT_FOUND);
+        }
+        advertService.delete(advert);
+        return new ResponseEntity<Advert>(HttpStatus.NO_CONTENT);
     }
 
 }

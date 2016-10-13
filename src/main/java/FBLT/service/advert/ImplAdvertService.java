@@ -3,6 +3,7 @@ package FBLT.service.advert;
 import FBLT.domain.advert.Advert;
 import FBLT.repositories.advert.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -13,6 +14,7 @@ import java.util.Set;
 /**
  * Created by maybra01 on 10/12/2016.
  */
+
 @Service
 public class ImplAdvertService implements IAdvertService {
 
