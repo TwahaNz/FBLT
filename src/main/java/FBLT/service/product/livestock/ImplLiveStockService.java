@@ -1,6 +1,6 @@
 package FBLT.service.product.livestock;
 
-import FBLT.domain.advert.Advert;
+
 import FBLT.domain.product.livestock.Livestock;
 import FBLT.repositories.product.livestock.LivestockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
