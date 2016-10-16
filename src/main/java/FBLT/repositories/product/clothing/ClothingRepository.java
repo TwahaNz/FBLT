@@ -14,7 +14,6 @@ import java.util.List;
  * @description Repository for Clothing
  */
 
-@RepositoryRestResource(collectionResourceRel = "clothing", path ="clothing")
 public interface ClothingRepository extends MongoRepository<Clothing,String> {
 
     /**
@@ -24,7 +23,7 @@ public interface ClothingRepository extends MongoRepository<Clothing,String> {
      *
      */
     @Query(value = "{ 'size' : ?0 }")
-    List<Clothing> findbysize(@Param("size") String size);
+    List<Clothing> findbysize(String size);
 
     /**
      *
@@ -33,7 +32,7 @@ public interface ClothingRepository extends MongoRepository<Clothing,String> {
      *
      */
     @Query(value = "{ 'brand' : ?0 }")
-    List<Clothing> findbybrand(@Param("brand") String brand);
+    List<Clothing> findbybrand(String brand);
 
     /**
      *
@@ -42,6 +41,6 @@ public interface ClothingRepository extends MongoRepository<Clothing,String> {
      *
      */
     @Query(value = "{ 'gender' : ?0 }")
-    List<Clothing> findbygender(@Param("gender") String gender);
+    List<Clothing> findbygender(String gender);
 
 }

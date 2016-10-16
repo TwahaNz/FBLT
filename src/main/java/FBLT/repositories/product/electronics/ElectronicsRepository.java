@@ -15,7 +15,7 @@ import java.util.List;
  * @description Repository for Electronics
  */
 
-@RepositoryRestResource(collectionResourceRel = "clothing", path ="clothing")
+
 public interface ElectronicsRepository extends MongoRepository<Clothing,String> {
 
 

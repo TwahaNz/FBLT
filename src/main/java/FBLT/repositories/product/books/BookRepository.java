@@ -14,7 +14,6 @@ import java.util.List;
  * @description Repository for Books
  */
 
-@RepositoryRestResource(collectionResourceRel = "book", path ="book")
 public interface BookRepository extends MongoRepository<Book,String> {
 
     /**
@@ -23,8 +22,9 @@ public interface BookRepository extends MongoRepository<Book,String> {
      * @return book with that isbn number
      *
      */
+
     @Query(value = "{ 'isbn' : ?0 }")
-    Book findbyisbn(@Param("isbn") String isbn);
+    Book findbyisbn(String isbn);
 
     /**
      *
@@ -33,7 +33,7 @@ public interface BookRepository extends MongoRepository<Book,String> {
      *
      */
     @Query(value = "{ 'title' : ?0 }")
-    List<Book> findbytitle(@Param("title") String title);
+    List<Book> findbytitle(String title);
 
     /**
      *
@@ -42,7 +42,7 @@ public interface BookRepository extends MongoRepository<Book,String> {
      *
      */
     @Query(value = "{ 'genre' : ?0 }")
-    List<Book> findbygenre(@Param("genre") String genre);
+    List<Book> findbygenre(String genre);
 
     /**
      *
@@ -51,7 +51,7 @@ public interface BookRepository extends MongoRepository<Book,String> {
      *
      */
     @Query(value = "{ 'author' : ?0 }")
-    List<Book> findbyauthor(@Param("author") String author);
+    List<Book> findbyauthor(String author);
 
 
 }

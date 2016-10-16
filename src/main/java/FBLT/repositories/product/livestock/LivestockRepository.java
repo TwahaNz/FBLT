@@ -14,7 +14,6 @@ import java.util.List;
  * @description Repository for Livestock
  */
 
-@RepositoryRestResource(collectionResourceRel = "livestock", path ="livestock")
 public interface LivestockRepository extends MongoRepository<Livestock,String> {
 
     /**
@@ -24,7 +23,7 @@ public interface LivestockRepository extends MongoRepository<Livestock,String> {
      *
      */
     @Query(value = "{ 'grade' : ?0 }")
-    List<Livestock> findbygrade(@Param("grade") String grade);
+    List<Livestock> findbygrade(String grade);
 
     /**
      *
@@ -33,6 +32,6 @@ public interface LivestockRepository extends MongoRepository<Livestock,String> {
      *
      */
     @Query(value = "{ 'age' : ?0 }")
-    List<Livestock> findbyage(@Param("age") String age);
+    List<Livestock> findbyage(String age);
 
 }

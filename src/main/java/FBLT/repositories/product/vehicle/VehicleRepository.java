@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @description Repository for Vehicle
  */
 
-@RepositoryRestResource(collectionResourceRel = "vehicle", path ="vehicle")
+
 public interface VehicleRepository extends MongoRepository<Vehicle,String> {
 
 }

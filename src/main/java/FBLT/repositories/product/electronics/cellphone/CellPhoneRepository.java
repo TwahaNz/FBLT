@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lukekramer on 09/10/2016.
  */
-@RepositoryRestResource(collectionResourceRel = "cellphone", path ="cellphone")
+
 public interface CellPhoneRepository extends MongoRepository<CellPhone,String> {
 
     /**
@@ -21,7 +21,7 @@ public interface CellPhoneRepository extends MongoRepository<CellPhone,String> {
      *
      */
     @Query(value = "{ 'make' : ?0 }")
-    List<CellPhone> findbymake(@Param("make") String make);
+    List<CellPhone> findbymake(String make);
 
     /**
      *
@@ -30,5 +30,5 @@ public interface CellPhoneRepository extends MongoRepository<CellPhone,String> {
      *
      */
     @Query(value = "{ 'model' : ?0 }")
-    List<CellPhone> findbymodel(@Param("model") String model);
+    List<CellPhone> findbymodel(String model);
 }

@@ -21,7 +21,7 @@ public interface ComputerRepository extends MongoRepository<Computer,String>{
      *
      */
     @Query(value = "{ 'make' : ?0 }")
-    List<Computer> findbymake(@Param("make") String make);
+    List<Computer> findbymake(String make);
 
     /**
      *
@@ -30,6 +30,6 @@ public interface ComputerRepository extends MongoRepository<Computer,String>{
      *
      */
     @Query(value = "{ 'model' : ?0 }")
-    List<Computer> findbymodel(@Param("model") String model);
+    List<Computer> findbymodel(String model);
 
 }

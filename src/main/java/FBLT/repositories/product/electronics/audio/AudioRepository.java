@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lukekramer on 09/10/2016.
  */
-@RepositoryRestResource(collectionResourceRel = "audio", path ="audio")
+
 public interface AudioRepository extends MongoRepository<Audio,String> {
 
     /**
@@ -21,7 +21,7 @@ public interface AudioRepository extends MongoRepository<Audio,String> {
      *
      */
     @Query(value = "{ 'make' : ?0 }")
-    List<Audio> findbymake(@Param("make") String make);
+    List<Audio> findbymake(String make);
 
     /**
      *
@@ -30,7 +30,7 @@ public interface AudioRepository extends MongoRepository<Audio,String> {
      *
      */
     @Query(value = "{ 'model' : ?0 }")
-    List<Audio> findbymodel(@Param("model") String model);
+    List<Audio> findbymodel(String model);
 
     /**
      *
@@ -39,7 +39,7 @@ public interface AudioRepository extends MongoRepository<Audio,String> {
      *
      */
     @Query(value = "{ 'watts' : ?0 }")
-    List<Audio> findbywatts(@Param("watts") String watts);
+    List<Audio> findbywatts(String watts);
 
     /**
      *
@@ -48,5 +48,5 @@ public interface AudioRepository extends MongoRepository<Audio,String> {
      *
      */
     @Query(value = "{ 'amps' : ?0 }")
-    List<Audio> findbyamps(@Param("amps") String amps);
+    List<Audio> findbyamps(String amps);
 }
