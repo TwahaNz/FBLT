@@ -63,7 +63,7 @@ public class UserRepositoryTest {
         Assert.assertEquals("changedmailaddress@gmail.com", retrievedUser.getContactDetails().getEmailAddress());
 
         //DELETE
-        //mongoOps.remove(retrievedUser);
+        mongoOps.remove(retrievedUser);
 
 
     }

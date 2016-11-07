@@ -41,7 +41,7 @@ public class AdvertController {
     }
 
     //-------------------Retrieve Adverts For UserID--------------------------------------------------------
-    @RequestMapping(value = "/advert-controller/findAdvertsByUserId/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/advert-controller/find-adverts-by-user-id/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Advert>> getAdvertsForUser(@PathVariable("userId") String userId) {
         System.out.println("Fetching adverts with userId: " + userId);
         List<Advert> request = advertService.findAdvertsByUserId(userId);

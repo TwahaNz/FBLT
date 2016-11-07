@@ -32,8 +32,10 @@
         </div>
     </div>
 </nav>
-';
+<%for (int i = 0; i < 10; i++){%>
+HELLOWORLD<br/>
 
+<%}out.println("Your IP address is " + request.getRemoteAddr());%>
 <%--<div class="container">
     <div class="jumbotron">
         <h1>Features</h1>
@@ -43,7 +45,7 @@
 
 <div class="container-fluid altered-container spaces-bottom">
     <div align="center">
-        <% response.setIntHeader("Refresh" , 5); %>
+        <% response.setIntHeader("Refresh", 5); %>
         <table class="table table-bordered table-width">
             <tbody>
             <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -57,7 +59,7 @@
                                     <button class="btn btn-success btn-lg glyphicon glyphicon-chevron-up"
                                             type="submit"></button>
                                 </form>
-                                <br class="spaces-bottom" />
+                                <br class="spaces-bottom"/>
                                 <form method="POST" action="/downvote/${feature.id}">
                                     <button class="btn btn-danger btn-lg glyphicon glyphicon-chevron-down"></button>
                                 </form>
@@ -65,7 +67,7 @@
                         </td>
                         <td>
                             <div align="center" class="spaces-top"><h2 class="page-header spaces-top">
-                                    <a href="${feature.url}">${feature.id}</a>
+                                <a href="${feature.url}">${feature.id}</a>
                                 - ${feature.name}</h2>
                             </div>
                         </td>
