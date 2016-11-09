@@ -21,7 +21,17 @@
 
 <jsp:include page="pages/header.jsp"/>
 
-<jsp:include page="pages/register.jsp"/>
+<div class="row">
+    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
+        <br/>
+        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-home"></span> Home</div>
+        <br/>
+        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-user"></span> Profile</div>
+    </div>
+    <div class="col-md-11">
+        <jsp:include page="pages/home.jsp"/>
+    </div>
+</div>
 
 <jsp:include page="pages/footer.jsp"/>
 
