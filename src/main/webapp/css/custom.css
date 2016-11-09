@@ -149,7 +149,7 @@ hr {
 }
 
 .search-field {
-	width:98%!important;
+	width:96%!important;
 	display:inline!important;
 }
 
@@ -187,4 +187,9 @@ table{
 
 .votes-buttons {
 	margin-top: 30%!important;
+}
+
+.catagories {
+	height: 40px;
+	padding-top: 10px;
 }

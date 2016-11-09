@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>People Features!</title>
+    <title>FLBT</title>
     <link href="../../css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,114 +25,110 @@
 <div style="margin-top: 55px!important;"></div>
 
 <div align="center" class="row spaces-top">
-    <div class="col-md-1" style="color: white; background-color: #f44336">
+    <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>
-    <div class="col-md-1" style="color: white; background-color: #e91e63">
+    <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #9c27b0">
+    <div class="col-md-1 catagories" style="color: white; background-color: #9c27b0">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #e91e63">
+    <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #3f51b5">
+    <div class="col-md-1 catagories" style="color: white; background-color: #3f51b5">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #2196f3">
+    <div class="col-md-1 catagories" style="color: white; background-color: #2196f3">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #ffeb3b">
+    <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #e91e63">
+    <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #00bcd4">
+    <div class="col-md-1 catagories" style="color: white; background-color: #00bcd4">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #009688">
+    <div class="col-md-1 catagories" style="color: white; background-color: #009688">
         Catagory Name
     </div>
-    <div class="col-md-1" style="color: white; background-color: #e91e63">
+    <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
         Catagory Name
     </div>
-    <div class="col-md-1" style="background-color: #e91e63">
+    <div class="col-md-1 catagories" style="background-color: #e91e63">
     </div>
 </div>
 
 <div class="spaces-top">
     <div>
         <input type="text" class="form-control search-field custom-control"/>
-        <button type="button"><span class="glyphicon glyphicon-search"></span></button>
+        <button type="button" class="search-button inline"><span class="glyphicon glyphicon-search"></span></button>
     </div>
 </div>
 
-
-
-<div class="row" style="margin-top: 40px; margin-bottom: 40px">
-    <div align="center" class="col-md-1">
-    </div>
-    <div align="center" class="col-md-2">
-        <img src="<c:url value="images/big_ad.png"/>" width="100%" height="815"/>
-    </div>
-    <div class="col-md-5">
-        <h3>Some Event</h3>
-        <hr/>
-        <br />
-        <div class="row">
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 40px; margin-bottom: 40px">
+        <div align="center" class="col-md-3">
+            <img src="<c:url value="images/big_ad.png"/>" width="100%" height="815"/>
+        </div>
+        <div class="col-md-6">
+            <h3>Some Event</h3>
+            <hr/>
+            <br/>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
             </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+            <h3>Some Event</h3>
+            <hr/>
+            <br/>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
             </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+            <h3>Some Event</h3>
+            <hr/>
+            <br/>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
+                <div class="col-md-3">
+                    <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
+                </div>
             </div>
         </div>
-        <h3>Some Event</h3>
-        <hr/>
-        <br />
-        <div class="row">
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
+        <div align="center" class="col-md-3">
+            <img src="images/big_ad.png" width="100%" height="815"/>
         </div>
-        <h3>Some Event</h3>
-        <hr/>
-        <br />
-        <div class="row">
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-            <div class="col-md-3">
-                <img src="<c:url value="images/big_ad.png"/>" width="100%" height="200px"/>
-            </div>
-        </div>
-    </div>
-    <div align="center" class="col-md-2">
-        <img src="images/big_ad.png" width="100%" height="815"/>
-    </div>
-    <div align="center" class="col-md-1">
     </div>
 </div>
 
