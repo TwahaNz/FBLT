@@ -193,3 +193,7 @@ table{
 	height: 40px;
 	padding-top: 10px;
 }
+
+hr {
+	border-color: #03A9F4!important;
+}
