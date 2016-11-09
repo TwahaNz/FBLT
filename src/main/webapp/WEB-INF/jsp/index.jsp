@@ -21,7 +21,7 @@
 
 <jsp:include page="pages/header.jsp"/>
 
-<jsp:include page="pages/home.jsp"/>
+<jsp:include page="pages/item.jsp"/>
 
 <jsp:include page="pages/footer.jsp"/>
 
