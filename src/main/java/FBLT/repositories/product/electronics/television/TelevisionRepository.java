@@ -21,7 +21,7 @@ public interface TelevisionRepository extends MongoRepository<Television,String>
      *
      */
     @Query(value = "{ 'make' : ?0 }")
-    List<Television> findbymake(@Param("make") String make);
+    List<Television> findbymake(String make);
 
     /**
      *
@@ -30,7 +30,7 @@ public interface TelevisionRepository extends MongoRepository<Television,String>
      *
      */
     @Query(value = "{ 'model' : ?0 }")
-    List<Television> findbymodel(@Param("model") String model);
+    List<Television> findbymodel( String model);
 
     /**
      *
@@ -39,5 +39,6 @@ public interface TelevisionRepository extends MongoRepository<Television,String>
      *
      */
     @Query(value = "{ 'size' : ?0 }")
-    List<Television> findbysize(@Param("size") String size);
+    List<Television> findbysize(String size);
+
 }
