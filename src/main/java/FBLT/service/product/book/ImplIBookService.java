@@ -3,6 +3,7 @@ package FBLT.service.product.book;
 import FBLT.domain.product.book.Book;
 import FBLT.repositories.product.books.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -12,6 +13,7 @@ import java.util.Set;
 /**
  * Created by Ferin on 2016/11/12.
  */
+@Service
 public class ImplIBookService implements IBookService {
 
     @Autowired
