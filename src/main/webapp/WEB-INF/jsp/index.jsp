@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.io.*,java.util.*" %>
 <%--
   Created by IntelliJ IDEA.
   User: maybra01
@@ -10,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>FLBT</title>
+    <title>FBLT</title>
     <link href="../../css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,9 +25,12 @@
 <div class="row">
     <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
         <br/>
-        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-home"></span> Home</div>
+        <div style="background-color: black; color: white; width: 145px" onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span> Home
+        </div>
         <br/>
-        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-user"></span> Profile</div>
+        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-user"></span>
+            Profile
+        </div>
     </div>
     <div class="col-md-11">
         <jsp:include page="pages/home.jsp"/>

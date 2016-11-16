@@ -26,41 +26,40 @@
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        Catagory Name
+        Books
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #9c27b0">
-        Catagory Name
+        Clothing
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        Catagory Name
+        Shoes
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #3f51b5">
-        Catagory Name
+        Audio
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #2196f3">
-        Catagory Name
+        Cellphones
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
-        Catagory Name
+        Computers
     </div>
-    <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        Catagory Name
+    <div class="col-md-1 catagories" style="color: white; background-color: #e91e63;">
+        TV and Video
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #00bcd4">
-        Catagory Name
+        Livestock
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #009688">
-        Catagory Name
+        Vehicles
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
-        Catagory Name
     </div>
     <div class="col-md-1 catagories" style="background-color: #e91e63">
     </div>
 </div>
 
 <div class="spaces-top">
-    <div>
+    <div  style="width: 100%">
         <input type="text" placeholder="Search By Title, Product ID, Or Keywords" class="form-control search-field custom-control"/>
         <button type="button" class="search-button inline"><span class="glyphicon glyphicon-search"></span></button>
     </div>

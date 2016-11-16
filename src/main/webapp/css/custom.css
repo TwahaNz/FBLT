@@ -149,12 +149,14 @@ hr {
 }
 
 .search-field {
-	width:96%!important;
+	box-sizing: border-box;
+	width:95%!important;
 	display:inline!important;
 }
 
 .search-button {
-	width:40px!important;
+	box-sizing: border-box;
+	/*width:5%!important;*/
 	padding:9px!important;
 }
 
