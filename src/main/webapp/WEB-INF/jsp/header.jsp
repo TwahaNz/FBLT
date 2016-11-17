@@ -1,3 +1,25 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.io.*,java.util.*" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: maybra01
+  Date: 10/6/2016
+  Time: 9:36 AM
+  To change this template use File | Settings | File Templates.
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>FBLT</title>
+    <link href="../../css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+
 <nav class="navbar navbar-default navbar-static-top">
         <div class="navbar-header altered-menu">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -64,3 +86,15 @@
         <button type="button" class="search-button inline"><span class="glyphicon glyphicon-search"></span></button>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
+        <br/>
+        <div style="background-color: black; color: white; width: 145px" onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span> Home
+        </div>
+        <br/>
+        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-user"></span>
+            Profile
+        </div>
+    </div>
+    <div class="col-md-11">

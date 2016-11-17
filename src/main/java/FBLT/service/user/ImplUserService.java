@@ -18,6 +18,7 @@ public class ImplUserService implements IUserService {
 
     @Autowired
     UserRepository repository;
+
     @Override
     public User create(User entity) {
         return repository.save(entity);

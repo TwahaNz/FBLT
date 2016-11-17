@@ -1,3 +1,5 @@
+<jsp:include page="header.jsp"/>
+
 <br />
 
 <div style="background-color: lightgray; padding: 40px">
@@ -10,8 +12,8 @@
 <br />
 <br />
 <br />
-
-<div align="center">
+<form action="register" method="post">
+<div align="center" >
     <div align="center" class="middle-buttons panel custom-panel">
         <div id="registration" align="center" class="register-form">
             <p><input type='text' placeholder="Choose A Username" class="form-control custom-control" name='username' value=""/></p>
@@ -21,5 +23,7 @@
         </div>
     </div>
 </div>
-
+</form>
 <div style="margin-top: 360px"></div>
+
+<jsp:include page="footer.jsp"/>
