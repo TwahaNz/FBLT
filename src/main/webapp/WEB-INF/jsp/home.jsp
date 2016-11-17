@@ -4,6 +4,10 @@
     ${advert.getProduct().getDescription()}
 </c:forEach>
 
+<% String path= request.getContextPath() + "/images/"; %>
+
+<img src="<%=path%>big_ad.png"/>
+
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div align="center" class="col-md-3">
