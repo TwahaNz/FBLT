@@ -8,8 +8,10 @@ import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 /**
- * Created by Brandonhome on 2016/09/23.
+ * edited by luke
  */
 public class AdvertTest {
 
@@ -27,10 +29,17 @@ public class AdvertTest {
                 .category(
                         new Category.Builder()
                                 .categoryName("Kids Toys")
-                        .categoryDescription("things for kids")
-                        .build())
+                                .categoryDescription("things for kids")
+                                .build())
                 .productDescription("Barbie Doll")
                 .build();
+
+        ArrayList<String> images = new ArrayList<>();
+
+        images.add("C://pic.jpg");
+        images.add("C://name.jpg");
+        images.add("C://age.jpg");
+
 
         Advert myTestAdvert = new Advert.Builder()
 
@@ -38,6 +47,7 @@ public class AdvertTest {
                 .price(789.44)
                 .product(mynewProduct)
                 .location(newLocation)
+                .imagePaths(images)
                 .build();
 
 
@@ -45,8 +55,10 @@ public class AdvertTest {
         Assert.assertEquals("Cape Town", myTestAdvert.getLocation().getCity());
         Assert.assertEquals("Rondebosch", myTestAdvert.getLocation().getSuburb());
         Assert.assertEquals("Barbie Doll",myTestAdvert.getProduct().getDescription());
+        Assert.assertNotNull(myTestAdvert.getImagepaths());
         Assert.assertEquals(false,myTestAdvert.isBuyOrSell());
 
 
     }
 }
+

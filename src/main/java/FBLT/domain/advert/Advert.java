@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeId;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.Id;
+import java.util.ArrayList;
 
 /**
  * Created by Brandonhome on 2016/09/20.
@@ -28,6 +29,10 @@ public class Advert implements IAdvert {
     @Id
     private String id;
     private User user;
+    private ArrayList<String> imagepaths;
+
+
+
     @JsonTypeInfo(
             use = JsonTypeInfo.Id.NAME,
             include = JsonTypeInfo.As.PROPERTY,
@@ -60,6 +65,7 @@ public class Advert implements IAdvert {
         this.buyOrSell = builder.buyOrSell;
         this.price = builder.price;
         this.location = builder.location;
+        this.imagepaths = builder.imagepaths;
     }
 
     public String getId() {
@@ -86,10 +92,15 @@ public class Advert implements IAdvert {
         return location;
     }
 
+    public ArrayList<String> getImagepaths() {
+        return imagepaths;
+    }
+
     public static class Builder {
 
         private String id;
         private User user;
+        private ArrayList<String> imagepaths;
         private IProduct product;
         private boolean buyOrSell;
         private double price;
@@ -138,6 +149,12 @@ public class Advert implements IAdvert {
 
         public Builder price(double price) {
             this.price = price;
+            return this;
+
+        }
+
+        public Builder imagePaths(ArrayList<String> imagepaths) {
+            this.imagepaths = imagepaths;
             return this;
 
         }

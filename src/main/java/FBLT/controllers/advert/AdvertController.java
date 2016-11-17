@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by maybra01 on 10/12/2016.
+ * edited by luke.
  */
 @Controller
 public class AdvertController {
