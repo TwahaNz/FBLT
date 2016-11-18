@@ -1,19 +1,13 @@
 </div>
 </div>
 
+<% String path= request.getContextPath() + "/js/"; %>
+
 <div class="alert alert-info footer">
     <p>This website is protected by law and is copyrighted to the owners and all those that are involved</p>
 </div>
 
-<script src="../../js/form-validation.js"></script>
-<script src="../js/Formvalidation.js"></script>
-<script src="../js/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../js/vendor/jquery.min.js"><script>')</script>
-<script src="../js/tether.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
 
-
-<script src='../js/jquery.min.js'></script>
 
 <input type="hidden" id="no_cart" data-toggle="modal" data-target="#myModal3"/>
 <div id="myModal3" class="modal fade" role="dialog">
@@ -32,5 +26,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+
+<script src="<%=path%>form-validation.js"></script>
+<script src="<%=path%>Formvalidation.js"></script>
+<script src="<%=path%>jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="<%=path%>vendor/jquery.min.js"><script>')</script>
+<script src="<%=path%>tether.min.js"></script>
+<script src="<%=path%>bootstrap.min.js"></script>
+
 </body>
 </html>
