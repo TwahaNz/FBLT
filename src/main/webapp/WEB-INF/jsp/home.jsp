@@ -12,7 +12,7 @@
             <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail" style="height:800px!important"  width="85%" height="800px"/>
         </div>
         <div class="col-md-6">
-            <h3>Some Event</h3>
+            <h3>Top Sellers</h3>
             <hr/>
             <br/>
             <div class="row">
@@ -29,7 +29,7 @@
                     <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail" style="height:200px!important"  width="100%" height="200px"/>
                 </div>
             </div>
-            <h3>Some Other Event</h3>
+            <h3>Top Selling Categories</h3>
             <hr/>
             <br/>
             <div class="row">
@@ -46,7 +46,7 @@
                     <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail" style="height:200px!important"  width="100%" height="200px"/>
                 </div>
             </div>
-            <h3>Some Other Other Event</h3>
+            <h3>Frequently Searched</h3>
             <hr/>
             <br/>
             <div class="row">

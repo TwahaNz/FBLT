@@ -1,6 +1,6 @@
 <jsp:include page="header.jsp"/>
 
-<br />
+<br/>
 
 <div style="background-color: lightgray; padding: 40px">
     <div align="center">
@@ -9,20 +9,22 @@
     </div>
 </div>
 
-<br />
-<br />
-<br />
+<br/>
+<br/>
+<br/>
 <form id="registerForm" action="register" method="post" onsubmit="return isValidRegistratioForm()">
-<div align="center" >
-    <div align="center" class="middle-buttons panel custom-panel">
-        <div id="registration" align="center" class="register-form">
-            <p><input type='text' placeholder="Choose A Username" class="form-control custom-control" name='username' value=""/></p>
-            <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email' value=""/>
-            </p>
-            <input type='submit' name='submit' class="btn btn-info btn-lg register-button" value='Register'/>
+    <div align="center">
+        <div align="center" class="middle-buttons panel custom-panel">
+            <div id="registration" align="center" class="register-form">
+                <p><input type='text' placeholder="Choose A Username" class="form-control custom-control"
+                          name='username' value=""/></p>
+                <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email'
+                          value=""/>
+                </p>
+                <input type='submit' name='submit' class="btn btn-info btn-lg register-button" value='Register'/>
+            </div>
         </div>
     </div>
-</div>
 </form>
 <div style="margin-top: 360px"></div>
 

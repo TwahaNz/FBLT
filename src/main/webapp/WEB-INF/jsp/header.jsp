@@ -42,26 +42,6 @@
 </script>
 
 <nav class="navbar navbar-default navbar-static-top">
-        <div class="navbar-header altered-menu">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>Why don't we have a Name Yet Twaha - We Make Online Shopping Easier!</b></a>
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse">
-            <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right">
-                <div class="form-group">
-                    <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email' value=""/>
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-                <button type='button' class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'> </button>
-            </form>
-        </div><!--/.navbar-collapse -->
-<%--=======
     <div class="navbar-header altered-menu">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
@@ -70,26 +50,60 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><b>No Name Yet - We Make Online Shopping Easier!</b></a>
+        <a class="navbar-brand" href="#"><b>Why don't we have a Name Yet Twaha - We Make Online Shopping Easier!</b></a>
     </div>
+
+
     <div id="navbar" class="navbar-collapse collapse">
-        <form class="navbar-form navbar-right" action="code" method="post" onsubmit="return isValidEmail()">
-            <%
-                String user = (String) session.getAttribute("user");
 
-                try {
-                    if (!user.equals(null))
-                        out.print(loggedIn() + user + "<b>");
-                } catch (Exception e) {
-                    out.print(notLoggedIn());
-                }
-            %>
-
+        <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right">
+            <div class="form-group">
+                <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email'
+                          value=""/>
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
             <button type='button'
                     class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'></button>
         </form>
+        <form id="postAdForm" action="post_advert">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
+            </div>
+        </form>
+
     </div><!--/.navbar-collapse -->
->>>>>>> Lot's of changes--%>
+    <%--=======
+        <div class="navbar-header altered-menu">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><b>No Name Yet - We Make Online Shopping Easier!</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" action="code" method="post" onsubmit="return isValidEmail()">
+                <%
+                    String user = (String) session.getAttribute("user");
+
+                    try {
+                        if (!user.equals(null))
+                            out.print(loggedIn() + user + "<b>");
+                    } catch (Exception e) {
+                        out.print(notLoggedIn());
+                    }
+                %>
+
+                <button type='button'
+                        class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'></button>
+            </form>
+        </div><!--/.navbar-collapse -->
+    >>>>>>> Lot's of changes--%>
+
+    </div><!--/.navbar-collapse -->
+
 </nav>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -153,8 +167,8 @@
     <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
         <br/>
         <div style="background-color: black; color: white; width: 145px"
-             onclick="<%response.setHeader("Location", "home.jsp");%>"><span
-                class="glyphicon glyphicon-home"></span> Home
+             onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span>
+            Home
         </div>
         <br/>
         <div style="background-color: black; color: white; width: 145px"><span

@@ -14,8 +14,17 @@ import static java.lang.System.out;
 @RestController
 public class PostAdvertController {
 
-    @RequestMapping(value = "/post_advert")
+    @RequestMapping(value = "/post-advert")
     public ModelAndView postAdvert() {
+
         return new ModelAndView("post_ad");
     }
+
+    @RequestMapping(value = "/confirm-advert")
+    public ModelAndView submitAdvert() {
+
+        return new ModelAndView("post_ad");
+    }
+
+
 }
