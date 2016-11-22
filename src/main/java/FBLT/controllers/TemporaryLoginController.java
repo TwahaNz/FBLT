@@ -1,5 +1,6 @@
 package FBLT.controllers;
 
+import FBLT.domain.email.impl.OTPEmail;
 import FBLT.domain.temporarylogin.TemporaryLogin;
 import FBLT.factories.temporarylogin.TemporaryLoginFactory;
 import FBLT.service.temporarylogin.ITemporaryLoginService;
@@ -39,6 +40,11 @@ public class TemporaryLoginController {
 
         // send an email with the link here
         // http://127.0.0.1:8080/login?email=fer@gmail.com&code=1234
+
+        OTPEmail otpEmail = new OTPEmail.Builder()
+                .temporaryLogin(temporaryLogin)
+                .build();
+        otpEmail.sendEmail();
 
 
         ModelAndView result = new ModelAndView("index");

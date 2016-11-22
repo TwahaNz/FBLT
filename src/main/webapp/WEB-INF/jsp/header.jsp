@@ -36,9 +36,6 @@
                 <div class="form-group">
                     <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email' value=""/>
                 </div>
-               <%-- <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>--%>
                 <button type="submit" class="btn btn-success">Sign in</button>
                 <button type='button' class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'> </button>
             </form>
