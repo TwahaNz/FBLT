@@ -8,6 +8,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 
+
+<c:set var="username" value="${username}"/>
+
+<%
+
+    session.setAttribute("user", (String) pageContext.getAttribute("username"));
+%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,6 +27,19 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
+
+<script>
+    function isValidEmail() {
+        var email = document.getElementById("email").value;
+
+        if (email == "") {
+            alert("Empty Email");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 <nav class="navbar navbar-default navbar-static-top">
         <div class="navbar-header altered-menu">
@@ -40,7 +61,48 @@
                 <button type='button' class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'> </button>
             </form>
         </div><!--/.navbar-collapse -->
+<%--=======
+    <div class="navbar-header altered-menu">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><b>No Name Yet - We Make Online Shopping Easier!</b></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right" action="code" method="post" onsubmit="return isValidEmail()">
+            <%
+                String user = (String) session.getAttribute("user");
+
+                try {
+                    if (!user.equals(null))
+                        out.print(loggedIn() + user + "<b>");
+                } catch (Exception e) {
+                    out.print(notLoggedIn());
+                }
+            %>
+
+            <button type='button'
+                    class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'></button>
+        </form>
+    </div><!--/.navbar-collapse -->
+>>>>>>> Lot's of changes--%>
 </nav>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog middle-buttons" style="margin-top: 25%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div align="center"><h4 class="modal-title page-header"><b>Login Link Sent To Your Email</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div align="center" class="row spaces-top">
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
@@ -79,20 +141,40 @@
 </div>
 
 <div class="spaces-top">
-    <div  style="width: 100%">
-        <input type="text" placeholder="Search By Title, Product ID, Or Keywords" class="form-control search-field custom-control"/>
-        <button type="button" class="search-button inline"><span class="glyphicon glyphicon-search"></span></button>
+    <div style="width: 100%">
+        <input type="text" placeholder="Search By Title, Product ID, Or Keywords"
+               class="form-control search-field custom-control"/>
+        <button type="button" class="search-button inline"><span
+                class="glyphicon glyphicon-search"></span></button>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
         <br/>
-        <div style="background-color: black; color: white; width: 145px" onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span> Home
+        <div style="background-color: black; color: white; width: 145px"
+             onclick="<%response.setHeader("Location", "home.jsp");%>"><span
+                class="glyphicon glyphicon-home"></span> Home
         </div>
         <br/>
-        <div style="background-color: black; color: white; width: 145px"><span class="glyphicon glyphicon-user"></span>
+        <div style="background-color: black; color: white; width: 145px"><span
+                class="glyphicon glyphicon-user"></span>
             Profile
         </div>
     </div>
     <div class="col-md-11">
+
+            <%!
+    public String notLoggedIn() {
+        return " <div class=\"form-group\">\n" +
+                "                <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Enter Your Email\" class=\"form-control\">\n" +
+                "            </div>\n" +
+                "            <button type=\"submit\" class=\"btn btn-success\"/>\n" +
+                "            Sign in</button>";
+    }
+
+    public String loggedIn() {
+        return "<b>Welcome! ";
+    }
+
+%>

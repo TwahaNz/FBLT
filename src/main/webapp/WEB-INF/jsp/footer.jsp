@@ -7,8 +7,6 @@
     <p>This website is protected by law and is copyrighted to the owners and all those that are involved</p>
 </div>
 
-
-
 <input type="hidden" id="no_cart" data-toggle="modal" data-target="#myModal3"/>
 <div id="myModal3" class="modal fade" role="dialog">
     <div class="modal-dialog middle-buttons">
@@ -21,7 +19,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

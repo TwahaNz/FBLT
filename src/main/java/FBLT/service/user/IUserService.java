@@ -11,4 +11,6 @@ import java.util.List;
 public interface IUserService extends Service<User,String> {
 
     List<User> findByUserID(String userId);
+
+    User findByEmail(String email);
 }

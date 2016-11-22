@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by lukekramer on 16/10/2016.
  */
 @Service
-public class ImplUserService implements IUserService {
+public class UserServiceImpl implements IUserService {
 
     @Autowired
     UserRepository repository;
@@ -56,5 +56,10 @@ public class ImplUserService implements IUserService {
     @Override
     public List<User> findByUserID(String userId) {
         return findByUserID(userId);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return repository.findByEmail(email);
     }
 }
