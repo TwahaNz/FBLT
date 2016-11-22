@@ -10,6 +10,7 @@ public class TemporaryLogin {
     private User user;
     private String code;
     private String id;
+    private String timestamp;
 
     private TemporaryLogin() {}
 
@@ -17,6 +18,11 @@ public class TemporaryLogin {
         this.code = builder.code;
         this.user = builder.user;
         this.id = builder.id;
+        this.timestamp = builder.timestamp;
+    }
+
+    public String getTimestamp(){
+        return timestamp;
     }
 
     public String getCode() {
@@ -36,6 +42,12 @@ public class TemporaryLogin {
         private User user;
         private String code;
         private String id;
+        private String timestamp;
+
+        public Builder timestamp(String timestamp){
+            this.timestamp = timestamp;
+            return this;
+        }
 
         public Builder user(User user)
         {
@@ -60,6 +72,7 @@ public class TemporaryLogin {
             this.code = temporaryLogin.code;
             this.user = temporaryLogin.user;
             this.id = temporaryLogin.id;
+            this.timestamp = temporaryLogin.timestamp;
 
             return this;
         }

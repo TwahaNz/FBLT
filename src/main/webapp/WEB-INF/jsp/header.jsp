@@ -28,16 +28,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><b>No Name Yet - We Make Online Shopping Easier!</b></a>
+            <a class="navbar-brand" href="#"><b>Why don't we have a Name Yet Twaha - We Make Online Shopping Easier!</b></a>
         </div>
+
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
+            <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email' value=""/>
                 </div>
-                <div class="form-group">
+               <%-- <div class="form-group">
                     <input type="password" placeholder="Password" class="form-control">
-                </div>
+                </div>--%>
                 <button type="submit" class="btn btn-success">Sign in</button>
                 <button type='button' class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'> </button>
             </form>
