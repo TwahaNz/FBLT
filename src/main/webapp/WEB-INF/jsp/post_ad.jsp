@@ -18,8 +18,8 @@
         <hr/>
         <br/>
         <br/>
-        <form class="form-group" action="confirm-advert" enctype="multipart/form-data">
-            <label id="radio-sell" class="radio-inline"><input type="radio" name="optradio">I want to sell</label>
+        <form id="post-advert" class="form-group"  enctype="multipart/form-data" onsubmit="validatePostAdvertForm();">
+            <label id="radio-sell" class="radio-inline"><input type="radio" name="optradio" checked ="true">I want to sell</label>
             <label id="radio-buy" class="radio-inline"><input type="radio" name="optradio">I am looking for</label>
             <br/>
             <br/>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             Price:
-            <input id="txt-price" type="text" class="form-control">
+            <input id="txt-price" type="number" class="form-control">
             <br/>
             Select images: <input id="upload-images" type="file" accept="image/*" name="img" multiple>
             <br/>
@@ -1114,15 +1114,6 @@
         }
         return true;
     }
-</script>
-<script>
-    function validatePostAdvertForm() {
-        var province = document.getElementById("sel-province").value;
-        var province = document.getElementById("sel-province").value;
-        var province = document.getElementById("sel-province").value;
-        var province = document.getElementById("sel-province").value;
-    }
-
 </script>
 
 

@@ -57,6 +57,7 @@
 
         <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
               style="margin-right:20px;">
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
             </div>
