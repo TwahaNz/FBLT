@@ -15,7 +15,7 @@ import org.junit.Test;
  * Created by student on 2016/09/25.
  */
 public class InterestedEmailTest {
-    @Test
+    /*@Test
     public void whenThisTestPasses_thenAnEmailHasBeenSent() throws Exception {
 
         ContactDetails contactDetails = new ContactDetails.Builder()
@@ -65,5 +65,5 @@ public class InterestedEmailTest {
 
         Assert.assertTrue(interestedEmail.sendEmail());
 
-    }
+    }*/
 }
