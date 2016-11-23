@@ -1,14 +1,12 @@
 package FBLT.controllers;
 
 import FBLT.domain.email.impl.OTPEmail;
-import FBLT.domain.email.impl.SendEmailSSL;
 import FBLT.domain.temporarylogin.TemporaryLogin;
 import FBLT.domain.user.User;
 import FBLT.factories.temporarylogin.TemporaryLoginFactory;
 import FBLT.service.temporarylogin.ITemporaryLoginService;
 import FBLT.service.user.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -50,8 +48,8 @@ public class TemporaryLoginController {
 
         service.create(temporaryLogin);
 
-        // send an email with the link here
-        // http://127.0.0.1:8080/login?email=fer@gmail.com&code=1234
+        //send an email with the link here
+        //http://127.0.0.1:8080/login?email=fer@gmail.com&code=1234
 
         OTPEmail otpEmail = new OTPEmail.Builder()
                 .temporaryLogin(temporaryLogin)
@@ -78,12 +76,6 @@ public class TemporaryLoginController {
 
         ModelAndView result = new ModelAndView("index");
         return result;
-    }
-
-    @RequestMapping(value = {"/send"})
-    public ModelAndView sendMail() {
-        SendEmailSSL sendEmailSSL = new SendEmailSSL();
-        return new ModelAndView("index");
     }
 
 }

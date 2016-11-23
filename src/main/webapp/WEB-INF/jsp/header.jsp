@@ -29,7 +29,7 @@
 
 <script>
     function isValidEmail() {
-        var email = document.getElementById("email").value;
+        var email = document.getElementById("email_code").value;
 
         if (email == "") {
             alert("Empty Email");
@@ -40,8 +40,6 @@
     }
 </script>
 
-<a href="send">Send Mail</a>
-
 <nav class="navbar navbar-default navbar-static-top">
     <div class="navbar-header altered-menu">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -51,14 +49,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index"><b>Why don't we have a Name Yet Twaha - We Make Online Shopping Easier!</b></a>
+        <a class="navbar-brand" href="index"><b>Why don't we have a Name Yet - We Make Online Shopping Easier!</b></a>
     </div>
 
 
     <div id="navbar" class="navbar-collapse collapse">
 
         <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
-              style="margin-right:20px">
+              style="margin-right:20px;">
             <div class="form-group">
                 <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
             </div>
@@ -74,13 +72,14 @@
                 </form>
             </c:when>
             <c:otherwise>
-                <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right altered-menu">
+                <div class="navbar-form navbar-right altered-menu"
+                     style="padding-left: 5px!important; padding-right: 5px!important;">
                     <p><input type='text' placeholder="Valid Email" class="form-control custom-control spaces-right"
                               name='email'
                               value=""/>
-                        <button type="submit" class="btn btn-success glyphicon glyphicon-log-in
-"></button>
-                </form>
+                        <button type="button" class="btn btn-success glyphicon glyphicon-log-in
+" data-toggle="modal" data-target="#myModal"></button>
+                </div>
             </c:otherwise>
         </c:choose>
     </div>
@@ -88,10 +87,22 @@
 </nav>
 
 <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog middle-buttons" style="margin-top: 25%">
+    <div class="modal-dialog middle-buttons" style="margin-top: 15%">
         <div class="modal-content">
             <div class="modal-header">
-                <div align="center"><h4 class="modal-title page-header"><b>Login Link Sent To Your Email</b></h4>
+                <div align="center"><h4 class="modal-title page-header"><b>Enter The Verification Code Sent To Your
+                    Email</b></h4>
+                    <form id="link" action="login-request" method="post" onsubmit="return isValidEmail()"
+                          style="padding-left: 5px!important; padding-right: 5px!important;">
+                        <p><input type='text' placeholder="Enter Verification Code"
+                                  class="form-control custom-control spaces-right"
+                                  name='email_code'
+                                  value=''/>
+                            <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok
+" data-toggle="modal" data-target="#myModal">
+
+                            </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -158,18 +169,3 @@
         </div>
     </div>
     <div class="col-md-11">
-
-            <%!
-public String notLoggedIn() {
-return " <div class=\"form-group\">\n" +
-        "                <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Enter Your Email\" class=\"form-control\">\n" +
-        "            </div>\n" +
-        "            <button type=\"submit\" class=\"btn btn-success\"/>\n" +
-        "            Sign in</button>";
-}
-
-public String loggedIn() {
-return "<b>Welcome! ";
-}
-
-%>

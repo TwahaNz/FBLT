@@ -20,18 +20,17 @@ public class RegisterPageController {
     @Autowired
     UserServiceImpl userService;
 
-
     @RequestMapping(value = {"/register"}, method = RequestMethod.GET)
-    public ModelAndView getRegisterPage(){
+    public ModelAndView getRegisterPage() {
         ModelAndView result = new ModelAndView("register");
         return result;
     }
 
     @RequestMapping(value = {"/register"}, method = RequestMethod.POST)
-    public ModelAndView insertUser(@RequestParam("username")String username,
-                                           @RequestParam("email") String email,
-                                           UriComponentsBuilder ucBuilder){
-        System.out.println(username+ email);
+    public ModelAndView insertUser(@RequestParam("username") String username,
+                                   @RequestParam("email") String email,
+                                   UriComponentsBuilder ucBuilder) {
+        System.out.println(username + email);
 
 
         ContactDetails contactDetails = new ContactDetails.Builder()
