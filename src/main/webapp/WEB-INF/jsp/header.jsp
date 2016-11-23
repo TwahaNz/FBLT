@@ -9,12 +9,11 @@
 --%>
 
 
-<c:set var="username" value="${username}"/>
+<%--<c:set var="username" value="${username}"/>
 
 <%
-
     session.setAttribute("user", (String) pageContext.getAttribute("username"));
-%>
+%>--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -56,53 +55,29 @@
 
     <div id="navbar" class="navbar-collapse collapse">
 
-        <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right">
-            <div class="form-group">
-                <p><input type='text' placeholder="Valid Email" class="form-control custom-control" name='email'
-                          value=""/>
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-            <button type='button'
-                    class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'></button>
-        </form>
-        <form id="postAdForm" action="post_advert">
+        <form id="postAdForm" action="post_advert" class="navbar-form navbar-right" style="margin-right:20px">
             <div class="form-group">
                 <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
             </div>
         </form>
 
-    </div><!--/.navbar-collapse -->
-    <%--=======
-        <div class="navbar-header altered-menu">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><b>No Name Yet - We Make Online Shopping Easier!</b></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" action="code" method="post" onsubmit="return isValidEmail()">
-                <%
-                    String user = (String) session.getAttribute("user");
-
-                    try {
-                        if (!user.equals(null))
-                            out.print(loggedIn() + user + "<b>");
-                    } catch (Exception e) {
-                        out.print(notLoggedIn());
-                    }
-                %>
-
-                <button type='button'
-                        class='btn btn-warning glyphicon glyphicon-shopping-cart spaces-right-header'></button>
-            </form>
-        </div><!--/.navbar-collapse -->
-    >>>>>>> Lot's of changes--%>
-
-    </div><!--/.navbar-collapse -->
+        <c:choose>
+            <c:when test="${username.length() > 0}">
+                <form id="sign-out" action="sign-out-request" method="post" class="navbar-form navbar-right">
+                    <b>Welcome!</b> ${username}
+                    <button type="submit" class="btn btn-danger spaces-left">Sign Out</button>
+                </form>
+            </c:when>
+            <c:otherwise>
+                <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right">
+                    <p><input type='text' placeholder="Valid Email" class="form-control custom-control spaces-right"
+                              name='email'
+                              value=""/>
+                        <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </c:otherwise>
+        </c:choose>
+    </div>
 
 </nav>
 
@@ -179,16 +154,16 @@
     <div class="col-md-11">
 
             <%!
-    public String notLoggedIn() {
-        return " <div class=\"form-group\">\n" +
-                "                <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Enter Your Email\" class=\"form-control\">\n" +
-                "            </div>\n" +
-                "            <button type=\"submit\" class=\"btn btn-success\"/>\n" +
-                "            Sign in</button>";
-    }
+public String notLoggedIn() {
+return " <div class=\"form-group\">\n" +
+        "                <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Enter Your Email\" class=\"form-control\">\n" +
+        "            </div>\n" +
+        "            <button type=\"submit\" class=\"btn btn-success\"/>\n" +
+        "            Sign in</button>";
+}
 
-    public String loggedIn() {
-        return "<b>Welcome! ";
-    }
+public String loggedIn() {
+return "<b>Welcome! ";
+}
 
 %>

@@ -2,13 +2,13 @@ package FBLT.controllers;
 
 import FBLT.domain.email.impl.OTPEmail;
 import FBLT.domain.temporarylogin.TemporaryLogin;
+import FBLT.domain.user.User;
 import FBLT.factories.temporarylogin.TemporaryLoginFactory;
 import FBLT.service.temporarylogin.ITemporaryLoginService;
+import FBLT.service.user.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -16,24 +16,35 @@ import org.springframework.web.util.UriComponentsBuilder;
  * Created by tayfer01 on 11/22/2016.
  */
 
-@Controller
+@RestController
+@SessionAttributes("username")
 public class TemporaryLoginController {
 
     @Autowired
     ITemporaryLoginService service;
 
+    @Autowired
+    UserServiceImpl userService;
+
     @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
     public ModelAndView getRegisterPage(){
-        ModelAndView result = new ModelAndView("index");
-        return result;
+        return  new ModelAndView("index");
     }
-
 
     @RequestMapping(value = {"/login-request"}, method = RequestMethod.POST)
     public ModelAndView insertUser(@RequestParam("email") String email,
                                    UriComponentsBuilder ucBuilder){
 
+        ModelAndView result = new ModelAndView("index");
+
+        User user = userService.findByEmail(email);
+
+        if(user.getContactDetails().getEmailAddress().toLowerCase().equals(email.toLowerCase())) {
+            result.addObject("username", email);
+        }
+
         System.out.println("User login req email: " + email);
+
         TemporaryLogin temporaryLogin = TemporaryLoginFactory.createTemporaryLogin(email);
 
         service.create(temporaryLogin);
@@ -46,8 +57,6 @@ public class TemporaryLoginController {
                 .build();
         otpEmail.sendEmail();
 
-
-        ModelAndView result = new ModelAndView("index");
         return result;
     }
 
