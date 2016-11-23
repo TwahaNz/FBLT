@@ -40,6 +40,8 @@
     }
 </script>
 
+<a href="send">Send Mail</a>
+
 <nav class="navbar navbar-default navbar-static-top">
     <div class="navbar-header altered-menu">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -49,13 +51,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><b>Why don't we have a Name Yet Twaha - We Make Online Shopping Easier!</b></a>
+        <a class="navbar-brand" href="index"><b>Why don't we have a Name Yet Twaha - We Make Online Shopping Easier!</b></a>
     </div>
 
 
     <div id="navbar" class="navbar-collapse collapse">
 
-        <form id="postAdForm" action="post_advert" class="navbar-form navbar-right" style="margin-right:20px">
+        <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
+              style="margin-right:20px">
             <div class="form-group">
                 <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
             </div>
@@ -63,17 +66,20 @@
 
         <c:choose>
             <c:when test="${username.length() > 0}">
-                <form id="sign-out" action="sign-out-request" method="post" class="navbar-form navbar-right">
+                <form id="sign-out" action="sign-out-request" method="post"
+                      class="navbar-form navbar-right altered-menu">
                     <b>Welcome!</b> ${username}
-                    <button type="submit" class="btn btn-danger spaces-left">Sign Out</button>
+                    <button type="submit" class="btn btn-danger spaces-left glyphicon glyphicon-log-out
+"></button>
                 </form>
             </c:when>
             <c:otherwise>
-                <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right">
+                <form id="loginForm" action="login-request" method="post" class="navbar-form navbar-right altered-menu">
                     <p><input type='text' placeholder="Valid Email" class="form-control custom-control spaces-right"
                               name='email'
                               value=""/>
-                        <button type="submit" class="btn btn-success">Sign in</button>
+                        <button type="submit" class="btn btn-success glyphicon glyphicon-log-in
+"></button>
                 </form>
             </c:otherwise>
         </c:choose>
@@ -97,31 +103,31 @@
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        Books
+        <a href="" class="link">Books</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #9c27b0">
-        Clothing
+        <a href="" class="link">Clothing</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        Shoes
+        <a href="" class="link"> Shoes</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #3f51b5">
-        Audio
+        <a href="" class="link">Audio</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #2196f3">
-        Cellphones
+        <a href="" class="link">Cellphones</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
-        Computers
+        <a href="" class="link">Computers</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63;">
-        TV and Video
+        <a href="" class="link"> TV and Video</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #00bcd4">
-        Livestock
+        <a href="" class="link"> Livestock</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #009688">
-        Vehicles
+        <a href="" class="link"> Vehicles</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>

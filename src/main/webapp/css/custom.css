@@ -17,7 +17,7 @@
 }
 
 .spaces-left {
-	margin-left:20px;
+	margin-left:10px;
 }
 
 .spaces-bottom {
@@ -29,7 +29,7 @@
 }
 
 .spaces-right {
-	margin-right:20px;
+	margin-right:10px;
 }
 
 .register-button {
@@ -198,4 +198,9 @@ table{
 
 hr {
 	border-color: #03A9F4!important;
+}
+
+.link {
+	color: white!important;
+	font-size: larger!important;
 }

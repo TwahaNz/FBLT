@@ -1,6 +1,7 @@
 package FBLT.controllers;
 
 import FBLT.domain.email.impl.OTPEmail;
+import FBLT.domain.email.impl.SendEmailSSL;
 import FBLT.domain.temporarylogin.TemporaryLogin;
 import FBLT.domain.user.User;
 import FBLT.factories.temporarylogin.TemporaryLoginFactory;
@@ -77,6 +78,12 @@ public class TemporaryLoginController {
 
         ModelAndView result = new ModelAndView("index");
         return result;
+    }
+
+    @RequestMapping(value = {"/send"})
+    public ModelAndView sendMail() {
+        SendEmailSSL sendEmailSSL = new SendEmailSSL();
+        return new ModelAndView("index");
     }
 
 }
