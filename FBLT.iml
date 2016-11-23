@@ -88,5 +88,6 @@
     <orderEntry type="library" name="Maven: com.maxmind.geoip:geoip-api:1.2.11" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.4.1" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" level="project" />
   </component>
 </module>

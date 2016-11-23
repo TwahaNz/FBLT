@@ -90,7 +90,7 @@ public class AdvertController {
     }
 
     //-------------------Insert an Advert--------------------------------------------------------
-    @RequestMapping(value = "/advert-controller/", method = RequestMethod.POST)
+    @RequestMapping(value = "/advert-controller", method = RequestMethod.POST)
     public ResponseEntity<Void> createAdvert(@RequestBody Advert newAdvert, UriComponentsBuilder ucBuilder) {
 
         advertService.create(newAdvert);

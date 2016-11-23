@@ -55,6 +55,7 @@ public class GeolocationFinder {
 
         public Builder setLocation(Location location) {
             this.location = location;
+
             return this;
         }
 

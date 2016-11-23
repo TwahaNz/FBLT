@@ -23,6 +23,7 @@ public class GeolocationFinderTest {
                 LookupService.GEOIP_MEMORY_CACHE | LookupService.GEOIP_CHECK_CACHE);
 
          geolocationFinder = new GeolocationFinder.Builder()
+
                 .setUpLookupService()
                 .setIPAdress("takealot.co.za")
                 .setLocation(new Location())
