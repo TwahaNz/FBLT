@@ -44,7 +44,7 @@ public class SendVerificationEmail implements Email {
 
             message.setSubject("do-not-reply");
 
-            message.setText("Hello " + registeredUserVerification.getUsername() + " welcome to Bubby-King! \n" +
+            message.setText("Hello " + registeredUserVerification.getUsername() + ", Welcome to Bubby-King! \n" +
                     "Please complete registration by entering in this registration code: " +
                     registeredUserVerification.getVerificationCode() + "\n\n\nRegards\nDev Team");
 

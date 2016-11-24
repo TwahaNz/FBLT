@@ -17,11 +17,26 @@ public class MagicLinkTest {
 
     @Test
     public void testMagic_link() {
-        String password = "123456";
+        String password = "FBLT";
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(password);
 
-        passwordEncoder.matches("123456", hashedPassword);
+        String temp = "";
+
+        for (int i = 0; i < hashedPassword.length(); i++) {
+            if (Character.isAlphabetic(hashedPassword.charAt(i))) {
+                temp += hashedPassword.charAt(i);
+            }
+
+            if ((Character.isDigit(hashedPassword.charAt(i)))) {
+                temp += hashedPassword.charAt(i);
+            }
+        }
+
+        passwordEncoder.matches("FBLT", hashedPassword);
+
+        System.out.println(hashedPassword);
+        System.out.println(temp);
 
 
     }

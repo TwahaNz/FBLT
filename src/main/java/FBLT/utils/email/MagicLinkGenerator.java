@@ -12,9 +12,11 @@ import java.util.Random;
 public final class MagicLinkGenerator {
 
     private static Random random;
+    private static BCryptPasswordEncoder linkEncoder;
+    private static final String PHRASE = "FBLT";
 
     static {
-       random = new Random();
+      linkEncoder = new BCryptPasswordEncoder();
     }
 
     private MagicLinkGenerator() {
@@ -23,12 +25,18 @@ public final class MagicLinkGenerator {
 
     public static String generateEncryption() {
 
-        String alphabet = "1x2y3z";
+        String hashedPassword = linkEncoder.encode(PHRASE);
 
         String temp = "";
 
-        for (int i = 0; i < 20; i++) {
-            temp += alphabet.charAt(random.nextInt(alphabet.length()));
+        for (int i = 0; i < hashedPassword.length(); i++) {
+            if (Character.isAlphabetic(hashedPassword.charAt(i))) {
+                temp += hashedPassword.charAt(i);
+            }
+
+            if ((Character.isDigit(hashedPassword.charAt(i)))) {
+                temp += hashedPassword.charAt(i);
+            }
         }
 
         return temp;
