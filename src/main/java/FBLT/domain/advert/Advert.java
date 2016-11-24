@@ -31,8 +31,6 @@ public class Advert implements IAdvert {
     private User user;
     private ArrayList<String> imagepaths;
 
-
-
     @JsonTypeInfo(
             use = JsonTypeInfo.Id.NAME,
             include = JsonTypeInfo.As.PROPERTY,

@@ -19,7 +19,7 @@
         <br/>
         <br/>
         <form id="post-advert" action="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
-              onsubmit="validatePostAdvertForm();">
+              onsubmit="return validatePostAdvertForm();">
             <label class="radio-inline"><input id="radio-sell"  type="radio" name="optradio" checked="true" >I want to
                 sell</label>
             <label class="radio-inline"><input id="radio-buy" type="radio" name="optradio">I am looking for</label>

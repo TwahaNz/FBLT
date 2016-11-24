@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.StringReader;
+import java.io.*;
+
 
 /**
  * Created by nzetwa01 on 11/18/2016.
@@ -29,10 +29,36 @@ public class PostAdvertController {
                                      @RequestParam("description") String description,
                                      @RequestParam("location") String location,
                                      @RequestParam("price") String price,
-                                     @RequestParam("bool-is-selling") String isSelling) throws Exception {
+                                     @RequestParam("bool-is-selling") String isSelling,
+                                     @RequestParam("img") MultipartFile[] files) throws Exception{
 
-        System.out.println(description);
-        System.out.println("Catagories Detected: " + getCategory(description));
+
+        for (int i = 0; i < files.length; i++) {
+            MultipartFile file = files[i];
+            String name = "" + i;
+            try {
+                byte[] bytes = file.getBytes();
+
+                // Creating the directory to store file
+                String rootPath = System.getProperty("user.dir");
+                File dir = new File(rootPath + File.separator + "tmpFiles");
+                if (!dir.exists())
+                    dir.mkdirs();
+
+                // Create the file on server
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + name +".jpg");
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+
+            } catch (Exception e) {
+                e.getMessage();
+            }
+        }
+
 
         ModelAndView mv = new ModelAndView("confirm_ad");
         mv.addObject("title", title);
