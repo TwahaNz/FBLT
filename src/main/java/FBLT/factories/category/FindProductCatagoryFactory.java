@@ -10,17 +10,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 /**
- *
  * @author Admin
  */
 public class FindProductCatagoryFactory {
-    
-    public static FindProductCatagory getFindProductCatagory(BufferedReader br,
-                                                             FileReader fr) {
+
+    public static FindProductCatagory getFindProductCatagory(BufferedReader br
+    ) {
         return new FindProductCatagory.Builder()
                 .setBufferedReader(br)
-                .setFileReader(fr)
                 .build();
     }
-    
+
 }

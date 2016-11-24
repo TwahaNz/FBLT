@@ -16,15 +16,17 @@ import java.util.List;
  * @author Admin
  */
 public class FindProductCatagory {
-    
-    private final FileReader fileReader;
+
     private final BufferedReader bufferedReader;
     private List<String> description;
     private List<String> possibleCatagories;
    
     private FindProductCatagory(Builder builder) {
-        this.fileReader = builder.fileReader;
         this.bufferedReader = builder.bufferedReader;
+    }
+
+    public  String getFirstCategory() throws Exception {
+        return possibleCatagories.get(0);
     }
     
     public void processCatagoryFile() throws Exception {       
@@ -71,7 +73,6 @@ public class FindProductCatagory {
 
     public void closeConnections() throws Exception {
         bufferedReader.close();
-        fileReader.close();
     }
     
     public String analyseDescription() {
@@ -79,14 +80,8 @@ public class FindProductCatagory {
     }
     
     public static class Builder {
-        
-        private FileReader fileReader;
-        private BufferedReader bufferedReader;
 
-        public Builder setFileReader(FileReader fileReader) {
-            this.fileReader = fileReader;
-            return this;
-        }
+        private BufferedReader bufferedReader;
 
         public Builder setBufferedReader(BufferedReader bufferedReader) {
             this.bufferedReader = bufferedReader;
@@ -95,7 +90,6 @@ public class FindProductCatagory {
         
         public Builder copyFindProductCatagory(FindProductCatagory findProCat) {
             this.bufferedReader = findProCat.bufferedReader;
-            this.fileReader = findProCat.fileReader;
             return this;
         }
         

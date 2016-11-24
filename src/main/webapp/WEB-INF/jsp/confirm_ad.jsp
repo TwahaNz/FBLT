@@ -7,7 +7,7 @@
 <div class="container-fluid">
 
     <div align="center" class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 panel custom-panel spaces-top">
         <h1>Confirm Advert Details</h1>
         <hr/>
         <br/>
@@ -36,7 +36,7 @@
 
             Category:
             <br/>
-            We have placed your ad in: {insert category here}
+            We have placed your ad in: <b>${category}</b>
             <br/>
             If this category is not suitable, please select one from the dropdown list below:
             <br/>
@@ -44,6 +44,15 @@
                 <div class="col-md-3">
                     <select class="form-control" id="sel-province" onchange="fillCity()">
                         <option>Select Category</option>
+                        <option>Books</option>
+                        <option>Clothing</option>
+                        <option>Shoes</option>
+                        <option>Audio</option>
+                        <option>Cellphones</option>
+                        <option>Computers</option>
+                        <option>Electronics</option>
+                        <option>Livestock</option>
+                        <option>Vehicles</option>
                     </select>
                 </div>
             </div>

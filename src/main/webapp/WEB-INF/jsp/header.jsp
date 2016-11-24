@@ -30,6 +30,11 @@
 </head>
 <body>
 
+    <script>
+        $(document).snow({ SnowImage: "<%=path%>snow.gif" });
+    </script>
+
+
 <script>
     function isValidEmail() {
         var email = document.getElementById("email").value;
@@ -162,14 +167,14 @@
 </div>
 
 <div class="row">
-    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%; padding-left:0px!important;padding-right:0px!important;">
+    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
         <br/>
-        <div style="background-color: black; color: white; width: 100%"
+        <div style="background-color: black; color: white; width: 145px"
              onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span>
             Home
         </div>
         <br/>
-        <div style="background-color: black; color: white; width: 100%"><span
+        <div style="background-color: black; color: white; width: 145px"><span
                 class="glyphicon glyphicon-user"></span>
             Profile
         </div>

@@ -38,11 +38,16 @@ public class FindProductCatagoryTest {
 
         dummyWriter.close();
 
-        FileReader fr = new FileReader(FILE);
-        BufferedReader br = new BufferedReader(fr);
+        StringReader stringReader = new StringReader( "Livestock cow cows chickens chicken birds bird sheep sheeps goat goats\n" +
+                "Cellphone phones phone samsung android iphone\n" +
+                "Electronics phones phone speakers mic mics earphone earphones beats");
+
+        BufferedReader br = new BufferedReader(stringReader);
+
+        System.out.print(br.readLine());
         
         findProductCatagory = FindProductCatagoryFactory
-                .getFindProductCatagory(br, fr);
+                .getFindProductCatagory(br);
     }
 
     @Test
