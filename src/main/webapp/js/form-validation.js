@@ -1,6 +1,7 @@
 function isValidRegistratioForm() {
     var email = document.forms["registerForm"]["email"].value;
     var username = document.forms["registerForm"]["username"].value;
+
     var errors = "";
     var isValid = true;
 
@@ -27,15 +28,56 @@ function validatePostAdvertForm() {
     var description = document.forms["post-advert"]["txt-description"].value;
     var title = document.forms["post-advert"]["txt-title"].value;
     var price = document.forms["post-advert"]["txt-price"].value;
+    var provinceSelector = document.forms["post-advert"]["sel-province"].value;
+    var citySelector = document.forms["post-advert"]["sel-city"].value;
+    var suburb = document.forms["post-advert"]["txt-suburb"].value;
+
     var errors = "";
     var isValid = true;
 
+    if (document.forms["post-advert"]["check-use-location"].checked) {
+
+        if (suburb == "") {
+            document.forms["post-advert"]["txt-location"].value =
+                document.getElementById("lbl-current-location").innerHTML;
+        } else {
+            document.forms["post-advert"]["txt-location"].value = suburb + "," +
+                document.getElementById("lbl-current-location").innerHTML
+        }
+    } else {
+
+        if (citySelector == "") {
+            errors += "You must specify a location, or use your current location\n";
+            isValid = false;
+        } else {
+            if (suburb == "") {
+                document.forms["post-advert"]["txt-location"].value = citySelector + "," + provinceSelector;
+            } else {
+                document.forms["post-advert"]["txt-location"].value = suburb + "," + citySelector + "," + provinceSelector;
+            }
+        }
+
+    }
+
+    if (document.forms["post-advert"]["radio-sell"].checked) {
+        document.forms["post-advert"]["bool-is-selling"].value = "true";
+    }
+    else {
+        document.forms["post-advert"]["bool-is-selling"].value = "false";
+    }
+
     if (title.length < 10) {
-        errors += "title is too short\n";
+        errors += "Title is Too Short (Minimum 10 Characters)\n";
         isValid = false;
     }
-    if (description.length > 10) {
-        errors += "description too long\n";
+
+    if (description.length > 200 || description.length < 20) {
+        errors += "Description Must Be Between 20 and 200 Characters Long\n";
+        isValid = false;
+    }
+
+    if (isNaN(price)) {
+        errors += "Only Numbers Allowed in Price TextBox\n";
         isValid = false;
     }
 

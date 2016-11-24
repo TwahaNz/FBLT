@@ -18,20 +18,25 @@
         <hr/>
         <br/>
         <br/>
-        <form id="post-advert" class="form-group"  enctype="multipart/form-data" onsubmit="validatePostAdvertForm();">
-            <label id="radio-sell" class="radio-inline"><input type="radio" name="optradio" checked ="true">I want to sell</label>
-            <label id="radio-buy" class="radio-inline"><input type="radio" name="optradio">I am looking for</label>
+        <form id="post-advert" action="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
+              onsubmit="validatePostAdvertForm();">
+            <label class="radio-inline"><input id="radio-sell"  type="radio" name="optradio" checked="true" >I want to
+                sell</label>
+            <label class="radio-inline"><input id="radio-buy" type="radio" name="optradio">I am looking for</label>
+            <input type="hidden" id="is-selling" name="bool-is-selling">
             <br/>
             <br/>
             Ad Title:
-            <input id="txt-title" type="text" class="form-control">
+            <input id="txt-title" type="text" class="form-control" name="title">
+            <label id="error-title"></label>
             <br/>
             Ad Description:
-            <textarea id="txt-description" class="form-control" rows="5" id="advertDescription"></textarea>
+            <textarea id="txt-description" name="description" class="form-control" rows="5" id="advertDescription"></textarea>
+            <span id="error-description"></span>
             <br/>
             Location:
             <br/>
-            <label id="check-use-location" class="checkbox-inline"><input type="checkbox" value="">Use current Location:</label>
+            <label  class="checkbox-inline"><input id="check-use-location" type="checkbox" >Use current Location:</label>
             <label id="lbl-current-location">{Location is suggested here}</label>
             <br/>
             <br/>
@@ -68,14 +73,17 @@
                     <input type="text" class="form-control" id="txt-suburb"/>
                 </div>
             </div>
+            <span id="error-location"></span>
+            <input id="txt-location" type="hidden" name="location"/>
             Price:
-            <input id="txt-price" type="number" class="form-control">
+            <input id="txt-price" type="number" class="form-control" name="price">
+            <span id="error-price"></span>
             <br/>
             Select images: <input id="upload-images" type="file" accept="image/*" name="img" multiple>
             <br/>
             <br/>
-            <input type="submit" value="Confirm Ad" class="btn btn-success">
 
+            <input type="submit" value="Confirm Ad" class="btn btn-success">
 
         </form>
     </div>
@@ -1115,7 +1123,6 @@
         return true;
     }
 </script>
-
 
 
 <jsp:include page="footer.jsp"/>
