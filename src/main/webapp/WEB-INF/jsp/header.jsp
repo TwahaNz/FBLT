@@ -29,12 +29,14 @@
 
 <script>
     function isValidEmail() {
-        var email = document.getElementById("email_code").value;
+        var email = document.getElementById("email").value;
 
         if (email == "") {
             alert("Empty Email");
             return false;
         }
+
+        document.getElementById("verify_email").value = email;
 
         return true;
     }
@@ -64,7 +66,7 @@
         </form>
 
         <c:choose>
-            <c:when test="${username.length() > 0}">
+            <c:when test="${login.length() == 2}">
                 <form id="sign-out" action="sign-out-request" method="post"
                       class="navbar-form navbar-right altered-menu">
                     <b>Welcome!</b> ${username}
@@ -76,7 +78,7 @@
                 <div class="navbar-form navbar-right altered-menu"
                      style="padding-left: 5px!important; padding-right: 5px!important;">
                     <p><input type='text' placeholder="Valid Email" class="form-control custom-control spaces-right"
-                              name='email'
+                              name='email' id="email"
                               value=""/>
                         <button type="button" class="btn btn-success glyphicon glyphicon-log-in
 " data-toggle="modal" data-target="#myModal"></button>
@@ -91,18 +93,15 @@
     <div class="modal-dialog middle-buttons" style="margin-top: 15%">
         <div class="modal-content">
             <div class="modal-header">
-                <div align="center"><h4 class="modal-title page-header"><b>Enter The Verification Code Sent To Your
+                <div align="center"><h4 class="modal-title page-header"><b>A Magic Link Has Been Sent To Your
                     Email</b></h4>
                     <form id="link" action="login-request" method="post" onsubmit="return isValidEmail()"
                           style="padding-left: 5px!important; padding-right: 5px!important;">
-                        <p><input type='text' placeholder="Enter Verification Code"
-                                  class="form-control custom-control spaces-right"
-                                  name='email_code'
-                                  value=''/>
-                            <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok
+                        <input type="hidden" value="" id="verify_email" name="verify_email">
+                        <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok
 " data-toggle="modal" data-target="#myModal">
 
-                            </button>
+                        </button>
                     </form>
                 </div>
             </div>

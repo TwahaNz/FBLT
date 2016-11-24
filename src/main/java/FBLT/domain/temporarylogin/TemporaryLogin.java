@@ -1,6 +1,7 @@
 package FBLT.domain.temporarylogin;
 
 import FBLT.domain.user.User;
+import FBLT.utils.email.MagicLinkGenerator;
 
 /**
  * This class is responsible for our temporary login feature
@@ -57,7 +58,7 @@ public class TemporaryLogin {
 
         public Builder code(String code)
         {
-            this.code = code;
+            this.code = MagicLinkGenerator.generateEncryption() + code + MagicLinkGenerator.generateEncryption();
             return this;
         }
 

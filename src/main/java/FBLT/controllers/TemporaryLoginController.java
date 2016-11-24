@@ -6,17 +6,22 @@ import FBLT.domain.user.User;
 import FBLT.factories.temporarylogin.TemporaryLoginFactory;
 import FBLT.service.temporarylogin.ITemporaryLoginService;
 import FBLT.service.user.UserServiceImpl;
+import FBLT.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import static java.lang.System.out;
 
 /**
  * Created by tayfer01 on 11/22/2016.
  */
 
 @RestController
-@SessionAttributes("username")
+@SessionAttributes({"username", "login", "verification-code"})
 public class TemporaryLoginController {
 
     @Autowired
@@ -26,55 +31,68 @@ public class TemporaryLoginController {
     UserServiceImpl userService;
 
     @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
-    public ModelAndView getRegisterPage(){
-        return  new ModelAndView("index");
+    public ModelAndView getRegisterPage() {
+        return new ModelAndView("index");
     }
 
     @RequestMapping(value = {"/login-request"}, method = RequestMethod.POST)
-    public ModelAndView insertUser(@RequestParam("email") String email,
-                                   UriComponentsBuilder ucBuilder){
+    public ModelAndView insertUser(@RequestParam("verify_email") String email) {
 
         ModelAndView result = new ModelAndView("index");
 
         User user = userService.findByEmail(email);
 
-        if(user.getContactDetails().getEmailAddress().toLowerCase().equals(email.toLowerCase())) {
+        if (user.getContactDetails().getEmailAddress().toLowerCase().equals(email.toLowerCase())) {
+
+            TemporaryLogin temporaryLogin = TemporaryLoginFactory.createTemporaryLogin(email);
+
+            service.create(temporaryLogin);
+
+            OTPEmail otpEmail = new OTPEmail.Builder()
+                    .temporaryLogin(temporaryLogin)
+                    .magicLink(temporaryLogin.getCode())
+                    .build();
+            otpEmail.sendEmail();
+
             result.addObject("username", email);
+            result.addObject("login", "out");
+            result.addObject("verification-code", temporaryLogin.getCode());
+
+            out.println("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/v" + temporaryLogin.getCode());
         }
-
-        System.out.println("User login req email: " + email);
-
-        TemporaryLogin temporaryLogin = TemporaryLoginFactory.createTemporaryLogin(email);
-
-        service.create(temporaryLogin);
-
-        //send an email with the link here
-        //http://127.0.0.1:8080/login?email=fer@gmail.com&code=1234
-
-        OTPEmail otpEmail = new OTPEmail.Builder()
-                .temporaryLogin(temporaryLogin)
-                .build();
-        otpEmail.sendEmail();
 
         return result;
     }
 
-    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+/*    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
     public ModelAndView insertUser(@RequestParam("email")String email,
                                    @RequestParam("code") String code,
                                    UriComponentsBuilder ucBuilder){
-        System.out.println(email);
+        out.println(email);
 
         TemporaryLogin temporaryLogin = service.isValidUser(email, code);
 
-        System.out.println("validating user");
+        out.println("validating user");
 
         if(temporaryLogin == null)
-            System.out.println("invalid");
+            out.println("invalid");
         else
-            System.out.println("valid login by " + temporaryLogin.getUser().getContactDetails().getEmailAddress());
+            out.println("valid login by " + temporaryLogin.getUser().getContactDetails().getEmailAddress());
 
         ModelAndView result = new ModelAndView("index");
+        return result;
+    }*/
+
+    @RequestMapping(value = {"/v{code}"}, method = RequestMethod.GET)
+    public ModelAndView insertUser(@ModelAttribute("verification-code") String code, @PathVariable("code") String userCode,
+                                   @ModelAttribute("login") String status) {
+
+        ModelAndView result = new ModelAndView("index");
+
+        if (code.equals(userCode)) {
+            result.addObject("login", "in");
+        }
+
         return result;
     }
 

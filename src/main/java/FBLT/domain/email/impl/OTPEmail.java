@@ -16,16 +16,18 @@ import javax.mail.internet.MimeMessage;
 public class OTPEmail implements Email {
 
     private TemporaryLogin temporaryLogin;
+    private String magicLink;
 
 
     public OTPEmail(Builder builder){
         this.temporaryLogin = temporaryLogin;
+        this.magicLink = builder.magicLink;
     }
 
     private OTPEmail(){}
 
-    public TemporaryLogin getTemporaryLogin() {
-        return temporaryLogin;
+    public String getMagicLink() {
+        return this.magicLink;
     }
 
     @Override
@@ -44,10 +46,7 @@ public class OTPEmail implements Email {
             message.setSubject("do-not-reply");
 
             message.setText("Please follow this link to login: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT
-                    + "/login?email="
-                    + temporaryLogin.getUser().getContactDetails().getEmailAddress()
-                    + "&code="
-                    + temporaryLogin.getCode());
+                    + "/v" + getMagicLink());
 
 
             Transport.send(message);
@@ -64,9 +63,15 @@ public class OTPEmail implements Email {
     public static class Builder{
 
         private TemporaryLogin temporaryLogin;
+        private String magicLink;
 
         public Builder temporaryLogin(TemporaryLogin temporaryLogin){
             this.temporaryLogin = temporaryLogin;
+            return this;
+        }
+
+        public Builder magicLink(String magicLink) {
+            this.magicLink = magicLink;
             return this;
         }
 
