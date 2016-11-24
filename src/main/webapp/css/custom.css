@@ -204,3 +204,8 @@ hr {
 	color: white!important;
 	font-size: larger!important;
 }
+
+.row{
+	margin-right: 0px!important;
+	margin-left: 0px!important;
+}

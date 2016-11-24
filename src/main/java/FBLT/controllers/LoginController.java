@@ -8,11 +8,8 @@ import FBLT.service.temporarylogin.ITemporaryLoginService;
 import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import static java.lang.System.out;
 
@@ -22,7 +19,7 @@ import static java.lang.System.out;
 
 @RestController
 @SessionAttributes({"username", "login", "verification-code"})
-public class TemporaryLoginController {
+public class LoginController {
 
     @Autowired
     ITemporaryLoginService service;
@@ -40,25 +37,31 @@ public class TemporaryLoginController {
 
         ModelAndView result = new ModelAndView("index");
 
-        User user = userService.findByEmail(email);
+        try {
 
-        if (user.getContactDetails().getEmailAddress().toLowerCase().equals(email.toLowerCase())) {
+            User user = userService.findByEmail(email);
 
-            TemporaryLogin temporaryLogin = TemporaryLoginFactory.createTemporaryLogin(email);
+            if (user.getContactDetails().getEmailAddress().toLowerCase().equals(email.toLowerCase())) {
 
-            service.create(temporaryLogin);
+                TemporaryLogin temporaryLogin = TemporaryLoginFactory.createTemporaryLogin(email);
 
-            OTPEmail otpEmail = new OTPEmail.Builder()
-                    .temporaryLogin(temporaryLogin)
-                    .magicLink(temporaryLogin.getCode())
-                    .build();
-            otpEmail.sendEmail();
+                service.create(temporaryLogin);
 
-            result.addObject("username", email);
-            result.addObject("login", "out");
-            result.addObject("verification-code", temporaryLogin.getCode());
+                OTPEmail otpEmail = new OTPEmail.Builder()
+                        .temporaryLogin(temporaryLogin)
+                        .magicLink(temporaryLogin.getCode())
+                        .build();
+                otpEmail.sendEmail();
 
-            out.println("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/v" + temporaryLogin.getCode());
+                result.addObject("username", email);
+                result.addObject("login", "out");
+                result.addObject("verification-code", temporaryLogin.getCode());
+
+                out.println("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/v" + temporaryLogin.getCode());
+            }
+
+        } catch (Exception e) {
+            result.setViewName("invalid");
         }
 
         return result;

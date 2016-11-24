@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.*,java.util.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: maybra01
@@ -15,7 +16,9 @@
     session.setAttribute("user", (String) pageContext.getAttribute("username"));
 %>--%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% String path = request.getContextPath() + "/images/"; %>
+
+
 <html>
 <head>
     <title>FBLT</title>
@@ -51,7 +54,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index"><b>Why don't we have a Name Yet - We Make Online Shopping Easier!</b></a>
+        <a class="navbar-brand spaces-left" style="padding-top: 5px!important;" href="index"><b>Bubby King <img
+                src="<%=path%>logo.png" class="img-responsive img-round inline" width="60px" height="60px"/></b></a>
     </div>
 
 
@@ -93,15 +97,17 @@
     <div class="modal-dialog middle-buttons" style="margin-top: 15%">
         <div class="modal-content">
             <div class="modal-header">
-                <div align="center"><h4 class="modal-title page-header"><b>A Magic Link Has Been Sent To Your
-                    Email</b></h4>
+                <div align="center"><h4 class="modal-title page-header"><b>Click The Tick Below To Receive A Magic Link
+                    To Your Email</b></h4>
                     <form id="link" action="login-request" method="post" onsubmit="return isValidEmail()"
                           style="padding-left: 5px!important; padding-right: 5px!important;">
                         <input type="hidden" value="" id="verify_email" name="verify_email">
-                        <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok
-" data-toggle="modal" data-target="#myModal">
-
+                        <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok spaces-right
+" data-toggle="modal" data-target="#myModal"></button>
+                        <button type="button" class="btn btn-danger spaces-top glyphicon glyphicon-remove spaces-left
+" data-dismiss="modal">
                         </button>
+
                     </form>
                 </div>
             </div>
@@ -156,14 +162,14 @@
 </div>
 
 <div class="row">
-    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
+    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%; padding-left:0px!important;padding-right:0px!important;">
         <br/>
-        <div style="background-color: black; color: white; width: 145px"
+        <div style="background-color: black; color: white; width: 100%"
              onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span>
             Home
         </div>
         <br/>
-        <div style="background-color: black; color: white; width: 145px"><span
+        <div style="background-color: black; color: white; width: 100%"><span
                 class="glyphicon glyphicon-user"></span>
             Profile
         </div>

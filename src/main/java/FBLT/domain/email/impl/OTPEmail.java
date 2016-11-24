@@ -83,7 +83,6 @@ public class OTPEmail implements Email {
         public OTPEmail build(){
             return new OTPEmail(this);
         }
-
     }
 
 }

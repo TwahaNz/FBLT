@@ -30,6 +30,12 @@
 <script>window.jQuery || document.write('<script src="<%=path%>vendor/jquery.min.js"><script>')</script>
 <script src="<%=path%>tether.min.js"></script>
 <script src="<%=path%>bootstrap.min.js"></script>
+<script src="<%=path%>snow.js" type="text/javascript"></script>
+<script src="<%=path%>index.js" type="text/javascript"></script>
+<link href="<%=path%>index.css" rel="stylesheet" type="text/css">
+<script>
+    $(document).snow({ SnowImage: "<%=path%>snow.gif" });
+</script>
 
 </body>
 </html>
