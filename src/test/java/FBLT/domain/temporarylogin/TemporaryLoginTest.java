@@ -1,12 +1,15 @@
+/*
 package FBLT.domain.temporarylogin;
 
 import FBLT.domain.user.User;
 import org.junit.Assert;
 import org.junit.Test;
 
+*/
 /**
  * Created by student on 2016/10/10.
- */
+ *//*
+
 public class TemporaryLoginTest {
 
     @Test
@@ -30,3 +33,4 @@ public class TemporaryLoginTest {
 
     }
 }
+*/

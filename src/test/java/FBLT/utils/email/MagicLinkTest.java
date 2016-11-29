@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -39,6 +41,19 @@ public class MagicLinkTest {
         System.out.println(temp);
 
 
+    }
+
+    @Test
+    public void testResource() throws IOException {
+
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        File file = new File(classLoader.getResource(".").getFile() + "/test.xml");
+        if (file.createNewFile()) {
+            System.out.println("File is created!");
+        } else {
+            System.out.println("File already exists.");
+        }
     }
 
 }

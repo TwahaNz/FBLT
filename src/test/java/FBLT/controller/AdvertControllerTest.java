@@ -1,3 +1,4 @@
+/*
 package FBLT.controller;
 
 import FBLT.domain.advert.Advert;
@@ -16,11 +17,13 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * edited by luke
  * <p>
  * -----------------------------------------THIS TEST WILL ONLY RUN IF THE SERVER IS UP!!!------------------------------
- */
+ *//*
+
 
 
 public class AdvertControllerTest {
@@ -109,3 +112,4 @@ public class AdvertControllerTest {
 
     }
 }
+*/

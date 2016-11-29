@@ -1,3 +1,4 @@
+/*
 package FBLT.repositories.user;
 
 import FBLT.domain.user.User;
@@ -13,9 +14,11 @@ import org.springframework.data.mongodb.core.MongoOperations;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
+*/
 /**
  * Created by Brandonhome on 2016/10/09.
- */
+ *//*
+
 public class UserRepositoryTest {
     private static final String TAG = "UserRepoTest: ";
 
@@ -68,3 +71,4 @@ public class UserRepositoryTest {
 
     }
 }
+*/

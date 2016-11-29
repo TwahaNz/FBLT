@@ -1,12 +1,15 @@
+/*
 package FBLT.domain.email;
 
 import FBLT.domain.email.impl.SendVerificationEmail;
 import FBLT.domain.register.RegisteredUserVerification;
 import junit.framework.Assert;
 
+*/
 /**
  * Created by student on 2016/09/25.
- */
+ *//*
+
 
 public class SendVerificationEmailTest {
 
@@ -28,3 +31,4 @@ public class SendVerificationEmailTest {
     }
 
 }
+*/

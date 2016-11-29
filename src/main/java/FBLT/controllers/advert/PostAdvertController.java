@@ -29,7 +29,7 @@ public class PostAdvertController {
 
         return new ModelAndView("post_ad");
     }
-
+    
     @RequestMapping(value = "/confirm-advert", method = RequestMethod.POST)
     public ModelAndView submitAdvert(@ModelAttribute("username") String email, @RequestParam("title") String title,
                                      @RequestParam("description") String description,
