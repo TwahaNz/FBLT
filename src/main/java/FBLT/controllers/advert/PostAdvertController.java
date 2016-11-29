@@ -59,13 +59,13 @@ public class PostAdvertController {
 
                 // Creating the directory to store file
                 String rootPath = System.getProperty("user.dir");
-                File dir = new File(rootPath + File.separator + "adverts" + File.separator + email);
+                File dir = new File(rootPath + File.separator + "adverts" + File.separator + email + File.separator + advert1.getId());
                 if (!dir.exists())
                     dir.mkdirs();
 
                 // Create the file on server
                 File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + advert1.getId() + File.separator + i + ".jpg");
+                        + File.separator + name + ".jpg");
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(serverFile));
                 stream.write(bytes);
