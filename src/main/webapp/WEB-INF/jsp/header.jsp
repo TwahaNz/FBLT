@@ -18,7 +18,6 @@
 
 <% String path = request.getContextPath() + "/images/"; %>
 
-
 <html>
 <head>
     <title>FBLT</title>
@@ -30,10 +29,9 @@
 </head>
 <body>
 
-    <script>
-        $(document).snow({ SnowImage: "<%=path%>snow.gif" });
-    </script>
-
+<script>
+    $(document).snow({SnowImage: "<%=path%>snow.gif"});
+</script>
 
 <script>
     function isValidEmail() {
@@ -68,7 +66,7 @@
 
         <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
               style="margin-right:20px;">
-
+            <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
             </div>

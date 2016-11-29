@@ -6,7 +6,7 @@ package FBLT.utils;
 public class Constants {
 
     public static String PORT = "8080";
-    public static String URL = "127.0.0.1";
+    public static String URL = "localhost";
     public static String PROTOCOL = "http";
 
 }
