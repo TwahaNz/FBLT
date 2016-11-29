@@ -66,11 +66,11 @@ public class AdvertControllerTest {
         ResponseEntity<Advert> response = restTemplate.
                 exchange(URL, HttpMethod.POST, request, Advert.class);
         String url = response.getHeaders().getLocation().getPath();
-        System.out.println(url);
+        System.out.println(url.split("/")[2]);
 
 
         //Retrieve one advert
-        String ResourceUrl = "http://localhost:8081" + url;
+        String ResourceUrl = "http://localhost:8080" + url;
         ResponseEntity<Advert> retrieveOneAdvert = restTemplate.getForEntity(ResourceUrl, Advert.class);
         Assert.assertEquals(retrieveOneAdvert.getStatusCode(), HttpStatus.OK);
         Advert retrievedAdvert = retrieveOneAdvert.getBody();

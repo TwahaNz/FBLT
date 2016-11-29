@@ -1,11 +1,13 @@
 package FBLT.controllers.advert;
 
+import FBLT.domain.advert.Advert;
 import FBLT.domain.product.category.FindProductCatagory;
 import FBLT.factories.category.FindProductCatagoryFactory;
+import FBLT.service.advert.ImplAdvertService;
+import FBLT.utils.genericvalueobjects.Location;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,8 +17,12 @@ import java.io.*;
 /**
  * Created by nzetwa01 on 11/18/2016.
  */
+@SessionAttributes("username")
 @Controller
 public class PostAdvertController {
+
+    @Autowired
+    ImplAdvertService advertService;
 
     @RequestMapping(value = "/post-advert")
     public ModelAndView postAdvert() {
@@ -25,13 +31,25 @@ public class PostAdvertController {
     }
 
     @RequestMapping(value = "/confirm-advert", method = RequestMethod.POST)
-    public ModelAndView submitAdvert(@RequestParam("title") String title,
+    public ModelAndView submitAdvert(@ModelAttribute("username") String email, @RequestParam("title") String title,
                                      @RequestParam("description") String description,
                                      @RequestParam("location") String location,
                                      @RequestParam("price") String price,
                                      @RequestParam("bool-is-selling") String isSelling,
-                                     @RequestParam("img") MultipartFile[] files) throws Exception{
+                                     @RequestParam("img") MultipartFile[] files) throws Exception {
 
+        System.out.print("Posting With Usr: " + email);
+
+        Advert advert = new Advert.Builder()
+                .buyOrSell(true)
+                .location(new Location.Builder()
+                        .city("Cape Town")
+                        .province("Western Cape")
+                        .suburb("Cape Town")
+                        .build()).build();
+
+
+        Advert advert1 = advertService.create(advert);
 
         for (int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
@@ -41,18 +59,17 @@ public class PostAdvertController {
 
                 // Creating the directory to store file
                 String rootPath = System.getProperty("user.dir");
-                File dir = new File(rootPath + File.separator + "tmpFiles");
+                File dir = new File(rootPath + File.separator + "adverts" + File.separator + email);
                 if (!dir.exists())
                     dir.mkdirs();
 
                 // Create the file on server
                 File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + name +".jpg");
+                        + File.separator + advert1.getId() + File.separator + i + ".jpg");
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(serverFile));
                 stream.write(bytes);
                 stream.close();
-
 
             } catch (Exception e) {
                 e.getMessage();
@@ -99,7 +116,7 @@ public class PostAdvertController {
             first = "No Category Found";
         }
 
-        return  first;
+        return first;
     }
 
 

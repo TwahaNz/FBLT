@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<jsp:include page="header.jsp"/>
+
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div align="center" class="col-md-3">
@@ -60,3 +62,5 @@
         </div>
     </div>
 </div>
+
+<jsp:include page="footer.jsp"/>
