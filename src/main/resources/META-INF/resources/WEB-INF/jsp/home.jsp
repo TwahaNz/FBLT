@@ -6,10 +6,14 @@
 
 <% String path= request.getContextPath() + "/images/"; %>
 
+<h1><%out.println(path);%></h1>
+
+<h1>Hello</h1>
+
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div align="center" class="col-md-3">
-            <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail" style="height:800px!important"  width="85%" height="800px"/>
+            <img src="s.png" class="img-responsive img-thumbnail" style="height:800px!important"  width="85%" height="800px"/>
         </div>
         <div class="col-md-6">
             <h3>Top Sellers</h3>
@@ -65,7 +69,7 @@
             </div>
         </div>
         <div align="center" class="col-md-3">
-            <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
+            <img src="t.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
         </div>
     </div>
 </div>

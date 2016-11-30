@@ -6,12 +6,15 @@ import FBLT.factories.category.FindProductCatagoryFactory;
 import FBLT.service.advert.ImplAdvertService;
 import FBLT.utils.genericvalueobjects.Location;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.*;
+
+import static java.lang.System.out;
 
 
 /**
@@ -21,6 +24,9 @@ import java.io.*;
 @Controller
 public class PostAdvertController {
 
+    @Value("${images.folder}")
+    String imagesFolder;
+
     @Autowired
     ImplAdvertService advertService;
 
@@ -29,7 +35,15 @@ public class PostAdvertController {
 
         return new ModelAndView("post_ad");
     }
-    
+
+    @RequestMapping(value = "write")
+    public ModelAndView write() {
+
+        out.println(imagesFolder);
+
+        return new ModelAndView("index");
+    }
+
     @RequestMapping(value = "/confirm-advert", method = RequestMethod.POST)
     public ModelAndView submitAdvert(@ModelAttribute("username") String email, @RequestParam("title") String title,
                                      @RequestParam("description") String description,
@@ -38,7 +52,7 @@ public class PostAdvertController {
                                      @RequestParam("bool-is-selling") String isSelling,
                                      @RequestParam("img") MultipartFile[] files) throws Exception {
 
-        System.out.print("Posting With Usr: " + email);
+        out.print("Posting With Usr: " + email);
 
         Advert advert = new Advert.Builder()
                 .buyOrSell(true)
@@ -59,7 +73,7 @@ public class PostAdvertController {
 
                 // Creating the directory to store file
                 String rootPath = System.getProperty("user.dir");
-                File dir = new File(rootPath + File.separator + "adverts" + File.separator + email + File.separator + advert1.getId());
+                File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + advert1.getId());
                 if (!dir.exists())
                     dir.mkdirs();
 

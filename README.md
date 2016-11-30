@@ -115,3 +115,5 @@ provided when posting the advert. Again the user will be allowed to choose or ad
 category if it does not exist. All created categories by users will have to get approved by the
 
 administrators of the website.
+
+
