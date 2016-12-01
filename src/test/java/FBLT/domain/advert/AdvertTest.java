@@ -4,6 +4,7 @@ import FBLT.domain.product.IProduct;
 import FBLT.domain.product.Product;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.vehicle.Vehicle;
+import FBLT.service.advert.ImplAdvertService;
 import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Test;
@@ -58,6 +59,12 @@ public class AdvertTest {
         Assert.assertNotNull(myTestAdvert.getImagepaths());
         Assert.assertEquals(false,myTestAdvert.isBuyOrSell());
 
+
+    }
+
+    @Test
+    public void testId(){
+        ImplAdvertService implAdvertService = new ImplAdvertService();
 
     }
 }

@@ -13,7 +13,7 @@
             <br/>
             <div class="row">
                 <div class="col-md-3">
-                    <img class="img-responsive img-thumbnail" style="height:300px!important" width="200px"
+                    <img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="200px"
                          height="400px"/>
                 </div>
                 <div class="col-md-2">
