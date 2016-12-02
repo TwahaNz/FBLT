@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div align="center" class="col-md-3">
-            <img class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
+            <img src="" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
         </div>
         <div class="col-md-6">
             <h3 style="color: orange">Item Title</h3>
@@ -13,8 +13,8 @@
             <br/>
             <div class="row">
                 <div class="col-md-3">
-                    <img class="img-responsive img-thumbnail" style="height:300px!important" width="200px"
-                         height="400px"/>
+                    <img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                         height="350px"/>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-success">Add To Cart</button>
@@ -37,22 +37,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <div style="background-color: lightgray">
-                        <p>Barcode</p>
+                        <p>Category: ${advert_info.get(2)}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Department</p>
+                        <p>Description: ${advert_info.get(0)}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Released</p>
+                        <p>Seller: ${advert_info.get(1)}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Category</p>
+                        <p>Price: ${advert_info.get(3)}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Franchise</p>
+                        <p>City: ${advert_info.get(4)}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Supply Source</p>
+                        <p>Suburb: ${advert_info.get(5)}</p>
                     </div>
                 </div>
             </div>

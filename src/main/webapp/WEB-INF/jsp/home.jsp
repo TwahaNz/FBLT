@@ -21,8 +21,8 @@
                 <c:forEach items="${advert_paths}" var="paths">
 
                     <c:set var="val" value="${paths}"/>
-
-                    <h1>${val.split("\\\\")[2]}</h1>
+<%--
+                    <h1>${val.split("\\\\")[2]}</h1>--%>
 
                     <div class="col-md-3">
                         <a href="item${val.split("\\\\")[2]}"><img src="${val}" class="img-responsive img-thumbnail"

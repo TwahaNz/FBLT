@@ -57,6 +57,10 @@ public class PostAdvertController {
 
         out.print("Posting With Usr: " + email);
 
+        if (email == null || email.trim().equals("")) {
+            return new ModelAndView("invalid");
+        }
+
         ContactDetails contactDetails = new ContactDetails.Builder()
                 .cellPhoneNumber("0845465712")
                 .emailAddress(email)
@@ -74,7 +78,7 @@ public class PostAdvertController {
         Advert advert = new Advert.Builder()
                 .buyOrSell(true)
                 .user(new User.Builder()
-                .contactDetails(contactDetails).build())
+                        .contactDetails(contactDetails).build())
                 .location(locations).build();
 
         Advert advert1 = advertService.create(advert);

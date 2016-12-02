@@ -27,10 +27,10 @@ public class LoginController {
     @Autowired
     UserServiceImpl userService;
 
-    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
+/*    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
     public ModelAndView getRegisterPage() {
         return new ModelAndView("index");
-    }
+    }*/
 
     @RequestMapping(value = {"/login-request"}, method = RequestMethod.POST)
     public ModelAndView insertUser(@RequestParam("verify_email") String email) {

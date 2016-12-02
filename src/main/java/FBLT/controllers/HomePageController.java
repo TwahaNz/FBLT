@@ -19,7 +19,7 @@ import java.util.Set;
  * edited by luke
  */
 @Controller
-@RequestMapping(value = {"", "/"})
+@RequestMapping(value = {"", "/", "index"})
 public class HomePageController {
 
     @Autowired
