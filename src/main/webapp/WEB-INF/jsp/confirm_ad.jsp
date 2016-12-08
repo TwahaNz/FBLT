@@ -3,7 +3,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+</body>
+<body onload="createBoxesForCategory(document.getElementById('lbl-category').textContent)">
 <div class="container-fluid">
 
     <div align="center" class="col-md-3"></div>
@@ -12,8 +13,8 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
-              onsubmit="validatePostAdvertForm();">
+        <form id="confirm-advert" onload="createBoxesForCategory()" class="form-group" enctype="multipart/form-data" method="post"
+              onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
             ${title}
@@ -36,8 +37,8 @@
 
             Category:
             <br/>
-            We have placed your ad in: <b>${category}</b>
-            <br/>
+            We have placed your ad in: <label id="lbl-category"><b>${category}</b>
+            <br/></label>
             If this category is not suitable, please select one from the dropdown list below:
             <br/>
             <div class="row" style="margin-top: 40px; margin-bottom: 40px">
@@ -56,7 +57,9 @@
                     </select>
                 </div>
             </div>
+            <span id="category-inputs">
 
+            </span>
             <input type="submit" value="Confirm Ad" class="btn btn-success">
 
         </form>

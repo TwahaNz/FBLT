@@ -48,7 +48,8 @@ public class PostAdvertController {
     }
 
     @RequestMapping(value = "/confirm-advert", method = RequestMethod.POST)
-    public ModelAndView submitAdvert(@ModelAttribute("username") String email, @RequestParam("title") String title,
+    public ModelAndView submitAdvert(@ModelAttribute("username") String email,
+                                     @RequestParam("title") String title,
                                      @RequestParam("description") String description,
                                      @RequestParam("location") String location,
                                      @RequestParam("price") String price,
@@ -127,6 +128,7 @@ public class PostAdvertController {
         mv.addObject("bool-is-selling", isSelling);
         mv.addObject("price", price);
         mv.addObject("category", getCategory(description));
+
 
         return mv;
     }

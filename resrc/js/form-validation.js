@@ -88,3 +88,37 @@ function validatePostAdvertForm() {
     return isValid;
 
 }
+
+
+function toggleProvinces() {
+    if (document.getElementById('check-use-location').checked) {
+        document.getElementById('sel-province').disabled = true;
+        document.getElementById('sel-city').disabled = true;
+        document.getElementById('txt-suburb').disabled = true;
+    } else {
+        document.getElementById('sel-province').disabled = false;
+        document.getElementById('sel-city').disabled = false;
+        document.getElementById('txt-suburb').disabled = false;
+    }
+}
+
+function createElectronicsBoxes() {
+
+}
+function createBoxesForCategory(category) {
+    var categorySpan = document.getElementById('category-inputs');
+
+    if (trim(category) === "Electronics") {
+        var element = document.createElement("input");
+
+        //Assign different attributes to the element.
+        element.setAttribute("type", "button");
+        element.setAttribute("value", "ADD attribute");
+
+        //Append the element in page (in span).
+        categorySpan.appendChild(element);
+
+    }
+
+
+}
