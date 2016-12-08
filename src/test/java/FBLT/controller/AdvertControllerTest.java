@@ -1,115 +1,47 @@
-/*
 package FBLT.controller;
 
+
 import FBLT.domain.advert.Advert;
-import FBLT.domain.product.IProduct;
-import FBLT.domain.product.category.Category;
-import FBLT.domain.product.vehicle.Vehicle;
-import FBLT.utils.genericvalueobjects.Location;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.http.HttpEntity;
+import org.junit.runner.RunWith;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.springframework.test.web.client.ExpectedCount.manyTimes;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
+import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-*/
 /**
- * edited by luke
- * <p>
- * -----------------------------------------THIS TEST WILL ONLY RUN IF THE SERVER IS UP!!!------------------------------
- *//*
-
-
-
+ * Created by kraluk01 on 12/7/2016.
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
 public class AdvertControllerTest {
-
-    private static final String URL = "http://localhost:8080/advert-controller/";
-
-
+    @Test
+    public void singleAdvert() {
+        RestTemplate restTemplate = new RestTemplate();
+        MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
+        server.expect(manyTimes(), requestTo("/advert-controller/1")).andExpect(method(HttpMethod.GET))
+                .andRespond(withSuccess("{ \"id\" : \"1\"}", MediaType.APPLICATION_JSON));
+        Advert advert = restTemplate.getForObject("/advert-controller/{id}",Advert.class,1);
+        server.verify();
+        Assert.assertEquals("1",advert.getId());
+    }
 
     @Test
-    public void testCrud() throws Exception {
-
-        Location newLocation = new Location.Builder()
-                .city("Cape Town")
-                .suburb("Rondebosch")
-                .latitude(22.33)
-                .longitude(34.53)
-                .build();
-
-        IProduct mynewProduct = new Vehicle.Builder()
-                .category(
-                        new Category.Builder()
-                                .categoryName("Kids Toys")
-                                .categoryDescription("things for kids")
-                                .build())
-                .productDescription("Barbie Doll")
-                .build();
-
-        ArrayList<String> images = new ArrayList<>();
-        images.add("/webapp/WEB-INF/images/big_ad.png");
-
-        Advert myTestAdvert = new Advert.Builder()
-
-                .buyOrSell(false)
-                .price(789.44)
-                .product(mynewProduct)
-                .location(newLocation)
-                .imagePaths(images)
-                .build();
-
-        //Insert Advert
+    public void multipleadverts() {
         RestTemplate restTemplate = new RestTemplate();
-        HttpEntity<Advert> request = new HttpEntity<>(myTestAdvert);
-        ResponseEntity<Advert> response = restTemplate.
-                exchange(URL, HttpMethod.POST, request, Advert.class);
-        String url = response.getHeaders().getLocation().getPath();
-        System.out.println(url.split("/")[2]);
+        MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
+        server.expect(manyTimes(), requestTo("/advert-controller")).andExpect(method(HttpMethod.GET))
+                .andRespond(withSuccess("{ \"id\" : \"1\"}", MediaType.APPLICATION_JSON));
+        Advert advert = restTemplate.getForObject("/advert-controller",Advert.class);
+        server.verify();
 
-
-        //Retrieve one advert
-        String ResourceUrl = "http://localhost:8080" + url;
-        ResponseEntity<Advert> retrieveOneAdvert = restTemplate.getForEntity(ResourceUrl, Advert.class);
-        Assert.assertEquals(retrieveOneAdvert.getStatusCode(), HttpStatus.OK);
-        Advert retrievedAdvert = retrieveOneAdvert.getBody();
-        Assert.assertEquals("Cape Town", retrievedAdvert.getLocation().getCity());
-
-        //Retrieve all adverts
-        ResponseEntity<List> retrieve2 = restTemplate.getForEntity(URL, List.class);
-        Assert.assertEquals(retrieve2.getStatusCode(), HttpStatus.OK);
-        List<Advert> adverts = retrieve2.getBody();
-        Assert.assertTrue(adverts.size() > 0);
-
-
-        //Update
-        newLocation = new Location.Builder()
-                .city("MFULENI")
-                .suburb("Rondebosch")
-                .latitude(22.33)
-                .longitude(34.53)
-                .build();
-        Advert updatedAdvert = new Advert.Builder()
-                .copy(retrievedAdvert)
-                .location(newLocation)
-                .build();
-        HttpEntity<Advert> requestUpdate = new HttpEntity<>(updatedAdvert);
-        restTemplate.exchange(URL + updatedAdvert.getId(), HttpMethod.PUT, requestUpdate, Void.class);
-        retrieveOneAdvert = restTemplate.getForEntity(URL + updatedAdvert.getId(), Advert.class);
-
-        updatedAdvert = retrieveOneAdvert.getBody();
-        Assert.assertEquals("MFULENI", updatedAdvert.getLocation().getCity());
-
-
-//        //DELETE
-//        retrieveOneAdvert = restTemplate.exchange(URL + updatedAdvert.getId(), HttpMethod.DELETE, requestUpdate, Advert.class);
-//        Assert.assertEquals(HttpStatus.NO_CONTENT, retrieveOneAdvert.getStatusCode());
-
-
+        Assert.assertNotNull(advert);
     }
+
 }
-*/
