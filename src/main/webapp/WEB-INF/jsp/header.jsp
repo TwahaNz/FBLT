@@ -74,6 +74,13 @@
 
         <c:choose>
             <c:when test="${login.length() == 2}">
+                <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu"
+                      style="margin-right:15px;">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-user"></span></button>
+                    </div>
+                </form>
                 <form id="sign-out" action="sign-out-request" method="post"
                       class="navbar-form navbar-right altered-menu">
                     <b>Welcome!</b> ${username}
