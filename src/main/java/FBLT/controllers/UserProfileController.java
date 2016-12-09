@@ -6,10 +6,7 @@ import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -26,32 +23,44 @@ public class UserProfileController {
     public ModelAndView userProfile(@ModelAttribute("username") String email) {
 
         User user = userService.findByEmail(email);
+        ModelAndView mv = new ModelAndView("user_profile");
+        mv.addObject("user",user);
 
-        System.out.println(user.getName() + "Hellllllll000");
-        System.out.println(user.get_id());
+        return mv;
+    }
+
+    @RequestMapping(value = "/user-profile-update", method = RequestMethod.POST)
+    public ModelAndView updateProfile(@ModelAttribute("username") String email,
+                                      @RequestParam("newname") String newname,
+                                      @RequestParam("newcell") String newcell,
+                                      @RequestParam("newhandle") String newhandle,
+                                      @RequestParam("newsuburb") String newsuburb,
+                                      @RequestParam("newcity") String newcity) {
+
+        User user = userService.findByEmail(email);
+        user.get_id();
 
         ContactDetails contactDetails = new ContactDetails.Builder()
-                .cellPhoneNumber("0808808080")
-                .emailAddress("name@gmail.com")
-                .telegramHandle("@NAme")
+                .cellPhoneNumber(newcell)
+                .emailAddress(email)
+                .telegramHandle(newhandle)
                 .build();
-
         Location location = new Location.Builder()
-                .city("Cape Town")
-                .suburb("Rondebosch")
-                .latitude(22.33)
-                .longitude(34.53)
+                .city(newcity)
+                .suburb(newsuburb)
                 .build();
-
         user = new User.Builder()
                 .copy(user)
+                .name(newname)
                 .contactDetails(contactDetails)
                 .location(location)
-                .ranking("10")
                 .build();
 
+        user = userService.update(user);
+
+
         ModelAndView mv = new ModelAndView("user_profile");
-        mv.addObject("user", user);
+        mv.addObject("user",user);
 
         return mv;
     }

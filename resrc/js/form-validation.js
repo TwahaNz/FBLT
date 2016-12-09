@@ -307,3 +307,15 @@ function createBoxesForCategory(category) {
     }
 
 }
+
+function toggleFormElements() {
+
+    var fieldset = document.getElementById("fieldset");
+
+    if (fieldset.disabled === true)
+        fieldset.disabled = false;
+    else if (fieldset.disabled === false)
+        fieldset.disabled = true;
+
+
+}
