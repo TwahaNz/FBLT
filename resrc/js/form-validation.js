@@ -317,5 +317,55 @@ function toggleFormElements() {
     else if (fieldset.disabled === false)
         fieldset.disabled = true;
 
+}
+
+function validateUpdateForm() {
+    var newname = document.forms["update-profile"]["txt-newname"].value;
+    var newcell = document.forms["update-profile"]["txt-newcell"].value;
+    var newhandle = document.forms["update-profile"]["txt-newhandle"].value;
+    var newsuburb = document.forms["update-profile"]["txt-suburb"].value;
+    var newcity = document.forms["update-profile"]["txt-city"].value;
+
+
+    var errors = "";
+    var isValid = true;
+    if (newname.trim().length == 0) {
+            errors += "User Name Field is empty\n";
+            isValid = false;
+    }
+    if (newhandle.length < 0) {
+        errors += "User Name Field is empty\n";
+        isValid = false;
+    }
+    if (isNaN(newcell)) {
+            errors += "Only Numbers Allowed in User CellNumber TextBox\n";
+            isValid = false;
+        }
+    if (newcell.charAt(0)!="0") {
+        errors += "Cell Phone Number must Begin with 0\n";
+        isValid = false;
+    }
+    if (newcell.length < 11&& newcell.length > 0) {
+        errors += "Incorrect Length for CellNumber TextBox\n";
+        isValid = false;
+    }
+    if (newhandle.trim().length == 0) {
+        newhandle.value ="No Handle Available";
+    }
+    if (newhandle.trim().length > 0 && newhandle.charAt(0)!="@") {
+        errors += "Invalid Telegram Handle @ sign missing\n";
+        isValid = false;
+    }
+    if (newsuburb.trim().length == 0) {
+        newhandle.value = "Suburb not supplied"
+    }
+    if (newcity.trim().length == 0) {
+        newhandle.value = "City not supplied"
+    }
+
+    if (!isValid) {
+            alert(errors);
+    }
+     return isValid;
 
 }

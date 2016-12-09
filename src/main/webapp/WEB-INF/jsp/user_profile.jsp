@@ -50,7 +50,7 @@
                 <br/>
 
                 <fieldset id="fieldset">
-                    <form id="post-advert" action="user-profile-update" class="form-group" method="post">
+                    <form id="update-profile" action="user-profile-update" class="form-group" method="post"  onsubmit="return validateUpdateForm();">
 
                         User Name:
                         <input id="txt-newname" type="text" class="form-control" name="newname"
@@ -70,19 +70,21 @@
 
                         <div class="col-md-3">
                             City:
-                            <input type="text" class="form-control" name="newcity" id="sel-city"
+                            <input type="text" class="form-control" name="newcity" id="txt-city"
                                    value="${user.getLocation().getCity()}">
+                            <label id="error-newcity"></label>
 
                         </div>
                         <div class="col-md-3">
                             Suburb:
                             <input type="text" class="form-control" id="txt-suburb"
                                    value="${user.getLocation().getSuburb()}" name="newsuburb"/>
+                            <label id="error-newsuburb"></label>
                         </div>
 
 
                         <span id="error-location"></span>
-                        <input id="txt-location" type="hidden" name="location"/>
+
                         <br/>
 
                         <input type="submit" value="Update" class="btn btn-success">
