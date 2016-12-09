@@ -102,80 +102,208 @@ function toggleProvinces() {
     }
 }
 
-function createElectronicsBoxes() {
 
+function changeCategoryLabel() {
+    var category = document.getElementById('txt-category');
+    var categorySelector = document.getElementById('sel-category');
+    category.value = categorySelector.value;
 }
 function createBoxesForCategory(category) {
-    var categorySpan = document.getElementById('category-inputs');
+    var categoryTextbox = document.getElementById('txt-category');
+    categoryTextbox.value = category;
+
+    function fillClothingSizes() {
+        var sizes = ["",
+            "Extra-Large",
+            "Large",
+            "Medium",
+            "Small",
+            "Extra-Small"];
+
+        var clothingSizeSelector = document.getElementById('sel-clothing-size');
+        clothingSizeSelector.options.length = 0;
+
+        for (var i = 0; i < sizes.length; i++) {
+            var opt = document.createElement('option');
+            opt.innerHTML = sizes[i];
+            opt.value = sizes[i];
+            clothingSizeSelector.appendChild(opt);
+        }
+    }
+
+    function fillClothingTypes() {
+
+        var types = [""
+            , "Armwear‎"
+            , "Belts"
+            , "Coats"
+            , "Dresses‎"
+            , "Footwear‎"
+            , "Gowns‎"
+            , "Headgear"
+            , "Hosiery‎"
+            , "Jackets‎"
+            , "Neckwear"
+            , "One-piece suits‎"
+            , "Outerwear"
+            , "Ponchos"
+            , "Robes and cloaks‎"
+            , "Royal attire"
+            , "Saris‎"
+            , "Shawls and wraps‎"
+            , "Skirts"
+            , "Sports clothing‎"
+            , "Suits"
+            , "Tops"
+            , "Trousers and shorts‎"
+            , "Undergarments"
+            , "Wedding clothing‎"];
+
+        var clothingSelector = document.getElementById('sel-clothing-type');
+        clothingSelector.options.length = 0;
+        types.sort();
+
+
+        for (var i = 0; i < types.length; i++) {
+            var opt = document.createElement('option');
+            opt.innerHTML = types[i];
+            opt.value = types[i];
+            clothingSelector.appendChild(opt);
+        }
+    }
+
+    function fillShoeSizes() {
+        var shoeSizeSelector = document.getElementById('sel-shoes-size');
+        shoeSizeSelector.options.length = 0;
+        //create blank first option
+        var opt = document.createElement('option');
+        shoeSizeSelector.appendChild(opt);
+
+        for (var i = 1; i < 13; i++) {
+            var opt = document.createElement('option');
+            opt.innerHTML = i;
+            opt.value = i;
+            shoeSizeSelector.appendChild(opt);
+        }
+    }
+
+    function fillVehicleTypes(){
+        var vehicleTypes = ["",
+            "Car",
+            "Sports Car",
+            "SUV",
+            "Bakkie",
+            "Motorcycle",
+            "Truck"];
+
+        var vehicleTypeSelector = document.getElementById('sel-vehicles-type');
+        vehicleTypeSelector.options.length = 0;
+
+        for (var i = 0; i < vehicleTypes.length; i++) {
+            var opt = document.createElement('option');
+            opt.innerHTML = vehicleTypes[i];
+            opt.value = vehicleTypes[i];
+            vehicleTypeSelector.appendChild(opt);
+        }
+    }
+
+    var categoryDiv = document.getElementById('category-inputs');
+
 
     if (category.trim() === "Livestock") {
-        var ageLabel = document.createElement("label");
-        ageLabel.setAttribute("value", "Age");
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Livestock Age: <br/><input id='txt-livestock-age' type='number' class='form-control'/><br/><br/>" +
+            "Livestock Grade: <br/><input id='txt-livestock-grade' type='text' class='form-control'/><br/><br/>";
 
-        var age = document.createElement("input");
-        age.setAttribute("type", "number");
-        age.setAttribute("value", "1");
 
-        var grade = document.createElement("input");
-        grade.setAttribute("type", "button");
-        grade.setAttribute("value", "ADD attribute");
-
-        //Append the element in page (in span).
-        categorySpan.appendChild(element);
-
-    } else if (category.trim() === "Cellphone") {
-        var element = document.createElement("input");
-
-        //Assign different attributes to the element.
-        element.setAttribute("type", "button");
-        element.setAttribute("value", "ADD attribute");
-
-        //Append the element in page (in span).
-        categorySpan.appendChild(element);
+    }
+    else if (category.trim() === "Cellphone") {
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Make: <br/><input id='txt-cellphone-make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-cellphone-model' type='text' class='form-control'/><br/><br/>";
 
     }
     else if (category.trim() === "Audio") {
-        var element = document.createElement("input");
-
-        //Assign different attributes to the element.
-        element.setAttribute("type", "button");
-        element.setAttribute("value", "ADD attribute");
-
-        //Append the element in page (in span).
-        categorySpan.appendChild(element);
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Make: <br/><input id='txt-audio-make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-audio-model' type='text' class='form-control'/><br/><br/>" +
+            "Type (headphones/earphones/stereo hi-fi): <br/><input id='txt-audio-type' type='text' class='form-control'/><br/><br/>" +
+            "Watts: <br/><input id='txt-audio-watts' type='text' class='form-control'/><br/><br/>";
 
     }
     else if (category.trim() === "Computer") {
-        var element = document.createElement("input");
-
-        //Assign different attributes to the element.
-        element.setAttribute("type", "button");
-        element.setAttribute("value", "ADD attribute");
-
-        //Append the element in page (in span).
-        categorySpan.appendChild(element);
-
-    } else if (category.trim() === "Television") {
-        var element = document.createElement("input");
-
-        //Assign different attributes to the element.
-        element.setAttribute("type", "button");
-        element.setAttribute("value", "ADD attribute");
-
-        //Append the element in page (in span).
-        categorySpan.appendChild(element);
-
-    } else if (category.trim() === "Clothes") {
-        var element = document.createElement("input");
-
-        //Assign different attributes to the element.
-        element.setAttribute("type", "button");
-        element.setAttribute("value", "ADD attribute");
-
-        //Append the element in page (in span).
-        categorySpan.appendChild(element);
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Make: <br/><input id='txt-computer-make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-computer-model' type='text' class='form-control'/><br/><br/>" +
+            "Type (desktop/laptop/tablet): <br/><input id='txt-computer-type' type='text' class='form-control'/><br/><br/>" +
+            "Size (Screen size if applicable): <br/><input id='txt-computer-size' type='text' class='form-control'/><br/><br/>";
+    }
+    else if (category.trim() === "Television") {
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Make: <br/><input id='txt-television-make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-television-model' type='text' class='form-control'/><br/><br/>" +
+            "Type (desktop/laptop/tablet): <br/><input id='txt-television-type' type='text' class='form-control'/><br/><br/>" +
+            "Size (Screen size if applicable): <br/><input id='txt-television-size' type='text' class='form-control'/><br/><br/>";
 
     }
+    else if (category.trim() === "Clothes") {
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Brand: <br/><input id='txt-clothing-brand' type='text' class='form-control'/><br/><br/>" +
+            "Gender/Sex: <br/><select class='form-control' id='sel-clothing-gender'><option></option><option>Male</option><option>Female</option><option>Unisex</option></select><br/><br/>" +
+            "Type: <br/><select class='form-control' id='sel-clothing-type'></select><br/><br/>" +
+            "Age: <br/><select class='form-control' id='sel-clothing-age'><option></option><option>Adult</option><option>Teenager</option><option>Kids</option></select><br/><br/>" +
+            "Size: <br/><select class='form-control' id='sel-clothing-size'></select><br/><br/>" +
+            "Material: <br/><input id='txt-clothing-material' type='text' class='form-control'/><br/><br/>" +
+            "Colour: <br/><input id='txt-clothing-colour' type='text' class='form-control'/><br/><br/>";
 
+        fillClothingSizes();
+        fillClothingTypes();
+    } else if (category.trim() === "Shoes") {
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Brand: <br/><input id='txt-shoes-brand' type='text' class='form-control'/><br/><br/>" +
+            "Type: <br/><select class='form-control' id='sel-shoes-type'><option></option><option>Hi-Top</option><option>Low-Top</option><option>Boot</option><option>Sandal</option></select><br/><br/>" +
+            "Size (UK): <br/><select class='form-control' id='sel-shoes-size'></select><br/><br/>" +
+            "Colour: <br/><input id='txt-shoes-colour' type='text' class='form-control'/><br/><br/>";
+        fillShoeSizes();
+    } else if (category.trim() === "Books") {
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Book Author: <br/><input id='txt-books-author' type='text' class='form-control'/><br/><br/>" +
+            "Book Title: <br/><input type='text' class='form-control' id='txt-books-title'/><br/><br/>" +
+            "ISBN: <br/><input id='txt-books-isbn' type='text' class='form-control'/><br/><br/>" +
+            "Book Genre: <br/><input id='txt-books-genre' type='text' class='form-control'/><br/><br/>";
+    }
+    else if (category.trim() === "Vehicles") {
+        categoryDiv.setAttribute("class", "well");
+        categoryDiv.innerHTML = "Optional Extra information about product:" +
+            "<br/><br/>" +
+            "Type: <br/><select id='sel-vehicles-type' type='text' class='form-control'></select><br/><br/>" +
+            "Make: <br/><input id='txt-vehicles-make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-vehicles-model' type='text' class='form-control'/><br/><br/>" +
+            "Year: <br/><input id='txt-vehicles-make' type='number' class='form-control'/><br/><br/>" +
+            "Fuel Type: <br/><select class='form-control' id='sel-vehicles-fuel-type'><option></option><option>Diesel</option><option>Petrol</option></select><br/><br/>" +
+            "Transmission: <br/><select class='form-control' id='sel-vehicle-transmission'><option></option><option>Manual</option><option>Automatic</option></select><br/><br/>";
+
+
+        fillVehicleTypes();
+    } else {
+        categoryDiv.innerHTML = "";
+        categoryDiv.setAttribute("class", "");
+    }
 
 }

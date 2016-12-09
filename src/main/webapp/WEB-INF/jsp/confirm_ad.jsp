@@ -4,7 +4,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
-<body onload="createBoxesForCategory(document.getElementById('lbl-category').textContent)">
+<body onload="createBoxesForCategory(document.getElementById('txt-category').value)">
 
 <div class="container-fluid">
 
@@ -14,7 +14,7 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" onload="createBoxesForCategory()" class="form-group" enctype="multipart/form-data" method="post"
+        <form id="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
@@ -38,29 +38,29 @@
 
             Category:
             <br/>
-            We have placed your ad in: <label id="lbl-category"><b>${category}</b>
-            <br/></label>
+            We have placed your ad in: <label id="lbl-category"><b>${category}</b></label>
+            <input type="hidden" id="txt-category" value="${category}">
+            <br/>
             If this category is not suitable, please select one from the dropdown list below:
             <br/>
-            <div class="row" style="margin-top: 40px; margin-bottom: 40px">
+            <div class="row" style="margin-top: 20px; margin-bottom: 20px">
                 <div class="col-md-3">
-                    <select class="form-control" id="sel-province" onchange="fillCity()">
+                    <select class="form-control" id="sel-category" onchange="createBoxesForCategory(document.getElementById('sel-category').value)">
                         <option>Select Category</option>
                         <option>Books</option>
-                        <option>Clothing</option>
+                        <option>Clothes</option>
                         <option>Shoes</option>
                         <option>Audio</option>
-                        <option>Cellphones</option>
-                        <option>Computers</option>
-                        <option>Electronics</option>
+                        <option>Cellphone</option>
+                        <option>Computer</option>
                         <option>Livestock</option>
                         <option>Vehicles</option>
                     </select>
                 </div>
             </div>
-            <span id="category-inputs">
+            <div id="category-inputs">
 
-            </span>
+            </div>
             <input type="submit" value="Confirm Ad" class="btn btn-success">
 
         </form>

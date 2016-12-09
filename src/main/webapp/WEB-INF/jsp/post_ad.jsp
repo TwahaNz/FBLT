@@ -20,7 +20,7 @@
         <br/>
         <form id="post-advert" action="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
               onsubmit="return validatePostAdvertForm();">
-            <label class="radio-inline"><input id="radio-sell"  type="radio" name="optradio" checked="true" >I want to
+            <label class="radio-inline"><input id="radio-sell" type="radio" name="optradio" checked="true">I want to
                 sell</label>
             <label class="radio-inline"><input id="radio-buy" type="radio" name="optradio">I am looking for</label>
             <input type="hidden" id="is-selling" name="bool-is-selling">
@@ -31,20 +31,23 @@
             <label id="error-title"></label>
             <br/>
             Ad Description:
-            <textarea id="txt-description" name="description" class="form-control" rows="5" id="advertDescription"></textarea>
+            <textarea id="txt-description" name="description" class="form-control" rows="5"
+                      id="advertDescription"></textarea>
             <span id="error-description"></span>
             <br/>
             Location:
             <br/>
-            <label  class="checkbox-inline"><input id="check-use-location" type="checkbox" onclick="toggleProvinces()">Use current Location:</label>
+            <label class="checkbox-inline"><input id="check-use-location" type="checkbox" onclick="toggleProvinces()">Use
+                current Location:</label>
             <label id="lbl-current-location">{Location is suggested here}</label>
             <br/>
             <br/>
 
-            <div class="row" style="margin-top: 40px; margin-bottom: 40px">
-
-                <div class="col-md-3">
+            <div class="row" style="margin-top: 20px; margin-bottom: 40px; text-align: left">
+                <div>
                     Or Choose Location:
+                </div>
+                <div class="col-md-3">
                     <br/>
                     Province:
                     <select class="form-control" id="sel-province" onchange="fillCity()">
@@ -72,6 +75,7 @@
                     Suburb:
                     <input type="text" class="form-control" id="txt-suburb"/>
                 </div>
+
             </div>
             <span id="error-location"></span>
             <input id="txt-location" type="hidden" name="location"/>
@@ -91,7 +95,7 @@
 
 </div>
 
-<% String post_js_path= request.getContextPath() + "/js/"; %>
+<% String post_js_path = request.getContextPath() + "/js/"; %>
 
 <script src="<%=post_js_path%>post_ad.js"></script>
 
