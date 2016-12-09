@@ -11,13 +11,13 @@ import FBLT.domain.rank.impl.Unrated;
  */
 public class RankFactory {
 
-    public static String getRanking(int rank){
+    public static String getRanking(int rank) {
         Rank rankChain = setUpChain();
 
         return rankChain.handleRequest(rank);
     }
 
-    public static Rank setUpChain(){
+    public static Rank setUpChain() {
         Rank unrated = new Unrated();
         Rank poorRanking = new PoorRank();
         Rank goodRank = new GoodRank();

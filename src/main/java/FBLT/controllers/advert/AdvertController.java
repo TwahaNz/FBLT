@@ -103,7 +103,7 @@ public class AdvertController {
     //-------------------Delete an Advert--------------------------------------------------------
     @RequestMapping(value = "/advert-controller/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Advert> deleteAdvert(@PathVariable("id") String id) {
-        Advert advert =advertService.readById(id);
+        Advert advert = advertService.readById(id);
 
         if (advert == null) {
             return new ResponseEntity<Advert>(HttpStatus.NOT_FOUND);

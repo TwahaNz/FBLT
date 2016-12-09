@@ -8,28 +8,24 @@ import FBLT.domain.product.IProduct;
 public interface IBook extends IProduct {
 
     /**
-     *
      * @return returns a String with a book title
      */
 
     String getTitle();
 
     /**
-     *
      * @return returns a String with Author of the book
      */
 
     String getAuthor();
 
     /**
-     *
      * @return returns a String with book ISBN
      */
 
     String getISBN();
 
     /**
-     *
      * @return returns a String with book Genre
      */
 

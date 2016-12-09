@@ -6,7 +6,6 @@
 package FBLT.domain.register;
 
 /**
- *
  * @author Admin
  */
 public class RegisteredUserVerification {
@@ -43,7 +42,7 @@ public class RegisteredUserVerification {
     }
 
     public static class Builder {
-    
+
         private String id;
         private String username;
         private String email;
@@ -53,24 +52,24 @@ public class RegisteredUserVerification {
             this.id = id;
             return this;
         }
-        
+
         public Builder setUsername(String username) {
             this.username = username;
             return this;
         }
-        
+
         public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
-        
+
         public Builder copyVerification(RegisteredUserVerification verifyUser) {
             this.id = verifyUser.id;
             this.username = verifyUser.username;
             this.email = verifyUser.email;
             return this;
         }
-        
+
         public RegisteredUserVerification build() {
             return new RegisteredUserVerification(this);
         }

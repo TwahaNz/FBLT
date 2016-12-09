@@ -8,13 +8,11 @@ import FBLT.domain.product.electronics.IElectronics;
 public interface ITelevision extends IElectronics {
 
     /**
-     *
      * @return returns a String with the type for example smart tv or normal
      */
     String getType();
 
     /**
-     *
      * @return returns a String with the size of the tv
      */
     String getSize();

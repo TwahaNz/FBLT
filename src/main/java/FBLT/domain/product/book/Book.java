@@ -15,12 +15,11 @@ public class Book implements IBook {
     private String isbn;
     private String genre;
 
-    protected Book()
-    {
+    protected Book() {
 
     }
 
-    private Book(Builder value){
+    private Book(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -85,7 +84,7 @@ public class Book implements IBook {
         }
 
         public Book.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 

@@ -36,7 +36,7 @@ public class ImplVehicleService implements IVehicleService {
         Set<Vehicle> result = new HashSet<Vehicle>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Vehicle) iterator.next());
         }
         return result;

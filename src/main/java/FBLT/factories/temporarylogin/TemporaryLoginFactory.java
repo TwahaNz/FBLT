@@ -15,7 +15,7 @@ import java.util.Random;
 public class TemporaryLoginFactory {
 
 
-    public static TemporaryLogin createTemporaryLogin(String email){
+    public static TemporaryLogin createTemporaryLogin(String email) {
         ContactDetails contactDetails = new ContactDetails.Builder()
                 .emailAddress(email)
                 .build();

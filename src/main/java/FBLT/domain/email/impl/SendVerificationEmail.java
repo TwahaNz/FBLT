@@ -4,7 +4,6 @@ import FBLT.domain.email.Email;
 import FBLT.domain.register.RegisteredUserVerification;
 import FBLT.utils.email.EmailConstants;
 
-
 import javax.mail.Message;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -17,7 +16,8 @@ public class SendVerificationEmail implements Email {
 
     private RegisteredUserVerification registeredUserVerification;
 
-    private SendVerificationEmail(){}
+    private SendVerificationEmail() {
+    }
 
     public SendVerificationEmail(Builder builder) {
         this.registeredUserVerification = builder.registeredUserVerification;
@@ -61,8 +61,7 @@ public class SendVerificationEmail implements Email {
 
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private RegisteredUserVerification registeredUserVerification;
 
         public Builder registeredUserVerification(RegisteredUserVerification registeredUserVerification) {
@@ -70,7 +69,7 @@ public class SendVerificationEmail implements Email {
             return this;
         }
 
-        public Builder copy(SendVerificationEmail sendVerificationEmail){
+        public Builder copy(SendVerificationEmail sendVerificationEmail) {
             this.registeredUserVerification = sendVerificationEmail.registeredUserVerification;
             return this;
         }

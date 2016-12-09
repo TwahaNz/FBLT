@@ -8,14 +8,12 @@ import FBLT.domain.product.IProduct;
 public interface IElectronics extends IProduct {
 
     /**
-     *
      * @return returns a String with the make of the item
      */
 
     String getMake();
 
     /**
-     *
      * @return returns a String with the model of the item
      */
 

@@ -14,12 +14,11 @@ public class CellPhone implements ICellPhone {
     private String model;
     private String type;
 
-    protected CellPhone()
-    {
+    protected CellPhone() {
 
     }
 
-    private CellPhone(Builder value){
+    private CellPhone(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -75,7 +74,7 @@ public class CellPhone implements ICellPhone {
         }
 
         public CellPhone.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 
@@ -93,6 +92,7 @@ public class CellPhone implements ICellPhone {
             this.model = value;
             return this;
         }
+
         public CellPhone.Builder productType(String value) {
             this.type = value;
             return this;

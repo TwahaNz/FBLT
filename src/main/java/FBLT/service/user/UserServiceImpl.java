@@ -35,7 +35,7 @@ public class UserServiceImpl implements IUserService {
         Set<User> result = new HashSet<User>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((User) iterator.next());
         }
         return result;

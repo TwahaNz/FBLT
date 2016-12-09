@@ -15,7 +15,7 @@ import java.util.Set;
  */
 
 @Service
-public class ImplIAudioService implements IAudioService{
+public class ImplIAudioService implements IAudioService {
 
     @Autowired
     AudioRepository repository;
@@ -57,7 +57,7 @@ public class ImplIAudioService implements IAudioService{
         Set<Audio> result = new HashSet<Audio>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Audio) iterator.next());
         }
         return result;

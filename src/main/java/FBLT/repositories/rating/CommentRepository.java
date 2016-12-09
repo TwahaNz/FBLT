@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @description Repository for Comment
  */
 
-@RepositoryRestResource(collectionResourceRel = "comment", path ="comment")
-public interface CommentRepository extends MongoRepository<Comment,String> {
+@RepositoryRestResource(collectionResourceRel = "comment", path = "comment")
+public interface CommentRepository extends MongoRepository<Comment, String> {
 
 }

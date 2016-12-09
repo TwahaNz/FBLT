@@ -8,13 +8,11 @@ import FBLT.domain.product.electronics.IElectronics;
 public interface IComputer extends IElectronics {
 
     /**
-     *
      * @return returns a String with the type for example laptop or desktop
      */
     String getType();
 
     /**
-     *
      * @return returns a String with the size of the computer
      */
     String getSize();

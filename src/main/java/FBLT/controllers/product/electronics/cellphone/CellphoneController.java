@@ -126,5 +126,5 @@ public class CellphoneController {
         }
         return new ResponseEntity<List<CellPhone>>(request, HttpStatus.OK);
     }
-    
+
 }

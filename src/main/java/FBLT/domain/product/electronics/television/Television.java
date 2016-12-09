@@ -16,9 +16,10 @@ public class Television implements ITelevision {
     private String size;
 
 
-    protected Television(){}
+    protected Television() {
+    }
 
-     protected Television(Builder value){
+    protected Television(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -85,7 +86,7 @@ public class Television implements ITelevision {
         }
 
         public Television.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 
@@ -103,6 +104,7 @@ public class Television implements ITelevision {
             this.model = value;
             return this;
         }
+
         public Television.Builder productType(String value) {
             this.type = value;
             return this;

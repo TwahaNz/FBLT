@@ -3,7 +3,6 @@ package FBLT.service.advert;
 import FBLT.domain.advert.Advert;
 import FBLT.repositories.advert.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -33,7 +32,7 @@ public class ImplAdvertService implements IAdvertService {
 
     @Override
     public Advert readById(String stringId) {
-      return repository.findOne(stringId);
+        return repository.findOne(stringId);
     }
 
     @Override
@@ -41,7 +40,7 @@ public class ImplAdvertService implements IAdvertService {
         Set<Advert> result = new HashSet<Advert>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Advert) iterator.next());
         }
         return result;

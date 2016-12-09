@@ -13,7 +13,8 @@ public class TemporaryLogin {
     private String id;
     private String timestamp;
 
-    private TemporaryLogin() {}
+    private TemporaryLogin() {
+    }
 
     public TemporaryLogin(Builder builder) {
         this.code = builder.code;
@@ -22,7 +23,7 @@ public class TemporaryLogin {
         this.timestamp = builder.timestamp;
     }
 
-    public String getTimestamp(){
+    public String getTimestamp() {
         return timestamp;
     }
 
@@ -38,38 +39,33 @@ public class TemporaryLogin {
         return id;
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private User user;
         private String code;
         private String id;
         private String timestamp;
 
-        public Builder timestamp(String timestamp){
+        public Builder timestamp(String timestamp) {
             this.timestamp = timestamp;
             return this;
         }
 
-        public Builder user(User user)
-        {
+        public Builder user(User user) {
             this.user = user;
             return this;
         }
 
-        public Builder code(String code)
-        {
+        public Builder code(String code) {
             this.code = MagicLinkGenerator.generateEncryption() + code + MagicLinkGenerator.generateEncryption();
             return this;
         }
 
-        public Builder id(String id)
-        {
+        public Builder id(String id) {
             this.id = id;
             return this;
         }
 
-        public Builder copy(TemporaryLogin temporaryLogin)
-        {
+        public Builder copy(TemporaryLogin temporaryLogin) {
             this.code = temporaryLogin.code;
             this.user = temporaryLogin.user;
             this.id = temporaryLogin.id;
@@ -78,8 +74,7 @@ public class TemporaryLogin {
             return this;
         }
 
-        public TemporaryLogin build()
-        {
+        public TemporaryLogin build() {
             return new TemporaryLogin(this);
         }
     }

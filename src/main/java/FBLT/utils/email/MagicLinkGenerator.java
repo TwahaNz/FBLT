@@ -2,8 +2,6 @@ package FBLT.utils.email;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -16,7 +14,7 @@ public final class MagicLinkGenerator {
     private static final String PHRASE = "FBLT";
 
     static {
-      linkEncoder = new BCryptPasswordEncoder();
+        linkEncoder = new BCryptPasswordEncoder();
     }
 
     private MagicLinkGenerator() {

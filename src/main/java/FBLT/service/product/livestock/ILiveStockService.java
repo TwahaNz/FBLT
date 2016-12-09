@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by lukekramer on 16/10/2016.
  */
-public interface ILiveStockService extends Service<Livestock,String> {
+public interface ILiveStockService extends Service<Livestock, String> {
 
     List<Livestock> findLiveStockByAge(String age);
 

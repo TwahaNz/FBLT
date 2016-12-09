@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @description Repository for Rating
  */
 
-@RepositoryRestResource(collectionResourceRel = "rating", path ="rating")
-public interface RatingRepository extends MongoRepository<Rating,String> {
+@RepositoryRestResource(collectionResourceRel = "rating", path = "rating")
+public interface RatingRepository extends MongoRepository<Rating, String> {
 
 }

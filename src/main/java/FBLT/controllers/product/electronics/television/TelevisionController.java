@@ -23,7 +23,7 @@ import java.util.Set;
  */
 @Controller
 public class TelevisionController {
-    
+
     @Autowired
     ImplITelevisionService televisionService;
 
@@ -136,5 +136,5 @@ public class TelevisionController {
         }
         return new ResponseEntity<List<Television>>(request, HttpStatus.OK);
     }
-    
+
 }

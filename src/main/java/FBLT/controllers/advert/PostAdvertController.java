@@ -135,17 +135,20 @@ public class PostAdvertController {
 
     private String getCategory(String description) throws Exception {
 
-        StringReader stringReader = new StringReader("Livestock cow cows chickens chicken birds bird sheep sheeps goat goats\n" +
-                "Cellphone phones phone samsung android iphone s4 s3 htc mobile smartphone\n" +
-                "Electronics phones phone speakers mic mics earphone earphones beats  laptop laptops\n" +
-                "Clothes shoes pants jeans tops shirts vests");
+        StringReader stringReader = new
+                StringReader("Livestock cow cows chickens chicken birds bird sheep sheeps goat goats\n" +
+                "Cellphone phones phone samsung android iphone s4 s3 htc mobile smartphone huawei headset\n" +
+                "Audio speakers mic mics earphone earphones beats\n" +
+                "Computer laptops laptop desktop keyboard mouse graphics card amd radeon lenovo hp dell alienware\n" +
+                "Television smart tv television led plasma flat screen flat-screen amoled \n" +
+                "Clothes shoes shoe pants jeans top tops shirt shirts vest vests jackets jacket fur jean jeans headband cap caps");
 
         BufferedReader br = new BufferedReader(stringReader);
 
         FindProductCatagory findProductCatagory = FindProductCatagoryFactory
                 .getFindProductCatagory(br);
 
-        findProductCatagory.processDescription(description);
+        findProductCatagory.processDescription(description.toLowerCase());
 
         findProductCatagory.processCatagoryFile();
 

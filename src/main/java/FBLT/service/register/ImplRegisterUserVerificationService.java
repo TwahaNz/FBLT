@@ -16,6 +16,7 @@ import java.util.Set;
 public class ImplRegisterUserVerificationService implements IRegisterUserVerificationService {
     @Autowired
     RegisteredUserVerificationRepository repository;
+
     @Override
     public RegisteredUserVerification create(RegisteredUserVerification entity) {
         return repository.save(entity);
@@ -32,7 +33,7 @@ public class ImplRegisterUserVerificationService implements IRegisterUserVerific
         Set<RegisteredUserVerification> result = new HashSet<RegisteredUserVerification>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((RegisteredUserVerification) iterator.next());
         }
         return result;

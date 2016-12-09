@@ -2,7 +2,6 @@ package FBLT.service.product.electronics.computer;
 
 import FBLT.domain.product.electronics.computer.Computer;
 import FBLT.repositories.product.electronics.computer.ComputerRepository;
-import FBLT.service.product.electronics.cellphone.ICellphoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ import java.util.Set;
  */
 
 @Service
-public class ImplIComputerService implements IComputerService{
+public class ImplIComputerService implements IComputerService {
 
     @Autowired
     ComputerRepository repository;
@@ -46,7 +45,7 @@ public class ImplIComputerService implements IComputerService{
         Set<Computer> result = new HashSet<Computer>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Computer) iterator.next());
         }
         return result;

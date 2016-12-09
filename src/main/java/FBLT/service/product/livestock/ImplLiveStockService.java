@@ -19,6 +19,7 @@ public class ImplLiveStockService implements ILiveStockService {
 
     @Autowired
     LivestockRepository repository;
+
     @Override
     public Livestock create(Livestock entity) {
         return repository.save(entity);
@@ -35,7 +36,7 @@ public class ImplLiveStockService implements ILiveStockService {
         Set<Livestock> result = new HashSet<Livestock>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Livestock) iterator.next());
         }
         return result;
@@ -54,11 +55,11 @@ public class ImplLiveStockService implements ILiveStockService {
 
     @Override
     public List<Livestock> findLiveStockByAge(String age) {
-        return  repository.findbyage(age);
+        return repository.findbyage(age);
     }
 
     @Override
     public List<Livestock> findLiveStockByGrade(String grade) {
-        return  repository.findbygrade(grade);
+        return repository.findbygrade(grade);
     }
 }

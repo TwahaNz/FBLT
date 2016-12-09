@@ -12,10 +12,10 @@ public class ProductFactoryImpl implements IProductFactory {
 
     private static ProductFactoryImpl factory = null;
 
-    private ProductFactoryImpl()
-    {
+    private ProductFactoryImpl() {
 
     }
+
     public static ProductFactoryImpl getInstance() {
         if (factory == null)
             factory = new ProductFactoryImpl();

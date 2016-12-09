@@ -8,14 +8,13 @@ package FBLT.factories.register;
 import FBLT.domain.register.RegisteredUserVerification;
 
 /**
- *
  * @author Admin
  */
 public class RegisteredUserVerificationFactory {
-    
+
     public static RegisteredUserVerification getRegisteredUser(String id,
                                                                String username, String email, String verification) {
-        
+
         return new RegisteredUserVerification.Builder()
                 .setId(id)
                 .setUsername(username)
@@ -23,10 +22,10 @@ public class RegisteredUserVerificationFactory {
                 .setVerificationCode(verification)
                 .build();
     }
-    
+
     public static RegisteredUserVerification getRegisteredUser(String username,
                                                                String email, String verification) {
-        
+
         return new RegisteredUserVerification.Builder()
                 .setUsername(username)
                 .setEmail(email)

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by lukekramer on 16/10/2016.
  */
-public interface IClothingService extends Service<Clothing,String> {
+public interface IClothingService extends Service<Clothing, String> {
 
 
     List<Clothing> findbysize(String size);

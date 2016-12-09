@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Ferin on 2016/11/12.
  */
-public interface IBookService extends Service<Book, String>{
+public interface IBookService extends Service<Book, String> {
 
     Book findByISBN(String ISBN);
 

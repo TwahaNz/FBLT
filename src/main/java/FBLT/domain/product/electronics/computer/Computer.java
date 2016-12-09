@@ -15,9 +15,10 @@ public class Computer implements IComputer {
     private String size;
 
 
-    protected Computer(){}
+    protected Computer() {
+    }
 
-    protected Computer(Builder value){
+    protected Computer(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -84,7 +85,7 @@ public class Computer implements IComputer {
         }
 
         public Computer.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 
@@ -102,6 +103,7 @@ public class Computer implements IComputer {
             this.model = value;
             return this;
         }
+
         public Computer.Builder productType(String value) {
             this.type = value;
             return this;

@@ -9,7 +9,7 @@ public class CategoryFactoryImpl implements ICategoryFactory {
 
     private static CategoryFactoryImpl factory = null;
 
-    private CategoryFactoryImpl(){
+    private CategoryFactoryImpl() {
 
     }
 
@@ -17,7 +17,7 @@ public class CategoryFactoryImpl implements ICategoryFactory {
         if (factory == null)
             factory = new CategoryFactoryImpl();
 
-            return factory;
+        return factory;
     }
 
     public Category getCategory(String name, String description) {

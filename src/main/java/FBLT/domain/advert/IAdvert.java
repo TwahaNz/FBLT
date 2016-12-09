@@ -1,7 +1,6 @@
 package FBLT.domain.advert;
 
 import FBLT.domain.product.IProduct;
-import FBLT.domain.product.Product;
 import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.Location;
 

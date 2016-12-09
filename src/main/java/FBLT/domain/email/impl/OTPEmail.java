@@ -19,12 +19,13 @@ public class OTPEmail implements Email {
     private String magicLink;
 
 
-    public OTPEmail(Builder builder){
+    public OTPEmail(Builder builder) {
         this.temporaryLogin = temporaryLogin;
         this.magicLink = builder.magicLink;
     }
 
-    private OTPEmail(){}
+    private OTPEmail() {
+    }
 
     public String getMagicLink() {
         return this.magicLink;
@@ -60,12 +61,12 @@ public class OTPEmail implements Email {
         }
     }
 
-    public static class Builder{
+    public static class Builder {
 
         private TemporaryLogin temporaryLogin;
         private String magicLink;
 
-        public Builder temporaryLogin(TemporaryLogin temporaryLogin){
+        public Builder temporaryLogin(TemporaryLogin temporaryLogin) {
             this.temporaryLogin = temporaryLogin;
             return this;
         }
@@ -75,12 +76,12 @@ public class OTPEmail implements Email {
             return this;
         }
 
-        public Builder copy(OTPEmail otpEmail){
+        public Builder copy(OTPEmail otpEmail) {
             this.temporaryLogin = otpEmail.temporaryLogin;
             return this;
         }
 
-        public OTPEmail build(){
+        public OTPEmail build() {
             return new OTPEmail(this);
         }
     }

@@ -12,11 +12,11 @@ public class Product implements IProduct {
     private Category category;
     private String description;
 
-    protected Product(){
+    protected Product() {
 
     }
 
-    private Product(Builder b){
+    private Product(Builder b) {
         this._id = b.id;
         this.category = b.category;
         this.description = b.description;
@@ -52,7 +52,7 @@ public class Product implements IProduct {
         }
 
         public Product.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 

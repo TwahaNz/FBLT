@@ -18,11 +18,11 @@ public class Clothing implements IClothing {
     private String color;
     private String material;
 
-    protected Clothing(){
+    protected Clothing() {
 
     }
 
-    private Clothing(Builder value){
+    private Clothing(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -36,7 +36,6 @@ public class Clothing implements IClothing {
         this.material = value.material;
 
     }
-
 
 
     @Override
@@ -111,7 +110,7 @@ public class Clothing implements IClothing {
         }
 
         public Clothing.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 

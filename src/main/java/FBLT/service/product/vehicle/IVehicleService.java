@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by lukekramer on 16/10/2016.
  */
-public interface IVehicleService extends Service<Vehicle,String> {
+public interface IVehicleService extends Service<Vehicle, String> {
 
 
     List<Vehicle> findbytype(String type);

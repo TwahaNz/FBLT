@@ -17,9 +17,10 @@ public class Audio implements IAudio {
     private String amps;
 
 
-    protected Audio(){}
+    protected Audio() {
+    }
 
-    protected Audio(Builder value){
+    protected Audio(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -83,7 +84,6 @@ public class Audio implements IAudio {
         private String amps;
 
 
-
         public Builder() {
 
         }
@@ -94,7 +94,7 @@ public class Audio implements IAudio {
         }
 
         public Audio.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 
@@ -112,6 +112,7 @@ public class Audio implements IAudio {
             this.model = value;
             return this;
         }
+
         public Audio.Builder productType(String value) {
             this.type = value;
             return this;

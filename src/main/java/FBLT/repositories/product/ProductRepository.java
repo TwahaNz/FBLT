@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @description Repository for Product
  */
 
-@RepositoryRestResource(collectionResourceRel = "product", path ="product")
-public interface ProductRepository extends MongoRepository<Product,String> {
+@RepositoryRestResource(collectionResourceRel = "product", path = "product")
+public interface ProductRepository extends MongoRepository<Product, String> {
 
 }

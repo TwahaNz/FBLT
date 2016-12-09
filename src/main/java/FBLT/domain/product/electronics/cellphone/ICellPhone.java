@@ -9,7 +9,6 @@ import FBLT.domain.product.electronics.IElectronics;
 public interface ICellPhone extends IElectronics {
 
     /**
-     *
      * @return returns a String with the type for example smart phone or normal
      */
     String getType();

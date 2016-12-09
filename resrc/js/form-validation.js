@@ -108,7 +108,64 @@ function createElectronicsBoxes() {
 function createBoxesForCategory(category) {
     var categorySpan = document.getElementById('category-inputs');
 
-    if (trim(category) === "Electronics") {
+    if (category.trim() === "Livestock") {
+        var ageLabel = document.createElement("label");
+        ageLabel.setAttribute("value", "Age");
+
+        var age = document.createElement("input");
+        age.setAttribute("type", "number");
+        age.setAttribute("value", "1");
+
+        var grade = document.createElement("input");
+        grade.setAttribute("type", "button");
+        grade.setAttribute("value", "ADD attribute");
+
+        //Append the element in page (in span).
+        categorySpan.appendChild(element);
+
+    } else if (category.trim() === "Cellphone") {
+        var element = document.createElement("input");
+
+        //Assign different attributes to the element.
+        element.setAttribute("type", "button");
+        element.setAttribute("value", "ADD attribute");
+
+        //Append the element in page (in span).
+        categorySpan.appendChild(element);
+
+    }
+    else if (category.trim() === "Audio") {
+        var element = document.createElement("input");
+
+        //Assign different attributes to the element.
+        element.setAttribute("type", "button");
+        element.setAttribute("value", "ADD attribute");
+
+        //Append the element in page (in span).
+        categorySpan.appendChild(element);
+
+    }
+    else if (category.trim() === "Computer") {
+        var element = document.createElement("input");
+
+        //Assign different attributes to the element.
+        element.setAttribute("type", "button");
+        element.setAttribute("value", "ADD attribute");
+
+        //Append the element in page (in span).
+        categorySpan.appendChild(element);
+
+    } else if (category.trim() === "Television") {
+        var element = document.createElement("input");
+
+        //Assign different attributes to the element.
+        element.setAttribute("type", "button");
+        element.setAttribute("value", "ADD attribute");
+
+        //Append the element in page (in span).
+        categorySpan.appendChild(element);
+
+    } else if (category.trim() === "Clothes") {
         var element = document.createElement("input");
 
         //Assign different attributes to the element.

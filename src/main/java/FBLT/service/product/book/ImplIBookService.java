@@ -55,7 +55,7 @@ public class ImplIBookService implements IBookService {
         Set<Book> result = new HashSet<Book>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Book) iterator.next());
         }
         return result;

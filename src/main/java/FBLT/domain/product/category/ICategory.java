@@ -6,13 +6,11 @@ package FBLT.domain.product.category;
 public interface ICategory {
 
     /**
-     *
      * @return returns a String describing what goes in a particular category
      */
     String getCategoryDescription();
 
     /**
-     *
      * @return returns a String with the name of the category
      */
     String getCategoryName();

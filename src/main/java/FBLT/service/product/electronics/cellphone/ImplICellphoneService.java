@@ -45,7 +45,7 @@ public class ImplICellphoneService implements ICellphoneService {
         Set<CellPhone> result = new HashSet<CellPhone>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((CellPhone) iterator.next());
         }
         return result;

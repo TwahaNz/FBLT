@@ -39,11 +39,11 @@ public class GeolocationFinder {
     }
 
     public String getLongitude() {
-        return  "" + this.location.longitude;
+        return "" + this.location.longitude;
     }
 
     public String getLatitude() {
-        return  "" + this.location.latitude;
+        return "" + this.location.latitude;
     }
 
     public static class Builder {
@@ -65,7 +65,7 @@ public class GeolocationFinder {
         }
 
         public Builder setUpLookupService() throws IOException {
-            lookupService =  new LookupService(MAP_FILE_DATA,
+            lookupService = new LookupService(MAP_FILE_DATA,
                     LookupService.GEOIP_MEMORY_CACHE | LookupService.GEOIP_CHECK_CACHE);
             return this;
         }

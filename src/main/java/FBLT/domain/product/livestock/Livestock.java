@@ -17,7 +17,7 @@ public class Livestock implements ILivestock {
 
     }
 
-    private Livestock(Builder value){
+    private Livestock(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -65,7 +65,7 @@ public class Livestock implements ILivestock {
         }
 
         public Livestock.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 

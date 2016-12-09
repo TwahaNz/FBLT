@@ -27,7 +27,7 @@ public class UserProfileController {
 
         User user = userService.findByEmail(email);
 
-        System.out.println(user.getName()+"Hellllllll000");
+        System.out.println(user.getName() + "Hellllllll000");
         System.out.println(user.get_id());
 
         ContactDetails contactDetails = new ContactDetails.Builder()
@@ -51,7 +51,7 @@ public class UserProfileController {
                 .build();
 
         ModelAndView mv = new ModelAndView("user_profile");
-        mv.addObject("user",user);
+        mv.addObject("user", user);
 
         return mv;
     }

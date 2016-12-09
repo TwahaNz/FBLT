@@ -5,6 +5,7 @@
 
 </body>
 <body onload="createBoxesForCategory(document.getElementById('lbl-category').textContent)">
+
 <div class="container-fluid">
 
     <div align="center" class="col-md-3"></div>

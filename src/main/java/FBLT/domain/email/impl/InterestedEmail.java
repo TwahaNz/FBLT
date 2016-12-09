@@ -21,9 +21,10 @@ public class InterestedEmail implements Email {
     private ContactDetails contactDetails;
     private String name;
 
-    private InterestedEmail(){}
+    private InterestedEmail() {
+    }
 
-    public InterestedEmail(Builder builder){
+    public InterestedEmail(Builder builder) {
         this.advert = builder.advert;
         this.contactDetails = builder.contactDetails;
         this.name = builder.name;
@@ -41,29 +42,29 @@ public class InterestedEmail implements Email {
         return name;
     }
 
-    public static class Builder{
+    public static class Builder {
         private Advert advert;
 
         // This is an object of the possible buys contact details
         private ContactDetails contactDetails;
         private String name;
 
-        public Builder adver(Advert advert){
+        public Builder adver(Advert advert) {
             this.advert = advert;
             return this;
         }
 
-        public Builder contactDetails(ContactDetails contactDetails){
+        public Builder contactDetails(ContactDetails contactDetails) {
             this.contactDetails = contactDetails;
             return this;
         }
 
-        public Builder name(String name){
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder copy(InterestedEmail interestedEmail){
+        public Builder copy(InterestedEmail interestedEmail) {
             this.name = interestedEmail.name;
             this.contactDetails = interestedEmail.contactDetails;
             this.advert = interestedEmail.advert;
@@ -71,7 +72,7 @@ public class InterestedEmail implements Email {
             return this;
         }
 
-        public InterestedEmail build(){
+        public InterestedEmail build() {
             return new InterestedEmail(this);
         }
 
@@ -94,7 +95,7 @@ public class InterestedEmail implements Email {
 
             message.setText("Hello " + advert.getUser().getName() + ", Great news.. \n" +
                     name + " is interested in your advert:\n" +
-                    "Category: "  + advert.getProduct().getCategory().getCategoryName() +
+                    "Category: " + advert.getProduct().getCategory().getCategoryName() +
                     "\nDescription: " + advert.getProduct().getDescription() +
                     "\nPrice: R" + advert.getPrice() + "\n" +
                     "Please contact them on: \n" +

@@ -15,9 +15,10 @@ public class Shoes implements IShoes {
     private String size;
     private String color;
 
-    protected Shoes(){}
+    protected Shoes() {
+    }
 
-    private Shoes(Builder value){
+    private Shoes(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -84,7 +85,7 @@ public class Shoes implements IShoes {
         }
 
         public Shoes.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 

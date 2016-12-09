@@ -18,6 +18,7 @@ public class ImplClothingService implements IClothingService {
 
     @Autowired
     ClothingRepository repository;
+
     @Override
     public Clothing create(Clothing entity) {
         return repository.save(entity);
@@ -34,7 +35,7 @@ public class ImplClothingService implements IClothingService {
         Set<Clothing> result = new HashSet<Clothing>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Clothing) iterator.next());
         }
         return result;

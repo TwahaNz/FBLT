@@ -15,7 +15,7 @@ import java.util.Set;
  */
 
 @Service
-public class ImplITelevisionService implements ITelevisionService{
+public class ImplITelevisionService implements ITelevisionService {
 
     @Autowired
     TelevisionRepository repository;
@@ -50,7 +50,7 @@ public class ImplITelevisionService implements ITelevisionService{
         Set<Television> result = new HashSet<Television>();
 
         Iterator iterator = repository.findAll().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             result.add((Television) iterator.next());
         }
         return result;

@@ -18,9 +18,10 @@ public class Vehicle implements IVehicle {
     private String transmission;
 
 
-    protected Vehicle(){}
+    protected Vehicle() {
+    }
 
-    private Vehicle(Builder value){
+    private Vehicle(Builder value) {
 
         this._id = value._id;
         this.category = value.category;
@@ -91,7 +92,6 @@ public class Vehicle implements IVehicle {
         private String transmission;
 
 
-
         public Builder() {
 
         }
@@ -102,7 +102,7 @@ public class Vehicle implements IVehicle {
         }
 
         public Vehicle.Builder category(Category value) {
-            this.category= value;
+            this.category = value;
             return this;
         }
 
