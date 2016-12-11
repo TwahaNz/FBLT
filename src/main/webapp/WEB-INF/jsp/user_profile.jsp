@@ -93,6 +93,16 @@
                 </fieldset>
             </div>
             <div align="center" class="col-md-3"></div>
+
+            <%-- ferins mess --%>
+            <form id="profile" action="rate-me" method="post" class="navbar-form"
+                  style="margin-right:15px;">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info btn-lg" name="Rate me" >Request Rating </button>
+                </div>
+            </form>
+            <%-- ferins end --%>
+
         </div>
     </div>
         <% String post_js_path= request.getContextPath() + "/js/"; %>

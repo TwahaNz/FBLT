@@ -34,4 +34,7 @@ public interface AdvertRepository extends MongoRepository<Advert, String> {
     @Query(value = "{ 'user._id' : ?0 }")
     List<Advert> findByUserID(String userId);
 
+    @Query(value = "{ 'user.contactDetails.emailAddress' : ?0 }")
+    List<Advert> findByUserEmail(String email);
+
 }

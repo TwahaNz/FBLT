@@ -21,6 +21,11 @@ public class ImplAdvertService implements IAdvertService {
     AdvertRepository repository;
 
     @Override
+    public List<Advert> findAdvertsByUserEmail(String email) {
+        return repository.findByUserEmail(email);
+    }
+
+    @Override
     public List<Advert> findAdvertsByUserId(String userId) {
         return repository.findByUserID(userId);
     }

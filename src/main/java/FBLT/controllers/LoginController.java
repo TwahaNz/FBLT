@@ -67,24 +67,6 @@ public class LoginController {
         return result;
     }
 
-/*    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
-    public ModelAndView insertUser(@RequestParam("email")String email,
-                                   @RequestParam("code") String code,
-                                   UriComponentsBuilder ucBuilder){
-        out.println(email);
-
-        TemporaryLogin temporaryLogin = service.isValidUser(email, code);
-
-        out.println("validating user");
-
-        if(temporaryLogin == null)
-            out.println("invalid");
-        else
-            out.println("valid login by " + temporaryLogin.getUser().getContactDetails().getEmailAddress());
-
-        ModelAndView result = new ModelAndView("index");
-        return result;
-    }*/
 
     @RequestMapping(value = {"/v{code}"}, method = RequestMethod.GET)
     public ModelAndView insertUser(@ModelAttribute("verification-code") String code, @PathVariable("code") String userCode,

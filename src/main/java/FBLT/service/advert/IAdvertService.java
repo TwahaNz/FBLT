@@ -11,4 +11,8 @@ import java.util.List;
  */
 public interface IAdvertService extends Service<Advert, String> {
     List<Advert> findAdvertsByUserId(String userId);
+
+    List<Advert> findAdvertsByUserEmail(String email);
+
+
 }

@@ -8,6 +8,7 @@ public class Rating implements IRating {
 
     private String id;
     private String userID;
+    private String userIDBuyer;
     private String advertID;
     private int rating;
     private Comment comment;
@@ -21,6 +22,7 @@ public class Rating implements IRating {
         this.advertID = builder.advertID;
         this.rating = builder.rating;
         this.comment = builder.comment;
+        this.userIDBuyer = builder.userIDBuyer;
     }
 
     public Comment getComment() {
@@ -34,6 +36,7 @@ public class Rating implements IRating {
     public static class Builder {
         private String id;
         private String userID;
+        private String userIDBuyer;
         private String advertID;
         private int rating;
         private Comment comment;
@@ -42,12 +45,15 @@ public class Rating implements IRating {
 
         }
 
+
+
         public Builder copy(Rating rating) {
             this.id = rating.id;
             this.userID = rating.userID;
             this.advertID = rating.advertID;
             this.rating = rating.rating;
             this.comment = rating.comment;
+            this.userIDBuyer = rating.userIDBuyer;
             return this;
         }
 
@@ -58,6 +64,11 @@ public class Rating implements IRating {
 
         public Builder comment(Comment comment) {
             this.comment = comment;
+            return this;
+        }
+
+        public Builder userIDBuyer(String userID) {
+            this.userIDBuyer = userID;
             return this;
         }
 
