@@ -1,9 +1,11 @@
 package FBLT.controllers.advert;
 
 import FBLT.domain.advert.Advert;
+import FBLT.domain.product.IProduct;
 import FBLT.domain.product.category.FindProductCatagory;
 import FBLT.domain.user.User;
 import FBLT.factories.category.FindProductCatagoryFactory;
+import FBLT.factories.product.ProductFactoryImpl;
 import FBLT.service.advert.ImplAdvertService;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
@@ -53,6 +55,12 @@ public class PostAdvertController {
         for (Map.Entry<String, String> entry : allRequestParams.entrySet()) {
             System.out.println(entry.getKey() + "/" + entry.getValue());
         }
+
+
+        ProductFactoryImpl productFactory = ProductFactoryImpl.getInstance();
+        IProduct productToSaveInAdvert = productFactory.getProduct(allRequestParams);
+
+
         return new ModelAndView("index");
     }
 
