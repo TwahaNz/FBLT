@@ -16,25 +16,25 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" action="item${id}" class="form-group" enctype="multipart/form-data" method="get"
+        <form id="confirm-advert" action="item${advert.getId()}" class="form-group" enctype="multipart/form-data" method="get"
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
-            ${title}
+            ${advert.getTitle()}
             <br/>
             <br/>
             Ad Description:
             <br/>
-            ${description}
+            ${advert.getProduct().getDescription()}
             <br/>
             <br/>
-            Location:
+            location:
             <br/>
-            ${location}
+            ${advert.getLocation().getCity()} ${advert.getLocation().getSuburb()}
             <br/>
             <br/>
             Price:
-            ${price}
+            ${advert.getPrice()}
             <br/>
             <br/>
 

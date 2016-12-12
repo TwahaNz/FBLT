@@ -28,7 +28,7 @@
             <br/>
             <div class="row">
                 <div class="col-md-12">
-                    Currently No Items Available
+                    ${advert.getProduct().getDescription()}
                 </div>
             </div>
             <h3>Item Details</h3>
@@ -37,22 +37,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <div style="background-color: lightgray">
-                        <p>Category: ${advert_info.get(2)}</p>
+                        <p>Category: ${advert.getProduct().getCategory().getCategoryName()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Description: ${advert_info.get(0)}</p>
+                        <p>Description: ${advert.getProduct().getDescription()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Seller: ${advert_info.get(1)}</p>
+                        <p>Seller: ${advert.getUser().getName()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Price: ${advert_info.get(3)}</p>
+                        <p>Price: ${advert.getPrice()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>City: ${advert_info.get(4)}</p>
+                        <p>City: ${advert.getLocation().getCity()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Suburb: ${advert_info.get(5)}</p>
+                        <p>Suburb: ${advert.getLocation().getSuburb()}</p>
                     </div>
                 </div>
             </div>

@@ -31,10 +31,14 @@ public class UserProfileController {
 
         User user = userService.findByEmail(email);
 
-        List<Advert> adverts = advertService.findAdvertsByUserId(user.get_id());
+        System.out.println(user.get_id());
+
+        List<Advert> adverts = advertService.findAdvertsByUserEmail(email);
+
         if (adverts == null) {
             System.out.println("Request with id " + user.get_id() + "Not Found");
         }
+        System.out.println(adverts.size());
         ModelAndView mv = new ModelAndView("user_profile");
         mv.addObject("user",user);
         mv.addObject("adverts",adverts);
@@ -51,7 +55,6 @@ public class UserProfileController {
                                       @RequestParam("newcity") String newcity) {
 
         User user = userService.findByEmail(email);
-        user.get_id();
 
         ContactDetails contactDetails = new ContactDetails.Builder()
                 .cellPhoneNumber(newcell)

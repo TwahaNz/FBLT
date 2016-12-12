@@ -1,10 +1,13 @@
 package FBLT.controllers.advert;
 
 import FBLT.domain.advert.Advert;
+import FBLT.domain.product.Product;
+import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.FindProductCatagory;
 import FBLT.domain.user.User;
 import FBLT.factories.category.FindProductCatagoryFactory;
 import FBLT.service.advert.ImplAdvertService;
+import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import com.google.gson.Gson;
@@ -37,6 +40,9 @@ public class AdvertController {
 
     @Autowired
     ImplAdvertService advertService;
+
+    @Autowired
+    UserServiceImpl userService;
 
     @Value("${images.folder}")
     String imagesFolder;
@@ -135,38 +141,49 @@ public class AdvertController {
     public ModelAndView submitAdvert(@ModelAttribute("username") String email,
                                      @RequestParam("title") String title,
                                      @RequestParam("description") String description,
-                                     @RequestParam("location") String location,
+                                     @RequestParam("city") String city,
+                                     @RequestParam("suburb") String suburb,
                                      @RequestParam("price") String price,
                                      @RequestParam("bool-is-selling") String isSelling,
                                      @RequestParam("img") MultipartFile[] files) throws Exception {
 
         out.print("Posting With Usr: " + email);
+        boolean isvalid = false;
 
         if (email == null || email.trim().equals("")) {
             return new ModelAndView("invalid");
         }
 
-        ContactDetails contactDetails = new ContactDetails.Builder()
-                .cellPhoneNumber("0845465712")
-                .emailAddress(email)
-                .telegramHandle("@tnz")
+        if(isSelling.equals("true"))
+        {
+            isvalid = true;
+        }
+        else
+        {
+            isvalid = false;
+        }
+
+        User user = userService.findByEmail(email);
+
+        Product product = new Product.Builder()
+                .productDescription(description)
+                .category(new Category.Builder().categoryName(getCategory(description)).build())
                 .build();
 
         Location locations = new Location.Builder()
-                .city("Cape Town")
-                .latitude(14566.3)
-                .longitude(7899.3)
-                .suburb("Northern Suburbs")
+                .city(city)
+                .suburb(suburb)
                 .build();
 
-
         Advert advert = new Advert.Builder()
-                .buyOrSell(true)
-                .user(new User.Builder()
-                        .contactDetails(contactDetails).build())
+                .title(title)
+                .product(product)
+                .buyOrSell(isvalid)
+                .user(user)
+                .price(Double.parseDouble(price))
                 .location(locations).build();
 
-        Advert advert1 = advertService.create(advert);
+        advert = advertService.create(advert);
 
         ArrayList<String> listOfPaths = new ArrayList<>();
 
@@ -178,7 +195,7 @@ public class AdvertController {
 
                 // Creating the directory to store file
                 String rootPath = System.getProperty("user.dir");
-                File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + advert1.getId());
+                File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + advert.getId());
 
                 if (!dir.exists())
                     dir.mkdirs();
@@ -191,28 +208,22 @@ public class AdvertController {
                 stream.write(bytes);
                 stream.close();
 
-                listOfPaths.add("posted_ads" + File.separator + email + File.separator + advert1.getId() + File.separator + name + ".jpg");
+                listOfPaths.add("posted_ads" + File.separator + email + File.separator + advert.getId() + File.separator + name + ".jpg");
 
             } catch (Exception e) {
                 e.getMessage();
             }
         }
 
-        Advert advert2 = new Advert.Builder()
-                .copy(advert1)
+        advert = new Advert.Builder()
+                .copy(advert)
                 .imagePaths(listOfPaths)
                 .build();
 
-        advertService.update(advert2);
+        advert = advertService.update(advert);
 
         ModelAndView mv = new ModelAndView("confirm_ad");
-        mv.addObject("title", title);
-        mv.addObject("description", description);
-        mv.addObject("location", location);
-        mv.addObject("bool-is-selling", isSelling);
-        mv.addObject("price", price);
-        mv.addObject("category", getCategory(description));
-        mv.addObject("id", advert1.getId());
+        mv.addObject("advert",advert);
 
         return mv;
     }
@@ -250,5 +261,6 @@ public class AdvertController {
 
         return first;
     }
+
 
 }

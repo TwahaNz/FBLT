@@ -35,37 +35,9 @@ public class AdvertItemController {
                 images.add(path);
         }
 
-        ArrayList<String> advert_info = new ArrayList<>();
-
-        int position = 0;
-
-        while (position < 6) {
-
-            try {
-
-                if (position == 0)
-                    advert_info.add(advert.getProduct().getDescription());
-                if (position == 1)
-                    advert_info.add(advert.getUser().getName());
-                if (position == 2)
-                    advert_info.add(advert.getProduct().getCategory().getCategoryName());
-                if (position == 3)
-                    advert_info.add("" + advert.getPrice());
-                if (position == 4)
-                    advert_info.add("" + advert.getLocation().getCity());
-                if (position == 5)
-                    advert_info.add("" + advert.getLocation().getSuburb());
-
-            } catch (Exception e) {
-                advert_info.add("Not Found");
-            }
-
-            position++;
-        }
-
         modelAndView.addObject("item", img_path);
         modelAndView.addObject("item_iamges", images);
-        modelAndView.addObject("advert_info", advert_info);
+        modelAndView.addObject("advert", advert);
 
 
         return modelAndView;

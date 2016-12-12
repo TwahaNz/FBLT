@@ -1,7 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
 
 <% String path = request.getContextPath() + "/images/"; %>
 <%String value = "disabled";%>
+<% int counter = 0;%>
 </body>
 <body onload="toggleFormElements()">
 
@@ -116,7 +118,17 @@
                     <h1>${user.getName()}'s Adverts</h1>
                     <hr/>
 
+                    <c:forEach items="${adverts}" var="advert">
+                        <%
+                            counter++;
+                        %>
+                    </c:forEach>
 
+                    <c:forEach items="${adverts}" var="advert">
+                        <p>Advert:
+                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a>
+                        </p>
+                    </c:forEach>
 
                 </div>
                 <div align="center" class="col-md-3"></div>
