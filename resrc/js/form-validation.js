@@ -369,3 +369,8 @@ function validateUpdateForm() {
      return isValid;
 
 }
+
+function toggleRatingsForm(advertID){
+    document.forms["ratingsForm"]["advertId"].value = advertID;
+    return false;
+}
