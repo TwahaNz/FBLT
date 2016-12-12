@@ -30,9 +30,10 @@
                     <p>${user. getRating()}</p>
                 </div>
 
-                <h3></h3>
 
-                <input type="button" value="Edit" onclick="toggleFormElements()" class="btn btn-success">
+                <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
+                <br/>
+                <br/>
 
 
             </div>
@@ -87,7 +88,7 @@
 
                         <br/>
 
-                        <input type="submit" value="Update" class="btn btn-success">
+                        <input type="submit" value="Submit" class="btn btn-success">
 
                     </form>
                 </fieldset>
@@ -104,6 +105,25 @@
             <%-- ferins end --%>
 
         </div>
+    </div>
+    <div class ="row">
+
+        <div class="col-md-6">
+
+            <div class="container-fluid">
+
+                <div class="col-md-6 panel custom-panel spaces-top modal-dialog">
+                    <h1>${user.getName()}'s Adverts</h1>
+                    <hr/>
+
+
+
+                </div>
+                <div align="center" class="col-md-3"></div>
+            </div>
+
+        </div>
+
     </div>
         <% String post_js_path= request.getContextPath() + "/js/"; %>
 

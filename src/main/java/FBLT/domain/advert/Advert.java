@@ -25,9 +25,9 @@ import java.util.ArrayList;
 
 public class Advert implements IAdvert {
 
-
     @Id
     private String id;
+    private String title;
     private User user;
     private ArrayList<String> imagepaths;
 
@@ -58,6 +58,7 @@ public class Advert implements IAdvert {
 
     private Advert(Builder builder) {
         this.id = builder.id;
+        this.title = builder.title;
         this.user = builder.user;
         this.product = builder.product;
         this.buyOrSell = builder.buyOrSell;
@@ -69,6 +70,9 @@ public class Advert implements IAdvert {
     public String getId() {
         return id;
     }
+
+    public String getTitle() {
+        return title; }
 
     public User getUser() {
         return user;
@@ -98,6 +102,7 @@ public class Advert implements IAdvert {
 
         private String id;
         private User user;
+        private String title;
         private ArrayList<String> imagepaths;
         private IProduct product;
         private boolean buyOrSell;
@@ -110,6 +115,7 @@ public class Advert implements IAdvert {
 
         public Builder copy(Advert advert) {
             this.id = advert.id;
+            this.title = advert.title;
             this.user = advert.user;
             this.product = advert.product;
             this.buyOrSell = advert.buyOrSell;
@@ -126,6 +132,11 @@ public class Advert implements IAdvert {
 
         public Builder id(String id) {
             this.id = id;
+            return this;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
             return this;
         }
 
