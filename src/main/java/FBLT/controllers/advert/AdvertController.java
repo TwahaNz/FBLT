@@ -147,6 +147,7 @@ public class AdvertController {
                                      @RequestParam("bool-is-selling") String isSelling,
                                      @RequestParam("img") MultipartFile[] files) throws Exception {
 
+
         out.print("Posting With Usr: " + email);
         boolean isvalid = false;
 
