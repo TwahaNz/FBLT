@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -14,8 +15,8 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
-              onsubmit="validatePostAdvertForm(); ">
+        <form id="confirm-advert" action="/" class="form-group" enctype="multipart/form-data" method="post"
+              onsubmit="validatePostAdvertForm(<c:out value="${username}"/>); ">
             Ad Title:
             <br/>
             ${title}

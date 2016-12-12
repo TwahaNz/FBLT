@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +31,7 @@ import static java.lang.System.out;
 /**
  * edited by luke.
  */
-@SessionAttributes("username")
+@SessionAttributes("{username}")
 @RestController
 public class AdvertController {
 
@@ -125,7 +126,12 @@ public class AdvertController {
     }
 
     @RequestMapping(value = "/post-advert")
-    public ModelAndView postAdvert() {
+    public ModelAndView postAdvert(Model model, @ModelAttribute("username") String username) {
+
+        if(!model.containsAttribute("username")) {
+            model.addAttribute("username", "false");
+        }
+
         return new ModelAndView("post_ad");
     }
 

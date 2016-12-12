@@ -24,7 +24,10 @@ function isValidRegistratioForm() {
     return isValid;
 }
 
-function validatePostAdvertForm() {
+function validatePostAdvertForm(username) {
+
+    alert(username);
+    
     var description = document.forms["post-advert"]["txt-description"].value;
     var title = document.forms["post-advert"]["txt-title"].value;
     var price = document.forms["post-advert"]["txt-price"].value;
@@ -83,6 +86,11 @@ function validatePostAdvertForm() {
 
     if (!isValid) {
         alert(errors);
+    }
+    
+    if (username == "false") {
+        isValid = false;
+        alert("You Must Be Logged In To Post An Advert");
     }
 
     return isValid;

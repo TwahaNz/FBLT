@@ -24,9 +24,9 @@ public class SignOutController {
     @RequestMapping(value = "/sign-out-request", method = RequestMethod.POST)
     public ModelAndView sendEmail(HttpSession session, Model model) {
 
-        ModelAndView view = new ModelAndView("index");
         session.invalidate();
         model.asMap().clear();
-        return view;
+
+        return new ModelAndView("redirect:/");
     }
 }
