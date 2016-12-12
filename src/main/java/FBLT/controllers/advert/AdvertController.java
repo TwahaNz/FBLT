@@ -261,6 +261,4 @@ public class AdvertController {
 
         return first;
     }
-
-
 }

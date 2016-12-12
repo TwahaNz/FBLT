@@ -43,7 +43,12 @@
                         <p>Description: ${advert.getProduct().getDescription()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Seller: ${advert.getUser().getName()}</p>
+                        <c:if test="${advert.isBuyOrSell() == true}">
+                            <p>Seller: ${advert.getUser().getName()}</p>
+                        </c:if>
+                        <c:if test="${advert.isBuyOrSell() == false}">
+                            <p>Buyer: ${advert.getUser().getName()}</p>
+                        </c:if>
                     </div>
                     <div style="background-color: lightgray">
                         <p>Price: ${advert.getPrice()}</p>

@@ -36,7 +36,6 @@ public class AdvertItemController {
         }
 
         modelAndView.addObject("item", img_path);
-        modelAndView.addObject("item_iamges", images);
         modelAndView.addObject("advert", advert);
 
 

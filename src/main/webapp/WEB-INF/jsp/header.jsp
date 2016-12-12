@@ -175,9 +175,11 @@
             Home
         </div>
         <br/>
+        <c:if test="${login.length() == 2}">
         <div style="background-color: black; color: white; width: 145px"><span
                 class="glyphicon glyphicon-user"></span>
             Profile
         </div>
+        </c:if>
     </div>
     <div class="col-md-11">
