@@ -1,14 +1,21 @@
 package FBLT.factories.product;
 
+import FBLT.domain.product.IProduct;
 import FBLT.domain.product.Product;
 import FBLT.domain.product.category.Category;
+
+import java.util.Map;
 
 
 /**
  * Created by lukekramer on 20/09/2016.
+ *
  */
 public interface IProductFactory {
 
-
-    Product getProduct(Category catagory, String description);
+    /**
+     * @param objectData A map with data about the object in it.
+     * @return
+     */
+    IProduct getProduct(Map<String, String> objectData);
 }

@@ -41,9 +41,9 @@
             Category:
             <br/>
             We have placed your ad in: <label id="lbl-category"><b>${category}</b></label>
-            <input type="hidden" id="txt-category" value="${category}">
+            <input type="hidden" id="txt-category" name="category" value="${category}">
             <br/>
-            If this category is not suitable, please select one from the dropdown list below:
+            If this category is not suitable, select one from the dropdown list below:
             <br/>
             <div class="row" style="margin-top: 20px; margin-bottom: 20px">
                 <div class="col-md-3">
