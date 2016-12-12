@@ -3,7 +3,7 @@
 <body>
 
 <script>
-    var myVar = setInterval(function(){ myTimer() }, 500);
+    var myVar = setInterval(function(){ myTimer() }, 100);
 
     //var timer = 1;
 
@@ -15,7 +15,7 @@
     }
 </script>
 
-<p>Please Wait...<p>
+<p>Redirecting...<p>
 <a id="redirect" href="index"></a>
 
 </body>

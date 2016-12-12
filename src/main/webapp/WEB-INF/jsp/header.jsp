@@ -168,18 +168,18 @@
 </div>
 
 <div class="row">
-    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
+    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%; padding-left: 0!important;padding-right: 0!important;">
         <br/>
-        <div style="background-color: black; color: white; width: 145px"
+        <a href=""><div style="background-color: black; color: white; width: 100%"
              onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span>
             Home
         </div>
         <br/>
         <c:if test="${login.length() == 2}">
-        <div style="background-color: black; color: white; width: 145px"><span
+        <a href="user-profile"><div style="background-color: black; color: white; width: 100%"><span
                 class="glyphicon glyphicon-user"></span>
             Profile
-        </div>
+        </div></a>
         </c:if>
     </div>
     <div class="col-md-11">

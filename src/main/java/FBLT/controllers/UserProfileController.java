@@ -26,7 +26,7 @@ public class UserProfileController {
     @Autowired
     ImplAdvertService advertService;
 
-    @RequestMapping(value = "/user-profile", method = RequestMethod.POST)
+    @RequestMapping(value = "/user-profile", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView userProfile(@ModelAttribute("username") String email) {
 
         User user = userService.findByEmail(email);
