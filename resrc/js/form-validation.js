@@ -375,3 +375,18 @@ function toggleRatingsForm(advertID){
     document.forms["ratingsForm"]["advertId"].value = advertID;
     return false;
 }
+
+function setRating(){
+    if(document.getElementById("1").checked == true) {
+        document.getElementById("rateNumber").value = "1";
+    }
+    if(document.getElementById("2").checked == true) {
+        document.getElementById("rateNumber").value = "2";
+    }
+    if(document.getElementById("3").checked ==true) {
+        document.getElementById("rateNumber").value = "3";
+    }
+    if(document.getElementById("4").checked == true) {
+        document.getElementById("rateNumber").value = "4";
+    }
+}

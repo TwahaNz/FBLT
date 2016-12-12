@@ -9,9 +9,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-/**
- * Created by student on 2016/09/24.
- */
+/* Created by student on 2016/09/24.*/
+
+
 public class SendVerificationEmail implements Email {
 
     private RegisteredUserVerification registeredUserVerification;
@@ -44,10 +44,21 @@ public class SendVerificationEmail implements Email {
 
             message.setSubject("do-not-reply");
 
-            message.setText("Hello " + registeredUserVerification.getUsername() + ", Welcome to Bubby-King! \n" +
-                    "Please complete registration by entering in this registration code: " +
-                    registeredUserVerification.getVerificationCode() + "\n\n\nRegards\nDev Team");
+            String message1 = "<html><body>";
+            message1 += "<form action='http://mysite.com/process.php' method='post' target='_blank'>";
+            message1 += "<label>How did you like the movie <strong>Turfnuts</strong>?</label><br />";
+            message1 += "<input name='rating' type='radio' /> ★☆☆☆<br />";
+            message1 += "<input name='rating' type='radio' /> ★★☆☆<br />";
+            message1 += "<input name='rating' type='radio' /> ★★★☆<br />";
+            message1 += "<input name='rating' type='radio' /> ★★★★<br />";
+            message1 += "<br />";
+            message1 += "<label for='commentText'>Leave a quick review:</label><br />";
+            message1 += "<textarea cols='75' name='commentText' rows='5'></textarea><br />";
+            message1 += "<br />";
+            message1 += "<input type='submit' value='Submit your review' />&nbsp;</form>";
+            message1 += "</body></html>";
 
+            message.setContent(message1, "text/html; charset=utf-8");
 
             Transport.send(message);
 

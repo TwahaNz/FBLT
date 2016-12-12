@@ -10,7 +10,7 @@ public class Rating implements IRating {
     private String userID;
     private String userIDBuyer;
     private String advertID;
-    private int rating;
+    private String rating;
     private Comment comment;
 
     protected Rating() {
@@ -25,11 +25,27 @@ public class Rating implements IRating {
         this.userIDBuyer = builder.userIDBuyer;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getUserIDBuyer() {
+        return userIDBuyer;
+    }
+
+    public String getAdvertID() {
+        return advertID;
+    }
+
     public Comment getComment() {
         return comment;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
@@ -38,7 +54,7 @@ public class Rating implements IRating {
         private String userID;
         private String userIDBuyer;
         private String advertID;
-        private int rating;
+        private String rating;
         private Comment comment;
 
         public Builder() {
@@ -82,7 +98,7 @@ public class Rating implements IRating {
             return this;
         }
 
-        public Builder rating(int rating) {
+        public Builder rating(String rating) {
             this.rating = rating;
             return this;
         }

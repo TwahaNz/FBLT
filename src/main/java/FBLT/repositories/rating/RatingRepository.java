@@ -2,7 +2,10 @@ package FBLT.repositories.rating;
 
 import FBLT.domain.rating.Rating;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import java.util.List;
 
 /**
  * @author Twaha Nzeyimana
@@ -10,7 +13,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @description Repository for Rating
  */
 
-@RepositoryRestResource(collectionResourceRel = "rating", path = "rating")
+
 public interface RatingRepository extends MongoRepository<Rating, String> {
+
+    @Query(value = "{ 'advertID' : ?0 }")
+    Rating findRatingByAdvertId(String advertId);
 
 }

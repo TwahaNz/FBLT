@@ -12,7 +12,7 @@ public class EmailConstants {
     // Sender's email ID needs to be mentioned
     private final String from = "textbookbs@gmail.com";
     private final String username = "textbookbs@gmail.com";
-    private final String password = "";
+    private final String password = "newPa55word.";
     private final String host = "smtp.gmail.com";
 
 
