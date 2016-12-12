@@ -209,3 +209,8 @@ hr {
 	margin-right: 0px!important;
 	margin-left: 0px!important;
 }
+
+.navbar-form {
+	padding-left: 3px!important;
+	padding-right: 3px!important;
+}

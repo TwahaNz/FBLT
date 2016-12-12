@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.io.*,java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
@@ -67,20 +66,16 @@
 
         <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
               style="margin-right:20px;">
-            <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
+                <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!</button>
             </div>
         </form>
 
         <c:choose>
             <c:when test="${login.length() == 2}">
-                <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu"
-                      style="margin-right:15px;">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-info btn-lg">
-                            <span class="glyphicon glyphicon-user"></span></button>
-                    </div>
+                <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu">
+                    <button type="submit" class="btn btn-info glyphicon glyphicon-user">
+                    </button>
                 </form>
                 <form id="sign-out" action="sign-out-request" method="post"
                       class="navbar-form navbar-right altered-menu">
@@ -97,6 +92,7 @@
                               value=""/>
                         <button type="button" class="btn btn-success glyphicon glyphicon-log-in
 " data-toggle="modal" data-target="#myModal"></button>
+                        <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
                 </div>
             </c:otherwise>
         </c:choose>
