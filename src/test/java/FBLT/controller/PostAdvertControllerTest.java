@@ -1,7 +1,7 @@
 package FBLT.controller;
 
 
-import FBLT.controllers.advert.PostAdvertController;
+import FBLT.controllers.advert.AdvertController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +27,7 @@ public class PostAdvertControllerTest {
 
     @Before
     public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new PostAdvertController()).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new AdvertController()).build();
     }
 
     @Test

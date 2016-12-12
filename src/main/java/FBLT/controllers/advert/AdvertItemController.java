@@ -3,10 +3,8 @@ package FBLT.controllers.advert;
 import FBLT.domain.advert.Advert;
 import FBLT.service.advert.ImplAdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -14,6 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by nzetwa01 on 11/29/2016.
  */
+
 @RestController
 public class AdvertItemController {
 

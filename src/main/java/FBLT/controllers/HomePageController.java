@@ -58,10 +58,6 @@ public class HomePageController {
             }
         }
 
-        String name = "sadf\\sdafsdaf";
-
-        name.split("\\\\");
-
         result.addObject("advert_paths", list);
         result.addObject("advert_links", ad_links);
         return result;
