@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -126,6 +127,7 @@ public class AdvertController {
 
     @RequestMapping(value = "/post-advert")
     public ModelAndView postAdvert() {
+
         return new ModelAndView("post_ad");
     }
 
@@ -210,7 +212,7 @@ public class AdvertController {
         mv.addObject("bool-is-selling", isSelling);
         mv.addObject("price", price);
         mv.addObject("category", getCategory(description));
-
+        mv.addObject("id", advert1.getId());
 
         return mv;
     }

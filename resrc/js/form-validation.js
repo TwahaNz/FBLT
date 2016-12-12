@@ -25,6 +25,7 @@ function isValidRegistratioForm() {
 }
 
 function validatePostAdvertForm() {
+    
     var description = document.forms["post-advert"]["txt-description"].value;
     var title = document.forms["post-advert"]["txt-title"].value;
     var price = document.forms["post-advert"]["txt-price"].value;
@@ -84,7 +85,7 @@ function validatePostAdvertForm() {
     if (!isValid) {
         alert(errors);
     }
-
+    
     return isValid;
 
 }

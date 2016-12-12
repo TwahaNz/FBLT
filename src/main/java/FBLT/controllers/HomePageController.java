@@ -22,7 +22,7 @@ public class HomePageController {
     @Autowired
     ImplAdvertService advertService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = {RequestMethod.GET})
     public ModelAndView getIndex() {
 
         ArrayList<String> list = new ArrayList<>();

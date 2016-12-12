@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -5,6 +6,7 @@
 
 </body>
 <body onload="createBoxesForCategory(document.getElementById('txt-category').value)">
+
 
 <div class="container-fluid">
 
@@ -14,7 +16,7 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
+        <form id="confirm-advert" action="item${id}" class="form-group" enctype="multipart/form-data" method="get"
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>

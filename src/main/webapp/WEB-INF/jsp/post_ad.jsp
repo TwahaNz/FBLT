@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,6 +19,7 @@
         <hr/>
         <br/>
         <br/>
+        <h1>Hello ${username}</h1>
         <form id="post-advert" action="confirm-advert" class="form-group" enctype="multipart/form-data" method="post"
               onsubmit="return validatePostAdvertForm();">
             <label class="radio-inline"><input id="radio-sell" type="radio" name="optradio" checked="true">I want to

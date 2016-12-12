@@ -1,4 +1,4 @@
-package FBLT.controllers;
+package FBLT.controllers.login;
 
 import FBLT.domain.email.impl.OTPEmail;
 import FBLT.domain.temporarylogin.TemporaryLogin;
@@ -35,7 +35,7 @@ public class LoginController {
     @RequestMapping(value = {"/login-request"}, method = RequestMethod.POST)
     public ModelAndView insertUser(@RequestParam("verify_email") String email) {
 
-        ModelAndView result = new ModelAndView("index");
+        ModelAndView result = new ModelAndView("redirect");
 
         try {
 
@@ -72,7 +72,7 @@ public class LoginController {
     public ModelAndView insertUser(@ModelAttribute("verification-code") String code, @PathVariable("code") String userCode,
                                    @ModelAttribute("login") String status) {
 
-        ModelAndView result = new ModelAndView("index");
+        ModelAndView result = new ModelAndView("redirect");
 
         if (code.equals(userCode)) {
             result.addObject("login", "in");
