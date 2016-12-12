@@ -7,6 +7,7 @@
 </body>
 <body onload="createBoxesForCategory(document.getElementById('txt-category').value)">
 
+
 <div class="container-fluid">
 
     <div align="center" class="col-md-3"></div>
@@ -15,8 +16,8 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" action="/" class="form-group" enctype="multipart/form-data" method="post"
-              onsubmit="validatePostAdvertForm(<c:out value="${username}"/>); ">
+        <form id="confirm-advert" action="item${id}" class="form-group" enctype="multipart/form-data" method="get"
+              onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
             ${title}

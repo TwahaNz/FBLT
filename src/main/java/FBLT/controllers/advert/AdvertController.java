@@ -31,7 +31,7 @@ import static java.lang.System.out;
 /**
  * edited by luke.
  */
-@SessionAttributes("{username}")
+@SessionAttributes("username")
 @RestController
 public class AdvertController {
 
@@ -126,11 +126,7 @@ public class AdvertController {
     }
 
     @RequestMapping(value = "/post-advert")
-    public ModelAndView postAdvert(Model model, @ModelAttribute("username") String username) {
-
-        if(!model.containsAttribute("username")) {
-            model.addAttribute("username", "false");
-        }
+    public ModelAndView postAdvert() {
 
         return new ModelAndView("post_ad");
     }
@@ -216,7 +212,7 @@ public class AdvertController {
         mv.addObject("bool-is-selling", isSelling);
         mv.addObject("price", price);
         mv.addObject("category", getCategory(description));
-
+        mv.addObject("id", advert1.getId());
 
         return mv;
     }

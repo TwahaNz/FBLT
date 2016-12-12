@@ -35,7 +35,7 @@ public class LoginController {
     @RequestMapping(value = {"/login-request"}, method = RequestMethod.POST)
     public ModelAndView insertUser(@RequestParam("verify_email") String email) {
 
-        ModelAndView result = new ModelAndView("index");
+        ModelAndView result = new ModelAndView("redirect");
 
         try {
 
