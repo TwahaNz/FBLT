@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.io.*,java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
@@ -27,6 +26,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 
 <script>
@@ -64,16 +64,18 @@
 
     <div id="navbar" class="navbar-collapse collapse">
 
-        <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
-              style="margin-right:20px;">
-            <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary spaces-right-header">Post Free Ad!</button>
-            </div>
-        </form>
-
         <c:choose>
             <c:when test="${login.length() == 2}">
+                <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
+                      style="margin-right:20px;">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!</button>
+                    </div>
+                </form>
+                <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu">
+                    <button type="submit" class="btn btn-info glyphicon glyphicon-user">
+                    </button>
+                </form>
                 <form id="sign-out" action="sign-out-request" method="post"
                       class="navbar-form navbar-right altered-menu">
                     <b>Welcome!</b> ${username}
@@ -89,6 +91,7 @@
                               value=""/>
                         <button type="button" class="btn btn-success glyphicon glyphicon-log-in
 " data-toggle="modal" data-target="#myModal"></button>
+                        <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -172,9 +175,11 @@
             Home
         </div>
         <br/>
+        <c:if test="${login.length() == 2}">
         <div style="background-color: black; color: white; width: 145px"><span
                 class="glyphicon glyphicon-user"></span>
             Profile
         </div>
+        </c:if>
     </div>
     <div class="col-md-11">
