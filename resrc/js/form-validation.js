@@ -188,7 +188,7 @@ function createBoxesForCategory(category) {
         }
     }
 
-    function fillVehicleTypes(){
+    function fillVehicleTypes() {
         var vehicleTypes = ["",
             "Car",
             "Sports Car",
@@ -215,8 +215,8 @@ function createBoxesForCategory(category) {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Livestock Age: <br/><input id='txt-livestock-age' type='number' class='form-control'/><br/><br/>" +
-            "Livestock Grade: <br/><input id='txt-livestock-grade' type='text' class='form-control'/><br/><br/>";
+            "Livestock Age: <br/><input id='txt-livestock-age' name='age' type='number' class='form-control'/><br/><br/>" +
+            "Livestock Grade: <br/><input id='txt-livestock-grade' name='grade' type='text' class='form-control'/><br/><br/>";
 
 
     }
@@ -224,28 +224,28 @@ function createBoxesForCategory(category) {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Make: <br/><input id='txt-cellphone-make' type='text' class='form-control'/><br/><br/>" +
-            "Model: <br/><input id='txt-cellphone-model' type='text' class='form-control'/><br/><br/>";
+            "Make: <br/><input id='txt-cellphone-make' name='make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-cellphone-model' name='model' type='text' class='form-control'/><br/><br/>";
 
     }
     else if (category.trim() === "Audio") {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Make: <br/><input id='txt-audio-make' type='text' class='form-control'/><br/><br/>" +
-            "Model: <br/><input id='txt-audio-model' type='text' class='form-control'/><br/><br/>" +
-            "Type (headphones/earphones/stereo hi-fi): <br/><input id='txt-audio-type' type='text' class='form-control'/><br/><br/>" +
-            "Watts: <br/><input id='txt-audio-watts' type='text' class='form-control'/><br/><br/>";
+            "Make: <br/><input id='txt-audio-make' name='make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-audio-model' name='model' type='text' class='form-control'/><br/><br/>" +
+            "Type (headphones/earphones/stereo hi-fi): <br/><input id='txt-audio-type' name='type' type='text' class='form-control'/><br/><br/>" +
+            "Watts: <br/><input id='txt-audio-watts' name='watts' type='text' class='form-control'/><br/><br/>";
 
     }
     else if (category.trim() === "Computer") {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Make: <br/><input id='txt-computer-make' type='text' class='form-control'/><br/><br/>" +
-            "Model: <br/><input id='txt-computer-model' type='text' class='form-control'/><br/><br/>" +
-            "Type (desktop/laptop/tablet): <br/><input id='txt-computer-type' type='text' class='form-control'/><br/><br/>" +
-            "Size (Screen size if applicable): <br/><input id='txt-computer-size' type='text' class='form-control'/><br/><br/>";
+            "Make: <br/><input id='txt-computer-make' name='make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-computer-model' name='model' type='text' class='form-control'/><br/><br/>" +
+            "Type (desktop/laptop/tablet): <br/><input name='type' id='txt-computer-type' type='text' class='form-control'/><br/><br/>" +
+            "Size (Screen size if applicable): <br/><input name='size' id='txt-computer-size' type='text' class='form-control'/><br/><br/>";
     }
     else if (category.trim() === "Television") {
         categoryDiv.setAttribute("class", "well");
@@ -261,13 +261,13 @@ function createBoxesForCategory(category) {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Brand: <br/><input id='txt-clothing-brand' type='text' class='form-control'/><br/><br/>" +
-            "Gender/Sex: <br/><select class='form-control' id='sel-clothing-gender'><option></option><option>Male</option><option>Female</option><option>Unisex</option></select><br/><br/>" +
-            "Type: <br/><select class='form-control' id='sel-clothing-type'></select><br/><br/>" +
-            "Age: <br/><select class='form-control' id='sel-clothing-age'><option></option><option>Adult</option><option>Teenager</option><option>Kids</option></select><br/><br/>" +
-            "Size: <br/><select class='form-control' id='sel-clothing-size'></select><br/><br/>" +
-            "Material: <br/><input id='txt-clothing-material' type='text' class='form-control'/><br/><br/>" +
-            "Colour: <br/><input id='txt-clothing-colour' type='text' class='form-control'/><br/><br/>";
+            "Brand: <br/><input id='txt-clothing-brand' name='brand' type='text' class='form-control'/><br/><br/>" +
+            "Gender/Sex: <br/><select class='form-control' name='gender' id='sel-clothing-gender'><option></option><option>Male</option><option>Female</option><option>Unisex</option></select><br/><br/>" +
+            "Type: <br/><select class='form-control' name='type' id='sel-clothing-type'></select><br/><br/>" +
+            "Age: <br/><select class='form-control' name='age' id='sel-clothing-age'><option></option><option>Adult</option><option>Teenager</option><option>Kids</option></select><br/><br/>" +
+            "Size: <br/><select class='form-control' name='size' id='sel-clothing-size'></select><br/><br/>" +
+            "Material: <br/><input id='txt-clothing-material' name='material' type='text' class='form-control'/><br/><br/>" +
+            "Colour: <br/><input id='txt-clothing-colour' name='colour' type='text' class='form-control'/><br/><br/>";
 
         fillClothingSizes();
         fillClothingTypes();
@@ -284,21 +284,21 @@ function createBoxesForCategory(category) {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Book Author: <br/><input id='txt-books-author' type='text' class='form-control'/><br/><br/>" +
-            "Book Title: <br/><input type='text' class='form-control' id='txt-books-title'/><br/><br/>" +
-            "ISBN: <br/><input id='txt-books-isbn' type='text' class='form-control'/><br/><br/>" +
-            "Book Genre: <br/><input id='txt-books-genre' type='text' class='form-control'/><br/><br/>";
+            "Book Author: <br/><input id='txt-books-author' name='author' type='text' class='form-control'/><br/><br/>" +
+            "Book Title: <br/><input type='text'  name='title' class='form-control' id='txt-books-title'/><br/><br/>" +
+            "ISBN: <br/><input id='txt-books-isbn' name='isbn' type='text' class='form-control'/><br/><br/>" +
+            "Book Genre: <br/><input id='txt-books-genre' name='genre' type='text' class='form-control'/><br/><br/>";
     }
     else if (category.trim() === "Vehicles") {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Type: <br/><select id='sel-vehicles-type' type='text' class='form-control'></select><br/><br/>" +
-            "Make: <br/><input id='txt-vehicles-make' type='text' class='form-control'/><br/><br/>" +
-            "Model: <br/><input id='txt-vehicles-model' type='text' class='form-control'/><br/><br/>" +
-            "Year: <br/><input id='txt-vehicles-make' type='number' class='form-control'/><br/><br/>" +
-            "Fuel Type: <br/><select class='form-control' id='sel-vehicles-fuel-type'><option></option><option>Diesel</option><option>Petrol</option></select><br/><br/>" +
-            "Transmission: <br/><select class='form-control' id='sel-vehicle-transmission'><option></option><option>Manual</option><option>Automatic</option></select><br/><br/>";
+            "Type: <br/><select id='sel-vehicles-type' name='type' type='text' class='form-control'></select><br/><br/>" +
+            "Make: <br/><input id='txt-vehicles-make' name='make' type='text' class='form-control'/><br/><br/>" +
+            "Model: <br/><input id='txt-vehicles-model' name='model' type='text' class='form-control'/><br/><br/>" +
+            "Year: <br/><input id='txt-vehicles-year' name='year' type='number' class='form-control'/><br/><br/>" +
+            "Fuel Type: <br/><select class='form-control' name='fuel-type' id='sel-vehicles-fuel-type'><option></option><option>Diesel</option><option>Petrol</option></select><br/><br/>" +
+            "Transmission: <br/><select class='form-control' id='sel-vehicle-transmission' name='transmission'><option></option><option>Manual</option><option>Automatic</option></select><br/><br/>";
 
 
         fillVehicleTypes();
@@ -331,29 +331,29 @@ function validateUpdateForm() {
     var errors = "";
     var isValid = true;
     if (newname.trim().length == 0) {
-            errors += "User Name Field is empty\n";
-            isValid = false;
+        errors += "User Name Field is empty\n";
+        isValid = false;
     }
     if (newhandle.length < 0) {
         errors += "User Name Field is empty\n";
         isValid = false;
     }
     if (isNaN(newcell)) {
-            errors += "Only Numbers Allowed in User CellNumber TextBox\n";
-            isValid = false;
-        }
-    if (newcell.charAt(0)!="0") {
+        errors += "Only Numbers Allowed in User CellNumber TextBox\n";
+        isValid = false;
+    }
+    if (newcell.charAt(0) != "0") {
         errors += "Cell Phone Number must Begin with 0\n";
         isValid = false;
     }
-    if (newcell.length < 11&& newcell.length > 0) {
+    if (newcell.length < 11 && newcell.length > 0) {
         errors += "Incorrect Length for CellNumber TextBox\n";
         isValid = false;
     }
     if (newhandle.trim().length == 0) {
-        newhandle.value ="No Handle Available";
+        newhandle.value = "No Handle Available";
     }
-    if (newhandle.trim().length > 0 && newhandle.charAt(0)!="@") {
+    if (newhandle.trim().length > 0 && newhandle.charAt(0) != "@") {
         errors += "Invalid Telegram Handle @ sign missing\n";
         isValid = false;
     }
@@ -365,9 +365,9 @@ function validateUpdateForm() {
     }
 
     if (!isValid) {
-            alert(errors);
+        alert(errors);
     }
-     return isValid;
+    return isValid;
 
 }
 

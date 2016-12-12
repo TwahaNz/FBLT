@@ -33,7 +33,19 @@
                 </div>
 
 
-                <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
+                <div>
+                    <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
+
+                    <%-- ferins mess --%>
+                    <form id="profile" action="rate-me" method="post" class="navbar-form inline spaces-right"
+                          style="margin-right:55px;">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-md spaces-right" name="Rate me" >Request Rating </button>
+                        </div>
+                    </form>
+                    <%-- ferins end --%>
+                </div>
+
                 <br/>
                 <br/>
 
@@ -97,14 +109,7 @@
             </div>
             <div align="center" class="col-md-3"></div>
 
-            <%-- ferins mess --%>
-            <form id="profile" action="rate-me" method="post" class="navbar-form"
-                  style="margin-right:15px;">
-                <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-lg" name="Rate me" >Request Rating </button>
-                </div>
-            </form>
-            <%-- ferins end --%>
+
 
         </div>
     </div>

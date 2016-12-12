@@ -170,10 +170,9 @@
 <div class="row">
     <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%; padding-left: 0!important;padding-right: 0!important;">
         <br/>
-        <a href=""><div style="background-color: black; color: white; width: 100%"
-             onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span>
+        <a href="index"><div style="background-color: black; color: white; width: 100%"><span class="glyphicon glyphicon-home"></span>
             Home
-        </div>
+        </div></a>
         <br/>
         <c:if test="${login.length() == 2}">
         <a href="user-profile"><div style="background-color: black; color: white; width: 100%"><span

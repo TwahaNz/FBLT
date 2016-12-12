@@ -49,8 +49,5 @@ public class Category implements ICategory {
 
             return new Category(this);
         }
-
-
     }
-
 }
