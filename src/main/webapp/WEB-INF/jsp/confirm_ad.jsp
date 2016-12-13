@@ -42,10 +42,10 @@
             <br/>
             <br/>
             Advert Type:
-            <c:if test="${advert.isBuyOrSell() == true}">
+            <c:if test="${advert.isBuyOrSell() == false}">
                 <label>Selling</label>
             </c:if>
-            <c:if test="${advert.isBuyOrSell() == false}">
+            <c:if test="${advert.isBuyOrSell() == true}">
                 <label>Wanted</label>
             </c:if>
             <input  name="bool-is-selling" type="hidden" value="${advert.getPrice()}"/>
@@ -80,6 +80,7 @@
             <div id="category-inputs">
 
             </div>
+            <input name="ad-id" type="hidden" value="${advert.getId()}">
             <input type="submit" value="Confirm Ad" class="btn btn-success">
 
         </form>
