@@ -34,6 +34,17 @@ public class RateMeController {
     @Autowired
     ImplIRatingService ratingService;
 
+    private int calcRating(String userId){
+        int total = 0;
+
+        List<Rating> ratingList = ratingService.findRatingByUserId(userId);
+
+        for (Rating r : ratingList)
+            total += Integer.parseInt(r.getRating());
+
+        return total/ratingList.size();
+    }
+
     // populate users adverts
     @RequestMapping(value = "/rate-me", method = RequestMethod.POST)
     public ModelAndView userProfile(@ModelAttribute("username") String email) {
@@ -63,7 +74,7 @@ public class RateMeController {
 
         ModelAndView mv = new ModelAndView("user_profile");
 
-        if(userBuyer == null || userBuyer.getContactDetails().getEmailAddress().equals(sellerEmail) || ratingValidate == null){
+        if(userBuyer == null || userBuyer.getContactDetails().getEmailAddress().equals(sellerEmail) || ratingValidate != null){
             mv.addObject("isValidBuyerEmail","false");
             System.out.println("invalid buyer email");
             mv.addObject("advertId", advertId);
@@ -87,6 +98,13 @@ public class RateMeController {
 
         }
 
+        User userWithRating = new User.Builder()
+                .copy(userSeller)
+                .rating(calcRating(userSeller.get_id()))
+                .build();
+
+        mv.addObject("user", userWithRating);
+        mv.addObject("adverts", advertService.findAdvertsByUserEmail(sellerEmail));
         return mv;
     }
 

@@ -389,4 +389,5 @@ function setRating(){
     if(document.getElementById("4").checked == true) {
         document.getElementById("rateNumber").value = "4";
     }
+
 }

@@ -4,8 +4,27 @@
 <% String path = request.getContextPath() + "/images/"; %>
 <%String value = "disabled";%>
 <% int counter = 0;%>
+
+
+
 </body>
 <body onload="toggleFormElements()">
+
+<div>
+    <c:choose>
+        <c:when test="${isValidBuyerEmail.length() == 5}">
+            <script type="text/javascript">
+                alert("Invalid email address:\nYou cannot rate yourself. \nYou can only rate an advert once. \nOnly a registered user can rate you.");
+                /*toggleRatingsForm(${advertId});*/
+            </script>
+        </c:when>
+        <c:when test="${isValidBuyerEmail.length() == 4}">
+            <script type="text/javascript">
+                alert("An email with rating request has been sent");
+            </script>
+        </c:when>
+    </c:choose>
+</div>
 
 <div class="row">
 
@@ -35,8 +54,6 @@
 
                 <div>
                     <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
-
-
                 </div>
 
                 <br/>
@@ -157,7 +174,6 @@
                                                                                value=""/>
                                 </p>
                                 <input type='submit' name='submit' class="btn btn-info btn-lg register-button" value='Send Rating Request'/>
-
                             </div>
                         </div>
                     </form>
@@ -165,20 +181,5 @@
             </div>
         </div>
     </div>
-
-    <c:choose>
-    <c:when test="${isValidBuyerEmail.length() == 5}">
-    <script type="text/javascript">
-        alert("Invalid email address! </br>You cannot rate yourself </br>You can only rate an advert once</br>Only a registered user can rate you");
-        toggleRatingsForm(${advertId});
-    </script>
-    </c:when>
-    <c:when test="${isValidBuyerEmail.length() == 4}">
-    <script type="text/javascript">
-        alert("An email with rating request has been sent");
-    </script>
-    </c:when>
-    </c:choose>
-
 
 <jsp:include page="footer.jsp"/>
