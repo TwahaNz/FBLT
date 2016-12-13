@@ -57,7 +57,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand spaces-left" style="padding-top: 5px!important;" href="index"><b>Bubby King <img
+        <a class="navbar-brand spaces-left" style="padding-top: 5px!important;" href="/index"><b>Bubby King <img
                 src="<%=path%>logo.png" class="img-responsive img-round inline" width="60px" height="60px"/></b></a>
     </div>
 

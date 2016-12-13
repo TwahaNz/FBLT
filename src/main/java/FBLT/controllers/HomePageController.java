@@ -26,7 +26,6 @@ public class HomePageController {
     public ModelAndView getIndex() {
 
         ArrayList<String> list = new ArrayList<>();
-        String[] ad_links = null;
 
         int total = 0;
 
@@ -40,26 +39,30 @@ public class HomePageController {
             adverts.next();
         }
 
-        ad_links = new String[total];
-
-        int position = 0;
-
         adverts = requests.iterator();
 
         while (adverts.hasNext()) {
             try {
                 Advert ad = adverts.next();
-                list.add(ad.getImagepaths().get(0));
-                ad_links[position] = ad.getId();
-                position++;
-
+                list.add(ad.getImagepaths().get(0) + "!" + ad.getId());
             } catch (Exception e) {
 
             }
         }
 
+        result.addObject("total", total);
         result.addObject("advert_paths", list);
-        result.addObject("advert_links", ad_links);
         return result;
+    }
+
+    private int getRows(int total) {
+
+        final int SIZE_PER_PAGE = 16;
+        final int ROWS_PER_PAGE = 4;
+        final int TOTAL_ITEMS_TO_LOAD = total;
+
+        int row_to_load = 0;
+
+        return total;
     }
 }

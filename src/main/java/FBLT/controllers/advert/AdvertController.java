@@ -158,7 +158,7 @@ public class AdvertController {
             return new ModelAndView("invalid");
         }
 
-        if(isSelling.equals("true"))
+        if(!isSelling.equals("true"))
         {
             isvalid = true;
         }

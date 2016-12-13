@@ -138,7 +138,7 @@
         <a href="" class="link">Audio</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #2196f3">
-        <a href="" class="link">Cellphones</a>
+        <a href="" class="link">Cellphone</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
         <a href="" class="link">Computers</a>

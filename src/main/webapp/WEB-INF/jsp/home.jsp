@@ -7,6 +7,12 @@
 <%--<% String path = request.getContextPath() + "/images/"; %>--%>
 <% String path = "images/"; %>
 
+<%
+    int count = -1;
+    request.setAttribute("count", count);
+    int total = (int) request.getAttribute("total");
+%>
+
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div align="center" class="col-md-3">
@@ -14,25 +20,17 @@
                  height="800px"/>
         </div>
         <div class="col-md-6">
-            <% for (int i = 0; i < 4; i++) {%>
-            <div class="row spaces-bottom">
-                <div class="col-md-3">
-                    <a href="<%=path%>big_ad.png"><img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                                                       style="height:200px!important" width="100%" height="200px"/></a>
+            <% for (int i = 0; i < 1; i++) {%>
+                <div class="row spaces-bottom">
+                    <c:forEach begin="1" end="${total}" varStatus="loop">
+                        <%count++;
+                            request.setAttribute("count", count);%>
+                        <div class="col-md-3">
+                            <a href="item${advert_paths.get(count).split("!")[1]}"><img src="${advert_paths.get(count).split("!")[0]}" class="img-responsive img-thumbnail"
+                                                                                        style="height:200px!important" width="100%" height="200px"/></a>
+                        </div>
+                    </c:forEach>
                 </div>
-                <div class="col-md-3">
-                    <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                         style="height:200px!important" width="100%" height="200px"/>
-                </div>
-                <div class="col-md-3">
-                    <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                         style="height:200px!important" width="100%" height="200px"/>
-                </div>
-                <div class="col-md-3">
-                    <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                         style="height:200px!important" width="100%" height="200px"/>
-                </div>
-            </div>
             <%}%>
         </div>
         <div align="center" class="col-md-3">
@@ -43,9 +41,9 @@
 </div>
 
 
-<%--
 
-<h3>Top Sellers</h3>
+
+<%--<h3>Top Sellers</h3>
 <hr/>
 <br/>
 <div class="row">
