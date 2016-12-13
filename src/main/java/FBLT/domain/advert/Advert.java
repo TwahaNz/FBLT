@@ -72,7 +72,8 @@ public class Advert implements IAdvert {
     }
 
     public String getTitle() {
-        return title; }
+        return title;
+    }
 
     public User getUser() {
         return user;
@@ -121,6 +122,7 @@ public class Advert implements IAdvert {
             this.buyOrSell = advert.buyOrSell;
             this.price = advert.price;
             this.location = advert.location;
+            this.imagepaths = advert.imagepaths;
             return this;
 
         }

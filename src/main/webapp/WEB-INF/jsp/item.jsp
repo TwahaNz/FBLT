@@ -13,8 +13,16 @@
             <br/>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
-                         height="350px" data-toggle="modal" data-target="#image"/>
+                    <c:choose>
+                        <c:when test="${size == 0}">
+                            <img src="images/big_ad.png" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                                 height="350px"/>
+                        </c:when>
+                        <c:otherwise>
+                            <img src="${items.get(0)}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                                 height="350px" data-toggle="modal" data-target="#image"/>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div class="col-md-4">
                     <span class="alert alert-info glyphicon glyphicon-info-sign">Click Image To ZOOM</span>
@@ -74,9 +82,11 @@
     <div class="modal-dialog middle-buttons" style="margin-top: 15%">
         <div class="modal-content">
             <div class="modal-header">
-                <div align="center"><img src="${item}" class="img-responsive img-thumbnail zoom" style="height:300px!important" width="300px"
-                                         height="350px" data-toggle="modal" data-target="#image"/>
-                </div>
+                <c:forEach items="${items}" var="item">
+                    <div align="center"><img src="${item}" class="img-responsive img-thumbnail zoom" style="height:300px!important" width="300px"
+                                             height="350px" data-toggle="modal" data-target="#image"/>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>

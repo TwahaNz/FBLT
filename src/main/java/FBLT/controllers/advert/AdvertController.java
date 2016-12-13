@@ -18,7 +18,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static java.lang.System.out;
+import static java.lang.System.setOut;
 
 /**
  * edited by luke.
@@ -170,9 +170,8 @@ public class AdvertController {
         if (email == null || email.trim().equals("")) {
             return new ModelAndView("invalid");
         }
-        
-        if(!isSelling.equals("true"))
-        {
+
+        if (!isSelling.equals("true")) {
             isvalid = true;
         } else {
             isvalid = false;
@@ -198,7 +197,7 @@ public class AdvertController {
                 .price(Double.parseDouble(price))
                 .location(locations).build();
 
-
+        advertService.create(advert);
         ArrayList<String> listOfPaths = new ArrayList<>();
 
         for (int i = 0; i < files.length; i++) {
@@ -233,6 +232,10 @@ public class AdvertController {
                 .copy(advert)
                 .imagePaths(listOfPaths)
                 .build();
+        advertService.update(advert);
+
+        System.out.println(advert.getImagepaths().get(0));
+
         System.out.println(advert.isBuyOrSell());
         ModelAndView mv = new ModelAndView("confirm_ad");
         mv.addObject("advert", advert);
@@ -280,6 +283,10 @@ public class AdvertController {
             System.out.println(entry.getKey() + "/" + entry.getValue());
         }
 
+        Advert initialAdvert = advertService.readById(allRequestParams.get("ad-id"));
+
+
+
         String location = allRequestParams.get("ad-location");
         String city = "", suburb = "", province = "";
 
@@ -313,6 +320,7 @@ public class AdvertController {
             isSelling = false;
         }
         Advert advert = new Advert.Builder()
+                .copy(initialAdvert)
                 .title(allRequestParams.get("ad-title"))
                 .product(productToSaveInAdvert)
                 .buyOrSell(isSelling)
@@ -320,8 +328,10 @@ public class AdvertController {
                 .price(Double.parseDouble(allRequestParams.get("ad-price")))
                 .location(locations).build();
 
-        advertService.create(advert);
+        advertService.update(advert);
 
-        return new ModelAndView("index");
+        System.out.println(advert.getImagepaths());
+
+        return new ModelAndView("redirect");
     }
 }
