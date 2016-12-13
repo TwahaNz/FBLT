@@ -16,11 +16,13 @@
                     <img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
                          height="350px" data-toggle="modal" data-target="#image"/>
                 </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-success">Add To Cart</button>
+                <div class="col-md-4">
+                    <span class="alert alert-info glyphicon glyphicon-info-sign">Click Image To ZOOM</span>
+                    <h2>R${advert.getPrice()}</h2>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2">
+
+                </div>
                 <div class="col-md-4"></div>
             </div>
             <h3>Item Description</h3>
@@ -43,10 +45,10 @@
                         <p>Description: ${advert.getProduct().getDescription()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <c:if test="${advert.isBuyOrSell() == true}">
+                        <c:if test="${advert.isBuyOrSell() == false}">
                             <p>Seller: ${advert.getUser().getName()}</p>
                         </c:if>
-                        <c:if test="${advert.isBuyOrSell() == false}">
+                        <c:if test="${advert.isBuyOrSell() == true}">
                             <p>Buyer: ${advert.getUser().getName()}</p>
                         </c:if>
                     </div>
@@ -72,7 +74,7 @@
     <div class="modal-dialog middle-buttons" style="margin-top: 15%">
         <div class="modal-content">
             <div class="modal-header">
-                <div align="center"><img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                <div align="center"><img src="${item}" class="img-responsive img-thumbnail zoom" style="height:300px!important" width="300px"
                                          height="350px" data-toggle="modal" data-target="#image"/>
                 </div>
             </div>

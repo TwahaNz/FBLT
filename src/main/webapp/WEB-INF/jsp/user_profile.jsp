@@ -113,6 +113,11 @@
 
         </div>
     </div>
+
+    <div class="col-md-3">
+        <button class="btn btn-success btn-md" data-toggle="modal" data-target="#img">Click</button>
+    </div>
+
     <div class ="row">
 
         <div class="col-md-6">
@@ -145,6 +150,31 @@
         <% String post_js_path= request.getContextPath() + "/js/"; %>
 
     <script src="<%=post_js_path%>post_ad.js"></script>
+
+    <div id="img" class="modal fade" role="dialog">
+        <div class="modal-dialog middle-buttons" style="margin-top: 15%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form id="ratingsForm" action="validate-buyer-email" method="post">
+                        <div align="center">
+                            <div align="center" class="middle-buttons panel custom-panel">
+
+                                <input type='hidden' class="form-control custom-control" name='advertId' id="advertId"
+                                       value=""/>
+                                <p>Please enter the buyers email address<input type='text' placeholder="Buyers Email address" class="form-control custom-control" name='email'
+                                                                               value=""/>
+                                </p>
+                                <input type='submit' name='submit' class="btn btn-info btn-lg register-button" value='Send Rating Request'/>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
 <jsp:include page="footer.jsp"/>
