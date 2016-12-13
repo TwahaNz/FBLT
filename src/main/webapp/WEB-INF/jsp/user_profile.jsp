@@ -36,14 +36,7 @@
                 <div>
                     <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
 
-                    <%-- ferins mess --%>
-                    <form id="profile" action="rate-me" method="post" class="navbar-form inline spaces-right"
-                          style="margin-right:55px;">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-info btn-md spaces-right" name="Rate me" >Request Rating </button>
-                        </div>
-                    </form>
-                    <%-- ferins end --%>
+
                 </div>
 
                 <br/>
@@ -114,10 +107,6 @@
         </div>
     </div>
 
-    <div class="col-md-3">
-        <button class="btn btn-success btn-md" data-toggle="modal" data-target="#img">Click</button>
-    </div>
-
     <div class ="row">
 
         <div class="col-md-6">
@@ -136,7 +125,10 @@
 
                     <c:forEach items="${adverts}" var="advert">
                         <p>Advert:
-                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a>
+                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a> &nbsp;&nbsp;&nbsp;
+
+                            <button class="btn btn-info" data-toggle="modal" data-target="#img" onClick="toggleRatingsForm( '${advert.getId()}' );">Request Rating</button>
+
                         </p>
                     </c:forEach>
 
@@ -174,7 +166,19 @@
         </div>
     </div>
 
-
+    <c:choose>
+    <c:when test="${isValidBuyerEmail.length() == 5}">
+    <script type="text/javascript">
+        alert("Invalid email address! </br>You cannot rate yourself </br>You can only rate an advert once</br>Only a registered user can rate you");
+        toggleRatingsForm(${advertId});
+    </script>
+    </c:when>
+    <c:when test="${isValidBuyerEmail.length() == 4}">
+    <script type="text/javascript">
+        alert("An email with rating request has been sent");
+    </script>
+    </c:when>
+    </c:choose>
 
 
 <jsp:include page="footer.jsp"/>

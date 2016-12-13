@@ -61,11 +61,12 @@ public class RateMeController {
         User userSeller = userService.findByEmail(sellerEmail);
         Rating ratingValidate = ratingService.findRatingByAdvertId(advertId);
 
-        ModelAndView mv = new ModelAndView("rate_me");
+        ModelAndView mv = new ModelAndView("user_profile");
 
-        if(userBuyer == null || userBuyer.getContactDetails().getEmailAddress().equals(sellerEmail) /*|| ratingValidate == null*/){
+        if(userBuyer == null || userBuyer.getContactDetails().getEmailAddress().equals(sellerEmail) || ratingValidate == null){
             mv.addObject("isValidBuyerEmail","false");
             System.out.println("invalid buyer email");
+            mv.addObject("advertId", advertId);
         }
         else {
             mv.addObject("isValidBuyerEmail", "true");
