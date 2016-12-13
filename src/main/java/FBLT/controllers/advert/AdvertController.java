@@ -332,6 +332,6 @@ public class AdvertController {
 
         System.out.println(advert.getImagepaths());
 
-        return new ModelAndView("index");
+        return new ModelAndView("redirect");
     }
 }

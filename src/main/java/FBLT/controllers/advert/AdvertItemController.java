@@ -28,14 +28,15 @@ public class AdvertItemController {
 
         ArrayList<String> images = new ArrayList<>();
 
-        String img_path = advert.getImagepaths().get(0);
+        ArrayList<String> img_path = advert.getImagepaths();
 
         if (advert.getImagepaths().size() > 1) {
             for (String path : advert.getImagepaths())
                 images.add(path);
         }
 
-        modelAndView.addObject("item", img_path);
+        modelAndView.addObject("size", img_path.size());
+        modelAndView.addObject("items", img_path);
         modelAndView.addObject("advert", advert);
 
 
