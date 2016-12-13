@@ -58,13 +58,15 @@ public class HomePageController {
     @RequestMapping(value = {"/pages{index}"}, method = RequestMethod.GET)
     public ModelAndView insertUser(@PathVariable("index") int index) {
 
+        if(index == 0) {
+            return new ModelAndView("index");
+        }
+
         ArrayList<String> listNext = new ArrayList<>();
 
         ModelAndView result = new ModelAndView("index");
 
-        int position = 0;
-
-        for (position = (index*4); position < list.size(); position++) {
+        for (int position = (index*4); position < list.size(); position++) {
             listNext.add(list.get(position));
         }
 
