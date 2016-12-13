@@ -1,11 +1,13 @@
 package FBLT.controllers.advert;
 
 import FBLT.domain.advert.Advert;
+import FBLT.domain.product.IProduct;
 import FBLT.domain.product.Product;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.FindProductCatagory;
 import FBLT.domain.user.User;
 import FBLT.factories.category.FindProductCatagoryFactory;
+import FBLT.factories.product.ProductFactoryImpl;
 import FBLT.service.advert.ImplAdvertService;
 import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.genericvalueobjects.ContactDetails;
@@ -27,6 +29,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import static java.lang.System.out;
@@ -261,5 +264,19 @@ public class AdvertController {
         }
 
         return first;
+    }
+
+    @RequestMapping(value = "/save-advert", method = RequestMethod.POST)
+    public ModelAndView saveAdvert(@RequestParam Map<String, String> allRequestParams, Model model) {
+        for (Map.Entry<String, String> entry : allRequestParams.entrySet()) {
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+        }
+
+
+        ProductFactoryImpl productFactory = ProductFactoryImpl.getInstance();
+        IProduct productToSaveInAdvert = productFactory.getProduct(allRequestParams);
+
+
+        return new ModelAndView("index");
     }
 }

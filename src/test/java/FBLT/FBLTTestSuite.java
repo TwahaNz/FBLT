@@ -15,8 +15,6 @@ import FBLT.domain.product.vehicle.VehicleTest;
 import FBLT.domain.rank.RankTest;
 import FBLT.domain.register.RegisteredUserVerificationTest;
 import FBLT.domain.user.UserTest;
-import FBLT.factories.product.ProductFactoryTest;
-import FBLT.factories.product.category.CategoryFactoryTest;
 import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
 import FBLT.repositories.product.ProductRepoTest;
 import FBLT.repositories.product.book.BookRepoTest;
@@ -59,8 +57,6 @@ import org.junit.runners.Suite;
         VehicleTest.class,
         ClothingTest.class,
         RegisteredUserVerificationTest.class,
-        CategoryFactoryTest.class,
-        ProductFactoryTest.class,
         RegisteredUserVerificationFactoryTest.class,
         UserTest.class,
         RankTest.class,
