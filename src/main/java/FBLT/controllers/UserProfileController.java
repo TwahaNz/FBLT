@@ -1,8 +1,10 @@
 package FBLT.controllers;
 
 import FBLT.domain.advert.Advert;
+import FBLT.domain.rating.Rating;
 import FBLT.domain.user.User;
 import FBLT.service.advert.ImplAdvertService;
+import FBLT.service.rating.ImplIRatingService;
 import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
@@ -26,6 +28,21 @@ public class UserProfileController {
     @Autowired
     ImplAdvertService advertService;
 
+    @Autowired
+    ImplIRatingService ratingService;
+
+    private int calcRating(String userId){
+        int total = 0;
+
+        List<Rating> ratingList = ratingService.findRatingByUserId(userId);
+
+        for (Rating r : ratingList)
+            total += Integer.parseInt(r.getRating());
+
+        return total/ratingList.size();
+    }
+
+
     @RequestMapping(value = "/user-profile", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView userProfile(@ModelAttribute("username") String email) {
 
@@ -38,9 +55,15 @@ public class UserProfileController {
         if (adverts == null) {
             System.out.println("Request with id " + user.get_id() + "Not Found");
         }
+
+        User userWithRating = new User.Builder()
+                .copy(user)
+                .rating(calcRating(user.get_id()))
+                .build();
+
         System.out.println(adverts.size());
         ModelAndView mv = new ModelAndView("user_profile");
-        mv.addObject("user",user);
+        mv.addObject("user",userWithRating);
         mv.addObject("adverts",adverts);
 
         return mv;

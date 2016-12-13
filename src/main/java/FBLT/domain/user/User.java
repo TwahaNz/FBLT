@@ -19,6 +19,7 @@ public class User {
     private int rating;
     private String ranking;
 
+
     protected User() {
     }
 
@@ -52,9 +53,9 @@ public class User {
         return location;
     }
 
+
     public int getRating() {
         return rating;
-
     }
 
     public static class Builder {

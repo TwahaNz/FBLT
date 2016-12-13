@@ -19,4 +19,8 @@ public interface RatingRepository extends MongoRepository<Rating, String> {
     @Query(value = "{ 'advertID' : ?0 }")
     Rating findRatingByAdvertId(String advertId);
 
+    // finds the average rating for user
+    @Query(value = "{ 'userID' : ?0 }")
+    List<Rating> findRatingByUserId(String userId);
+
 }

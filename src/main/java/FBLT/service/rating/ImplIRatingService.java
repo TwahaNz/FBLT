@@ -5,6 +5,7 @@ import FBLT.repositories.rating.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,6 +16,12 @@ public class ImplIRatingService implements IRatingService {
 
     @Autowired
     RatingRepository repository;
+
+
+    @Override
+    public List<Rating> findRatingByUserId(String userId) {
+        return repository.findRatingByUserId(userId);
+    }
 
     @Override
     public Rating findRatingByAdvertId(String advertId) {
