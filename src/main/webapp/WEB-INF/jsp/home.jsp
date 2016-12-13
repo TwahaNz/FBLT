@@ -38,22 +38,24 @@
                 </c:forEach>
             </div>
             <%}%>
-            <div align="center">
-                <p><b>pages</b></p>
-                <c:choose>
-                    <c:when test="${pages == 0}">
-                        <b><a href="pages${index-1}" class="spaces-right">&lt;&lt;</a></b>
-                    </c:when>
-                    <c:otherwise>
-                        <c:if   test="${index > 0}">
-                            <b><a href="pages${index-1}" class="spaces-right">&lt;&lt; </a></b>
-                        </c:if>
-                        <b><a href="pages${index+1}"
-                                        class="spaces-right">
-                        &gt;&gt;</a></b>
-                    </c:otherwise>
-                </c:choose>
-            </div>
+            <c:if   test="${total > 0}">
+                <div align="center">
+                    <p><b>pages</b></p>
+                    <c:choose>
+                        <c:when test="${pages == 0}">
+                            <b><a href="pages${index-1}" class="spaces-right">&lt;&lt;</a></b>
+                        </c:when>
+                        <c:otherwise>
+                            <c:if   test="${index > 0}">
+                                <b><a href="pages${index-1}" class="spaces-right">&lt;&lt; </a></b>
+                            </c:if>
+                            <b><a href="pages${index+1}"
+                                  class="spaces-right">
+                                &gt;&gt;</a></b>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </c:if>
         </div>
         <div align="center" class="col-md-3">
             <img src="<%=path%>ad2.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%"
