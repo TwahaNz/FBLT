@@ -4,8 +4,7 @@ import FBLT.domain.advert.Advert;
 import FBLT.service.advert.ImplAdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -15,17 +14,18 @@ import java.util.Set;
 /**
  * edited by luke
  */
-@Controller
-@RequestMapping(value = {"", "/", "index"})
+
+@RestController
 public class HomePageController {
 
     @Autowired
     ImplAdvertService advertService;
+    ArrayList<String> list;
 
-    @RequestMapping(method = {RequestMethod.GET})
+    @RequestMapping(value = {"", "/", "index"}, method = {RequestMethod.GET})
     public ModelAndView getIndex() {
 
-        ArrayList<String> list = new ArrayList<>();
+        list = new ArrayList<>();
 
         int total = 0;
 
@@ -52,6 +52,26 @@ public class HomePageController {
 
         result.addObject("total", total);
         result.addObject("advert_paths", list);
+        return result;
+    }
+
+    @RequestMapping(value = {"/pages{index}"}, method = RequestMethod.GET)
+    public ModelAndView insertUser(@PathVariable("index") int index) {
+
+        ArrayList<String> listNext = new ArrayList<>();
+
+        ModelAndView result = new ModelAndView("index");
+
+        int position = 0;
+
+        for (position = (index*4); position < list.size(); position++) {
+            listNext.add(list.get(position));
+        }
+
+        result.addObject("total", listNext.size());
+        result.addObject("advert_paths", listNext);
+        result.addObject("index", index);
+
         return result;
     }
 
