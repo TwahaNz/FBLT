@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
-                         height="350px"/>
+                         height="350px" data-toggle="modal" data-target="#image"/>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-success">Add To Cart</button>
@@ -64,6 +64,18 @@
         </div>
         <div align="center" class="col-md-3">
             <img class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
+        </div>
+    </div>
+</div>
+
+<div id="image" class="modal fade" role="dialog">
+    <div class="modal-dialog middle-buttons" style="margin-top: 15%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div align="center"><img src="${item}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                                         height="350px" data-toggle="modal" data-target="#image"/>
+                </div>
+            </div>
         </div>
     </div>
 </div>
