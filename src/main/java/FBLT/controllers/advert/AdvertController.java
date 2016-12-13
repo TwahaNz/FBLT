@@ -10,7 +10,6 @@ import FBLT.factories.category.FindProductCatagoryFactory;
 import FBLT.factories.product.ProductFactoryImpl;
 import FBLT.service.advert.ImplAdvertService;
 import FBLT.service.user.UserServiceImpl;
-import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -75,14 +73,15 @@ public class AdvertController {
     }
 
     //-------------------Retrieve All Adverts--------------------------------------------------------
-
-    @RequestMapping(value = "/advert-controller/", method = RequestMethod.GET)
-    public ResponseEntity<Set<Advert>> getAdverts() {
+    @RequestMapping(value = "/list-adverts/", method = RequestMethod.GET)
+    public ModelAndView getAdverts() {
         Set<Advert> requests = advertService.readAll();
-        if (requests.isEmpty()) {
-            return new ResponseEntity<Set<Advert>>(HttpStatus.NO_CONTENT);// OR HttpStatus.NOT_FOUND http err 204 no content
-        }
-        return new ResponseEntity<Set<Advert>>(requests, HttpStatus.OK);
+
+        ModelAndView mv = new ModelAndView("list_ads");
+        mv.addObject(requests);
+        mv.addObject("hasResults", requests.size() > 0);
+
+        return mv;
     }
 
     //-------------------Update an Advert--------------------------------------------------------
@@ -140,16 +139,30 @@ public class AdvertController {
         return new ModelAndView("post_ad");
     }
 
+
     @RequestMapping(value = "/confirm-advert", method = RequestMethod.POST)
     public ModelAndView submitAdvert(@ModelAttribute("username") String email,
                                      @RequestParam("title") String title,
                                      @RequestParam("description") String description,
-                                     @RequestParam("city") String city,
-                                     @RequestParam("suburb") String suburb,
+                                     @RequestParam("location") String location,
                                      @RequestParam("price") String price,
                                      @RequestParam("bool-is-selling") String isSelling,
                                      @RequestParam("img") MultipartFile[] files) throws Exception {
 
+
+        String city = "", suburb = "", province = "";
+
+        String[] locationArray = location.split(",");
+
+        if (locationArray.length == 2) {
+            suburb = "Not Provided";
+            city = locationArray[0];
+            province = locationArray[1];
+        } else if (locationArray.length == 3) {
+            suburb = locationArray[0];
+            city = locationArray[1];
+            province = locationArray[2];
+        }
 
         out.print("Posting With Usr: " + email);
         boolean isvalid = false;
@@ -157,13 +170,11 @@ public class AdvertController {
         if (email == null || email.trim().equals("")) {
             return new ModelAndView("invalid");
         }
-
+        
         if(!isSelling.equals("true"))
         {
             isvalid = true;
-        }
-        else
-        {
+        } else {
             isvalid = false;
         }
 
@@ -187,7 +198,6 @@ public class AdvertController {
                 .price(Double.parseDouble(price))
                 .location(locations).build();
 
-        advert = advertService.create(advert);
 
         ArrayList<String> listOfPaths = new ArrayList<>();
 
@@ -223,12 +233,9 @@ public class AdvertController {
                 .copy(advert)
                 .imagePaths(listOfPaths)
                 .build();
-
-        advert = advertService.update(advert);
-
+        System.out.println(advert.isBuyOrSell());
         ModelAndView mv = new ModelAndView("confirm_ad");
-        mv.addObject("advert",advert);
-
+        mv.addObject("advert", advert);
         return mv;
     }
 
@@ -240,7 +247,7 @@ public class AdvertController {
                 "Audio speakers mic mics earphone earphones beats\n" +
                 "Computer laptops laptop desktop keyboard mouse graphics card amd radeon lenovo hp dell alienware\n" +
                 "Television smart tv television led plasma flat screen flat-screen amoled \n" +
-                "Clothes shoes shoe pants jeans top tops shirt shirts vest vests jackets jacket fur jean jeans headband cap caps");
+                "Clothing shoes shoe pants jeans top tops shirt shirts vest vests jackets jacket fur jean jeans headband cap caps");
 
         BufferedReader br = new BufferedReader(stringReader);
 
@@ -267,15 +274,53 @@ public class AdvertController {
     }
 
     @RequestMapping(value = "/save-advert", method = RequestMethod.POST)
-    public ModelAndView saveAdvert(@RequestParam Map<String, String> allRequestParams, Model model) {
+    public ModelAndView saveAdvert(@RequestParam Map<String, String> allRequestParams,
+                                   @ModelAttribute("username") String email) {
         for (Map.Entry<String, String> entry : allRequestParams.entrySet()) {
             System.out.println(entry.getKey() + "/" + entry.getValue());
         }
 
+        String location = allRequestParams.get("ad-location");
+        String city = "", suburb = "", province = "";
+
+        String[] locationArray = location.split(",");
+
+        if (locationArray.length == 2) {
+            suburb = "Not Provided";
+            city = locationArray[0];
+            province = locationArray[1];
+        } else if (locationArray.length == 3) {
+            suburb = locationArray[0];
+            city = locationArray[1];
+            province = locationArray[2];
+        }
+
+        User user = userService.findByEmail(email);
 
         ProductFactoryImpl productFactory = ProductFactoryImpl.getInstance();
         IProduct productToSaveInAdvert = productFactory.getProduct(allRequestParams);
 
+        Location locations = new Location.Builder()
+                .city(city)
+                .suburb(suburb)
+                .build();
+
+        boolean isSelling;
+
+        if (allRequestParams.get("ad-description").equals("true")) {
+            isSelling = true;
+        } else {
+            isSelling = false;
+        }
+        Advert advert = new Advert.Builder()
+                .title(allRequestParams.get("ad-title"))
+                .product(productToSaveInAdvert)
+                .buyOrSell(isSelling)
+                .user(user)
+                .price(Double.parseDouble(allRequestParams.get("ad-price")))
+                .location(locations).build();
+
+        advertService.create(advert);
 
         return new ModelAndView("index");
     }

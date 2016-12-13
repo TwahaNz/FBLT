@@ -1,5 +1,7 @@
 package FBLT.factories.product.clothing;
 
+import FBLT.domain.product.book.Book;
+import FBLT.domain.product.category.Category;
 import FBLT.domain.product.clothing.Clothing;
 
 import java.util.Map;
@@ -75,7 +77,20 @@ public class ClothingFactoryImpl implements IClothingFactory {
                     .build();
             finalProduct = ClothingWithWatts;
         }
-
+        if (details.containsKey("category")) {
+            Clothing bookWithAuthor = new Clothing.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Clothing bookWithAuthor = new Clothing.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
 
         return finalProduct;
     }

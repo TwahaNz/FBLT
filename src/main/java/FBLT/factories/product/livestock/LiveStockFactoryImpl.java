@@ -1,5 +1,7 @@
 package FBLT.factories.product.livestock;
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.electronics.television.Television;
 import FBLT.domain.product.livestock.Livestock;
 
 import java.util.Map;
@@ -42,6 +44,20 @@ public class LiveStockFactoryImpl implements ILiveStockFactory {
                     .build();
             finalProduct = livestockWithGrade;
 
+        }
+        if (details.containsKey("category")) {
+            Livestock bookWithAuthor = new Livestock.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Livestock bookWithAuthor = new Livestock.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
         }
         return finalProduct;
 

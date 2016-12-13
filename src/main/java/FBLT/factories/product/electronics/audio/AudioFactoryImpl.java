@@ -1,5 +1,7 @@
 package FBLT.factories.product.electronics.audio;
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.product.electronics.audio.Audio;
 
 import java.util.Map;
@@ -54,6 +56,20 @@ public class AudioFactoryImpl implements IAudioFactory {
                     .productWatts(details.get("watts"))
                     .build();
             finalProduct = audioWithWatts;
+        }
+        if (details.containsKey("category")) {
+            Audio bookWithAuthor = new Audio.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Audio bookWithAuthor = new Audio.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
         }
 
 
