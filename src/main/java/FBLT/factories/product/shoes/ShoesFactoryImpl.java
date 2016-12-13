@@ -1,5 +1,7 @@
 package FBLT.factories.product.shoes;
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.livestock.Livestock;
 import FBLT.domain.product.shoes.Shoes;
 
 import java.util.Map;
@@ -55,7 +57,20 @@ public class ShoesFactoryImpl implements IShoeFactory {
                     .build();
             finalProduct = ShoesWithWatts;
         }
-
+        if (details.containsKey("category")) {
+            Shoes bookWithAuthor = new Shoes.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Shoes bookWithAuthor = new Shoes.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
 
         return finalProduct;
     }

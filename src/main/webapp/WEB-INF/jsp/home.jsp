@@ -27,7 +27,7 @@
             <% for (int i = 0; i < row; i++) {%>
             <div class="row spaces-bottom">
                 <c:forEach begin="1" end="${total}" varStatus="loop">
-                    <c:if test="${loop.index != 5}">
+                    <c:if test="${loop.index < 5}">
                         <div class="col-md-3 spaces-bottom">
                             <a href="item${advert_paths.get(loop.index-1).split("!")[1]}"><img
                                     src="${advert_paths.get(loop.index-1).split("!")[0]}"
@@ -38,17 +38,24 @@
                 </c:forEach>
             </div>
             <%}%>
-            <div align="center">
-                <p><b>pages</b></p>
-                <c:if test="${pages == 0}">
-                <b><a href="pages${index-1}" class="spaces-right">&lt;&lt;</a>
-                    </c:if>
-                    <c:forEach begin="1" end="${pages}" varStatus="loop">
-                    <b><a href="pages${loop.index-1}" class="spaces-right">&lt;&lt;</a> <a href="pages${loop.index}"
-                                                                                           class="spaces-right">
-                        &gt;&gt;</a></b>
-                    </c:forEach>
-            </div>
+            <c:if   test="${total > 0}">
+                <div align="center">
+                    <p><b>pages</b></p>
+                    <c:choose>
+                        <c:when test="${pages == 0}">
+                            <b><a href="pages${index-1}" class="spaces-right">&lt;&lt;</a></b>
+                        </c:when>
+                        <c:otherwise>
+                            <c:if   test="${index > 0}">
+                                <b><a href="pages${index-1}" class="spaces-right">&lt;&lt; </a></b>
+                            </c:if>
+                            <b><a href="pages${index+1}"
+                                  class="spaces-right">
+                                &gt;&gt;</a></b>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </c:if>
         </div>
         <div align="center" class="col-md-3">
             <img src="<%=path%>ad2.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%"

@@ -257,7 +257,7 @@ function createBoxesForCategory(category) {
             "Size (Screen size if applicable): <br/><input id='txt-television-size' type='text' class='form-control'/><br/><br/>";
 
     }
-    else if (category.trim() === "Clothes") {
+    else if (category.trim() === "Clothing") {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +

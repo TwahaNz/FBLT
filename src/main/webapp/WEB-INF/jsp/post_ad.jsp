@@ -23,7 +23,7 @@
             <label class="radio-inline"><input id="radio-sell" type="radio" name="optradio" checked="true">I want to
                 sell</label>
             <label class="radio-inline"><input id="radio-buy" type="radio" name="optradio">I am looking for</label>
-            <input type="hidden" id="is-selling" name="bool-is-selling">
+            <input type="hidden" id="is-selling" name="bool-is-selling" value="true">
             <br/>
             <br/>
             Ad Title:

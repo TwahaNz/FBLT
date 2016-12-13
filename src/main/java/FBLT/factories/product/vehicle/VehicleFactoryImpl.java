@@ -1,5 +1,7 @@
 package FBLT.factories.product.vehicle;
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.shoes.Shoes;
 import FBLT.domain.product.vehicle.Vehicle;
 
 import java.util.Map;
@@ -70,6 +72,20 @@ public class VehicleFactoryImpl implements IVehicleFactory {
                     .productTransmission(details.get("transmission"))
                     .build();
             finalProduct = VehicleWithWatts;
+        }
+        if (details.containsKey("category")) {
+            Vehicle bookWithAuthor = new Vehicle.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Vehicle bookWithAuthor = new Vehicle.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
         }
 
         return finalProduct;

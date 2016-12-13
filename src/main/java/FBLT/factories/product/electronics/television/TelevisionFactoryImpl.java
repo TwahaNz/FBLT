@@ -1,5 +1,7 @@
 package FBLT.factories.product.electronics.television;
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.electronics.computer.Computer;
 import FBLT.domain.product.electronics.television.Television;
 
 import java.util.Map;
@@ -52,6 +54,20 @@ public class TelevisionFactoryImpl implements ITelevisionFactory {
                     .productModel(details.get("model"))
                     .build();
             finalProduct = TelevisionWithSize;
+        }
+        if (details.containsKey("category")) {
+            Television bookWithAuthor = new Television.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Television bookWithAuthor = new Television.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
         }
 
         return finalProduct;

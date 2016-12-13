@@ -1,5 +1,7 @@
 package FBLT.factories.product.electronics.computer;
 
+import FBLT.domain.product.category.Category;
+import FBLT.domain.product.electronics.cellphone.CellPhone;
 import FBLT.domain.product.electronics.computer.Computer;
 
 import java.util.Map;
@@ -53,6 +55,20 @@ public class ComputerFactoryImpl implements IComputerFactory {
                     .productModel(details.get("model"))
                     .build();
             finalProduct = ComputerWithSize;
+        }
+        if (details.containsKey("category")) {
+            Computer bookWithAuthor = new Computer.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Computer bookWithAuthor = new Computer.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
         }
 
         return finalProduct;

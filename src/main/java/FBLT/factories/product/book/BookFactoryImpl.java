@@ -1,6 +1,7 @@
 package FBLT.factories.product.book;
 
 import FBLT.domain.product.book.Book;
+import FBLT.domain.product.category.Category;
 
 import java.util.Map;
 
@@ -57,6 +58,21 @@ public class BookFactoryImpl implements IBookFactory {
                     .build();
             finalProduct = bookWithAuthor;
         }
+        if (details.containsKey("category")) {
+            Book bookWithAuthor = new Book.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("category")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+        if (details.containsKey("description")) {
+            Book bookWithAuthor = new Book.Builder()
+                    .copy(finalProduct)
+                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .build();
+            finalProduct = bookWithAuthor;
+        }
+
 
         return finalProduct;
 
