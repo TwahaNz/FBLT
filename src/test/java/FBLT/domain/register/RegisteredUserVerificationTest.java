@@ -1,12 +1,8 @@
 package FBLT.domain.register;
 
-import FBLT.factories.register.RegisteredUserVerificationFactory;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.File;
 
 /**
  * Created by nzetwa01 on 9/21/2016.

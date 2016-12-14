@@ -1,7 +1,6 @@
 package FBLT.factories.product.livestock;
 
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.electronics.television.Television;
 import FBLT.domain.product.livestock.Livestock;
 
 import java.util.Map;

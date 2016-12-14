@@ -9,5 +9,5 @@ import java.util.Map;
  */
 public interface IComputerFactory {
 
-    Computer getComputer(Map<String,String> details);
+    Computer getComputer(Map<String, String> details);
 }

@@ -15,11 +15,13 @@
                 <div class="col-md-3">
                     <c:choose>
                         <c:when test="${size == 0}">
-                            <img src="images/big_ad.png" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                            <img src="images/big_ad.png" class="img-responsive img-thumbnail"
+                                 style="height:300px!important" width="300px"
                                  height="350px"/>
                         </c:when>
                         <c:otherwise>
-                            <img src="${items.get(0)}" class="img-responsive img-thumbnail" style="height:300px!important" width="300px"
+                            <img src="${items.get(0)}" class="img-responsive img-thumbnail"
+                                 style="height:300px!important" width="300px"
                                  height="350px" data-toggle="modal" data-target="#image"/>
                         </c:otherwise>
                     </c:choose>
@@ -80,7 +82,9 @@
                         <p>Email: ${advert.getUser().getContactDetails().getEmailAddress()}</p>
                     </div>
                     <div style="background-color: lightgray">
-                        <p>Telegram Handle: <a href="http://www.telegram.me/${fn:substringAfter(advert.getUser().getContactDetails().getTelegramHandle(),"@")}"><img src="images/telegram.png" style="height:25px!important" width="25px"></a></p>
+                        <p>Telegram Handle: <a
+                                href="http://www.telegram.me/${fn:substringAfter(advert.getUser().getContactDetails().getTelegramHandle(),"@")}"><img
+                                src="images/telegram.png" style="height:25px!important" width="25px"></a></p>
 
                     </div>
                 </div>
@@ -97,7 +101,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <c:forEach items="${items}" var="item">
-                    <div align="center"><img src="${item}" class="img-responsive img-thumbnail zoom" style="height:300px!important" width="300px"
+                    <div align="center"><img src="${item}" class="img-responsive img-thumbnail zoom"
+                                             style="height:300px!important" width="300px"
                                              height="350px" data-toggle="modal" data-target="#image"/>
                     </div>
                 </c:forEach>

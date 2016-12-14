@@ -1,7 +1,6 @@
 package FBLT.factories.product.vehicle;
 
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.shoes.Shoes;
 import FBLT.domain.product.vehicle.Vehicle;
 
 import java.util.Map;

@@ -33,7 +33,8 @@
                 </div>
 
 
-                <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
+                <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()"
+                       class="btn btn-success">
                 <br/>
                 <br/>
 
@@ -53,7 +54,8 @@
                 <br/>
 
                 <fieldset id="fieldset">
-                    <form id="update-profile" action="user-profile-update" class="form-group" method="post"  onsubmit="return validateUpdateForm();">
+                    <form id="update-profile" action="user-profile-update" class="form-group" method="post"
+                          onsubmit="return validateUpdateForm();">
 
                         User Name:
                         <input id="txt-newname" type="text" class="form-control" name="newname"
@@ -101,14 +103,14 @@
             <form id="profile" action="rate-me" method="post" class="navbar-form"
                   style="margin-right:15px;">
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-lg" name="Rate me" >Request Rating </button>
+                    <button type="submit" class="btn btn-info btn-lg" name="Rate me">Request Rating</button>
                 </div>
             </form>
             <%-- ferins end --%>
 
         </div>
     </div>
-    <div class ="row">
+    <div class="row">
 
         <div class="col-md-6">
 

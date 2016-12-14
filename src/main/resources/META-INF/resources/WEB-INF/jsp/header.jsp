@@ -69,7 +69,8 @@
                 <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
                       style="margin-right:20px;">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!</button>
+                        <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!
+                        </button>
                     </div>
                 </form>
                 <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu">
@@ -176,10 +177,10 @@
         </div>
         <br/>
         <c:if test="${login.length() == 2}">
-        <div style="background-color: black; color: white; width: 145px"><span
-                class="glyphicon glyphicon-user"></span>
-            Profile
-        </div>
+            <div style="background-color: black; color: white; width: 145px"><span
+                    class="glyphicon glyphicon-user"></span>
+                Profile
+            </div>
         </c:if>
     </div>
     <div class="col-md-11">

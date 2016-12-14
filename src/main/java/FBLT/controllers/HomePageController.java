@@ -60,7 +60,7 @@ public class HomePageController {
     @RequestMapping(value = {"/pages{index}"}, method = RequestMethod.GET)
     public ModelAndView insertUser(@PathVariable("index") int index) {
 
-        if(index < 1) {
+        if (index < 1) {
             return new ModelAndView("redirect:/index");
         }
 

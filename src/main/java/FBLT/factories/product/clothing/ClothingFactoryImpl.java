@@ -1,6 +1,5 @@
 package FBLT.factories.product.clothing;
 
-import FBLT.domain.product.book.Book;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.clothing.Clothing;
 

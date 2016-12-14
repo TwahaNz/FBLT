@@ -1,7 +1,6 @@
 package FBLT.domain.advert;
 
 import FBLT.domain.product.IProduct;
-import FBLT.domain.product.Product;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.vehicle.Vehicle;
 import FBLT.service.advert.ImplAdvertService;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 public class AdvertTest {
 
     @Test
-    public void testAdvertCreation(){
+    public void testAdvertCreation() {
 
         Location newLocation = new Location.Builder()
                 .city("Cape Town")
@@ -55,15 +54,15 @@ public class AdvertTest {
         Assert.assertNotNull(myTestAdvert);
         Assert.assertEquals("Cape Town", myTestAdvert.getLocation().getCity());
         Assert.assertEquals("Rondebosch", myTestAdvert.getLocation().getSuburb());
-        Assert.assertEquals("Barbie Doll",myTestAdvert.getProduct().getDescription());
+        Assert.assertEquals("Barbie Doll", myTestAdvert.getProduct().getDescription());
         Assert.assertNotNull(myTestAdvert.getImagepaths());
-        Assert.assertEquals(false,myTestAdvert.isBuyOrSell());
+        Assert.assertEquals(false, myTestAdvert.isBuyOrSell());
 
 
     }
 
     @Test
-    public void testId(){
+    public void testId() {
         ImplAdvertService implAdvertService = new ImplAdvertService();
 
     }

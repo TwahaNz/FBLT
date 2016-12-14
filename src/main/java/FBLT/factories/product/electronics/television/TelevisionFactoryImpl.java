@@ -1,7 +1,6 @@
 package FBLT.factories.product.electronics.television;
 
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.electronics.computer.Computer;
 import FBLT.domain.product.electronics.television.Television;
 
 import java.util.Map;
@@ -42,7 +41,7 @@ public class TelevisionFactoryImpl implements ITelevisionFactory {
             finalProduct = TelevisionWithModel;
         }
         if (details.containsKey("type")) {
-            Television TelevisionWithType= new Television.Builder()
+            Television TelevisionWithType = new Television.Builder()
                     .copy(finalProduct)
                     .productModel(details.get("model"))
                     .build();

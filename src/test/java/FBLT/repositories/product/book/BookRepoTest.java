@@ -4,8 +4,6 @@ import FBLT.domain.product.book.Book;
 import FBLT.domain.product.book.IBook;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
-
-import FBLT.repositories.product.books.BookRepository;
 import com.mongodb.Mongo;
 import org.junit.Assert;
 import org.junit.Test;
@@ -49,11 +47,11 @@ public class BookRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Book book= mongoOps.findById(productTest.get_id(), Book.class);
+        Book book = mongoOps.findById(productTest.get_id(), Book.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),book.getDescription());
-        Assert.assertEquals(TAG, productTest.getAuthor(),book.getAuthor());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),book.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), book.getDescription());
+        Assert.assertEquals(TAG, productTest.getAuthor(), book.getAuthor());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), book.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("title", "Harry Potter"), Book.class);

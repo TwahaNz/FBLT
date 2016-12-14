@@ -16,18 +16,21 @@ public class RankTest {
 
         Assert.assertTrue(result.equalsIgnoreCase("Unrated"));
     }
+
     @Test
     public void whenTheRatingIs1to2_thentheUserIsPoor() throws Exception {
         String result = RankFactory.getRanking(1);
 
         Assert.assertTrue(result.equalsIgnoreCase("not so good"));
     }
+
     @Test
     public void whenTheRatingIs3to4_thentheUserIsGood() throws Exception {
         String result = RankFactory.getRanking(3);
 
         Assert.assertTrue(result.equalsIgnoreCase("good"));
     }
+
     @Test
     public void whenTheRatingIsFive_thentheUserIsGreat() throws Exception {
         String result = RankFactory.getRanking(5);

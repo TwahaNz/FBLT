@@ -1,4 +1,4 @@
-$(function() {
-    $(document).snow({ SnowImage: "/images/snow.gif" });
+$(function () {
+    $(document).snow({SnowImage: "/images/snow.gif"});
 });
 

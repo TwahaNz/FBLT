@@ -9,8 +9,6 @@ import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -106,16 +104,14 @@ public class UserProfileController {
 
         List<Advert> updatedAdverts = null;
 
-        if(adverts != null)
-        {
+        if (adverts != null) {
             updatedAdverts = new ArrayList<>();
 
-            for(Advert advert : adverts)
-            {
+            for (Advert advert : adverts) {
                 advert = new Advert.Builder().copy(advert)
                         .user(user)
                         .build();
-                advert =  advertService.update(advert);
+                advert = advertService.update(advert);
 
                 updatedAdverts.add(advert);
             }
@@ -129,7 +125,7 @@ public class UserProfileController {
     }
 
     @RequestMapping(value = "/user-delete-advert", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView deleteAdvert(@ModelAttribute("username") String email,@RequestParam("delete") String advertid) {
+    public ModelAndView deleteAdvert(@ModelAttribute("username") String email, @RequestParam("delete") String advertid) {
 
         Advert advert = advertService.readById(advertid);
 

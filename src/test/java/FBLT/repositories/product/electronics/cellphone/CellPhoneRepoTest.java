@@ -46,12 +46,12 @@ public class CellPhoneRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        CellPhone cellPhone= mongoOps.findById(productTest.get_id(), CellPhone.class);
+        CellPhone cellPhone = mongoOps.findById(productTest.get_id(), CellPhone.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),cellPhone.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(),cellPhone.getMake());
-        Assert.assertEquals(TAG, productTest.getModel(),cellPhone.getModel());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),cellPhone.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), cellPhone.getDescription());
+        Assert.assertEquals(TAG, productTest.getMake(), cellPhone.getMake());
+        Assert.assertEquals(TAG, productTest.getModel(), cellPhone.getModel());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), cellPhone.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("model", "IPad6"), CellPhone.class);

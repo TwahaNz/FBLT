@@ -4,9 +4,9 @@ import FBLT.domain.product.ProductTest;
 import FBLT.domain.product.book.BookTest;
 import FBLT.domain.product.category.CategoryTest;
 import FBLT.domain.product.category.FindProductCatagoryTest;
+import FBLT.domain.product.clothing.ClothingTest;
 import FBLT.domain.product.electronics.audio.AudioTest;
 import FBLT.domain.product.electronics.cellphone.CellPhoneTest;
-import FBLT.domain.product.clothing.ClothingTest;
 import FBLT.domain.product.electronics.computer.ComputerTest;
 import FBLT.domain.product.electronics.television.TelevisionTest;
 import FBLT.domain.product.livestock.LivestockTest;
@@ -25,7 +25,6 @@ import FBLT.repositories.product.electronics.television.TelevisionRepoTest;
 import FBLT.repositories.product.livestock.LivestockRepoTest;
 import FBLT.repositories.product.shoes.ShoesRepoTest;
 import FBLT.repositories.product.vehicle.VehicleRepoTest;
-import FBLT.utils.geolocation.GeolocationFinderTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -60,8 +59,7 @@ import org.junit.runners.Suite;
         RegisteredUserVerificationFactoryTest.class,
         UserTest.class,
         RankTest.class,
-        RegisteredUserVerificationFactoryTest.class,
-        GeolocationFinderTest.class
+        RegisteredUserVerificationFactoryTest.class
 })
 
 public class FBLTTestSuite {

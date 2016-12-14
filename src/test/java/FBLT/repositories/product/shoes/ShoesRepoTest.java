@@ -47,12 +47,12 @@ public class ShoesRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Shoes shoes= mongoOps.findById(productTest.get_id(), Shoes.class);
+        Shoes shoes = mongoOps.findById(productTest.get_id(), Shoes.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),shoes.getDescription());
-        Assert.assertEquals(TAG, productTest.getBrand(),shoes.getBrand());
-        Assert.assertEquals(TAG, productTest.getSize(),shoes.getSize());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),shoes.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), shoes.getDescription());
+        Assert.assertEquals(TAG, productTest.getBrand(), shoes.getBrand());
+        Assert.assertEquals(TAG, productTest.getSize(), shoes.getSize());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), shoes.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("type", "boot"), Shoes.class);

@@ -5,7 +5,10 @@ import FBLT.repositories.advert.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by maybra01 on 10/12/2016.
@@ -69,7 +72,7 @@ public class ImplAdvertService implements IAdvertService {
 
     }
 
-    public  List<Advert> findAdvertsByCategory(String category) {
-       return repository.findByCategory(category);
+    public List<Advert> findAdvertsByCategory(String category) {
+        return repository.findByCategory(category);
     }
 }

@@ -1,7 +1,6 @@
 package FBLT.factories.product.electronics.audio;
 
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.product.electronics.audio.Audio;
 
 import java.util.Map;

@@ -1,7 +1,6 @@
 package FBLT.controllers;
 
 import FBLT.domain.advert.Advert;
-import FBLT.domain.email.impl.RatingEmail;
 import FBLT.domain.rating.Comment;
 import FBLT.domain.rating.Rating;
 import FBLT.domain.user.User;
@@ -34,7 +33,7 @@ public class RateMeController {
     @Autowired
     ImplIRatingService ratingService;
 
-    private int calcRating(String userId){
+    private int calcRating(String userId) {
         int total = 0;
 
         List<Rating> ratingList = ratingService.findRatingByUserId(userId);
@@ -42,7 +41,7 @@ public class RateMeController {
         for (Rating r : ratingList)
             total += Integer.parseInt(r.getRating());
 
-        return total/ratingList.size();
+        return total / ratingList.size();
     }
 
     // populate users adverts
@@ -51,10 +50,10 @@ public class RateMeController {
 
         User user = userService.findByEmail(email);
         ModelAndView mv = new ModelAndView("rate_me");
-        mv.addObject("user",user);
+        mv.addObject("user", user);
 
         List<Advert> advert = advertService.findAdvertsByUserEmail(email);
-        mv.addObject("adverts",advert);
+        mv.addObject("adverts", advert);
 
 
         return mv;
@@ -64,9 +63,9 @@ public class RateMeController {
     // email address of the buyer to validate that they exist
     @RequestMapping(value = {"/validate-buyer-email"}, method = RequestMethod.POST)
     public ModelAndView isValidBuyerEmail(@ModelAttribute("username") String sellerEmail,
-                                   @RequestParam("email") String buyerEmail,
-                                   @RequestParam("advertId") String advertId,
-                                   UriComponentsBuilder ucBuilder) {
+                                          @RequestParam("email") String buyerEmail,
+                                          @RequestParam("advertId") String advertId,
+                                          UriComponentsBuilder ucBuilder) {
 
         User userBuyer = userService.findByEmail(buyerEmail);
         User userSeller = userService.findByEmail(sellerEmail);
@@ -74,12 +73,11 @@ public class RateMeController {
 
         ModelAndView mv = new ModelAndView("user_profile");
 
-        if(userBuyer == null || userBuyer.getContactDetails().getEmailAddress().equals(sellerEmail) || ratingValidate != null){
-            mv.addObject("isValidBuyerEmail","false");
+        if (userBuyer == null || userBuyer.getContactDetails().getEmailAddress().equals(sellerEmail) || ratingValidate != null) {
+            mv.addObject("isValidBuyerEmail", "false");
             System.out.println("invalid buyer email");
             mv.addObject("advertId", advertId);
-        }
-        else {
+        } else {
             mv.addObject("isValidBuyerEmail", "true");
 
 
@@ -89,12 +87,12 @@ public class RateMeController {
                     .userIDBuyer(userBuyer.get_id())
                     .build();
 
-            System.out.println("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/rate-user-request?userBuyerId=" +userBuyer.get_id()
-                                + "&userSellerId=" + userSeller.get_id()
-                                + "&advertId=" + advertId);
+            System.out.println("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/rate-user-request?userBuyerId=" + userBuyer.get_id()
+                    + "&userSellerId=" + userSeller.get_id()
+                    + "&advertId=" + advertId);
 
-           // RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId));
-           // ratingEmail.sendEmail();
+            // RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId));
+            // ratingEmail.sendEmail();
 
         }
 
@@ -122,7 +120,7 @@ public class RateMeController {
 
         Rating rating = ratingService.findRatingByAdvertId(advertId);
 
-        if(rating == null){
+        if (rating == null) {
 
             Comment comment = new Comment.Builder()
                     .comment(commentText)
@@ -160,10 +158,8 @@ public class RateMeController {
         mv.addObject("advert", advert);
 
 
-
         return mv;
     }
-
 
 
 }

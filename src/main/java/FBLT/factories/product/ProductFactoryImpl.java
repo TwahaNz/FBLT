@@ -1,8 +1,6 @@
 package FBLT.factories.product;
 
 import FBLT.domain.product.IProduct;
-import FBLT.domain.product.Product;
-import FBLT.domain.product.category.Category;
 import FBLT.factories.product.book.BookFactoryImpl;
 import FBLT.factories.product.clothing.ClothingFactoryImpl;
 import FBLT.factories.product.electronics.audio.AudioFactoryImpl;

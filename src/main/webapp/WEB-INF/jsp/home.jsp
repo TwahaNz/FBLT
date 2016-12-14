@@ -38,7 +38,7 @@
                 </c:forEach>
             </div>
             <%}%>
-            <c:if   test="${total > 0}">
+            <c:if test="${total > 0}">
                 <div align="center">
                     <p><b>pages</b></p>
                     <c:choose>
@@ -46,7 +46,7 @@
                             <b><a href="/pages${index-1}" class="spaces-right">&lt;&lt;</a></b>
                         </c:when>
                         <c:otherwise>
-                            <c:if   test="${index > 0}">
+                            <c:if test="${index > 0}">
                                 <b><a href="/pages${index-1}" class="spaces-right">&lt;&lt; </a></b>
                             </c:if>
                             <b><a href="/pages${index+1}"

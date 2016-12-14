@@ -9,5 +9,5 @@ import java.util.Map;
  */
 public interface IBookFactory {
 
-    Book getBook(Map<String,String> details);
+    Book getBook(Map<String, String> details);
 }

@@ -9,5 +9,5 @@ import java.util.Map;
  */
 public interface ICellphoneFactory {
 
-    CellPhone getCellphone(Map<String,String> details);
+    CellPhone getCellphone(Map<String, String> details);
 }

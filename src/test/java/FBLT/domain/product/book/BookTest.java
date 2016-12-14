@@ -12,7 +12,7 @@ public class BookTest {
 
 
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("Book")
@@ -30,15 +30,15 @@ public class BookTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Fairy Tale",productTest.getDescription());
-        Assert.assertEquals("Snow White",productTest.getTitle());
-        Assert.assertEquals("Ferin Taylor",productTest.getAuthor());
-        Assert.assertEquals("945-2497659111",productTest.getISBN());
-        Assert.assertEquals("Fantasy",productTest.getGenre());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("Fairy Tale", productTest.getDescription());
+        Assert.assertEquals("Snow White", productTest.getTitle());
+        Assert.assertEquals("Ferin Taylor", productTest.getAuthor());
+        Assert.assertEquals("945-2497659111", productTest.getISBN());
+        Assert.assertEquals("Fantasy", productTest.getGenre());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Book",productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
+        Assert.assertEquals("Book", productTest.getCategory().getCategoryName());
+        Assert.assertEquals("Short Description", productTest.getCategory().getCategoryDescription());
 
     }
 

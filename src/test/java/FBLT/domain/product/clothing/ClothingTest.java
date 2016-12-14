@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ClothingTest {
 
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("Clothing")
@@ -32,18 +32,18 @@ public class ClothingTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Coach Jacket",productTest.getDescription());
-        Assert.assertEquals("Jacket",productTest.getClothingType());
-        Assert.assertEquals("Sol Sol",productTest.getBrand());
-        Assert.assertEquals("male",productTest.getGender());
-        Assert.assertEquals("Adult",productTest.getAge());
-        Assert.assertEquals("medium",productTest.getSize());
-        Assert.assertEquals("blue",productTest.getColor());
-        Assert.assertEquals("nylon",productTest.getMaterial());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("Coach Jacket", productTest.getDescription());
+        Assert.assertEquals("Jacket", productTest.getClothingType());
+        Assert.assertEquals("Sol Sol", productTest.getBrand());
+        Assert.assertEquals("male", productTest.getGender());
+        Assert.assertEquals("Adult", productTest.getAge());
+        Assert.assertEquals("medium", productTest.getSize());
+        Assert.assertEquals("blue", productTest.getColor());
+        Assert.assertEquals("nylon", productTest.getMaterial());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Clothing",productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
+        Assert.assertEquals("Clothing", productTest.getCategory().getCategoryName());
+        Assert.assertEquals("Short Description", productTest.getCategory().getCategoryDescription());
 
     }
 }

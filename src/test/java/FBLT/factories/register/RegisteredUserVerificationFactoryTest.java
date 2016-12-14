@@ -1,7 +1,6 @@
 package FBLT.factories.register;
 
 import FBLT.domain.register.RegisteredUserVerification;
-import FBLT.factories.register.RegisteredUserVerificationFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +10,6 @@ import org.junit.Test;
  */
 
 /**
- *
  * @author Twaha Nzeyimana
  * @date 21 Septemeber 2016
  * @description Verifies if the user has been registered

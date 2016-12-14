@@ -16,7 +16,8 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" action="item${advert.getId()}" class="form-group" enctype="multipart/form-data" method="get"
+        <form id="confirm-advert" action="item${advert.getId()}" class="form-group" enctype="multipart/form-data"
+              method="get"
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
@@ -47,7 +48,8 @@
             <br/>
             <div class="row" style="margin-top: 20px; margin-bottom: 20px">
                 <div class="col-md-3">
-                    <select class="form-control" id="sel-category" onchange="createBoxesForCategory(document.getElementById('sel-category').value)">
+                    <select class="form-control" id="sel-category"
+                            onchange="createBoxesForCategory(document.getElementById('sel-category').value)">
                         <option>Select Category</option>
                         <option>Books</option>
                         <option>Clothes</option>

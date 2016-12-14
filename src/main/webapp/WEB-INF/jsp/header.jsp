@@ -74,7 +74,7 @@
                         </button>
                     </div>
                 </form>
-                <form id="profile" action="/user-profile"  class="navbar-form navbar-right altered-menu">
+                <form id="profile" action="/user-profile" class="navbar-form navbar-right altered-menu">
                     <button type="submit" class="btn btn-info glyphicon glyphicon-user">
                     </button>
                 </form>

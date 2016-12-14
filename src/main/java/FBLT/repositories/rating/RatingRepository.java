@@ -3,7 +3,6 @@ package FBLT.repositories.rating;
 import FBLT.domain.rating.Rating;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 

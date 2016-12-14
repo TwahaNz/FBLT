@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ShoesTest {
 
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("Shoes")
@@ -29,15 +29,15 @@ public class ShoesTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Crocodile",productTest.getDescription());
-        Assert.assertEquals("Sandles",productTest.getShoeType());
-        Assert.assertEquals("Crocs",productTest.getBrand());
-        Assert.assertEquals("7",productTest.getSize());
-        Assert.assertEquals("blue",productTest.getColor());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("Crocodile", productTest.getDescription());
+        Assert.assertEquals("Sandles", productTest.getShoeType());
+        Assert.assertEquals("Crocs", productTest.getBrand());
+        Assert.assertEquals("7", productTest.getSize());
+        Assert.assertEquals("blue", productTest.getColor());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Shoes",productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
+        Assert.assertEquals("Shoes", productTest.getCategory().getCategoryName());
+        Assert.assertEquals("Short Description", productTest.getCategory().getCategoryDescription());
 
     }
 

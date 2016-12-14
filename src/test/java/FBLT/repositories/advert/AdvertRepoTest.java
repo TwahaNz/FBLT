@@ -1,11 +1,7 @@
 package FBLT.repositories.advert;
 
 import FBLT.domain.advert.Advert;
-import FBLT.domain.product.Product;
-import FBLT.domain.product.book.Book;
-import FBLT.domain.product.book.IBook;
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.product.clothing.IClothing;
 import FBLT.domain.user.User;

@@ -9,5 +9,5 @@ import java.util.Map;
  */
 public interface IShoeFactory {
 
-    Shoes getShoes(Map<String,String> details);
+    Shoes getShoes(Map<String, String> details);
 }

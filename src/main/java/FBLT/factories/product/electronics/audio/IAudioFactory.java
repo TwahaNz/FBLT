@@ -9,5 +9,5 @@ import java.util.Map;
  */
 public interface IAudioFactory {
 
-    Audio getAudio(Map<String,String> details);
+    Audio getAudio(Map<String, String> details);
 }

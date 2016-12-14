@@ -9,5 +9,5 @@ import java.util.Map;
  */
 public interface ITelevisionFactory {
 
-    Television getTelevision(Map<String,String> details);
+    Television getTelevision(Map<String, String> details);
 }

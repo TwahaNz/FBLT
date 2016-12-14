@@ -1,7 +1,6 @@
 package FBLT.factories.product.electronics.computer;
 
 import FBLT.domain.product.category.Category;
-import FBLT.domain.product.electronics.cellphone.CellPhone;
 import FBLT.domain.product.electronics.computer.Computer;
 
 import java.util.Map;
@@ -43,7 +42,7 @@ public class ComputerFactoryImpl implements IComputerFactory {
             finalProduct = ComputerWithModel;
         }
         if (details.containsKey("type")) {
-            Computer ComputerWithType= new Computer.Builder()
+            Computer ComputerWithType = new Computer.Builder()
                     .copy(finalProduct)
                     .productModel(details.get("model"))
                     .build();

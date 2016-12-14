@@ -3,7 +3,6 @@ package FBLT.domain.email.impl;
 import FBLT.domain.advert.Advert;
 import FBLT.domain.email.Email;
 import FBLT.domain.rating.Rating;
-import FBLT.domain.user.User;
 import FBLT.utils.email.EmailConstants;
 
 import javax.mail.Message;
@@ -14,13 +13,13 @@ import javax.mail.internet.MimeMessage;
 /**
  * Created by student on 2016/12/12.
  */
-public class RatingEmail implements Email{
+public class RatingEmail implements Email {
 
     private Rating rating;
     private String buyerEmail;
     private Advert advert;
 
-    public RatingEmail(Rating rating, String buyerEmail, Advert advert){
+    public RatingEmail(Rating rating, String buyerEmail, Advert advert) {
         this.rating = rating;
         this.buyerEmail = buyerEmail;
         this.advert = advert;

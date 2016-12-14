@@ -14,7 +14,6 @@ import org.junit.Test;
 import java.io.*;
 
 /**
- *
  * @author Twaha Nzeyimana
  * @date 21 Septemeber 2016
  * @description A simple algorithms to find product categories according to user input
@@ -38,14 +37,14 @@ public class FindProductCatagoryTest {
 
         dummyWriter.close();
 
-        StringReader stringReader = new StringReader( "Livestock cow cows chickens chicken birds bird sheep sheeps goat goats\n" +
+        StringReader stringReader = new StringReader("Livestock cow cows chickens chicken birds bird sheep sheeps goat goats\n" +
                 "Cellphone phones phone samsung android iphone\n" +
                 "Electronics phones phone speakers mic mics earphone earphones beats");
 
         BufferedReader br = new BufferedReader(stringReader);
 
         System.out.print(br.readLine());
-        
+
         findProductCatagory = FindProductCatagoryFactory
                 .getFindProductCatagory(br);
     }
@@ -53,11 +52,11 @@ public class FindProductCatagoryTest {
     @Test
     public void whenTheUserEntersADescription_getAllTheCatagories() throws
             Exception {
-        
+
         findProductCatagory.processDescription("Hey there, I am selling an "
                 + "android phone S4 and a pair of Beats earphones.");
         findProductCatagory.processCatagoryFile();
-        
+
         String list = findProductCatagory.getCatagory();
 
         findProductCatagory.closeConnections();

@@ -47,12 +47,12 @@ public class ComputerRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Computer computer= mongoOps.findById(productTest.get_id(), Computer.class);
+        Computer computer = mongoOps.findById(productTest.get_id(), Computer.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),computer.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(),computer.getMake());
-        Assert.assertEquals(TAG, productTest.getType(),computer.getType());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),computer.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), computer.getDescription());
+        Assert.assertEquals(TAG, productTest.getMake(), computer.getMake());
+        Assert.assertEquals(TAG, productTest.getType(), computer.getType());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), computer.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("type", "Desktop"), Computer.class);

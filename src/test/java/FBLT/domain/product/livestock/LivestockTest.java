@@ -11,7 +11,7 @@ import org.junit.Test;
 public class LivestockTest {
 
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("LiveStock")
@@ -27,13 +27,13 @@ public class LivestockTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Cow",productTest.getDescription());
-        Assert.assertEquals("4",productTest.getAge());
-        Assert.assertEquals("A",productTest.getGrade());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("Cow", productTest.getDescription());
+        Assert.assertEquals("4", productTest.getAge());
+        Assert.assertEquals("A", productTest.getGrade());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-        Assert.assertEquals("LiveStock",productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
+        Assert.assertEquals("LiveStock", productTest.getCategory().getCategoryName());
+        Assert.assertEquals("Short Description", productTest.getCategory().getCategoryDescription());
 
     }
 }

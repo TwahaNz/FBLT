@@ -62,7 +62,6 @@ public class Rating implements IRating {
         }
 
 
-
         public Builder copy(Rating rating) {
             this.id = rating.id;
             this.userID = rating.userID;

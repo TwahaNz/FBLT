@@ -12,7 +12,7 @@ import org.junit.Test;
 public class ProductTest {
 
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("Kids Toys")
@@ -26,10 +26,9 @@ public class ProductTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("Cattle",productTest.getDescription());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("Cattle", productTest.getDescription());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-
 
 
     }

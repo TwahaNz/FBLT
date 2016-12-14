@@ -12,9 +12,9 @@
                             <div class="well" style="min-height: 190px">
                                 <div class="col-md-3">
                                     <a href="/item${advert.getId()}"> <img src="/${advert.getImagepaths().get(0)}"
-                                                                          class="img-responsive img-thumbnail"
-                                                                          style="height: 160px;" data-toggle="modal"
-                                                                          data-target="#image"/></a>
+                                                                           class="img-responsive img-thumbnail"
+                                                                           style="height: 160px;" data-toggle="modal"
+                                                                           data-target="#image"/></a>
                                 </div>
                                 <div class="col-md-6">
                                     <a href="/item${advert.getId()}"><u>${advert.getTitle()}</u></a>

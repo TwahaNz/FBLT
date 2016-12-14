@@ -1,7 +1,7 @@
 </div>
 </div>
 
-<% String path= request.getContextPath() + "/js/"; %>
+<% String path = request.getContextPath() + "/js/"; %>
 
 <div class="alert alert-info footer">
     <p>This website is protected by law and is copyrighted to the owners and all those that are involved</p>
@@ -34,7 +34,7 @@
 <script src="<%=path%>index.js" type="text/javascript"></script>
 <link href="<%=path%>index.css" rel="stylesheet" type="text/css">
 <script>
-    $(document).snow({ SnowImage: "<%=path%>snow.gif" });
+    $(document).snow({SnowImage: "<%=path%>snow.gif"});
 </script>
 
 </body>

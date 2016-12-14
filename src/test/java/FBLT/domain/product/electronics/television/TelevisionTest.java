@@ -11,7 +11,7 @@ import org.junit.Test;
 public class TelevisionTest {
 
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("Television")
@@ -29,15 +29,15 @@ public class TelevisionTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("2015 model",productTest.getDescription());
-        Assert.assertEquals("Samsung",productTest.getMake());
-        Assert.assertEquals("UA40J5200AKXXA",productTest.getModel());
-        Assert.assertEquals("Smart Led Tv",productTest.getType());
-        Assert.assertEquals("40-inch",productTest.getSize());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("2015 model", productTest.getDescription());
+        Assert.assertEquals("Samsung", productTest.getMake());
+        Assert.assertEquals("UA40J5200AKXXA", productTest.getModel());
+        Assert.assertEquals("Smart Led Tv", productTest.getType());
+        Assert.assertEquals("40-inch", productTest.getSize());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Television",productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
+        Assert.assertEquals("Television", productTest.getCategory().getCategoryName());
+        Assert.assertEquals("Short Description", productTest.getCategory().getCategoryDescription());
 
     }
 

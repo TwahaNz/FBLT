@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class CellPhoneTest {
     @Test
-    public void testCategoryCreation(){
+    public void testCategoryCreation() {
 
         ICategory category = new Category.Builder()
                 .categoryName("CellPhone")
@@ -27,14 +27,14 @@ public class CellPhoneTest {
                 .build();
 
         Assert.assertNotNull(productTest);
-        Assert.assertEquals("2015 model",productTest.getDescription());
-        Assert.assertEquals("Iphone",productTest.getMake());
-        Assert.assertEquals("S6",productTest.getModel());
-        Assert.assertEquals("SmartPhone",productTest.getType());
-        Assert.assertSame("1",productTest.get_id());
+        Assert.assertEquals("2015 model", productTest.getDescription());
+        Assert.assertEquals("Iphone", productTest.getMake());
+        Assert.assertEquals("S6", productTest.getModel());
+        Assert.assertEquals("SmartPhone", productTest.getType());
+        Assert.assertSame("1", productTest.get_id());
         Assert.assertNotNull(productTest.getCategory().getCategoryName());
-        Assert.assertEquals("CellPhone",productTest.getCategory().getCategoryName());
-        Assert.assertEquals("Short Description",productTest.getCategory().getCategoryDescription());
+        Assert.assertEquals("CellPhone", productTest.getCategory().getCategoryName());
+        Assert.assertEquals("Short Description", productTest.getCategory().getCategoryDescription());
 
     }
 

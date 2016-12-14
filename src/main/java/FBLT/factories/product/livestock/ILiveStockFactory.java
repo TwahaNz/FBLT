@@ -9,6 +9,6 @@ import java.util.Map;
  */
 public interface ILiveStockFactory {
 
-    Livestock getLivestock(Map<String,String> details);
+    Livestock getLivestock(Map<String, String> details);
 
 }

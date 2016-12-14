@@ -47,12 +47,12 @@ public class TelevisionRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Television television= mongoOps.findById(productTest.get_id(), Television.class);
+        Television television = mongoOps.findById(productTest.get_id(), Television.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),television.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(),television.getMake());
-        Assert.assertEquals(TAG, productTest.getSize(),television.getSize());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),television.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), television.getDescription());
+        Assert.assertEquals(TAG, productTest.getMake(), television.getMake());
+        Assert.assertEquals(TAG, productTest.getSize(), television.getSize());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), television.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("size", "70-inch"), Television.class);

@@ -49,12 +49,12 @@ public class VehicleRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Vehicle vehicle= mongoOps.findById(productTest.get_id(), Vehicle.class);
+        Vehicle vehicle = mongoOps.findById(productTest.get_id(), Vehicle.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),vehicle.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(),vehicle.getMake());
-        Assert.assertEquals(TAG, productTest.getYear(),vehicle.getYear());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),vehicle.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), vehicle.getDescription());
+        Assert.assertEquals(TAG, productTest.getMake(), vehicle.getMake());
+        Assert.assertEquals(TAG, productTest.getYear(), vehicle.getYear());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), vehicle.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("model", "M5"), Vehicle.class);

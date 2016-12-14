@@ -48,12 +48,12 @@ public class AudioRepoTest {
         Assert.assertFalse(TAG, productTest.get_id().isEmpty());
 
         //RETRIEVE
-        Audio audio= mongoOps.findById(productTest.get_id(), Audio.class);
+        Audio audio = mongoOps.findById(productTest.get_id(), Audio.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(),audio.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(),audio.getMake());
-        Assert.assertEquals(TAG, productTest.getType(),audio.getType());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(),audio.getCategory().getCategoryName());
+        Assert.assertEquals(TAG, productTest.getDescription(), audio.getDescription());
+        Assert.assertEquals(TAG, productTest.getMake(), audio.getMake());
+        Assert.assertEquals(TAG, productTest.getType(), audio.getType());
+        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), audio.getCategory().getCategoryName());
 
         //UPDATE
         mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("type", "speakers"), Audio.class);
