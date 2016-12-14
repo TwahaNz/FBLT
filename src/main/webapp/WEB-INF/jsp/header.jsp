@@ -160,7 +160,7 @@
 
 <div class="spaces-top">
     <div style="width: 100%">
-        <form action="list-adverts" method="GET">
+        <form action="/list-adverts" method="GET">
         <input name="search-bar" type="text" placeholder="Search By Title, Or Keywords"
                class="form-control search-field custom-control"/>
         <button type="submit" class="search-button inline"><span

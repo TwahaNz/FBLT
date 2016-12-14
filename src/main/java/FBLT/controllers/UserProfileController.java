@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -101,10 +102,29 @@ public class UserProfileController {
 
         user = userService.update(user);
 
+        List<Advert> adverts = advertService.findAdvertsByUserEmail(email);
+
+        List<Advert> updatedAdverts = null;
+
+        if(adverts != null)
+        {
+            updatedAdverts = new ArrayList<>();
+
+            for(Advert advert : adverts)
+            {
+                advert = new Advert.Builder().copy(advert)
+                        .user(user)
+                        .build();
+                advert =  advertService.update(advert);
+
+                updatedAdverts.add(advert);
+            }
+        }
+
 
         ModelAndView mv = new ModelAndView("user_profile");
         mv.addObject("user", user);
-
+        mv.addObject("adverts", updatedAdverts);
         return mv;
     }
 
