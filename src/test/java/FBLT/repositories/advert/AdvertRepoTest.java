@@ -94,7 +94,7 @@ public class AdvertRepoTest {
         Assert.assertEquals(789, advert.getPrice(), 1);
 
         //DELETE
-        //mongoOps.remove(advert);
+        mongoOps.remove(advert);
 
 
     }

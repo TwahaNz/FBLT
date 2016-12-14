@@ -65,11 +65,15 @@
                     <div style="background-color: lightgray">
                         <p>Price: ${advert.getPrice()}</p>
                     </div>
+
                     <div style="background-color: lightgray">
                         <p>City: ${advert.getLocation().getCity()}</p>
                     </div>
                     <div style="background-color: lightgray">
                         <p>Suburb: ${advert.getLocation().getSuburb()}</p>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <p>Date Posted: ${advert.getDate()}</p>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.Id;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Brandonhome on 2016/09/20.
@@ -30,6 +33,7 @@ public class Advert implements IAdvert {
     private String title;
     private User user;
     private ArrayList<String> imagepaths;
+    private String date;
 
     @JsonTypeInfo(
             use = JsonTypeInfo.Id.NAME,
@@ -65,6 +69,11 @@ public class Advert implements IAdvert {
         this.price = builder.price;
         this.location = builder.location;
         this.imagepaths = builder.imagepaths;
+        this.date = builder.date;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public String getId() {
@@ -109,6 +118,7 @@ public class Advert implements IAdvert {
         private boolean buyOrSell;
         private double price;
         private Location location;
+        private String date;
 
         public Builder() {
 
@@ -123,8 +133,14 @@ public class Advert implements IAdvert {
             this.price = advert.price;
             this.location = advert.location;
             this.imagepaths = advert.imagepaths;
+            this.date = advert.date;
             return this;
 
+        }
+
+        public Builder date(String date) {
+            this.date = date;
+            return this;
         }
 
         public Builder location(Location location) {
@@ -179,3 +195,5 @@ public class Advert implements IAdvert {
 
 
 }
+
+

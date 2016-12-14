@@ -1,14 +1,14 @@
-/*
+
 package FBLT.domain.temporarylogin;
 
 import FBLT.domain.user.User;
 import org.junit.Assert;
 import org.junit.Test;
 
-*/
+
 /**
  * Created by student on 2016/10/10.
- *//*
+ */
 
 public class TemporaryLoginTest {
 
@@ -24,13 +24,13 @@ public class TemporaryLoginTest {
 
         TemporaryLogin temporaryLogin = new TemporaryLogin.Builder()
                 .user(user)
-                .code("123")
                 .id("1")
+                .code("123")
                 .build();
 
         Assert.assertNotNull(temporaryLogin);
-        Assert.assertEquals(temporaryLogin.getCode(), "123");
+        Assert.assertTrue(temporaryLogin.getCode().length() > 20);
 
     }
 }
-*/
+

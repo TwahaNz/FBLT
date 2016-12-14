@@ -24,6 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static java.lang.System.out;
@@ -73,7 +75,7 @@ public class AdvertController {
     public ModelAndView getAdverts(@RequestParam Map<String, String> allRequestParams) {
         String searchRequest = allRequestParams.get("search-bar");
         ModelAndView mv = new ModelAndView("list_ads");
-        Set<Advert> allAdverts = new HashSet<Advert>();
+        List<Advert> allAdverts = new ArrayList<>();
 
         if (searchRequest.trim().length() == 0) {
             allAdverts.addAll(advertService.readAll());
@@ -85,6 +87,24 @@ public class AdvertController {
         }
 
 
+        Collections.sort(allAdverts, new Comparator<Advert>() {
+            @Override
+            public int compare(Advert z1, Advert z2) {
+                DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+                try {
+                    Date date1 = formatter.parse(z1.getDate());
+                    Date date2 = formatter.parse(z2.getDate());
+                    if (date1.after(date2))
+                        return 1;
+                    if (date1.before(date2))
+                        return -1;
+                } catch (Exception e) {
+
+                }
+                return 0;
+            }
+        });
         mv.addObject("adverts", allAdverts);
         mv.addObject("hasResults", allAdverts.size() > 0);
 
@@ -212,13 +232,18 @@ public class AdvertController {
                 .suburb(suburb)
                 .build();
 
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+
         Advert advert = new Advert.Builder()
                 .title(title)
+                .date(dateFormat.format(date))
                 .product(product)
                 .buyOrSell(isvalid)
                 .user(user)
                 .price(Double.parseDouble(price))
-                .location(locations).build();
+                .location(locations)
+                .build();
 
         advertService.create(advert);
         ArrayList<String> listOfPaths = new ArrayList<>();

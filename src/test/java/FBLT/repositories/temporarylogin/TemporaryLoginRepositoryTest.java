@@ -1,4 +1,4 @@
-/*
+
 package FBLT.repositories.temporarylogin;
 
 import FBLT.domain.temporarylogin.TemporaryLogin;
@@ -15,10 +15,10 @@ import org.springframework.data.mongodb.core.query.Update;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
-*/
+
 /**
  * Created by student on 2016/10/10.
- *//*
+ */
 
 public class TemporaryLoginRepositoryTest {
     private static final String TAG = "Temp login RepoTest: ";
@@ -74,4 +74,4 @@ public class TemporaryLoginRepositoryTest {
 
     }
 }
-*/
+

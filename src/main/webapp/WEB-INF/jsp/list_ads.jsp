@@ -23,6 +23,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     R${advert.getPrice()}
+                                    <br/>
+                                        ${advert.getDate()}
+
                                 </div>
 
                             </div>

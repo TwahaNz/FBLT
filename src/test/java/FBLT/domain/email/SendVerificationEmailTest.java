@@ -1,4 +1,4 @@
-/*
+
 package FBLT.domain.email;
 
 import FBLT.domain.email.impl.SendVerificationEmail;
@@ -26,4 +26,4 @@ public class SendVerificationEmailTest {
     }
 
 }
-*/
+

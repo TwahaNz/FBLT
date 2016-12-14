@@ -1,4 +1,4 @@
-/*
+
 package FBLT.domain.email;
 
 import FBLT.domain.advert.Advert;
@@ -12,10 +12,10 @@ import FBLT.utils.genericvalueobjects.ContactDetails;
 import org.junit.Assert;
 import org.junit.Test;
 
-*/
+
 /**
  * Created by student on 2016/09/25.
- *//*
+ */
 
 public class InterestedEmailTest {
     @Test
@@ -70,4 +70,4 @@ public class InterestedEmailTest {
 
     }
 }
-*/
+
