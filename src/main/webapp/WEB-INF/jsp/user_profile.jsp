@@ -40,7 +40,7 @@
                     <p><b>Cell Number: </b>${user.getContactDetails().getCellPhoneNumber()}</p>
                     <p><b>Email: </b>${user.getContactDetails().getEmailAddress()}</p>
                     <p><b>Telegram Handle: </b><a data-toggle="tooltip" title="Click to Go To Telegram!"
-                                                  href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}">${user.getContactDetails().getTelegramHandle()}<img
+                                                  href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}"><img
                             src="images/telegram.png" style="height:30px!important" width="30px"></a>
                     </p>
                 </div>
@@ -137,6 +137,7 @@
                 <div class="col-md-6 panel custom-panel spaces-top modal-dialog">
                     <h1>${user.getName()}'s Adverts</h1>
                     <hr/>
+                    <br/>
 
                     <c:forEach items="${adverts}" var="advert">
                         <%
@@ -145,15 +146,27 @@
                     </c:forEach>
 
                     <c:forEach items="${adverts}" var="advert">
-                        <p>Advert:
-                            <a data-toggle="tooltip" title="Go to ${advert.getTitle()} Advert page?"
-                               href="item${advert.getId()}"><b>${advert.getTitle()}</b></a> &nbsp;&nbsp;&nbsp;
 
+                        <div class="col-md-3">
+
+                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a></div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
                             <button class="btn btn-info" data-toggle="modal" data-target="#img"
                                     onClick="toggleRatingsForm( '${advert.getId()}' );">Request Rating
                             </button>
+                        </div>
+                        <div class="col-md-3">
+                            <form id="delete-advert" action="user-delete-advert" class="form-group" method="post">
 
-                        </p>
+                                <input type="hidden" class="form-control" name="delete" id="delete-id"
+                                       value="${advert.getId()}">
+
+                                <input type="submit" value="Delete" class="btn btn-warning">
+
+                            </form>
+                        </div>
+
                     </c:forEach>
 
                 </div>

@@ -9,6 +9,8 @@ import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -102,6 +104,38 @@ public class UserProfileController {
 
         ModelAndView mv = new ModelAndView("user_profile");
         mv.addObject("user", user);
+
+        return mv;
+    }
+
+    @RequestMapping(value = "/user-delete-advert", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView deleteAdvert(@ModelAttribute("username") String email,@RequestParam("delete") String advertid) {
+
+        Advert advert = advertService.readById(advertid);
+
+        if (advert != null) {
+            advertService.delete(advert);
+        }
+
+        User user = userService.findByEmail(email);
+
+        System.out.println(user.get_id());
+
+        List<Advert> adverts = advertService.findAdvertsByUserEmail(email);
+
+        if (adverts == null) {
+            System.out.println("Request with id " + user.get_id() + "Not Found");
+        }
+
+        User userWithRating = new User.Builder()
+                .copy(user)
+                .rating(calcRating(user.get_id()))
+                .build();
+
+
+        ModelAndView mv = new ModelAndView("user_profile");
+        mv.addObject("user", userWithRating);
+        mv.addObject("adverts", adverts);
 
         return mv;
     }
