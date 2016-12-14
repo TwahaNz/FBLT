@@ -1,4 +1,3 @@
-
 package FBLT.repositories.temporarylogin;
 
 import FBLT.domain.temporarylogin.TemporaryLogin;

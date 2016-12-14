@@ -20,9 +20,9 @@ import java.io.*;
  */
 public class FindProductCatagoryTest {
 
+    private static final String FILE = "categories_text.txt";
     private FindProductCatagory findProductCatagory;
     private String TAG = "FindProductCatagory: ";
-    private static final String FILE = "categories_text.txt";
 
     @Before
     public void setup() throws Exception {

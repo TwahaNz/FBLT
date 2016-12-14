@@ -38,7 +38,8 @@
             Location:
             <br/>
             <label type="hidden" class="checkbox-inline"><input id="check-use-location" type="checkbox"
-                                                                onclick="toggleProvinces()">Use current Location:</label>
+                                                                onclick="toggleProvinces()">Use current
+                Location:</label>
             <label id="lbl-current-location">{Location is suggested here}</label>
             <br/>
             <br/>

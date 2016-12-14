@@ -42,42 +42,6 @@ public class InterestedEmail implements Email {
         return name;
     }
 
-    public static class Builder {
-        private Advert advert;
-
-        // This is an object of the possible buys contact details
-        private ContactDetails contactDetails;
-        private String name;
-
-        public Builder adver(Advert advert) {
-            this.advert = advert;
-            return this;
-        }
-
-        public Builder contactDetails(ContactDetails contactDetails) {
-            this.contactDetails = contactDetails;
-            return this;
-        }
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder copy(InterestedEmail interestedEmail) {
-            this.name = interestedEmail.name;
-            this.contactDetails = interestedEmail.contactDetails;
-            this.advert = interestedEmail.advert;
-
-            return this;
-        }
-
-        public InterestedEmail build() {
-            return new InterestedEmail(this);
-        }
-
-    }
-
     @Override
     public boolean sendEmail() {
         try {
@@ -113,5 +77,41 @@ public class InterestedEmail implements Email {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    public static class Builder {
+        private Advert advert;
+
+        // This is an object of the possible buys contact details
+        private ContactDetails contactDetails;
+        private String name;
+
+        public Builder adver(Advert advert) {
+            this.advert = advert;
+            return this;
+        }
+
+        public Builder contactDetails(ContactDetails contactDetails) {
+            this.contactDetails = contactDetails;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder copy(InterestedEmail interestedEmail) {
+            this.name = interestedEmail.name;
+            this.contactDetails = interestedEmail.contactDetails;
+            this.advert = interestedEmail.advert;
+
+            return this;
+        }
+
+        public InterestedEmail build() {
+            return new InterestedEmail(this);
+        }
+
     }
 }

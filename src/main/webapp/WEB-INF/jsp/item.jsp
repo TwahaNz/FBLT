@@ -8,7 +8,7 @@
             <img src="" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
         </div>
         <div class="col-md-6">
-            <h3 style="color: orange">Item Title</h3>
+            <h3 style="color: orange">${advert.getTitle()}</h3>
             <hr/>
             <br/>
             <div class="row">
@@ -27,58 +27,8 @@
                     </c:choose>
                 </div>
                 <div class="col-md-4">
-                    <span class="alert alert-info glyphicon glyphicon-info-sign">Click Image To ZOOM</span>
-                    <h2>R${advert.getPrice()}</h2>
-                </div>
-                <div class="col-md-2">
-
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-            <h3>Item Description</h3>
-            <hr/>
-            <br/>
-            <div class="row">
-                <div class="col-md-12">
-                    ${advert.getProduct().getDescription()}
-                </div>
-            </div>
-            <h3>Item Details</h3>
-            <hr/>
-            <br/>
-
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div style="background-color: lightgray">
-                        <p>Category: ${advert.getProduct().getCategory().getCategoryName()}</p>
-                    </div>
-                    <div style="background-color: lightgray">
-                        <p>Description: ${advert.getProduct().getDescription()}</p>
-                    </div>
-                    <div style="background-color: lightgray">
-                        <c:if test="${advert.isBuyOrSell() == false}">
-                            <p>Seller: ${advert.getUser().getName()}</p>
-                        </c:if>
-                        <c:if test="${advert.isBuyOrSell() == true}">
-                            <p>Buyer: ${advert.getUser().getName()}</p>
-                        </c:if>
-                    </div>
-                    <div style="background-color: lightgray">
-                        <p>Price: ${advert.getPrice()}</p>
-                    </div>
-
-                    <div style="background-color: lightgray">
-                        <p>City: ${advert.getLocation().getCity()}</p>
-                    </div>
-                    <div style="background-color: lightgray">
-                        <p>Suburb: ${advert.getLocation().getSuburb()}</p>
-                    </div>
-                    <div style="background-color: lightgray">
-                        <p>Date Posted: ${advert.getDate()}</p>
-                    </div>
-
-                    <h3> Extra Information </h3>
+                    <%--<h2>R${advert.getPrice()}</h2>--%>
+                    <h3> Information </h3>
                     <hr>
                     <br/>
 
@@ -184,8 +134,54 @@
                             <p> Size (Screen size if applicable): ${computer.getSize()} </p>
                         </div>
                     </c:if>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <h3>Item Description</h3>
+            <hr/>
+            <br/>
+            <div class="row">
+                <div class="col-md-12">
+                    ${advert.getProduct().getDescription()}
+                </div>
+            </div>
+            <h3>Item Details</h3>
+            <hr/>
+            <br/>
 
 
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="background-color: lightgray">
+                        <p>Category: ${advert.getProduct().getCategory().getCategoryName()}</p>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <p>Description: ${advert.getProduct().getDescription()}</p>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <c:if test="${advert.isBuyOrSell() == false}">
+                            <p>Seller: ${advert.getUser().getName()}</p>
+                        </c:if>
+                        <c:if test="${advert.isBuyOrSell() == true}">
+                            <p>Buyer: ${advert.getUser().getName()}</p>
+                        </c:if>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <p>Price: ${advert.getPrice()}</p>
+                    </div>
+
+                    <div style="background-color: lightgray">
+                        <p>City: ${advert.getLocation().getCity()}</p>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <p>Suburb: ${advert.getLocation().getSuburb()}</p>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <p>Date Posted: ${advert.getDate()}</p>
+                    </div>
                 </div>
 
             </div>

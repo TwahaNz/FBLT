@@ -190,7 +190,7 @@ public class AdvertController {
                                      @RequestParam("location") String location,
                                      @RequestParam("price") String price,
                                      @RequestParam("bool-is-selling") String isSelling
-                                     ) throws Exception {
+    ) throws Exception {
 
 
         String city = "", suburb = "", province = "";
@@ -289,8 +289,6 @@ public class AdvertController {
         } catch (Exception e) {
             first = "No Category Found";
         }
-
-
 
 
         return first;

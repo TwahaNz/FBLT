@@ -1,4 +1,3 @@
-
 package FBLT.domain.temporarylogin;
 
 import FBLT.domain.user.User;
@@ -14,7 +13,7 @@ public class TemporaryLoginTest {
 
     @Test
     public void testObjectCreation() throws Exception {
-       User user = new User.Builder()
+        User user = new User.Builder()
                 .id("1")
                 .contactDetails(null)
                 .location(null)

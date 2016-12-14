@@ -1,4 +1,3 @@
-
 package FBLT.domain.email;
 
 import FBLT.domain.advert.Advert;

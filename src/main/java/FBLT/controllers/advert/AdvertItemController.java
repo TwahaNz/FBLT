@@ -1,7 +1,6 @@
 package FBLT.controllers.advert;
 
 import FBLT.domain.advert.Advert;
-import FBLT.domain.product.IProduct;
 import FBLT.domain.product.book.Book;
 import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.product.electronics.computer.Computer;
@@ -10,9 +9,6 @@ import FBLT.domain.product.livestock.Livestock;
 import FBLT.domain.product.shoes.Shoes;
 import FBLT.domain.product.vehicle.Vehicle;
 import FBLT.service.advert.ImplAdvertService;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * Created by nzetwa01 on 11/29/2016.

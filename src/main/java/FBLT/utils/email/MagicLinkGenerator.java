@@ -9,9 +9,9 @@ import java.util.Random;
  */
 public final class MagicLinkGenerator {
 
+    private static final String PHRASE = "FBLT";
     private static Random random;
     private static BCryptPasswordEncoder linkEncoder;
-    private static final String PHRASE = "FBLT";
 
     static {
         linkEncoder = new BCryptPasswordEncoder();

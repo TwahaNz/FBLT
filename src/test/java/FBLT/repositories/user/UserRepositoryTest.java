@@ -1,4 +1,3 @@
-
 package FBLT.repositories.user;
 
 import FBLT.domain.user.User;
@@ -7,10 +6,10 @@ import FBLT.utils.genericvalueobjects.Location;
 import com.mongodb.Mongo;
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.data.mongodb.core.MongoOperations;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 

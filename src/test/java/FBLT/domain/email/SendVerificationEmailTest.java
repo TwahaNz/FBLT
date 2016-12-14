@@ -1,4 +1,3 @@
-
 package FBLT.domain.email;
 
 import FBLT.domain.email.impl.SendVerificationEmail;
@@ -8,7 +7,7 @@ import junit.framework.Assert;
 
 public class SendVerificationEmailTest {
 
-   @org.junit.Test
+    @org.junit.Test
     public void whenThisTestPasses_thenAnEmailHasBeenSent() throws Exception {
 
         RegisteredUserVerification registeredUserVerification = new RegisteredUserVerification.Builder()
