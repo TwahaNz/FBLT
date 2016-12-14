@@ -37,4 +37,12 @@ public interface AdvertRepository extends MongoRepository<Advert, String> {
     @Query(value = "{ 'user.contactDetails.emailAddress' : ?0 }")
     List<Advert> findByUserEmail(String email);
 
+    @Query(value = "{'title' : {'$regex' : ?0 }}")
+    List<Advert> findByTitle(String title);
+
+    @Query(value = "{'product.description' : {$regex : ?0, $options : 'i' }}")
+    List<Advert> findByDescription(String description);
+
+    @Query(value = "{'product.category.categoryName' : {$regex : ?0, $options : 'i' }}")
+    List<Advert> findByCategory(String category);
 }

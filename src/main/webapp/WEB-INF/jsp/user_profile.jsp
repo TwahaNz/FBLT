@@ -7,7 +7,6 @@
 <% int counter = 0;%>
 
 
-
 </body>
 <body onload="toggleFormElements()">
 
@@ -40,7 +39,10 @@
                     <h3>Contact Information</h3>
                     <p><b>Cell Number: </b>${user.getContactDetails().getCellPhoneNumber()}</p>
                     <p><b>Email: </b>${user.getContactDetails().getEmailAddress()}</p>
-                    <p><b>Telegram Handle: </b><a href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}"><img src="images/telegram.png" style="height:30px!important" width="30px"></a></p>
+                    <p><b>Telegram Handle: </b><a data-toggle="tooltip" title="Click to Go To Telegram!"
+                                                  href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}">${user.getContactDetails().getTelegramHandle()}<img
+                            src="images/telegram.png" style="height:30px!important" width="30px"></a>
+                    </p>
                 </div>
                 <div>
                     <h3>Location</h3>
@@ -54,7 +56,8 @@
 
 
                 <div>
-                    <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()" class="btn btn-success">
+                    <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()"
+                           class="btn btn-success">
                 </div>
 
                 <br/>
@@ -76,7 +79,8 @@
                 <br/>
 
                 <fieldset id="fieldset">
-                    <form id="update-profile" action="user-profile-update" class="form-group" method="post"  onsubmit="return validateUpdateForm();">
+                    <form id="update-profile" action="user-profile-update" class="form-group" method="post"
+                          onsubmit="return validateUpdateForm();">
 
                         User Name:
                         <input id="txt-newname" type="text" class="form-control" name="newname"
@@ -121,11 +125,10 @@
             <div align="center" class="col-md-3"></div>
 
 
-
         </div>
     </div>
 
-    <div class ="row">
+    <div class="row">
 
         <div class="col-md-6">
 
@@ -143,9 +146,12 @@
 
                     <c:forEach items="${adverts}" var="advert">
                         <p>Advert:
-                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a> &nbsp;&nbsp;&nbsp;
+                            <a data-toggle="tooltip" title="Go to ${advert.getTitle()} Advert page?"
+                               href="item${advert.getId()}"><b>${advert.getTitle()}</b></a> &nbsp;&nbsp;&nbsp;
 
-                            <button class="btn btn-info" data-toggle="modal" data-target="#img" onClick="toggleRatingsForm( '${advert.getId()}' );">Request Rating</button>
+                            <button class="btn btn-info" data-toggle="modal" data-target="#img"
+                                    onClick="toggleRatingsForm( '${advert.getId()}' );">Request Rating
+                            </button>
 
                         </p>
                     </c:forEach>
@@ -171,10 +177,14 @@
 
                                 <input type='hidden' class="form-control custom-control" name='advertId' id="advertId"
                                        value=""/>
-                                <p>Please enter the buyers email address<input type='text' placeholder="Buyers Email address" class="form-control custom-control" name='email'
+                                <p>Please enter the buyers email address<input type='text'
+                                                                               placeholder="Buyers Email address"
+                                                                               class="form-control custom-control"
+                                                                               name='email'
                                                                                value=""/>
                                 </p>
-                                <input type='submit' name='submit' class="btn btn-info btn-lg register-button" value='Send Rating Request'/>
+                                <input type='submit' name='submit' class="btn btn-info btn-lg register-button"
+                                       value='Send Rating Request'/>
                             </div>
                         </div>
                     </form>
@@ -182,5 +192,9 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 <jsp:include page="footer.jsp"/>

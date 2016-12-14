@@ -24,13 +24,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static java.lang.System.out;
-import static java.lang.System.setOut;
 
 /**
  * edited by luke.
@@ -72,14 +68,41 @@ public class AdvertController {
         return new ResponseEntity<List<Advert>>(request, HttpStatus.OK);
     }
 
-    //-------------------Retrieve All Adverts--------------------------------------------------------
+    //-------------------Retrieve All Adverts for search criteria--------------------------------------------------------
     @RequestMapping(value = "/list-adverts", method = RequestMethod.GET)
     public ModelAndView getAdverts(@RequestParam Map<String, String> allRequestParams) {
-        Set<Advert> adverts = advertService.readAll();
-
+        String searchRequest = allRequestParams.get("search-bar");
         ModelAndView mv = new ModelAndView("list_ads");
-        mv.addObject("adverts",adverts);
-        mv.addObject("hasResults", adverts.size() > 0);
+        Set<Advert> allAdverts = new HashSet<Advert>();
+
+        if (searchRequest.trim().length() == 0) {
+            allAdverts.addAll(advertService.readAll());
+        } else {
+
+            allAdverts.addAll(advertService.findAdvertsByTitle(searchRequest));
+            allAdverts.addAll(advertService.findAdvertsByDescription(searchRequest));
+
+        }
+
+
+        mv.addObject("adverts", allAdverts);
+        mv.addObject("hasResults", allAdverts.size() > 0);
+
+        return mv;
+    }
+
+    //-------------------Retrieve All Adverts for Category--------------------------------------------------------
+    @RequestMapping(value = "/list-adverts/{category}", method = RequestMethod.GET)
+    public ModelAndView getAdvertsForCategory(@PathVariable("category") String category) {
+        ModelAndView mv = new ModelAndView("list_ads");
+        Set<Advert> allAdverts = new HashSet<Advert>();
+
+
+        allAdverts.addAll(advertService.findAdvertsByCategory(category));
+
+
+        mv.addObject("adverts", allAdverts);
+        mv.addObject("hasResults", allAdverts.size() > 0);
 
         return mv;
     }
@@ -284,7 +307,6 @@ public class AdvertController {
         }
 
         Advert initialAdvert = advertService.readById(allRequestParams.get("ad-id"));
-
 
 
         String location = allRequestParams.get("ad-location");

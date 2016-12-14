@@ -14,5 +14,11 @@ public interface IAdvertService extends Service<Advert, String> {
 
     List<Advert> findAdvertsByUserEmail(String email);
 
+    List<Advert> findAdvertsByTitle(String title);
+
+    List<Advert> findAdvertsByDescription(String description);
+
+    List<Advert> findAdvertsByCategory(String category);
+
 
 }

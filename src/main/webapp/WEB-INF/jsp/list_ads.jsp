@@ -18,7 +18,7 @@
                                                                           data-target="#image"/></a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="item${advert.getId()}"><u>${advert.getTitle()}</u></a>
+                                    <a href="/item${advert.getId()}"><u>${advert.getTitle()}</u></a>
 
                                     <p>${advert.getProduct().getDescription()}</p>
                                 </div>

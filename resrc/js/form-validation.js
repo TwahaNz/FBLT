@@ -25,7 +25,7 @@ function isValidRegistratioForm() {
 }
 
 function validatePostAdvertForm() {
-    
+
     var description = document.forms["post-advert"]["txt-description"].value;
     var title = document.forms["post-advert"]["txt-title"].value;
     var price = document.forms["post-advert"]["txt-price"].value;
@@ -85,7 +85,7 @@ function validatePostAdvertForm() {
     if (!isValid) {
         alert(errors);
     }
-    
+
     return isValid;
 
 }
@@ -338,18 +338,19 @@ function validateUpdateForm() {
         errors += "User Name Field is empty\n";
         isValid = false;
     }
-    if (isNaN(newcell)) {
+    if (isNaN(newcell.trim())) {
         errors += "Only Numbers Allowed in User CellNumber TextBox\n";
         isValid = false;
     }
-    if (newcell.charAt(0) != "0") {
-        errors += "Cell Phone Number must Begin with 0\n";
+    if (newcell.charAt(0) != "0" && (newcell.charAt(0) != "2" && newcell.charAt(1) != "7" )) {
+        errors += "Cell Phone Number must Begin with 0 or 27\n";
         isValid = false;
     }
-    if (newcell.length < 11 && newcell.length > 0) {
+    if (newcell.length < 10) {
         errors += "Incorrect Length for CellNumber TextBox\n";
         isValid = false;
     }
+
     if (newhandle.trim().length == 0) {
         newhandle.value = "No Handle Available";
     }
@@ -371,22 +372,22 @@ function validateUpdateForm() {
 
 }
 
-function toggleRatingsForm(advertID){
+function toggleRatingsForm(advertID) {
     document.forms["ratingsForm"]["advertId"].value = advertID;
     return false;
 }
 
-function setRating(){
-    if(document.getElementById("1").checked == true) {
+function setRating() {
+    if (document.getElementById("1").checked == true) {
         document.getElementById("rateNumber").value = "1";
     }
-    if(document.getElementById("2").checked == true) {
+    if (document.getElementById("2").checked == true) {
         document.getElementById("rateNumber").value = "2";
     }
-    if(document.getElementById("3").checked ==true) {
+    if (document.getElementById("3").checked == true) {
         document.getElementById("rateNumber").value = "3";
     }
-    if(document.getElementById("4").checked == true) {
+    if (document.getElementById("4").checked == true) {
         document.getElementById("rateNumber").value = "4";
     }
 

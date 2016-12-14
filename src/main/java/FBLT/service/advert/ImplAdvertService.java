@@ -5,10 +5,7 @@ import FBLT.repositories.advert.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by maybra01 on 10/12/2016.
@@ -19,6 +16,16 @@ public class ImplAdvertService implements IAdvertService {
 
     @Autowired
     AdvertRepository repository;
+
+    @Override
+    public List<Advert> findAdvertsByDescription(String description) {
+        return repository.findByDescription(description);
+    }
+
+    @Override
+    public List<Advert> findAdvertsByTitle(String title) {
+        return repository.findByTitle(title);
+    }
 
     @Override
     public List<Advert> findAdvertsByUserEmail(String email) {
@@ -60,5 +67,9 @@ public class ImplAdvertService implements IAdvertService {
     public void delete(Advert entity) {
         repository.delete(entity);
 
+    }
+
+    public  List<Advert> findAdvertsByCategory(String category) {
+       return repository.findByCategory(category);
     }
 }
