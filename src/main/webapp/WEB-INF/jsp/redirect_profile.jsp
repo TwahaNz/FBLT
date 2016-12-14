@@ -16,7 +16,7 @@
 </script>
 
 <p>Redirecting...<p>
-<a id="redirect" href="user-profile"></a>
+<a id="redirect" href="/user-profile"></a>
 
 </body>
 </html>

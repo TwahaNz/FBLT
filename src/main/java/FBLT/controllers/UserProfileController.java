@@ -48,7 +48,7 @@ public class UserProfileController {
     }
 
 
-    @RequestMapping(value = "/user-profile", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/user-profile")
     public ModelAndView userProfile(@ModelAttribute("username") String email) {
 
         User user = userService.findByEmail(email);

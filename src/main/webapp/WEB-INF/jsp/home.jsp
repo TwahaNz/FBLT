@@ -29,7 +29,7 @@
                 <c:forEach begin="1" end="${total}" varStatus="loop">
                     <c:if test="${loop.index < 5}">
                         <div class="col-md-3 spaces-bottom">
-                            <a href="item${advert_paths.get(loop.index-1).split("!")[1]}"><img
+                            <a href="/item${advert_paths.get(loop.index-1).split("!")[1]}"><img
                                     src="${advert_paths.get(loop.index-1).split("!")[0]}"
                                     class="img-responsive img-thumbnail"
                                     style="height:200px!important" width="100%" height="200px"/></a>
@@ -43,13 +43,13 @@
                     <p><b>pages</b></p>
                     <c:choose>
                         <c:when test="${pages == 0}">
-                            <b><a href="pages${index-1}" class="spaces-right">&lt;&lt;</a></b>
+                            <b><a href="/pages${index-1}" class="spaces-right">&lt;&lt;</a></b>
                         </c:when>
                         <c:otherwise>
                             <c:if   test="${index > 0}">
-                                <b><a href="pages${index-1}" class="spaces-right">&lt;&lt; </a></b>
+                                <b><a href="/pages${index-1}" class="spaces-right">&lt;&lt; </a></b>
                             </c:if>
-                            <b><a href="pages${index+1}"
+                            <b><a href="/pages${index+1}"
                                   class="spaces-right">
                                 &gt;&gt;</a></b>
                         </c:otherwise>

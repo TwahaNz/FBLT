@@ -149,7 +149,7 @@
 
                         <div class="col-md-3">
 
-                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a></div>
+                            <a href="/item${advert.getId()}"><b>${advert.getTitle()}</b></a></div>
                         <div class="col-md-3"></div>
                         <div class="col-md-3">
                             <button class="btn btn-info" data-toggle="modal" data-target="#img"

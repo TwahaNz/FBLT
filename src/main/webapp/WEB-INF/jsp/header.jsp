@@ -58,7 +58,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand spaces-left" style="padding-top: 5px!important;" href="index"><b>Bubby King <img
+        <a class="navbar-brand spaces-left" style="padding-top: 5px!important;" href="/index"><b>Bubby King <img
                 src="<%=path%>logo.png" class="img-responsive img-round inline" width="60px" height="60px"/></b></a>
     </div>
 
@@ -70,10 +70,11 @@
                 <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
                       style="margin-right:20px;">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!</button>
+                        <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!
+                        </button>
                     </div>
                 </form>
-                <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu">
+                <form id="profile" action="/user-profile"  class="navbar-form navbar-right altered-menu">
                     <button type="submit" class="btn btn-info glyphicon glyphicon-user">
                     </button>
                 </form>
@@ -92,7 +93,7 @@
                               value=""/>
                         <button type="button" class="btn btn-success glyphicon glyphicon-log-in
 " data-toggle="modal" data-target="#myModal"></button>
-                        <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
+                        <a href="/register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -124,6 +125,9 @@
 
 
 <div align="center" class="row spaces-top">
+
+    <div class="col-md-1 catagories" style="background-color: #e91e63">
+    </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
@@ -154,33 +158,38 @@
     </div>
     <div class="col-md-1 catagories" style="background-color: #e91e63">
     </div>
-    <div class="col-md-1 catagories" style="background-color: #e91e63">
-    </div>
 </div>
 
-<div class="spaces-top">
-    <div style="width: 100%">
-        <form action="/list-adverts" method="GET">
-        <input name="search-bar" type="text" placeholder="Search By Title, Or Keywords"
-               class="form-control search-field custom-control"/>
-        <button type="submit" class="search-button inline"><span
-                class="glyphicon glyphicon-search"></span></button>
-        </form>
-    </div>
-</div>
 
 <div class="row">
-    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%; padding-left: 0!important;padding-right: 0!important;">
+    <div class="col-md-1"
+         style="background-color: lightgray; padding-bottom: 50%; padding-left: 0!important;padding-right: 0!important;">
         <br/>
-        <a href="index"><div style="background-color: black; color: white; width: 100%"><span class="glyphicon glyphicon-home"></span>
-            Home
-        </div></a>
+        <a href="/index">
+            <div style="background-color: black; color: white; width: 100%"><span
+                    class="glyphicon glyphicon-home"></span>
+                Home
+            </div>
+        </a>
         <br/>
         <c:if test="${login.length() == 2}">
-        <a href="user-profile"><div style="background-color: black; color: white; width: 100%"><span
-                class="glyphicon glyphicon-user"></span>
-            Profile
-        </div></a>
+            <a href="/user-profile">
+                <div style="background-color: black; color: white; width: 100%"><span
+                        class="glyphicon glyphicon-user"></span>
+                    Profile
+                </div>
+            </a>
         </c:if>
     </div>
     <div class="col-md-11">
+
+        <div class="spaces-top">
+            <div style="width: 100%">
+                <form action="/list-adverts" method="GET">
+                    <input name="search-bar" type="text" placeholder="Search By Title, Or Keywords"
+                           class="form-control search-field custom-control"/>
+                    <button type="submit" class="search-button inline"><span
+                            class="glyphicon glyphicon-search"></span></button>
+                </form>
+            </div>
+        </div>
