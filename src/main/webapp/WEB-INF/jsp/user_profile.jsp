@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="header.jsp"/>
 
 <% String path = request.getContextPath() + "/images/"; %>
@@ -39,7 +40,7 @@
                     <h3>Contact Information</h3>
                     <p><b>Cell Number: </b>${user.getContactDetails().getCellPhoneNumber()}</p>
                     <p><b>Email: </b>${user.getContactDetails().getEmailAddress()}</p>
-                    <p><b>Telegram Handle: </b>${user.getContactDetails().getTelegramHandle()}</p>
+                    <p><b>Telegram Handle: </b><a href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}">${user.getContactDetails().getTelegramHandle()}</a></p>
                 </div>
                 <div>
                     <h3>Location</h3>

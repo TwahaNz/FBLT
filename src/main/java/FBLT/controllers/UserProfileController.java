@@ -31,15 +31,17 @@ public class UserProfileController {
     @Autowired
     ImplIRatingService ratingService;
 
-    private int calcRating(String userId){
+    private int calcRating(String userId) {
         int total = 0;
 
         List<Rating> ratingList = ratingService.findRatingByUserId(userId);
 
         for (Rating r : ratingList)
             total += Integer.parseInt(r.getRating());
-
-        return total/ratingList.size();
+        if (ratingList.size() != 0)
+            return total / ratingList.size();
+        else
+            return 0;
     }
 
 
@@ -63,8 +65,8 @@ public class UserProfileController {
 
         System.out.println(adverts.size());
         ModelAndView mv = new ModelAndView("user_profile");
-        mv.addObject("user",userWithRating);
-        mv.addObject("adverts",adverts);
+        mv.addObject("user", userWithRating);
+        mv.addObject("adverts", adverts);
 
         return mv;
     }
@@ -99,7 +101,7 @@ public class UserProfileController {
 
 
         ModelAndView mv = new ModelAndView("user_profile");
-        mv.addObject("user",user);
+        mv.addObject("user", user);
 
         return mv;
     }
