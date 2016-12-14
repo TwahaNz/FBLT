@@ -62,10 +62,10 @@ public class TelevisionFactoryImpl implements ITelevisionFactory {
                     .build();
             finalProduct = bookWithAuthor;
         }
-        if (details.containsKey("description")) {
+        if (details.containsKey("ad-description")) {
             Television bookWithAuthor = new Television.Builder()
                     .copy(finalProduct)
-                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .productDescription(details.get("ad-description"))
                     .build();
             finalProduct = bookWithAuthor;
         }

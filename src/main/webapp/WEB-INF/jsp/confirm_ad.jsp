@@ -20,7 +20,7 @@
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
-            <label >${advert.getTitle()}</label>
+            <label>${advert.getTitle()}</label>
             <input name="ad-title" type="hidden" value="${advert.getTitle()}"/>
             <br/>
             <br/>
@@ -33,7 +33,8 @@
             location:
             <br/>
             <label>${advert.getLocation().getCity()}, ${advert.getLocation().getSuburb()}</label>
-            <input name="ad-location" type="hidden" value="${advert.getLocation().getCity()}, ${advert.getLocation().getSuburb()}"/>
+            <input name="ad-location" type="hidden"
+                   value="${advert.getLocation().getCity()}, ${advert.getLocation().getSuburb()}"/>
             <br/>
             <br/>
             Price:
@@ -48,7 +49,7 @@
             <c:if test="${advert.isBuyOrSell() == true}">
                 <label>Wanted</label>
             </c:if>
-            <input  name="bool-is-selling" type="hidden" value="${advert.getPrice()}"/>
+            <input name="bool-is-selling" type="hidden" value="${advert.isBuyOrSell()}"/>
 
             <br/>
             <br/>

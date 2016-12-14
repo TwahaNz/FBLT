@@ -6,26 +6,29 @@
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div class="col-md-9">
-            <% for (int i = 0; i < 4; i++) {%>
-            <div class="row spaces-bottom">
-                <div class="col-md-3">
-                    <a href="<%=path%>big_ad.png"><img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                                                       style="height:200px!important" width="100%" height="200px"/></a>
-                </div>
-                <div class="col-md-3">
-                    <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                         style="height:200px!important" width="100%" height="200px"/>
-                </div>
-                <div class="col-md-3">
-                    <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                         style="height:200px!important" width="100%" height="200px"/>
-                </div>
-                <div class="col-md-3">
-                    <img src="<%=path%>big_ad.png" class="img-responsive img-thumbnail"
-                         style="height:200px!important" width="100%" height="200px"/>
-                </div>
-            </div>
-            <%}%>
+            <c:if test="${hasResults}">
+                <c:forEach items="${adverts}" var="advert">
+                    <div class="row">
+                        <div class="well" style="min-height: 190px">
+                            <div class="col-md-3">
+                                <a href="item${advert.getId()}"> <img src="${advert.getImagepaths().get(0)}" class="img-responsive img-thumbnail"
+                                     style="height: 160px;" data-toggle="modal" data-target="#image"/></a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="item${advert.getId()}"><u>${advert.getTitle()}</u></a>
+
+                                <p>${advert.getProduct().getDescription()}</p>
+                            </div>
+                            <div class="col-md-3">
+                                R${advert.getPrice()}
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </c:forEach>
+            </c:if>
         </div>
         <div align="center" class="col-md-3">
             <img src="<%=path%>ad2.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%"

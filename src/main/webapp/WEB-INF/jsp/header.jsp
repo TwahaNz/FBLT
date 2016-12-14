@@ -160,10 +160,12 @@
 
 <div class="spaces-top">
     <div style="width: 100%">
+        <form action="list-adverts" method="GET">
         <input type="text" placeholder="Search By Title, Product ID, Or Keywords"
                class="form-control search-field custom-control"/>
-        <button type="button" class="search-button inline"><span
+        <button type="submit" class="search-button inline"><span
                 class="glyphicon glyphicon-search"></span></button>
+        </form>
     </div>
 </div>
 

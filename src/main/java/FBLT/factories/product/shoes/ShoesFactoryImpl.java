@@ -64,10 +64,10 @@ public class ShoesFactoryImpl implements IShoeFactory {
                     .build();
             finalProduct = bookWithAuthor;
         }
-        if (details.containsKey("description")) {
+        if (details.containsKey("ad-description")) {
             Shoes bookWithAuthor = new Shoes.Builder()
                     .copy(finalProduct)
-                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .productDescription(details.get("ad-description"))
                     .build();
             finalProduct = bookWithAuthor;
         }

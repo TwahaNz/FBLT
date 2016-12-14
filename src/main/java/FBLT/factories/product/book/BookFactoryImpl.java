@@ -65,10 +65,10 @@ public class BookFactoryImpl implements IBookFactory {
                     .build();
             finalProduct = bookWithAuthor;
         }
-        if (details.containsKey("description")) {
+        if (details.containsKey("ad-description")) {
             Book bookWithAuthor = new Book.Builder()
                     .copy(finalProduct)
-                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .productDescription(details.get("ad-description"))
                     .build();
             finalProduct = bookWithAuthor;
         }

@@ -48,10 +48,10 @@ public class CellphoneFactoryImpl implements ICellphoneFactory {
                     .build();
             finalProduct = bookWithAuthor;
         }
-        if (details.containsKey("description")) {
+        if (details.containsKey("ad-description")) {
             CellPhone bookWithAuthor = new CellPhone.Builder()
                     .copy(finalProduct)
-                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .productDescription(details.get("ad-description"))
                     .build();
             finalProduct = bookWithAuthor;
         }

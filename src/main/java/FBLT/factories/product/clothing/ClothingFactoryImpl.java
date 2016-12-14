@@ -84,10 +84,10 @@ public class ClothingFactoryImpl implements IClothingFactory {
                     .build();
             finalProduct = bookWithAuthor;
         }
-        if (details.containsKey("description")) {
+        if (details.containsKey("ad-description")) {
             Clothing bookWithAuthor = new Clothing.Builder()
                     .copy(finalProduct)
-                    .category(new Category.Builder().categoryName(details.get("description")).build())
+                    .productDescription(details.get("ad-description"))
                     .build();
             finalProduct = bookWithAuthor;
         }

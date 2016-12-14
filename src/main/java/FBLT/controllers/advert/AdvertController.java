@@ -73,13 +73,13 @@ public class AdvertController {
     }
 
     //-------------------Retrieve All Adverts--------------------------------------------------------
-    @RequestMapping(value = "/list-adverts/", method = RequestMethod.GET)
-    public ModelAndView getAdverts() {
-        Set<Advert> requests = advertService.readAll();
+    @RequestMapping(value = "/list-adverts", method = RequestMethod.GET)
+    public ModelAndView getAdverts(@RequestParam Map<String, String> allRequestParams) {
+        Set<Advert> adverts = advertService.readAll();
 
         ModelAndView mv = new ModelAndView("list_ads");
-        mv.addObject(requests);
-        mv.addObject("hasResults", requests.size() > 0);
+        mv.addObject("adverts",adverts);
+        mv.addObject("hasResults", adverts.size() > 0);
 
         return mv;
     }
@@ -314,7 +314,7 @@ public class AdvertController {
 
         boolean isSelling;
 
-        if (allRequestParams.get("ad-description").equals("true")) {
+        if (allRequestParams.get("bool-is-selling").equals("true")) {
             isSelling = true;
         } else {
             isSelling = false;

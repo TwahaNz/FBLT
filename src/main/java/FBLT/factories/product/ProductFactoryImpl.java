@@ -75,7 +75,7 @@ public class ProductFactoryImpl implements IProductFactory {
                 ShoesFactoryImpl shoesFactory = ShoesFactoryImpl.getInstance();
                 return shoesFactory.getShoes(objectData);
 
-            case "Vehicle":
+            case "Vehicles":
                 VehicleFactoryImpl vehicleFactory = VehicleFactoryImpl.getInstance();
                 return vehicleFactory.getVehicle(objectData);
 
