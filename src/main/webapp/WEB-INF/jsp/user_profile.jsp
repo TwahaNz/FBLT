@@ -40,7 +40,7 @@
                     <h3>Contact Information</h3>
                     <p><b>Cell Number: </b>${user.getContactDetails().getCellPhoneNumber()}</p>
                     <p><b>Email: </b>${user.getContactDetails().getEmailAddress()}</p>
-                    <p><b>Telegram Handle: </b><a href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}">${user.getContactDetails().getTelegramHandle()}</a></p>
+                    <p><b>Telegram Handle: </b><a href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}"><img src="images/telegram.png" style="height:30px!important" width="30px"></a></p>
                 </div>
                 <div>
                     <h3>Location</h3>

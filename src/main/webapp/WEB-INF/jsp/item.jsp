@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="header.jsp"/>
 
 <div class="container-fluid">
@@ -68,6 +68,20 @@
                     </div>
                     <div style="background-color: lightgray">
                         <p>Suburb: ${advert.getLocation().getSuburb()}</p>
+                    </div>
+                </div>
+            </div>
+            <h3>Contact Details</h3>
+            <hr/>
+            <br/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="background-color: lightgray">
+                        <p>Email: ${advert.getUser().getContactDetails().getEmailAddress()}</p>
+                    </div>
+                    <div style="background-color: lightgray">
+                        <p>Telegram Handle: <a href="http://www.telegram.me/${fn:substringAfter(advert.getUser().getContactDetails().getTelegramHandle(),"@")}"><img src="images/telegram.png" style="height:25px!important" width="25px"></a></p>
+
                     </div>
                 </div>
             </div>
