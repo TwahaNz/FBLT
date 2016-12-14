@@ -19,7 +19,7 @@
 
 <p>Redirecting...
 <p>
-    <a id="redirect" href="index"></a>
+    <a id="redirect" href="/user-profile"></a>
 
 </body>
 </html>

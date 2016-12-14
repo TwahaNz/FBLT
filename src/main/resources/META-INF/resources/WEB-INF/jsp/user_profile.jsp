@@ -1,11 +1,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="header.jsp"/>
 
 <% String path = request.getContextPath() + "/images/"; %>
 <%String value = "disabled";%>
 <% int counter = 0;%>
+
+
 </body>
 <body onload="toggleFormElements()">
+
+<div>
+    <c:choose>
+        <c:when test="${isValidBuyerEmail.length() == 5}">
+            <script type="text/javascript">
+                alert("Invalid email address:\nYou cannot rate yourself. \nYou can only rate an advert once. \nOnly a registered user can rate you.");
+                /*toggleRatingsForm(${advertId});*/
+            </script>
+        </c:when>
+        <c:when test="${isValidBuyerEmail.length() == 4}">
+            <script type="text/javascript">
+                alert("An email with rating request has been sent");
+            </script>
+        </c:when>
+    </c:choose>
+</div>
 
 <div class="row">
 
@@ -20,7 +39,10 @@
                     <h3>Contact Information</h3>
                     <p><b>Cell Number: </b>${user.getContactDetails().getCellPhoneNumber()}</p>
                     <p><b>Email: </b>${user.getContactDetails().getEmailAddress()}</p>
-                    <p><b>Telegram Handle: </b>${user.getContactDetails().getTelegramHandle()}</p>
+                    <p><b>Telegram Handle: </b><a data-toggle="tooltip" title="Click to Go To Telegram!"
+                                                  href="http://www.telegram.me/${fn:substringAfter(user.getContactDetails().getTelegramHandle(),"@")}"><img
+                            src="images/telegram.png" style="height:30px!important" width="30px"></a>
+                    </p>
                 </div>
                 <div>
                     <h3>Location</h3>
@@ -33,8 +55,11 @@
                 </div>
 
 
-                <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()"
-                       class="btn btn-success">
+                <div>
+                    <input type="button text center" value="Update Your Profile" onclick="toggleFormElements()"
+                           class="btn btn-success">
+                </div>
+
                 <br/>
                 <br/>
 
@@ -99,17 +124,10 @@
             </div>
             <div align="center" class="col-md-3"></div>
 
-            <%-- ferins mess --%>
-            <form id="profile" action="rate-me" method="post" class="navbar-form"
-                  style="margin-right:15px;">
-                <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-lg" name="Rate me">Request Rating</button>
-                </div>
-            </form>
-            <%-- ferins end --%>
 
         </div>
     </div>
+
     <div class="row">
 
         <div class="col-md-6">
@@ -119,6 +137,7 @@
                 <div class="col-md-6 panel custom-panel spaces-top modal-dialog">
                     <h1>${user.getName()}'s Adverts</h1>
                     <hr/>
+                    <br/>
 
                     <c:forEach items="${adverts}" var="advert">
                         <%
@@ -127,9 +146,27 @@
                     </c:forEach>
 
                     <c:forEach items="${adverts}" var="advert">
-                        <p>Advert:
-                            <a href="item${advert.getId()}"><b>${advert.getTitle()}</b></a>
-                        </p>
+
+                        <div class="col-md-3">
+
+                            <a href="/item${advert.getId()}"><b>${advert.getTitle()}</b></a></div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <button class="btn btn-info" data-toggle="modal" data-target="#img"
+                                    onClick="toggleRatingsForm( '${advert.getId()}' );">Request Rating
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <form id="delete-advert" action="user-delete-advert" class="form-group" method="post">
+
+                                <input type="hidden" class="form-control" name="delete" id="delete-id"
+                                       value="${advert.getId()}">
+
+                                <input type="submit" value="Delete" class="btn btn-warning">
+
+                            </form>
+                        </div>
+
                     </c:forEach>
 
                 </div>
@@ -143,5 +180,34 @@
 
     <script src="<%=post_js_path%>post_ad.js"></script>
 
+    <div id="img" class="modal fade" role="dialog">
+        <div class="modal-dialog middle-buttons" style="margin-top: 15%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form id="ratingsForm" action="validate-buyer-email" method="post">
+                        <div align="center">
+                            <div align="center" class="middle-buttons panel custom-panel">
 
+                                <input type='hidden' class="form-control custom-control" name='advertId' id="advertId"
+                                       value=""/>
+                                <p>Please enter the buyers email address<input type='text'
+                                                                               placeholder="Buyers Email address"
+                                                                               class="form-control custom-control"
+                                                                               name='email'
+                                                                               value=""/>
+                                </p>
+                                <input type='submit' name='submit' class="btn btn-info btn-lg register-button"
+                                       value='Send Rating Request'/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 <jsp:include page="footer.jsp"/>

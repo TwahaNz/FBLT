@@ -23,7 +23,7 @@
             <label class="radio-inline"><input id="radio-sell" type="radio" name="optradio" checked="true">I want to
                 sell</label>
             <label class="radio-inline"><input id="radio-buy" type="radio" name="optradio">I am looking for</label>
-            <input type="hidden" id="is-selling" name="bool-is-selling">
+            <input type="hidden" id="is-selling" name="bool-is-selling" value="true">
             <br/>
             <br/>
             Ad Title:
@@ -37,8 +37,9 @@
             <br/>
             Location:
             <br/>
-            <label class="checkbox-inline"><input id="check-use-location" type="checkbox" onclick="toggleProvinces()">Use
-                current Location:</label>
+            <label type="hidden" class="checkbox-inline"><input id="check-use-location" type="checkbox"
+                                                                onclick="toggleProvinces()">Use current
+                Location:</label>
             <label id="lbl-current-location">{Location is suggested here}</label>
             <br/>
             <br/>
@@ -82,9 +83,6 @@
             Price:
             <input id="txt-price" type="number" class="form-control" name="price">
             <span id="error-price"></span>
-            <br/>
-            Select images: <input id="upload-images" type="file" accept="image/*" name="img" multiple>
-            <br/>
             <br/>
 
             <input type="submit" value="Confirm Ad" class="btn btn-success">

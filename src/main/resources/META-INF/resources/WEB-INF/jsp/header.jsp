@@ -25,6 +25,7 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
@@ -73,7 +74,7 @@
                         </button>
                     </div>
                 </form>
-                <form id="profile" action="user-profile" method="post" class="navbar-form navbar-right altered-menu">
+                <form id="profile" action="/user-profile" class="navbar-form navbar-right altered-menu">
                     <button type="submit" class="btn btn-info glyphicon glyphicon-user">
                     </button>
                 </form>
@@ -92,7 +93,7 @@
                               value=""/>
                         <button type="button" class="btn btn-success glyphicon glyphicon-log-in
 " data-toggle="modal" data-target="#myModal"></button>
-                        <a href="register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
+                        <a href="/register" class="btn btn-info glyphicon glyphicon-plus-sign spaces-right"></a>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -124,34 +125,34 @@
 
 
 <div align="center" class="row spaces-top">
+
+    <div class="col-md-1 catagories" style="background-color: #e91e63">
+    </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        <a href="" class="link">Books</a>
+        <a href="/list-adverts/Books" class="link">Books</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #9c27b0">
-        <a href="" class="link">Clothing</a>
+        <a href="/list-adverts/Clothing" class="link">Clothing</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #e91e63">
-        <a href="" class="link"> Shoes</a>
+        <a href="/list-adverts/Shoes" class="link">Shoes</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #3f51b5">
-        <a href="" class="link">Audio</a>
+        <a href="/list-adverts/Audio" class="link">Audio</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #2196f3">
-        <a href="" class="link">Cellphones</a>
+        <a href="/list-adverts/Cellphone" class="link">Cellphone</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
-        <a href="" class="link">Computers</a>
-    </div>
-    <div class="col-md-1 catagories" style="color: white; background-color: #e91e63;">
-        <a href="" class="link"> TV and Video</a>
+        <a href="/list-adverts/Computers" class="link">Computers</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #00bcd4">
-        <a href="" class="link"> Livestock</a>
+        <a href="/list-adverts/Livestock" class="link">Livestock</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #009688">
-        <a href="" class="link"> Vehicles</a>
+        <a href="/list-adverts/Vehicles" class="link">Vehicles</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #f44336">
     </div>
@@ -159,28 +160,36 @@
     </div>
 </div>
 
-<div class="spaces-top">
-    <div style="width: 100%">
-        <input type="text" placeholder="Search By Title, Product ID, Or Keywords"
-               class="form-control search-field custom-control"/>
-        <button type="button" class="search-button inline"><span
-                class="glyphicon glyphicon-search"></span></button>
-    </div>
-</div>
 
 <div class="row">
-    <div class="col-md-1" style="background-color: lightgray; padding-bottom: 50%">
+    <div class="col-md-1"
+         style="background-color: lightgray; padding-bottom: 50%; padding-left: 0!important;padding-right: 0!important;">
         <br/>
-        <div style="background-color: black; color: white; width: 145px"
-             onclick="<%response.setHeader("Location", "home.jsp");%>"><span class="glyphicon glyphicon-home"></span>
-            Home
-        </div>
+        <a href="/index">
+            <div style="background-color: black; color: white; width: 100%"><span
+                    class="glyphicon glyphicon-home"></span>
+                Home
+            </div>
+        </a>
         <br/>
         <c:if test="${login.length() == 2}">
-            <div style="background-color: black; color: white; width: 145px"><span
-                    class="glyphicon glyphicon-user"></span>
-                Profile
-            </div>
+            <a href="/user-profile">
+                <div style="background-color: black; color: white; width: 100%"><span
+                        class="glyphicon glyphicon-user"></span>
+                    Profile
+                </div>
+            </a>
         </c:if>
     </div>
     <div class="col-md-11">
+
+        <div class="spaces-top">
+            <div style="width: 100%">
+                <form action="/list-adverts" method="GET">
+                    <input name="search-bar" type="text" placeholder="Search By Title, Or Keywords"
+                           class="form-control search-field custom-control"/>
+                    <button type="submit" class="search-button inline"><span
+                            class="glyphicon glyphicon-search"></span></button>
+                </form>
+            </div>
+        </div>

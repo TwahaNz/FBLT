@@ -12,7 +12,7 @@
 
     <div align="center" class="col-md-3"></div>
     <div class="col-md-6 panel custom-panel spaces-top">
-        <h1>Add Additional Information</h1>
+        <h1>Confirm Advert Details</h1>
         <hr/>
         <br/>
         <br/>
@@ -82,9 +82,6 @@
 
             </div>
             <input name="ad-id" type="hidden" value="${advert.getId()}">
-            <br/>
-            Select images: <input id="upload-images" type="file" accept="image/*" name="img" multiple>
-            <br/>
             <input type="submit" value="Confirm Ad" class="btn btn-success">
 
         </form>
