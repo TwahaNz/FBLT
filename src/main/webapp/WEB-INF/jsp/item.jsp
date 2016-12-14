@@ -46,6 +46,8 @@
             <h3>Item Details</h3>
             <hr/>
             <br/>
+
+
             <div class="row">
                 <div class="col-md-12">
                     <div style="background-color: lightgray">
@@ -75,8 +77,120 @@
                     <div style="background-color: lightgray">
                         <p>Date Posted: ${advert.getDate()}</p>
                     </div>
+
+                    <h3> Extra Information </h3>
+                    <hr>
+                    <br/>
+
+                    <c:if test="${type == 'book'}">
+                        <div style="background-color: lightgray">
+                            <p> Book Author: ${book.getAuthor()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Book Title: ${book.getTitle()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> ISBN: ${book.getISBN()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Book Genre: ${book.getGenre()} </p>
+                        </div>
+                    </c:if>
+
+                    <c:if test="${type == 'clothing'}">
+                        <div style="background-color: lightgray">
+                            <p> Brand: ${clothing.getBrand()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Gender/Sex: ${clothing.getGender()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Type: ${clothing.getType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Age: ${clothing.getAge()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Size: ${clothing.getSize()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Material: ${clothing.getMaterial()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Colour: ${clothing.getColour()} </p>
+                        </div>
+                    </c:if>
+                    <c:if test="${type == 'livestock'}">
+                        <div style="background-color: lightgray">
+                            <p> Livestock Age: ${livestock.getAge()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Livestock Grade: ${liveStock.getGrade()} </p>
+                        </div>
+                    </c:if>
+                    <c:if test="${type == 'vehicle'}">
+                        <div style="background-color: lightgray">
+                            <p> Type: ${vehicle.getType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Make: ${vehicle.getMake()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Model: ${vehicle.getModel()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Year: ${vehicle.getYear()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Fuel Type: ${vehicle.getFuelType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Transmission: ${vehicle.getTransmissionType()} </p>
+                        </div>
+                    </c:if>
+                    <c:if test="${type == 'shoes'}">
+                        <div style="background-color: lightgray">
+                            <p> Brand: ${shoes.getBrand()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Type: ${shoes.getShoeType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Size (UK): ${shoes.getSize()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Colour: ${shoes.getColour()} </p>
+                        </div>
+                    </c:if>
+                    <c:if test="${type == 'television'}">
+                        <div style="background-color: lightgray">
+                            <p> Make: ${television.getMake()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Type (desktop/laptop/tablet): ${television.getType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Size (Screen size if applicable): ${television.getSize()} </p>
+                        </div>
+                    </c:if>
+                    <c:if test="${type == 'computer'}">
+                        <div style="background-color: lightgray">
+                            <p> Make: ${computer.getMake()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Type (desktop/laptop/tablet): ${computer.getType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Size (Screen size if applicable): ${computer.getSize()} </p>
+                        </div>
+                    </c:if>
+
+
                 </div>
+
             </div>
+
+
             <h3>Contact Details</h3>
             <hr/>
             <br/>

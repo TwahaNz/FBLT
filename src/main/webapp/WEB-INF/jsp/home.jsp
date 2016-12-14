@@ -10,7 +10,7 @@
 <%
     int count = 0;
     int total = (int) request.getAttribute("total");
-    int pages = total / 4;
+    int pages = total / 16;
     int row = 1;
 
     request.setAttribute("count", count);
@@ -27,7 +27,7 @@
             <% for (int i = 0; i < row; i++) {%>
             <div class="row spaces-bottom">
                 <c:forEach begin="1" end="${total}" varStatus="loop">
-                    <c:if test="${loop.index < 5}">
+                    <c:if test="${loop.index < 17}">
                         <div class="col-md-3 spaces-bottom">
                             <a href="/item${advert_paths.get(loop.index-1).split("!")[1]}"><img
                                     src="${advert_paths.get(loop.index-1).split("!")[0]}"

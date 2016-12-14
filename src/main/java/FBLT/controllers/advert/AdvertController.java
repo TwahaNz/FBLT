@@ -105,6 +105,8 @@ public class AdvertController {
                 return 0;
             }
         });
+
+
         mv.addObject("adverts", allAdverts);
         mv.addObject("hasResults", allAdverts.size() > 0);
 
@@ -117,9 +119,7 @@ public class AdvertController {
         ModelAndView mv = new ModelAndView("list_ads");
         Set<Advert> allAdverts = new HashSet<Advert>();
 
-
         allAdverts.addAll(advertService.findAdvertsByCategory(category));
-
 
         mv.addObject("adverts", allAdverts);
         mv.addObject("hasResults", allAdverts.size() > 0);
@@ -178,19 +178,19 @@ public class AdvertController {
 
     @RequestMapping(value = "/post-advert")
     public ModelAndView postAdvert() {
-
         return new ModelAndView("post_ad");
     }
 
 
     @RequestMapping(value = "/confirm-advert", method = RequestMethod.POST)
     public ModelAndView submitAdvert(@ModelAttribute("username") String email,
+                                     @ModelAttribute("save") String save,
                                      @RequestParam("title") String title,
                                      @RequestParam("description") String description,
                                      @RequestParam("location") String location,
                                      @RequestParam("price") String price,
-                                     @RequestParam("bool-is-selling") String isSelling,
-                                     @RequestParam("img") MultipartFile[] files) throws Exception {
+                                     @RequestParam("bool-is-selling") String isSelling
+                                     ) throws Exception {
 
 
         String city = "", suburb = "", province = "";
@@ -246,46 +246,15 @@ public class AdvertController {
                 .build();
 
         advertService.create(advert);
-        ArrayList<String> listOfPaths = new ArrayList<>();
 
-        for (int i = 0; i < files.length; i++) {
-            MultipartFile file = files[i];
-            String name = "" + i;
-            try {
-                byte[] bytes = file.getBytes();
-
-                // Creating the directory to store file
-                String rootPath = System.getProperty("user.dir");
-                File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + advert.getId());
-
-                if (!dir.exists())
-                    dir.mkdirs();
-
-                // Create the file on server
-                File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + name + ".jpg");
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
-                stream.write(bytes);
-                stream.close();
-
-                listOfPaths.add("posted_ads" + File.separator + email + File.separator + advert.getId() + File.separator + name + ".jpg");
-
-            } catch (Exception e) {
-                e.getMessage();
-            }
-        }
 
         advert = new Advert.Builder()
                 .copy(advert)
-                .imagePaths(listOfPaths)
                 .build();
         advertService.update(advert);
 
-        System.out.println(advert.getImagepaths().get(0));
-
-        System.out.println(advert.isBuyOrSell());
         ModelAndView mv = new ModelAndView("confirm_ad");
+
         mv.addObject("advert", advert);
         return mv;
     }
@@ -321,18 +290,18 @@ public class AdvertController {
             first = "No Category Found";
         }
 
+
+
+
         return first;
     }
 
     @RequestMapping(value = "/save-advert", method = RequestMethod.POST)
     public ModelAndView saveAdvert(@RequestParam Map<String, String> allRequestParams,
+                                   @RequestParam("img") MultipartFile[] files,
                                    @ModelAttribute("username") String email) {
-        for (Map.Entry<String, String> entry : allRequestParams.entrySet()) {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
-        }
 
         Advert initialAdvert = advertService.readById(allRequestParams.get("ad-id"));
-
 
         String location = allRequestParams.get("ad-location");
         String city = "", suburb = "", province = "";
@@ -366,12 +335,43 @@ public class AdvertController {
         } else {
             isSelling = false;
         }
+
+        ArrayList<String> listOfPaths = new ArrayList<>();
+
+        for (int i = 0; i < files.length; i++) {
+            MultipartFile file = files[i];
+            String name = "" + i;
+            try {
+                byte[] bytes = file.getBytes();
+                // Creating the directory to store file
+                String rootPath = System.getProperty("user.dir");
+                File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + initialAdvert.getId());
+
+                if (!dir.exists())
+                    dir.mkdirs();
+
+                // Create the file on server
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + name + ".jpg");
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+                listOfPaths.add("posted_ads" + File.separator + email + File.separator + initialAdvert.getId() + File.separator + name + ".jpg");
+
+            } catch (Exception e) {
+                e.getMessage();
+            }
+        }
+
         Advert advert = new Advert.Builder()
                 .copy(initialAdvert)
                 .title(allRequestParams.get("ad-title"))
                 .product(productToSaveInAdvert)
                 .buyOrSell(isSelling)
                 .user(user)
+                .imagePaths(listOfPaths)
                 .price(Double.parseDouble(allRequestParams.get("ad-price")))
                 .location(locations).build();
 

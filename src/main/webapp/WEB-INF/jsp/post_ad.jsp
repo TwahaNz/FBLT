@@ -38,8 +38,7 @@
             Location:
             <br/>
             <label type="hidden" class="checkbox-inline"><input id="check-use-location" type="checkbox"
-                                                                onclick="toggleProvinces()">Use
-                current Location:</label>
+                                                                onclick="toggleProvinces()">Use current Location:</label>
             <label id="lbl-current-location">{Location is suggested here}</label>
             <br/>
             <br/>
@@ -83,9 +82,6 @@
             Price:
             <input id="txt-price" type="number" class="form-control" name="price">
             <span id="error-price"></span>
-            <br/>
-            Select images: <input id="upload-images" type="file" accept="image/*" name="img" multiple>
-            <br/>
             <br/>
 
             <input type="submit" value="Confirm Ad" class="btn btn-success">

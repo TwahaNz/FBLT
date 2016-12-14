@@ -68,7 +68,7 @@ public class HomePageController {
 
         ModelAndView result = new ModelAndView("index");
         try {
-            for (int position = (index * 4); position < list.size(); position++) {
+            for (int position = (index * 16); position < list.size(); position++) {
                 listNext.add(list.get(position));
             }
 
