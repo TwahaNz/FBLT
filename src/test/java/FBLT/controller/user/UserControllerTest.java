@@ -1,8 +1,8 @@
-package FBLT.controller;
-
+package FBLT.controller.user;
 
 import FBLT.controllers.advert.AdvertController;
-import FBLT.domain.advert.Advert;
+import FBLT.domain.user.User;
+import FBLT.utils.genericvalueobjects.ContactDetails;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,16 +19,17 @@ import static org.springframework.test.web.client.ExpectedCount.manyTimes;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
- * Created by kraluk01 on 12/7/2016.
+ * Created by tayfer01 on 12/15/2016.
  */
+
 @RunWith(SpringJUnit4ClassRunner.class)
-public class AdvertControllerTest {
+public class UserControllerTest {
 
     private MockMvc mockMvc;
 
@@ -38,36 +39,28 @@ public class AdvertControllerTest {
     }
 
     @Test
-    public void postAdvert() throws Exception {
+    public void userProfile() throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
 
-        this.mockMvc.perform(post("/post-advert"))
-                .andExpect(view().name("post_ad"))
-                .andExpect(status().isOk()).andDo(print());
+        server.expect(manyTimes(), requestTo("/user-profile")).andExpect(method(HttpMethod.GET))
+                .andRespond(withSuccess("{ \"email\" : \"ferintaylor@gmail.com\"}", MediaType.APPLICATION_JSON));
+        User user = restTemplate.getForObject("/user-profile", User.class);
+        server.verify();
 
-
+        Assert.assertNotNull(user);
     }
 
     @Test
-    public void singleAdvert() {
+    public void updateProfile() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
-        server.expect(manyTimes(), requestTo("/advert-controller/1")).andExpect(method(HttpMethod.GET))
-                .andRespond(withSuccess("{ \"id\" : \"1\"}", MediaType.APPLICATION_JSON));
-        Advert advert = restTemplate.getForObject("/advert-controller/{id}", Advert.class, 1);
-        server.verify();
-        Assert.assertEquals("1", advert.getId());
-    }
 
-    @Test
-    public void multipleadverts() {
-        RestTemplate restTemplate = new RestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
-        server.expect(manyTimes(), requestTo("/advert-controller")).andExpect(method(HttpMethod.GET))
-                .andRespond(withSuccess("{ \"id\" : \"1\"}", MediaType.APPLICATION_JSON));
-        Advert advert = restTemplate.getForObject("/advert-controller", Advert.class);
+        server.expect(manyTimes(), requestTo("/user-profile-update")).andExpect(method(HttpMethod.GET))
+                .andRespond(withSuccess("{ \"email\" : \"ferintaylor@gmail.com\"}", MediaType.APPLICATION_JSON));
+        User user = restTemplate.getForObject("/user-profile-update", User.class);
         server.verify();
 
-        Assert.assertNotNull(advert);
+        Assert.assertNotNull(user);
     }
-
 }
