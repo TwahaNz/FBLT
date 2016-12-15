@@ -1,5 +1,13 @@
 # FBLT
 
+##Group Memebers</br>
+Luke Kramer		  213184761</br>
+Brandon May 		212089692</br>
+Twaha	Nzeyimana 214308189</br>
+Ferin Taylor 		214308618</br></br>
+
+
+
 ##Basic overview
 
 We intend on creating an app which will serve as a platform for people in all types of
@@ -117,3 +125,16 @@ category if it does not exist. All created categories by users will have to get 
 administrators of the website.
 
 
+#Technologies Used
+
+##Backend
+Java
+Spring framework</br>
+
+##frontend
+JSP
+Bootstrap
+JavaScript</br>
+
+##Database
+Mongodb</br>
