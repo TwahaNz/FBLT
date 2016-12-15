@@ -3,6 +3,7 @@ package FBLT.controllers.advert;
 import FBLT.domain.advert.Advert;
 import FBLT.domain.product.book.Book;
 import FBLT.domain.product.clothing.Clothing;
+import FBLT.domain.product.electronics.audio.Audio;
 import FBLT.domain.product.electronics.computer.Computer;
 import FBLT.domain.product.electronics.television.Television;
 import FBLT.domain.product.livestock.Livestock;
@@ -34,45 +35,51 @@ public class AdvertItemController {
 
         ModelAndView modelAndView = new ModelAndView("item");
         Advert advert = advertService.readById(advertId);
-        String product = advert.getProduct().getClass().getName();
+        if (advert.getProduct() != null) {
+            String product = advert.getProduct().getClass().getName();
 
-        if (product.toLowerCase().contains("book")) {
-            modelAndView.addObject("type", "book");
-            Book book = (Book) advert.getProduct();
-            modelAndView.addObject("book", book);
-        }
+            if (product.toLowerCase().contains("book")) {
+                modelAndView.addObject("type", "book");
+                Book book = (Book) advert.getProduct();
+                modelAndView.addObject("book", book);
+            }
 
-        if (product.toLowerCase().contains("clothing")) {
-            modelAndView.addObject("type", "clothing");
-            Clothing entity = (Clothing) advert.getProduct();
-            modelAndView.addObject("clothing", entity);
+            if (product.toLowerCase().contains("clothing")) {
+                modelAndView.addObject("type", "clothing");
+                Clothing entity = (Clothing) advert.getProduct();
+                modelAndView.addObject("clothing", entity);
+            }
+            if (product.toLowerCase().contains("livestock")) {
+                modelAndView.addObject("type", "livestock");
+                Livestock entity = (Livestock) advert.getProduct();
+                modelAndView.addObject("livestock", entity);
+            }
+            if (product.toLowerCase().contains("vehicle")) {
+                modelAndView.addObject("type", "vehicle");
+                Vehicle entity = (Vehicle) advert.getProduct();
+                modelAndView.addObject("vehicle", entity);
+            }
+            if (product.toLowerCase().contains("shoes")) {
+                modelAndView.addObject("type", "shoes");
+                Shoes entity = (Shoes) advert.getProduct();
+                modelAndView.addObject("shoes", entity);
+            }
+            if (product.toLowerCase().contains("television")) {
+                modelAndView.addObject("type", "television");
+                Television entity = (Television) advert.getProduct();
+                modelAndView.addObject("television", entity);
+            }
+            if (product.toLowerCase().contains("computer")) {
+                modelAndView.addObject("type", "computer");
+                Computer entity = (Computer) advert.getProduct();
+                modelAndView.addObject("computer", entity);
+            }
+            if (product.toLowerCase().contains("audio")) {
+                modelAndView.addObject("type", "audio");
+                Audio entity = (Audio) advert.getProduct();
+                modelAndView.addObject("audio", entity);
+            }
         }
-        if (product.toLowerCase().contains("livestock")) {
-            modelAndView.addObject("type", "livestock");
-            Livestock entity = (Livestock) advert.getProduct();
-            modelAndView.addObject("livestock", entity);
-        }
-        if (product.toLowerCase().contains("vehicle")) {
-            modelAndView.addObject("type", "vehicle");
-            Vehicle entity = (Vehicle) advert.getProduct();
-            modelAndView.addObject("vehicle", entity);
-        }
-        if (product.toLowerCase().contains("shoes")) {
-            modelAndView.addObject("type", "shoes");
-            Shoes entity = (Shoes) advert.getProduct();
-            modelAndView.addObject("shoes", entity);
-        }
-        if (product.toLowerCase().contains("television")) {
-            modelAndView.addObject("type", "television");
-            Television entity = (Television) advert.getProduct();
-            modelAndView.addObject("television", entity);
-        }
-        if (product.toLowerCase().contains("computer")) {
-            modelAndView.addObject("type", "computer");
-            Computer entity = (Computer) advert.getProduct();
-            modelAndView.addObject("computer", entity);
-        }
-
         ArrayList<String> images = new ArrayList<>();
 
         ArrayList<String> img_path = advert.getImagepaths();

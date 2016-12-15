@@ -275,10 +275,10 @@ function createBoxesForCategory(category) {
         categoryDiv.setAttribute("class", "well");
         categoryDiv.innerHTML = "Optional Extra information about product:" +
             "<br/><br/>" +
-            "Brand: <br/><input id='txt-shoes-brand' type='text' class='form-control'/><br/><br/>" +
-            "Type: <br/><select class='form-control' id='sel-shoes-type'><option></option><option>Hi-Top</option><option>Low-Top</option><option>Boot</option><option>Sandal</option></select><br/><br/>" +
-            "Size (UK): <br/><select class='form-control' id='sel-shoes-size'></select><br/><br/>" +
-            "Colour: <br/><input id='txt-shoes-colour' type='text' class='form-control'/><br/><br/>";
+            "Brand: <br/><input name='brand' id='txt-shoes-brand' type='text' class='form-control'/><br/><br/>" +
+            "Type: <br/><select name='type' class='form-control' id='sel-shoes-type'><option></option><option>Hi-Top</option><option>Low-Top</option><option>Boot</option><option>Sandal</option></select><br/><br/>" +
+            "Size (UK): <br/><select name='size' class='form-control' id='sel-shoes-size'></select><br/><br/>" +
+            "Colour: <br/><input name='colour' id='txt-shoes-colour' type='text' class='form-control'/><br/><br/>";
         fillShoeSizes();
     } else if (category.trim() === "Books") {
         categoryDiv.setAttribute("class", "well");

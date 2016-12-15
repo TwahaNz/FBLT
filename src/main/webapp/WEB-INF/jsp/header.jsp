@@ -67,7 +67,7 @@
 
         <c:choose>
             <c:when test="${login.length() == 2}">
-                <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
+                <form id="postAdForm" action="/post-advert" class="navbar-form navbar-right altered-menu"
                       style="margin-right:20px;">
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!

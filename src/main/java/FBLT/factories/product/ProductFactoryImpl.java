@@ -1,6 +1,8 @@
 package FBLT.factories.product;
 
 import FBLT.domain.product.IProduct;
+import FBLT.domain.product.Product;
+import FBLT.domain.product.category.Category;
 import FBLT.factories.product.book.BookFactoryImpl;
 import FBLT.factories.product.clothing.ClothingFactoryImpl;
 import FBLT.factories.product.electronics.audio.AudioFactoryImpl;
@@ -78,7 +80,10 @@ public class ProductFactoryImpl implements IProductFactory {
                 return vehicleFactory.getVehicle(objectData);
 
             default:
-                return null;
+                return new Product.Builder()
+                        .category(new Category.Builder().categoryName(objectData.get("category")).build())
+                        .productDescription(objectData.get("ad-description"))
+                        .build();
 
         }
 
