@@ -10,6 +10,7 @@ import FBLT.domain.user.User;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mock;
 
 
 /**
@@ -64,8 +65,14 @@ public class InterestedEmailTest {
                 .contactDetails(buyerContactDetails)
                 .name("Mary") // buyers name
                 .build();
+				
+				
+		InterestedEmail mock = org.mockito.Mockito.mock(InterestedEmail.class);
 
-        Assert.assertTrue(interestedEmail.sendEmail());
+        when(mock.sendEmail()).thenReturn(true);
+
+
+        Assert.assertTrue(mock.sendEmail());
 
     }
 }

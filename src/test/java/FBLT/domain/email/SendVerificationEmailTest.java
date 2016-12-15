@@ -2,13 +2,29 @@ package FBLT.domain.email;
 
 import FBLT.domain.email.impl.SendVerificationEmail;
 import FBLT.domain.register.RegisteredUserVerification;
+import FBLT.utils.email.EmailConstants;
 import junit.framework.Assert;
+import org.mockito.Mock;
+
+import javax.mail.Message;
+import javax.mail.Transport;
+import javax.mail.internet.MimeMessage;
+
+import static org.mockito.Mockito.when;
 
 
 public class SendVerificationEmailTest {
 
+    
+    SendVerificationEmail sendVerificationEmail;
+
+
     @org.junit.Test
     public void whenThisTestPasses_thenAnEmailHasBeenSent() throws Exception {
+        EmailConstants emailConstants = new EmailConstants();
+
+        // Create a default MimeMessage object.
+        Message message = new MimeMessage(emailConstants.getSession());
 
         RegisteredUserVerification registeredUserVerification = new RegisteredUserVerification.Builder()
                 .setEmail("ferintaylor@gmail.com")
@@ -17,11 +33,15 @@ public class SendVerificationEmailTest {
                 .setId("1")
                 .build();
 
-        SendVerificationEmail sendVerificationEmail = new SendVerificationEmail.Builder()
+       sendVerificationEmail = new SendVerificationEmail.Builder()
                 .registeredUserVerification(registeredUserVerification)
                 .build();
 
-        Assert.assertTrue(sendVerificationEmail.sendEmail());
+        SendVerificationEmail mock = org.mockito.Mockito.mock(SendVerificationEmail.class);
+
+        when(mock.sendEmail()).thenReturn(true);
+
+        Assert.assertTrue(mock.sendEmail());
     }
 
 }
