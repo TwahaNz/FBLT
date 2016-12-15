@@ -1,6 +1,7 @@
 package FBLT.controllers;
 
 import FBLT.domain.advert.Advert;
+import FBLT.domain.email.impl.RatingEmail;
 import FBLT.domain.rating.Comment;
 import FBLT.domain.rating.Rating;
 import FBLT.domain.user.User;
@@ -87,12 +88,14 @@ public class RateMeController {
                     .userIDBuyer(userBuyer.get_id())
                     .build();
 
-            System.out.println("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/rate-user-request?userBuyerId=" + userBuyer.get_id()
+            String link = ("Generated Link: " + Constants.PROTOCOL + "://" + Constants.URL + ":" + Constants.PORT + "/rate-user-request?userBuyerId=" + userBuyer.get_id()
                     + "&userSellerId=" + userSeller.get_id()
                     + "&advertId=" + advertId);
 
-            // RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId));
-            // ratingEmail.sendEmail();
+            System.out.println(link);
+
+             RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId), link);
+             ratingEmail.sendEmail();
 
         }
 

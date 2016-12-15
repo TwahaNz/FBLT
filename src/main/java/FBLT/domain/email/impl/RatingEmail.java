@@ -18,15 +18,16 @@ public class RatingEmail implements Email {
     private Rating rating;
     private String buyerEmail;
     private Advert advert;
+    private String link;
 
-    public RatingEmail(Rating rating, String buyerEmail, Advert advert) {
+    public RatingEmail(Rating rating, String buyerEmail, Advert advert, String link) {
         this.rating = rating;
         this.buyerEmail = buyerEmail;
         this.advert = advert;
+        this.link = link;
     }
 
-    @Override
-    public boolean sendEmail() {
+    private void sendFormEmail(){
         try {
             EmailConstants emailConstants = new EmailConstants();
 
@@ -64,6 +65,44 @@ public class RatingEmail implements Email {
             message.setContent(message1, "text/html; charset=utf-8");
 
             Transport.send(message);
+
+            System.out.println("Message sent successfully");
+            //return true;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            //return false;
+        }
+
+    }
+
+
+    @Override
+    public boolean sendEmail() {
+        try {
+            EmailConstants emailConstants = new EmailConstants();
+
+            // Create a default MimeMessage object.
+            Message message = new MimeMessage(emailConstants.getSession());
+
+            message.setFrom(new InternetAddress(emailConstants.getFrom()));
+
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(buyerEmail));
+
+            message.setSubject("do-not-reply");
+
+            message.setText("Hello, someone would like you to rate your buying experience with the following advert \nDescription: " +
+                    advert.getProduct().getDescription() + "\nPrice: R" +
+                    "Category: " + advert.getProduct().getCategory().getCategoryName() +
+                    "\nPrice: R" + advert.getPrice() + "\n" +
+                    "Please rate them by following this link: \n" +
+                    link
+                    + "\n\n\nRegards\nDev Team");
+
+
+            Transport.send(message);
+
 
             System.out.println("Message sent successfully");
             return true;
