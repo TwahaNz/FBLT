@@ -30,14 +30,14 @@ Windows
 
 2. The project can be ran in two ways.
 
-   1. Enter the root directory of the project and run: <b>mvn spring-boot:run -Dport=&lt;specify your port&gt; -Dip=&lt;specify your server ip&gt;<b>
+   1) Enter the root directory of the project and run: <b>mvn spring-boot:run -Dport=&lt;specify your port&gt; -Dip=&lt;specify your server ip&gt;</b>
     
     Or
     
-   2. Compile the project with maven and run the jar:
+   2) Compile the project with maven and run the jar:
         2.2.1) mvn package
         2.2.2) Copy the resrc folder into target.
-        2.2.3) Run: <b>java -jar &lt;project-name&gt;.jar -Dport=&lt;specify your port&gt; -Dip=&lt;specify your server ip&gt;<b>
+        2.2.3) Run: <b>java -jar &lt;project-name&gt;.jar -Dport=&lt;specify your port&gt; -Dip=&lt;specify your server ip&gt;</b>
           
 3. 
 
