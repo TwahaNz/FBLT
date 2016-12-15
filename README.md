@@ -6,6 +6,9 @@ Brandon May 		212089692</br>
 Twaha	Nzeyimana 214308189</br>
 Ferin Taylor 		214308618</br></br>
 
+##Video link - Tutorial
+https://drive.google.com/file/d/0B0i2lJvKiSSWRUotZ1ByYWlxWXc/view?usp=sharing</br>
+
 ##Preresquisites
 
 1. 64bit 
@@ -171,6 +174,3 @@ JavaScript</br>
 
 ##Database
 Mongodb</br>
-
-##Video link
-https://drive.google.com/file/d/0B0i2lJvKiSSWRUotZ1ByYWlxWXc/view?usp=sharing</br>
