@@ -298,7 +298,7 @@ public class AdvertController {
     public ModelAndView saveAdvert(@RequestParam Map<String, String> allRequestParams,
                                    @RequestParam("img") MultipartFile[] files,
                                    @ModelAttribute("username") String email) {
-
+        System.out.println(files.length);
         Advert initialAdvert = advertService.readById(allRequestParams.get("ad-id"));
 
         String location = allRequestParams.get("ad-location");
@@ -336,32 +336,39 @@ public class AdvertController {
 
         ArrayList<String> listOfPaths = new ArrayList<>();
 
-        for (int i = 0; i < files.length; i++) {
-            MultipartFile file = files[i];
-            String name = "" + i;
-            try {
-                byte[] bytes = file.getBytes();
-                // Creating the directory to store file
-                String rootPath = System.getProperty("user.dir");
-                File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + initialAdvert.getId());
+        if(allRequestParams.get("save-images").equals("true")) {
+            for (int i = 0; i < files.length; i++) {
+                MultipartFile file = files[i];
+                String name = "" + i;
+                try {
+                    byte[] bytes = file.getBytes();
+                    // Creating the directory to store file
+                    String rootPath = System.getProperty("user.dir");
+                    File dir = new File(rootPath + File.separator + "resrc/posted_ads" + File.separator + email + File.separator + initialAdvert.getId());
 
-                if (!dir.exists())
-                    dir.mkdirs();
+                    if (!dir.exists())
+                        dir.mkdirs();
 
-                // Create the file on server
-                File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + name + ".jpg");
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
-                stream.write(bytes);
-                stream.close();
+                    // Create the file on server
+                    File serverFile = new File(dir.getAbsolutePath()
+                            + File.separator + name + ".jpg");
+                    BufferedOutputStream stream = new BufferedOutputStream(
+                            new FileOutputStream(serverFile));
+                    stream.write(bytes);
+                    stream.close();
 
-                listOfPaths.add("posted_ads" + File.separator + email + File.separator + initialAdvert.getId() + File.separator + name + ".jpg");
+                    listOfPaths.add("posted_ads" + File.separator + email + File.separator + initialAdvert.getId() + File.separator + name + ".jpg");
 
-            } catch (Exception e) {
-                e.getMessage();
+                } catch (Exception e) {
+                    e.getMessage();
+                }
             }
+        }else{
+
+            listOfPaths.add("images" + File.separator + "big_ad.png");
+
         }
+
 
         Advert advert = new Advert.Builder()
                 .copy(initialAdvert)

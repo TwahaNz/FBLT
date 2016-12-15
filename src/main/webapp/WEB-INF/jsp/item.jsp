@@ -145,6 +145,14 @@
                             <p> Watts: (Screen size if applicable): ${audio.getWatts()} </p>
                         </div>
                     </c:if>
+                    <c:if test="${type == 'cellphone'}">
+                        <div style="background-color: lightgray">
+                            <p> Make: ${cellphone.getMake()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Model: ${cellphone.getModel()} </p>
+                        </div>
+                    </c:if>
                 </div>
 
             </div>

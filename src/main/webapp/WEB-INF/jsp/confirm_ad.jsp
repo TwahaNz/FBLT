@@ -16,7 +16,7 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" action="save-advert" class="form-group" enctype="multipart/form-data" method="post"
+        <form id="confirm-advert" action="/save-advert" class="form-group" enctype="multipart/form-data" method="post"
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>
@@ -82,8 +82,9 @@
 
             </div>
             <input name="ad-id" type="hidden" value="${advert.getId()}">
+            <input name="save-images" id="save-images" type="hidden" value="false">
             <br/>
-            Select images: <input id="upload-images" type="file" accept="image/*" name="img" multiple>
+            Select images: <input id="upload-images" type="file" accept="image/*" name="img" onclick="saveImages()" multiple>
             <br/>
             <input type="submit" value="Confirm Ad" class="btn btn-success">
 

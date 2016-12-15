@@ -72,8 +72,8 @@ function validatePostAdvertForm() {
         isValid = false;
     }
 
-    if (description.length > 200 || description.length < 20) {
-        errors += "Description Must Be Between 20 and 200 Characters Long\n";
+    if ( description.length < 20) {
+        errors += "Description Must Be Longer than Characters\n";
         isValid = false;
     }
 
@@ -391,4 +391,8 @@ function setRating() {
         document.getElementById("rateNumber").value = "4";
     }
 
+}
+
+function saveImages(){
+    document.getElementById("save-images").value = "true";
 }

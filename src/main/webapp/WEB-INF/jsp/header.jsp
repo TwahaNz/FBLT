@@ -78,7 +78,7 @@
                     <button type="submit" class="btn btn-info glyphicon glyphicon-user">
                     </button>
                 </form>
-                <form id="sign-out" action="sign-out-request" method="post"
+                <form id="sign-out" action="/sign-out-request" method="post"
                       class="navbar-form navbar-right altered-menu">
                     <b>Welcome!</b> ${username}
                     <button type="submit" class="btn btn-danger spaces-left glyphicon glyphicon-log-out
@@ -107,7 +107,7 @@
             <div class="modal-header">
                 <div align="center"><h4 class="modal-title page-header"><b>Click The Tick Below To Receive A Magic Link
                     To Your Email</b></h4>
-                    <form id="link" action="login-request" method="post" onsubmit="return isValidEmail()"
+                    <form id="link" action="/login-request" method="post" onsubmit="return isValidEmail()"
                           style="padding-left: 5px!important; padding-right: 5px!important;">
                         <input type="hidden" value="" id="verify_email" name="verify_email">
                         <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok spaces-right
@@ -146,7 +146,7 @@
         <a href="/list-adverts/Cellphone" class="link">Cellphone</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
-        <a href="/list-adverts/Computers" class="link">Computers</a>
+        <a href="/list-adverts/Computer" class="link">Computers</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #00bcd4">
         <a href="/list-adverts/Livestock" class="link">Livestock</a>

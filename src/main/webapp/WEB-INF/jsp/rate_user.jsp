@@ -11,7 +11,7 @@
 <br/>
 <br/>
 <br/>
-<form id="rateUser" action="rate-user" method="post" onsubmit="setRating();">
+<form id="rateUser" action="/rate-user" method="post" onsubmit="setRating();">
     <div align="center">
         <div align="center" class="middle-buttons panel custom-panel">
 

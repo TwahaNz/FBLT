@@ -12,7 +12,7 @@
 <br/>
 <br/>
 <br/>
-<form id="registerForm" action="register" method="post" onsubmit="return isValidRegistratioForm()">
+<form id="registerForm" action="/register" method="post" onsubmit="return isValidRegistratioForm()">
     <div align="center">
         <div align="center" class="middle-buttons panel custom-panel">
             <div id="registration" align="center" class="register-form">

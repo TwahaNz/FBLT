@@ -79,7 +79,7 @@
                 <br/>
 
                 <fieldset id="fieldset">
-                    <form id="update-profile" action="user-profile-update" class="form-group" method="post"
+                    <form id="update-profile" action="/user-profile-update" class="form-group" method="post"
                           onsubmit="return validateUpdateForm();">
 
                         User Name:
@@ -157,7 +157,7 @@
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <form id="delete-advert" action="user-delete-advert" class="form-group" method="post">
+                            <form id="delete-advert" action="/user-delete-advert" class="form-group" method="post">
 
                                 <input type="hidden" class="form-control" name="delete" id="delete-id"
                                        value="${advert.getId()}">
@@ -184,7 +184,7 @@
         <div class="modal-dialog middle-buttons" style="margin-top: 15%">
             <div class="modal-content">
                 <div class="modal-header">
-                    <form id="ratingsForm" action="validate-buyer-email" method="post">
+                    <form id="ratingsForm" action="/validate-buyer-email" method="post">
                         <div align="center">
                             <div align="center" class="middle-buttons panel custom-panel">
 

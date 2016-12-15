@@ -47,7 +47,7 @@
 </form>
 
 
-<form id="ratingsForm" action="validate-buyer-email" method="post">
+<form id="ratingsForm" action="/validate-buyer-email" method="post">
     <div align="center">
         <div align="center" class="middle-buttons panel custom-panel">
 

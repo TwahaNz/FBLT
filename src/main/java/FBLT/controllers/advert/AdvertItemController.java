@@ -1,9 +1,11 @@
 package FBLT.controllers.advert;
 
 import FBLT.domain.advert.Advert;
+import FBLT.domain.product.Product;
 import FBLT.domain.product.book.Book;
 import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.product.electronics.audio.Audio;
+import FBLT.domain.product.electronics.cellphone.CellPhone;
 import FBLT.domain.product.electronics.computer.Computer;
 import FBLT.domain.product.electronics.television.Television;
 import FBLT.domain.product.livestock.Livestock;
@@ -37,47 +39,46 @@ public class AdvertItemController {
         Advert advert = advertService.readById(advertId);
         if (advert.getProduct() != null) {
             String product = advert.getProduct().getClass().getName();
-
             if (product.toLowerCase().contains("book")) {
                 modelAndView.addObject("type", "book");
                 Book book = (Book) advert.getProduct();
                 modelAndView.addObject("book", book);
-            }
-
-            if (product.toLowerCase().contains("clothing")) {
+            } else if (product.toLowerCase().contains("clothing")) {
                 modelAndView.addObject("type", "clothing");
                 Clothing entity = (Clothing) advert.getProduct();
                 modelAndView.addObject("clothing", entity);
-            }
-            if (product.toLowerCase().contains("livestock")) {
+            } else if (product.toLowerCase().contains("livestock")) {
                 modelAndView.addObject("type", "livestock");
                 Livestock entity = (Livestock) advert.getProduct();
                 modelAndView.addObject("livestock", entity);
-            }
-            if (product.toLowerCase().contains("vehicle")) {
+            } else if (product.toLowerCase().contains("vehicle")) {
                 modelAndView.addObject("type", "vehicle");
                 Vehicle entity = (Vehicle) advert.getProduct();
                 modelAndView.addObject("vehicle", entity);
-            }
-            if (product.toLowerCase().contains("shoes")) {
+            } else if (product.toLowerCase().contains("shoes")) {
                 modelAndView.addObject("type", "shoes");
                 Shoes entity = (Shoes) advert.getProduct();
                 modelAndView.addObject("shoes", entity);
-            }
-            if (product.toLowerCase().contains("television")) {
+            } else if (product.toLowerCase().contains("television")) {
                 modelAndView.addObject("type", "television");
                 Television entity = (Television) advert.getProduct();
                 modelAndView.addObject("television", entity);
-            }
-            if (product.toLowerCase().contains("computer")) {
+            } else if (product.toLowerCase().contains("computer")) {
                 modelAndView.addObject("type", "computer");
                 Computer entity = (Computer) advert.getProduct();
                 modelAndView.addObject("computer", entity);
-            }
-            if (product.toLowerCase().contains("audio")) {
+            } else if (product.toLowerCase().contains("audio")) {
                 modelAndView.addObject("type", "audio");
                 Audio entity = (Audio) advert.getProduct();
                 modelAndView.addObject("audio", entity);
+            } else if (product.toLowerCase().contains("cellphone")) {
+                modelAndView.addObject("type", "cellphone");
+                CellPhone entity = (CellPhone) advert.getProduct();
+                modelAndView.addObject("cellphone", entity);
+            } else if (product.toLowerCase().contains("product")) {
+                modelAndView.addObject("type", "product");
+                Product entity = (Product) advert.getProduct();
+                modelAndView.addObject("product", entity);
             }
         }
         ArrayList<String> images = new ArrayList<>();

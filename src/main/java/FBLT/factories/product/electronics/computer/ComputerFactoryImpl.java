@@ -44,14 +44,14 @@ public class ComputerFactoryImpl implements IComputerFactory {
         if (details.containsKey("type")) {
             Computer ComputerWithType = new Computer.Builder()
                     .copy(finalProduct)
-                    .productModel(details.get("model"))
+                    .productType(details.get("type"))
                     .build();
             finalProduct = ComputerWithType;
         }
         if (details.containsKey("size")) {
             Computer ComputerWithSize = new Computer.Builder()
                     .copy(finalProduct)
-                    .productModel(details.get("model"))
+                    .productSize(details.get("size"))
                     .build();
             finalProduct = ComputerWithSize;
         }

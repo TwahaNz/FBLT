@@ -16,7 +16,7 @@
         <hr/>
         <br/>
         <br/>
-        <form id="confirm-advert" action="save-advert" class="form-group" enctype="multipart/form-data" method="post"
+        <form id="confirm-advert" action="/save-advert" class="form-group" enctype="multipart/form-data" method="post"
               onsubmit="validatePostAdvertForm(); ">
             Ad Title:
             <br/>

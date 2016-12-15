@@ -67,7 +67,7 @@
 
         <c:choose>
             <c:when test="${login.length() == 2}">
-                <form id="postAdForm" action="post-advert" class="navbar-form navbar-right altered-menu"
+                <form id="postAdForm" action="/post-advert" class="navbar-form navbar-right altered-menu"
                       style="margin-right:20px;">
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary spaces-right-header spaces-right">Post Free Ad!
@@ -78,7 +78,7 @@
                     <button type="submit" class="btn btn-info glyphicon glyphicon-user">
                     </button>
                 </form>
-                <form id="sign-out" action="sign-out-request" method="post"
+                <form id="sign-out" action="/sign-out-request" method="post"
                       class="navbar-form navbar-right altered-menu">
                     <b>Welcome!</b> ${username}
                     <button type="submit" class="btn btn-danger spaces-left glyphicon glyphicon-log-out
@@ -107,7 +107,7 @@
             <div class="modal-header">
                 <div align="center"><h4 class="modal-title page-header"><b>Click The Tick Below To Receive A Magic Link
                     To Your Email</b></h4>
-                    <form id="link" action="login-request" method="post" onsubmit="return isValidEmail()"
+                    <form id="link" action="/login-request" method="post" onsubmit="return isValidEmail()"
                           style="padding-left: 5px!important; padding-right: 5px!important;">
                         <input type="hidden" value="" id="verify_email" name="verify_email">
                         <button type="submit" class="btn btn-success spaces-top glyphicon glyphicon-ok spaces-right
