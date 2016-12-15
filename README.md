@@ -1,6 +1,6 @@
 # FBLT
 
-##Group Memebers</br>
+##Group Members</br>
 Luke Kramer		  213184761</br>
 Brandon May 		212089692</br>
 Twaha	Nzeyimana 214308189</br>
