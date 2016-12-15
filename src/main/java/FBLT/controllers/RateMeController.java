@@ -99,8 +99,8 @@ public class RateMeController {
 
             System.out.println(link);
 
-//             RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId), link);
-//             ratingEmail.sendEmail();
+            RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId), link);
+            ratingEmail.sendEmail();
 
         }
 
