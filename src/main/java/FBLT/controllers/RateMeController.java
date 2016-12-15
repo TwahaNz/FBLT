@@ -39,10 +39,15 @@ public class RateMeController {
 
         List<Rating> ratingList = ratingService.findRatingByUserId(userId);
 
-        for (Rating r : ratingList)
-            total += Integer.parseInt(r.getRating());
+        if(ratingList.size() != 0) {
+            for (Rating r : ratingList) {
+                total += Integer.parseInt(r.getRating());
+            }
 
-        return total / ratingList.size();
+            return total / ratingList.size();
+        }
+
+        return total;
     }
 
     // populate users adverts
@@ -62,7 +67,7 @@ public class RateMeController {
 
 
     // email address of the buyer to validate that they exist
-    @RequestMapping(value = {"/validate-buyer-email"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/validate-buyer-email", method = RequestMethod.POST)
     public ModelAndView isValidBuyerEmail(@ModelAttribute("username") String sellerEmail,
                                           @RequestParam("email") String buyerEmail,
                                           @RequestParam("advertId") String advertId,
@@ -94,8 +99,8 @@ public class RateMeController {
 
             System.out.println(link);
 
-             RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId), link);
-             ratingEmail.sendEmail();
+//             RatingEmail ratingEmail = new RatingEmail(rating, buyerEmail, advertService.readById(advertId), link);
+//             ratingEmail.sendEmail();
 
         }
 
@@ -141,8 +146,8 @@ public class RateMeController {
         }
 
 
-        ModelAndView mv = new ModelAndView("index");
-
+        ModelAndView mv = new ModelAndView("redirect");
+        mv.addObject("isValidBuyerEmail", "notset");
         return mv;
     }
 
