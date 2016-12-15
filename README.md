@@ -6,7 +6,40 @@ Brandon May 		212089692</br>
 Twaha	Nzeyimana 214308189</br>
 Ferin Taylor 		214308618</br></br>
 
+##Preresquisites
 
+1. 64bit 
+1. Java JDK 8
+2. Mongo Database
+3. Maven
+
+#Start-Up Mongo Database
+
+Linux
+
+1. sudo service mongod start
+
+Windows
+
+1. Go to the mongo installed directory usually found in Program Files.
+2. Go into the bin folder and run: mongod
+
+##Installaion
+
+1. Clone the FBLT project to your computer. 
+
+2. The project can be ran in two ways.
+
+   1. Enter the root directory of the project and run: <b>mvn spring-boot:run -Dport=&lt;specify your port&gt; -Dip=&lt;specify your server ip&gt;<b>
+    
+    Or
+    
+   2. Compile the project with maven and run the jar:
+        2.2.1) mvn package
+        2.2.2) Copy the resrc folder into target.
+        2.2.3) Run: <b>java -jar &lt;project-name&gt;.jar -Dport=&lt;specify your port&gt; -Dip=&lt;specify your server ip&gt;<b>
+          
+3. 
 
 ##Basic overview
 
