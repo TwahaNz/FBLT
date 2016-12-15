@@ -12,6 +12,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import static org.mockito.Mockito.when;
+
 
 /**
  * Created by student on 2016/09/25.
