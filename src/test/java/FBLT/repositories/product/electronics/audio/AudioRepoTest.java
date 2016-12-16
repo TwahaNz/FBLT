@@ -4,35 +4,43 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.electronics.audio.Audio;
 import FBLT.domain.product.electronics.audio.IAudio;
+import FBLT.service.product.electronics.audio.IAudioService;
+import FBLT.service.product.electronics.audio.ImplIAudioService;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by lukekramer on 09/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class AudioRepoTest {
+    @Mock
+    private IAudioService service;
 
-    private static final String TAG = "AudioTest: ";
+    private Audio productTest,product;
 
-    @Test
-    public void testCRUD() {
-
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
-
+    @Before
+    public void setup()
+    {
         ICategory category = new Category.Builder()
                 .categoryName("Audio")
                 .categoryDescription("Short Description")
                 .build();
 
-        IAudio productTest = new Audio.Builder()
+        productTest = new Audio.Builder()
                 .productDescription("2015 model")
                 .productMake("Apple")
                 .productModel("Beats")
@@ -41,30 +49,45 @@ public class AudioRepoTest {
                 .productAmps("")
                 .category((Category) category)
                 .build();
+        product = new Audio.Builder()
+                .productMake("Sony")
+                .build();
 
-        //INSERT
-        mongoOps.insert(productTest);
+        service = Mockito.mock(ImplIAudioService.class);
 
-        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
+    }
 
-        //RETRIEVE
-        Audio audio = mongoOps.findById(productTest.get_id(), Audio.class);
+    @Test
+    public void testCRUD() {
 
-        Assert.assertEquals(TAG, productTest.getDescription(), audio.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(), audio.getMake());
-        Assert.assertEquals(TAG, productTest.getType(), audio.getType());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), audio.getCategory().getCategoryName());
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("type", "speakers"), Audio.class);
+        Assert.assertNotNull(service.create(product));
 
-        audio = mongoOps.findById(productTest.get_id(), Audio.class);
+        //Find
 
-        Assert.assertEquals(TAG, "speakers", audio.getType());
+        when(service.readById("1")).thenReturn(product);
 
-        //DELETE
-        mongoOps.remove(audio);
+        Assert.assertNotNull(service.readById("1"));
 
+        Assert.assertEquals(service.readById("1").getMake(),"Sony");
+
+        //Update
+
+        //Make updated
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getMake(),"Apple");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
 
     }
 }

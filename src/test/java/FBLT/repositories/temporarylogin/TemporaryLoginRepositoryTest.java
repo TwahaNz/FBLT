@@ -2,31 +2,33 @@ package FBLT.repositories.temporarylogin;
 
 import FBLT.domain.temporarylogin.TemporaryLogin;
 import FBLT.domain.user.User;
+import FBLT.service.temporarylogin.ITemporaryLoginService;
+import FBLT.service.temporarylogin.ImplITemporaryLoginService;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
-import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+import static org.mockito.Mockito.when;
 
-import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 
 /**
  * Created by student on 2016/10/10.
  */
-
+@RunWith(MockitoJUnitRunner.class)
 public class TemporaryLoginRepositoryTest {
-    private static final String TAG = "Temp login RepoTest: ";
+    @Mock
+    private ITemporaryLoginService service;
 
-    @Test
-    public void testCRUD() throws Exception{
+    private TemporaryLogin temporaryLogin,login;
 
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
+    @Before
+    public void setup() {
 
         User user = new User.Builder()
                 .contactDetails(new ContactDetails.Builder()
@@ -45,34 +47,51 @@ public class TemporaryLoginRepositoryTest {
                 .build();
 
 
-        TemporaryLogin temporaryLogin = new TemporaryLogin.Builder()
+         temporaryLogin = new TemporaryLogin.Builder()
                 .user(user)
                 .code("123")
                 .id("1")
                 .build();
 
 
-        //INSERT
-        mongoOps.insert(temporaryLogin);
+         login = new TemporaryLogin.Builder()
+                 .id("1")
+                 .code("456")
+                 .build();
 
-        Assert.assertFalse(TAG, temporaryLogin.getId().isEmpty());
+        service = Mockito.mock(ImplITemporaryLoginService.class);
 
-        //RETRIEVE
-        TemporaryLogin temporaryLogin1 = mongoOps.findById(temporaryLogin.getId(), TemporaryLogin.class);
+    }
 
-        Assert.assertEquals(temporaryLogin1.getUser().getName(), "Sally");
+    @Test
+    public void testCRUD() {
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(temporaryLogin.getId())), Update.update("code", "789"), TemporaryLogin.class);
+        //Create
+        when(service.create(login)).thenReturn(temporaryLogin);
 
+        Assert.assertNotNull(service.create(login));
 
-        Thread.sleep(5000);
+        //Find
 
-        Assert.assertEquals("789", temporaryLogin1.getCode());
+        when(service.readById("1")).thenReturn(login);
 
-        //DELETE
-        mongoOps.remove(temporaryLogin1);
+        Assert.assertNotNull(service.readById("1"));
 
+        Assert.assertEquals(service.readById("1").getId(),"1");
+
+        //Update
+
+        when(service.update(login)).thenReturn(temporaryLogin);
+
+        Assert.assertNotNull(service.update(login));
+
+        Assert.assertNotEquals(service.update(login).getCode(),"123");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(login));
+
+        service.delete(service.create(login));
 
     }
 }

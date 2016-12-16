@@ -4,64 +4,90 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.electronics.cellphone.CellPhone;
 import FBLT.domain.product.electronics.cellphone.ICellPhone;
+import FBLT.service.product.electronics.cellphone.ICellphoneService;
+import FBLT.service.product.electronics.cellphone.ImplICellphoneService;
+import FBLT.service.temporarylogin.ImplITemporaryLoginService;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by lukekramer on 09/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class CellPhoneRepoTest {
+    @Mock
+    private ICellphoneService service;
 
-    private static final String TAG = "cellPhoneTest: ";
+    private CellPhone productTest,product;
 
-    @Test
-    public void testCRUD() {
-
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
-
+    @Before
+    public void setup(){
         ICategory category = new Category.Builder()
                 .categoryName("CellPhone")
                 .categoryDescription("Short Description")
                 .build();
 
-        ICellPhone productTest = new CellPhone.Builder()
+        productTest = new CellPhone.Builder()
                 .productDescription("2015 model")
                 .productMake("Iphone")
                 .productModel("S6")
                 .productType("SmartPhone")
                 .category((Category) category)
                 .build();
+        product = new CellPhone.Builder()
+                .productMake("Samsung")
+                .build();
 
-        //INSERT
-        mongoOps.insert(productTest);
+        service = Mockito.mock(ImplICellphoneService.class);
 
-        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
+    }
 
-        //RETRIEVE
-        CellPhone cellPhone = mongoOps.findById(productTest.get_id(), CellPhone.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(), cellPhone.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(), cellPhone.getMake());
-        Assert.assertEquals(TAG, productTest.getModel(), cellPhone.getModel());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), cellPhone.getCategory().getCategoryName());
+    @Test
+    public void testCRUD() {
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("model", "IPad6"), CellPhone.class);
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        cellPhone = mongoOps.findById(productTest.get_id(), CellPhone.class);
+        Assert.assertNotNull(service.create(product));
 
-        Assert.assertEquals(TAG, "IPad6", cellPhone.getModel());
+        //Find
 
-        //DELETE
-        mongoOps.remove(cellPhone);
+        when(service.readById("1")).thenReturn(product);
+
+        Assert.assertNotNull(service.readById("1"));
+
+        Assert.assertEquals(service.readById("1").getMake(),"Samsung");
+
+        //Update
+
+        //Make updated
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getMake(),"Iphone");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
+
 
 
     }

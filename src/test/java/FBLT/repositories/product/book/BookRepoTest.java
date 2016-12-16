@@ -4,65 +4,89 @@ import FBLT.domain.product.book.Book;
 import FBLT.domain.product.book.IBook;
 import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
+import FBLT.service.product.book.IBookService;
+import FBLT.service.product.book.ImplIBookService;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by lukekramer.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class BookRepoTest {
+    @Mock
+    private IBookService service;
 
-    private static final String TAG = "BookTest: ";
+    private Book productTest,product;
 
-    @Test
-    public void testCRUD() {
-
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
+    @Before
+    public void setup(){
 
         ICategory category = new Category.Builder()
                 .categoryName("Book")
                 .categoryDescription("Short Description")
                 .build();
 
-        IBook productTest = new Book.Builder()
+        productTest = new Book.Builder()
                 .productDescription("Fairy Tale")
-                .productAuthor("Ferin Taylor")
+                .productAuthor("Ferin")
                 .productTitle("Snow White")
                 .productISBN("945-2497659111")
                 .productGenre("Fantasy")
                 .category((Category) category)
                 .build();
+        product = new Book.Builder()
+                .productAuthor("Tom")
+                .build();
 
-        //INSERT
-        mongoOps.insert(productTest);
+        service = Mockito.mock(ImplIBookService.class);
 
-        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
+    }
 
-        //RETRIEVE
-        Book book = mongoOps.findById(productTest.get_id(), Book.class);
+    @Test
+    public void testCRUD() {
 
-        Assert.assertEquals(TAG, productTest.getDescription(), book.getDescription());
-        Assert.assertEquals(TAG, productTest.getAuthor(), book.getAuthor());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), book.getCategory().getCategoryName());
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("title", "Harry Potter"), Book.class);
+        Assert.assertNotNull(service.create(product));
 
-        book = mongoOps.findById(productTest.get_id(), Book.class);
+        //Find
 
-        Assert.assertEquals(TAG, "Harry Potter", book.getTitle());
+        when(service.readById("1")).thenReturn(product);
 
-        //DELETE
-        mongoOps.remove(book);
+        Assert.assertNotNull(service.readById("1"));
 
+        Assert.assertEquals(service.readById("1").getAuthor(),"Tom");
+
+        //Update
+
+        //Author Updated
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getAuthor(),"Ferin");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
 
     }
 

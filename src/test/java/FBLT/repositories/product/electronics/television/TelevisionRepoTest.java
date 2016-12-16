@@ -4,35 +4,42 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.electronics.television.ITelevision;
 import FBLT.domain.product.electronics.television.Television;
+import FBLT.service.product.electronics.television.ITelevisionService;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by lukekramer on 09/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class TelevisionRepoTest {
 
-    private static final String TAG = "TelevisionTest: ";
+    @Mock
+    private ITelevisionService service;
 
-    @Test
-    public void testCRUD() {
+    private Television productTest,product;
 
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
+    @Before
+    public void setup(){
 
         ICategory category = new Category.Builder()
                 .categoryName("Television")
                 .categoryDescription("Short Description")
                 .build();
 
-        ITelevision productTest = new Television.Builder()
+        productTest = new Television.Builder()
                 .productDescription("2015 model")
                 .productMake("Samsung")
                 .productModel("UA40J5200AKXXA")
@@ -40,30 +47,44 @@ public class TelevisionRepoTest {
                 .productSize("40-inch")
                 .category((Category) category)
                 .build();
+        product = new Television.Builder()
+                .productMake("Sony")
+                .build();
 
-        //INSERT
-        mongoOps.insert(productTest);
+    }
 
-        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
+    @Test
+    public void testCRUD() {
 
-        //RETRIEVE
-        Television television = mongoOps.findById(productTest.get_id(), Television.class);
 
-        Assert.assertEquals(TAG, productTest.getDescription(), television.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(), television.getMake());
-        Assert.assertEquals(TAG, productTest.getSize(), television.getSize());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), television.getCategory().getCategoryName());
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("size", "70-inch"), Television.class);
+        Assert.assertNotNull(service.create(product));
 
-        television = mongoOps.findById(productTest.get_id(), Television.class);
+        //Find
 
-        Assert.assertEquals(TAG, "70-inch", television.getSize());
+        when(service.readById("1")).thenReturn(product);
 
-        //DELETE
-        mongoOps.remove(television);
+        Assert.assertNotNull(service.readById("1"));
 
+        Assert.assertEquals(service.readById("1").getMake(),"Sony");
+
+        //Update
+
+        //Make updated
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getMake(),"Samsung");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
 
     }
 }

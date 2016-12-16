@@ -16,7 +16,6 @@ import FBLT.domain.rank.RankTest;
 import FBLT.domain.register.RegisteredUserVerificationTest;
 import FBLT.domain.user.UserTest;
 import FBLT.factories.register.RegisteredUserVerificationFactoryTest;
-import FBLT.repositories.product.ProductRepoTest;
 import FBLT.repositories.product.book.BookRepoTest;
 import FBLT.repositories.product.clothing.ClothingRepoTest;
 import FBLT.repositories.product.electronics.cellphone.CellPhoneRepoTest;
@@ -49,7 +48,6 @@ import org.junit.runners.Suite;
         LivestockRepoTest.class,
         VehicleRepoTest.class,
         ShoesRepoTest.class,
-        ProductRepoTest.class,
         CellPhoneRepoTest.class,
         ComputerRepoTest.class,
         TelevisionRepoTest.class,

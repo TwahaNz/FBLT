@@ -4,35 +4,45 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.vehicle.IVehicle;
 import FBLT.domain.product.vehicle.Vehicle;
+import FBLT.service.product.vehicle.IVehicleService;
+import FBLT.service.product.vehicle.ImplVehicleService;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by lukekramer on 09/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class VehicleRepoTest {
 
-    private static final String TAG = "VehicleTest: ";
+    @Mock
+    private IVehicleService service;
 
-    @Test
-    public void testCRUD() {
+    private Vehicle productTest,product;
 
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
+    @Before
+    public void setup(){
 
         ICategory category = new Category.Builder()
                 .categoryName("Vehicle")
                 .categoryDescription("Short Description")
                 .build();
 
-        IVehicle productTest = new Vehicle.Builder()
+        productTest = new Vehicle.Builder()
+                .id("1")
                 .productDescription("Sports Car")
                 .productType("Car")
                 .productMake("BMW")
@@ -42,30 +52,44 @@ public class VehicleRepoTest {
                 .productTransmission("Manual")
                 .category((Category) category)
                 .build();
+        product = new Vehicle.Builder().
+                productMake("Fiat").build();
 
-        //INSERT
-        mongoOps.insert(productTest);
+        service = Mockito.mock(ImplVehicleService.class);
 
-        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
+    }
 
-        //RETRIEVE
-        Vehicle vehicle = mongoOps.findById(productTest.get_id(), Vehicle.class);
+    @Test
+    public void testCRUD() {
 
-        Assert.assertEquals(TAG, productTest.getDescription(), vehicle.getDescription());
-        Assert.assertEquals(TAG, productTest.getMake(), vehicle.getMake());
-        Assert.assertEquals(TAG, productTest.getYear(), vehicle.getYear());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), vehicle.getCategory().getCategoryName());
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("model", "M5"), Vehicle.class);
+        Assert.assertNotNull(service.create(product));
 
-        vehicle = mongoOps.findById(productTest.get_id(), Vehicle.class);
+        //Find
 
-        Assert.assertEquals(TAG, "M5", vehicle.getModel());
+        when(service.readById("1")).thenReturn(productTest);
 
-        //DELETE
-        mongoOps.remove(vehicle);
+        Assert.assertNotNull(service.readById("1"));
 
+        Assert.assertEquals(service.readById("1").getMake(),"BMW");
+
+        //Update
+
+        //Make from fiat to bmw
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getMake(),"BMW");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
 
     }
 }

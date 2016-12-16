@@ -4,62 +4,88 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.category.ICategory;
 import FBLT.domain.product.livestock.ILivestock;
 import FBLT.domain.product.livestock.Livestock;
+import FBLT.service.product.livestock.ILiveStockService;
+import FBLT.service.product.livestock.ImplLiveStockService;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by lukekramer on 05/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class LivestockRepoTest {
 
-    private static final String TAG = "LiveStockTest: ";
+    @Mock
+    private ILiveStockService service;
 
-    @Test
-    public void testCRUD() {
+    private Livestock productTest,product;
 
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "test");
+    @Before
+    public void setup(){
 
         ICategory category = new Category.Builder()
                 .categoryName("LiveStock")
                 .categoryDescription("Short Description")
                 .build();
 
-        ILivestock productTest = new Livestock.Builder()
+        productTest = new Livestock.Builder()
                 .productDescription("Cow")
                 .productAge("4")
                 .productGrade("A")
                 .category((Category) category)
                 .build();
 
-        //INSERT
-        mongoOps.insert(productTest);
+        product = new Livestock.Builder()
+                .productGrade("B")
+                .build();
+        service = Mockito.mock(ImplLiveStockService.class);
 
-        Assert.assertFalse(TAG, productTest.get_id().isEmpty());
+    }
 
-        //RETRIEVE
-        Livestock livestock = mongoOps.findById(productTest.get_id(), Livestock.class);
+    @Test
+    public void testCRUD() {
 
-        Assert.assertEquals(TAG, productTest.getDescription(), livestock.getDescription());
-        Assert.assertEquals(TAG, productTest.getAge(), livestock.getAge());
-        Assert.assertEquals(TAG, productTest.getCategory().getCategoryName(), livestock.getCategory().getCategoryName());
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(productTest.get_id())), Update.update("grade", "B"), Livestock.class);
+        Assert.assertNotNull(service.create(product));
 
-        livestock = mongoOps.findById(productTest.get_id(), Livestock.class);
+        //Find
 
-        Assert.assertEquals(TAG, "B", livestock.getGrade());
+        when(service.readById("1")).thenReturn(product);
 
-        //DELETE
-        mongoOps.remove(livestock);
+        Assert.assertNotNull(service.readById("1"));
+
+        Assert.assertEquals(service.readById("1").getGrade(),"B");
+
+        //Update
+
+        //Grade Updated
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getGrade(),"A");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
 
 
     }

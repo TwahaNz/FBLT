@@ -1,71 +1,95 @@
 package FBLT.repositories.user;
 
 import FBLT.domain.user.User;
+import FBLT.service.user.IUserService;
+import FBLT.service.user.UserServiceImpl;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 
 /**
  * Created by Brandonhome on 2016/10/09.
  */
-
+@RunWith(MockitoJUnitRunner.class)
 public class UserRepositoryTest {
-    private static final String TAG = "UserRepoTest: ";
+    @Mock
+    private IUserService service;
+
+    private User myUser,user;
+
+    @Before
+    public void setup()
+    {
+              myUser = new User.Builder()
+              .contactDetails(new ContactDetails.Builder()
+                       .cellPhoneNumber("0810101966")
+                       .emailAddress("example@gmail.com")
+                       .telegramHandle("@maybmuzic")
+                       .build())
+               .location(new Location.Builder()
+
+                       .city("Cape Town")
+                       .latitude(new Double(14566.3))
+                      .longitude(new Double(7899.3))
+                       .suburb("Northern Suburbs")
+                       .build())
+               .id("123")
+               .name("Sally")
+              .build();
+
+        user = new User.Builder()
+                .name("Dave").build();
+
+        service = Mockito.mock(UserServiceImpl.class);
+
+    }
+
 
     @Test
     public void testUserCRUD() {
 
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "FBLT");
+        //Create
+        when(service.create(user)).thenReturn(myUser);
 
-        User myUser = new User.Builder()
-                .contactDetails(new ContactDetails.Builder()
-                        .cellPhoneNumber("0810101966")
-                        .emailAddress("example@gmail.com")
-                        .telegramHandle("@maybmuzic")
-                        .build())
-                .location(new Location.Builder()
-                        .city("Cape Town")
-                        .latitude(new Double(14566.3))
-                        .longitude(new Double(7899.3))
-                        .suburb("Northern Suburbs")
-                        .build())
-                .id("MYDAMNID")
-                .name("Sally")
-                .build();
-        //INSERT
-        mongoOps.insert(myUser);
+        Assert.assertNotNull(service.create(user));
 
-        Assert.assertFalse(TAG, myUser.get_id().isEmpty());
+        //Find
 
-        //RETRIEVE
-        User retrievedUser = mongoOps.findById(myUser.get_id(), User.class);
+        when(service.readById("123")).thenReturn(user);
 
-        Assert.assertEquals(TAG, retrievedUser.getName(), myUser.getName());
-        Assert.assertEquals(TAG, retrievedUser.getContactDetails().getTelegramHandle(), myUser.getContactDetails().getTelegramHandle());
+        Assert.assertNotNull(service.readById("123"));
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(retrievedUser.get_id())), Update.update("contactDetails.emailAddress", "changedmailaddress@gmail.com"), User.class);
+        Assert.assertEquals(service.readById("123").getName(),"Dave");
 
-        try {
-            Thread.sleep(50000);
-        } catch (Exception ex) {
+        //Update
 
-        }
+        when(service.update(user)).thenReturn(myUser);
 
-        Assert.assertEquals("changedmailaddress@gmail.com", retrievedUser.getContactDetails().getEmailAddress());
 
-        //DELETE
-        mongoOps.remove(retrievedUser);
+        Assert.assertNotNull(service.update(user));
+
+
+        Assert.assertEquals(service.update(user).getName(),"Sally");
+
+        //Delete
+        Assert.assertNotNull(service.create(user));
+
+        service.delete(service.create(user));
 
 
     }

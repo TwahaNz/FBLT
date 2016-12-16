@@ -39,6 +39,7 @@ public class ImplITemporaryLoginService implements ITemporaryLoginService {
     @Override
     public void delete(TemporaryLogin entity) {
 
+        repository.delete(entity);
     }
 
     @Override

@@ -5,29 +5,40 @@ import FBLT.domain.product.category.Category;
 import FBLT.domain.product.clothing.Clothing;
 import FBLT.domain.product.clothing.IClothing;
 import FBLT.domain.user.User;
+import FBLT.service.advert.IAdvertService;
+import FBLT.service.advert.ImplAdvertService;
 import FBLT.utils.genericvalueobjects.ContactDetails;
 import FBLT.utils.genericvalueobjects.Location;
 import com.mongodb.Mongo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Created by Brandonhome on 2016/10/08.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class AdvertRepoTest {
-    private static final String TAG = "AdvertRepoTest: ";
 
-    @Test
-    public void testCRUD() {
+    @Mock
+    private IAdvertService service;
 
-        MongoOperations mongoOps = new MongoTemplate(
-                new Mongo(), "FBLT");
+    private Advert productTest,product;
+
+    @Before
+    public void setup(){
+
         Location newLocation = new Location.Builder()
                 .city("Cape Town")
                 .suburb("Rondebosch")
@@ -35,8 +46,12 @@ public class AdvertRepoTest {
                 .longitude(34.53)
                 .build();
 
+        Location location = new Location.Builder()
+                .city("Joburg")
+                .suburb("Sandton")
+                .build();
 
-        IClothing productTest = new Clothing.Builder()
+        IClothing clothing = new Clothing.Builder()
                 .id("1")
                 .productDescription("Coach Jacket")
                 .productType("Jacket")
@@ -68,33 +83,54 @@ public class AdvertRepoTest {
                 .name("Sally")
                 .build();
 
-        Advert myTestAdvert = new Advert.Builder()
+        productTest = new Advert.Builder()
                 .user(myUser)
                 .buyOrSell(false)
                 .price(789.44)
-                .product(productTest)
+                .product(clothing)
                 .location(newLocation)
                 .build();
 
+        product = new Advert.Builder()
+                .location(location)
+                .build();
 
-        //INSERT
-        mongoOps.insert(myTestAdvert);
+        service = Mockito.mock(ImplAdvertService.class);
 
-        Assert.assertFalse(TAG, myTestAdvert.getId().isEmpty());
 
-        //RETRIEVE
-        Advert advert = mongoOps.findById(myTestAdvert.getId(), Advert.class);
+    }
 
-        Assert.assertEquals(TAG, advert.getProduct().getCategory().getCategoryDescription(), productTest.getCategory().getCategoryDescription());
-        Assert.assertEquals(TAG, advert.getUser().getContactDetails().getTelegramHandle(), myUser.getContactDetails().getTelegramHandle());
+    @Test
+    public void testCRUD() {
 
-        //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(advert.getId())), Update.update("price", 789), Advert.class);
+        //Create
+        when(service.create(product)).thenReturn(productTest);
 
-        Assert.assertEquals(789, advert.getPrice(), 1);
+        Assert.assertNotNull(service.create(product));
 
-        //DELETE
-        mongoOps.remove(advert);
+        //Find
+
+        when(service.readById("1")).thenReturn(product);
+
+        Assert.assertNotNull(service.readById("1"));
+
+        Assert.assertEquals(service.readById("1").getLocation().getCity(),"Joburg");
+
+        //Update
+
+        //Author Updated
+
+        when(service.update(product)).thenReturn(productTest);
+
+        Assert.assertNotNull(service.update(product));
+
+        Assert.assertEquals(service.update(product).getLocation().getCity(),"Cape Town");
+
+        //Delete
+
+        Assert.assertNotNull(service.create(product));
+
+        service.delete(service.create(product));
 
 
     }
