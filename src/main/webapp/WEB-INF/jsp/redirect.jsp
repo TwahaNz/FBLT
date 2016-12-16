@@ -17,9 +17,8 @@
     }
 </script>
 
-<p>Redirecting...
-<p>
-    <a id="redirect" href="index"></a>
+<p>Redirecting...Or Click <a href="/index">Here</a> If You Are Not Redirected<p>
+    <a id="redirect" href="/index"></a>
 
 </body>
 </html>
