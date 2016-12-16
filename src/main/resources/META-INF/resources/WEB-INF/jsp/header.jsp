@@ -146,7 +146,7 @@
         <a href="/list-adverts/Cellphone" class="link">Cellphone</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #ffeb3b">
-        <a href="/list-adverts/Computers" class="link">Computers</a>
+        <a href="/list-adverts/Computer" class="link">Computers</a>
     </div>
     <div class="col-md-1 catagories" style="color: white; background-color: #00bcd4">
         <a href="/list-adverts/Livestock" class="link">Livestock</a>

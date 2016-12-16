@@ -57,7 +57,7 @@ public class UserRepositoryTest {
         mongoOps.updateFirst(new Query(where("_id").is(retrievedUser.get_id())), Update.update("contactDetails.emailAddress", "changedmailaddress@gmail.com"), User.class);
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(50000);
         } catch (Exception ex) {
 
         }

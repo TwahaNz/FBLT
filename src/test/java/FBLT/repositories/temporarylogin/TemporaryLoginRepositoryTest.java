@@ -23,7 +23,7 @@ public class TemporaryLoginRepositoryTest {
     private static final String TAG = "Temp login RepoTest: ";
 
     @Test
-    public void testCRUD() {
+    public void testCRUD() throws Exception{
 
         MongoOperations mongoOps = new MongoTemplate(
                 new Mongo(), "test");
@@ -63,7 +63,10 @@ public class TemporaryLoginRepositoryTest {
         Assert.assertEquals(temporaryLogin1.getUser().getName(), "Sally");
 
         //UPDATE
-        mongoOps.updateFirst(new Query(where("_id").is(temporaryLogin1.getId())), Update.update("code", "789"), TemporaryLogin.class);
+        mongoOps.updateFirst(new Query(where("_id").is(temporaryLogin.getId())), Update.update("code", "789"), TemporaryLogin.class);
+
+
+        Thread.sleep(5000);
 
         Assert.assertEquals("789", temporaryLogin1.getCode());
 

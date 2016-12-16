@@ -20,7 +20,7 @@ public class OTPEmail implements Email {
 
 
     public OTPEmail(Builder builder) {
-        this.temporaryLogin = temporaryLogin;
+        this.temporaryLogin = builder.temporaryLogin;
         this.magicLink = builder.magicLink;
     }
 

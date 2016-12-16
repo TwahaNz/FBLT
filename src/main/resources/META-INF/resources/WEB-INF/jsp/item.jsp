@@ -5,14 +5,14 @@
 <div class="container-fluid">
     <div class="row" style="margin-top: 40px; margin-bottom: 40px">
         <div align="center" class="col-md-3">
-            <img src="" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
+            <img src="images/ad1.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
         </div>
         <div class="col-md-6">
             <h3 style="color: orange">${advert.getTitle()}</h3>
             <hr/>
             <br/>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <c:choose>
                         <c:when test="${size == 0}">
                             <img src="images/big_ad.png" class="img-responsive img-thumbnail"
@@ -26,11 +26,8 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <%--<h2>R${advert.getPrice()}</h2>--%>
-                    <h3> Information </h3>
-                    <hr>
-                    <br/>
 
                     <c:if test="${type == 'book'}">
                         <div style="background-color: lightgray">
@@ -55,7 +52,7 @@
                             <p> Gender/Sex: ${clothing.getGender()} </p>
                         </div>
                         <div style="background-color: lightgray">
-                            <p> Type: ${clothing.getType()} </p>
+                            <p> Type: ${clothing.getClothingType()} </p>
                         </div>
                         <div style="background-color: lightgray">
                             <p> Age: ${clothing.getAge()} </p>
@@ -67,7 +64,7 @@
                             <p> Material: ${clothing.getMaterial()} </p>
                         </div>
                         <div style="background-color: lightgray">
-                            <p> Colour: ${clothing.getColour()} </p>
+                            <p> Colour: ${clothing.getColor()} </p>
                         </div>
                     </c:if>
                     <c:if test="${type == 'livestock'}">
@@ -80,7 +77,7 @@
                     </c:if>
                     <c:if test="${type == 'vehicle'}">
                         <div style="background-color: lightgray">
-                            <p> Type: ${vehicle.getType()} </p>
+                            <p> Type: ${vehicle.getVehicletype()} </p>
                         </div>
                         <div style="background-color: lightgray">
                             <p> Make: ${vehicle.getMake()} </p>
@@ -109,7 +106,7 @@
                             <p> Size (UK): ${shoes.getSize()} </p>
                         </div>
                         <div style="background-color: lightgray">
-                            <p> Colour: ${shoes.getColour()} </p>
+                            <p> Colour: ${shoes.getColor()} </p>
                         </div>
                     </c:if>
                     <c:if test="${type == 'television'}">
@@ -134,11 +131,30 @@
                             <p> Size (Screen size if applicable): ${computer.getSize()} </p>
                         </div>
                     </c:if>
+                    <c:if test="${type == 'audio'}">
+                        <div style="background-color: lightgray">
+                            <p> Make: ${audio.getMake()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Type (headphones/earphones/stereo hi-fi): ${audio.getType()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Model: ${audio.getModel()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Watts: (Screen size if applicable): ${audio.getWatts()} </p>
+                        </div>
+                    </c:if>
+                    <c:if test="${type == 'cellphone'}">
+                        <div style="background-color: lightgray">
+                            <p> Make: ${cellphone.getMake()} </p>
+                        </div>
+                        <div style="background-color: lightgray">
+                            <p> Model: ${cellphone.getModel()} </p>
+                        </div>
+                    </c:if>
                 </div>
-                <div class="col-md-2">
 
-                </div>
-                <div class="col-md-4"></div>
             </div>
             <h3>Item Description</h3>
             <hr/>
@@ -205,7 +221,7 @@
             </div>
         </div>
         <div align="center" class="col-md-3">
-            <img class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
+            <img src="images/ad2.png" class="img-responsive img-thumbnail" style="height:800px!important" width="85%" height="800px"/>
         </div>
     </div>
 </div>
