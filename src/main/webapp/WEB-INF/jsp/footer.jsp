@@ -34,7 +34,16 @@
 <script src="<%=path%>index.js" type="text/javascript"></script>
 <link href="<%=path%>index.css" rel="stylesheet" type="text/css">
 <script>
-    $(document).snow({SnowImage: "<%=path%>snow.gif"});
+	$(document).ready(function(){
+		$(window).resize();
+	});
+
+	$(window).resize(function() {
+		if ($(this).width() > 480) {
+	        	$(document).snow({SnowImage: "<%=path%>snow.gif"});
+		}
+	});
+   
 </script>
 
 </body>
